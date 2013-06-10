@@ -1,0 +1,30 @@
+package com.jcommerce.core.dao.impl;
+
+import java.util.List;
+
+import com.jcommerce.core.dao.GroupBuyDAO;
+import com.jcommerce.core.model.GroupBuy;
+
+public class GroupBuyDAOImpl extends DAOImpl implements GroupBuyDAO {
+
+	 public GroupBuyDAOImpl() {
+	        modelClass = GroupBuy.class;
+	    }
+
+	    public List<GroupBuy> getGroupBuyList() {
+	        return getList();
+	    }
+
+	    public GroupBuy getGroupBuy(String id) {
+	        return (GroupBuy)getById(id);
+	    }
+
+	    public void saveGroupBuy(GroupBuy obj) {
+	        save(obj);
+	    }
+
+	    public void removeGroupBuy(String id) {
+	        deleteById(id);
+	    }
+
+}

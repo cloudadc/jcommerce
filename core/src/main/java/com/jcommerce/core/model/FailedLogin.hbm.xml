@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.FailedLogin" table="tis_failed_login" >
+  <id name="id" column="ip" type="string" length="15">
+   <generator class="assigned"/>
+  </id>
+
+  <property name="lastUpdate" />
+  <property name="count"/>
+
+ </class>
+</hibernate-mapping>

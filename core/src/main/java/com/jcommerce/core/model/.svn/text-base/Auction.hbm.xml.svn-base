@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+	<class name="com.jcommerce.core.model.Auction"
+		table="tis_auction">
+		<id name="id" column="id" type="string" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="auctionname"  />
+		<property name="goodName" />
+		<property name="startTime" />
+		<property name="endTime" />
+		<property name="description" />
+		<property name="startPrice" />
+		<property name="dirPrice" />
+		<property name="addRange" />
+		<property name="secPrice" />
+		<set name="auctionLogs">  
+            <key column="auctionLogs"></key>  
+            <one-to-many class="com.jcommerce.core.model.AuctionLog"></one-to-many>  
+        </set> 
+	</class>
+</hibernate-mapping>

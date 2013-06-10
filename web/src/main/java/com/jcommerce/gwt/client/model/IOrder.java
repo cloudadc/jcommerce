@@ -1,0 +1,64 @@
+package com.jcommerce.gwt.client.model;
+
+public interface IOrder
+{
+	public static final String ID = "id";
+	public static final String SN = "SN";
+	public static final String USER = "user";//下单人
+	public static final String ADDTIME = "addTime";//下单时间
+	public static final String CONSIGNEE = "consignee";//收货人
+	public static final String ADDRESS = "address";//收货人地址，号码
+	public static final String MOBILE = "mobile";//手机号
+	public static final String ORDERAMOUNT = "orderAmount";//应付金额
+	public static final String DISCOUNT = "discount";//折扣
+	public static final String STATUS = "status";//确认状态
+	public static final String SHIPPINGSTATUS = "shippingStatus";//发货状态
+	public static final String PAYSTATUS = "payStatus";//付款状态		
+    public static final String EMAIL = "email";
+    public static final String REGION = "region";
+    public static final String ZIP = "zip";
+    public static final String PHONE = "phone";
+    public static final String SIGNBUILDING = "signBuilding";
+    public static final String BESTTIME = "bestTime";
+    public static final String POSTSCRIPT = "postScript";
+    public static final String PACKNAME = "packName";
+    public static final String CARDNAME = "cardName";
+    public static final String CARDMESSAGE = "cardMessage";
+    public static final String INVOICEPAYEE = "invoicePayee";
+    public static final String INVOICECONTENT = "invoiceContent";
+    public static final String GOODSAMOUNT = "goodsAmount";
+    public static final String SHIPPINGFEE = "shippingFee";
+    public static final String INSUREFEE = "insureFee";
+    public static final String PAYFEE = "payFee";
+    public static final String PAYMENT = "payment";
+    public static final String SHIPPING = "shipping";
+    public static final String HOWOSS = "howOss";
+    public static final String HOWSURPLUS = "howSurplus";
+    public static final String MONEYPAID = "moneyPaid";
+    public static final String SURPLUS = "surplus";
+    public static final String INTEGRAL = "integral";
+    public static final String INTEGRALMONEY = "integralMoney";
+    public static final String BONUSMONEY = "bonusMoney";
+    public static final String FORMAD = "fromAD";
+    public static final String REFERER = "referer";
+    public static final String CONFIRMTIME = "confirmTime";
+    public static final String PAYTIME = "payTime";
+    public static final String SHIPPINGTIME = "shippingTime";
+    public static final String PACK = "pack";
+    public static final String CARD = "card";
+    public static final String USERBONUS = "userBonus";
+    public static final String INVOICENO = "invoiceNO";
+    public static final String EXTENSIONCODE = "extensionCode";
+    public static final String EXTENSIONID = "extensionId";
+    public static final String TOBUYER = "toBuyer";
+    public static final String PAYNOTE = "payNote";
+    public static final String AGENCY = "agency";
+    public static final String INVOICETYPE = "invoceType";
+    public static final String TAX = "tax";
+    public static final String SEPARATE = "separate";
+    public static final String PARENT = "parent";
+    public static final String CARDFEE = "cardFee";
+    public static final String PACKFEE = "packFee";
+    public static final String SHIPPINGNAME = "shippingName";
+    public static final String PAYNAME = "payName";
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+	<class name="com.jcommerce.core.model.Snatch"
+		table="tis_snatch">
+		<id name="id" column="id" type="string" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="snachname"  />
+		<property name="goodName" />
+		<property name="startTime" />
+		<property name="endTime" />
+		<property name="maxPrice" />
+		<property name="minPrice" />
+		<property name="maxpaidPrice" />
+		<property name="scoreConsum" />
+		<property name="description" />
+		<set name="snatchLogs">  
+            <key column="snatchid"></key>  
+            <one-to-many class="com.jcommerce.core.model.SnatchLog"></one-to-many>  
+        </set> 
+	</class>
+</hibernate-mapping>

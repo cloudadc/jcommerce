@@ -1,0 +1,56 @@
+<module>
+
+      <!-- Inherit the core Web Toolkit stuff.                        -->
+      <inherits name="com.google.gwt.core.Core"/>
+      <inherits name='com.google.gwt.user.User'/>
+      <inherits name="com.google.gwt.i18n.I18N"/>
+	  <inherits name="com.google.gwt.http.HTTP"/>
+	  <!--<inherits name="org.zenika.widget.DatePickerModule" />   -->
+
+	  
+	  
+      <!-- Inherit the default GWT style sheet.  You can change       -->
+      <!-- the theme of your GWT application by uncommenting          -->
+      <!-- any one of the following lines.                            -->
+     <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+      <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+      <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+
+      <!-- Other module inherits                                      -->
+	  <inherits name='com.extjs.gxt.ui.GXT'/>
+      
+      <!--set-property name="user.agent" value="gecko"/-->
+
+      <!-- Specify the application entry point class.                 -->
+      <entry-point class='com.jcommerce.gwt.client.iShop'/>
+    
+      
+      
+     <!-- <generate-with class="com.jcommerce.util.PromotePanelGenerator">  
+        <when-type-is class="com.jcommerce.gwt.client.PromoteCreator"/>    
+      </generate-with> 
+      
+      <generate-with class="com.jcommerce.util.PromoteEnterGenerator">  
+        <when-type-is class="com.jcommerce.gwt.client.PromoteEnter"/>    
+      </generate-with>  -->
+    
+    
+      <!-- Internationalization support. -->
+      
+      <extend-property name="locale" values="en"/>
+      <extend-property name="locale" values="zh"/>
+    
+      <!-- Specify the application specific style sheet.              -->
+      <stylesheet src='iShop.css' />
+      <stylesheet src='resources/css/gxt-all.css' />
+	
+	  <servlet path="/ishopService" class="com.jcommerce.gwt.server.IShopServiceImpl" />			
+	  <servlet path="/uploadService" class="com.jcommerce.gwt.server.FileUploadServlet" />
+	  <servlet path="/downloadService" class="com.jcommerce.gwt.server.FileDownloadServlet" />
+	  <servlet path="/reportService" class="com.jcommerce.gwt.server.ReportServlet" />
+	  <servlet path="/orderService" class="com.jcommerce.gwt.server.OrderServlet" />
+      <servlet path="/dynaImageService.do" class="com.jcommerce.gwt.server.DynaImageServlet" />
+  
+      <servlet path="/specialService" class="com.jcommerce.gwt.server.SpecialServiceImpl" />
+    <!--servlet path="/gwtHttpService.do" class="com.jcommerce.gwt.server.GWTHttpServlet" /-->	  
+</module>

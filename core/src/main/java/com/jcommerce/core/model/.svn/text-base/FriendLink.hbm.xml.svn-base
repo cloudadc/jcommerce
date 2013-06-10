@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.FriendLink" table="tis_friend_link" >
+  <id name="id" column="link_id" type="string" length="32">
+   <generator class="uuid.hex" />
+  </id>
+
+  <property name="name" column="link_name" length="255"/>
+  <property name="url" column="link_url" length="255"/>
+  <property name="logo" column="link_logo" length="255"/>
+  <property name="showOrder" column="show_order" />
+
+ </class>
+</hibernate-mapping>

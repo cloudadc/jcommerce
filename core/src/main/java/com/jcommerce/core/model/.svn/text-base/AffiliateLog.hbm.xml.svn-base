@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.AffiliateLog" table="tis_affiliate_log" >
+  <id name="id" column="log_id" type="string" length="32">
+   <generator class="uuid.hex" />
+  </id>
+
+  <property name="time" />
+  <property name="money"/>
+  <property name="separateType" column="separate_type" length="1"/>
+  <property name="points" column="point"/>
+
+  <many-to-one name="user" column="user_id" class="com.jcommerce.core.model.User" cascade="none" />
+  <many-to-one name="order" column="order_id" class="com.jcommerce.core.model.Order" cascade="none" />
+
+ </class>
+</hibernate-mapping>

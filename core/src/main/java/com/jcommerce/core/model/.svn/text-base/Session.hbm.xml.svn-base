@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.Session" table="tis_sessions" >
+  <id name="id" column="sesskey" type="string" length="60">
+   <generator class="assigned"/>
+  </id>
+
+  <property name="expiry" />
+  <property name="IP" column="ip" length="15"/>
+  <property name="data" type="text"/>
+
+  <many-to-one name="user" column="userid" class="com.jcommerce.core.model.User" cascade="none" />
+
+ </class>
+</hibernate-mapping>

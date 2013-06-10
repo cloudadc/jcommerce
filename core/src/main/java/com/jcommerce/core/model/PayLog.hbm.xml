@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.PayLog" table="tis_pay_log" >
+  <id name="id" column="log_id" type="string" length="32">
+   <generator class="uuid.hex" />
+  </id>
+
+  <property name="orderAmount" column="order_amount"/>
+  <property name="orderType" column="order_type" length="1"/>
+  <property name="paid" column="is_paid" />
+  
+  <many-to-one name="order" column="order_id" class="com.jcommerce.core.model.Order" cascade="none" />
+
+ </class>
+</hibernate-mapping>

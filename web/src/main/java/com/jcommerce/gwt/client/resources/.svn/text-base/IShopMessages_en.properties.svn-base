@@ -1,0 +1,17 @@
+blankText = {0} can not be empty.
+emailFormatText = Email format error.
+
+Shop_modifySuccess = Modify shop configuration successfully.
+Shop_addSuccess = Add shop configuration successfully.
+
+Region_canNotDelete = There are children regions of this region and this region can not be deleted.
+Comment_to = <a href="mailto:{0}"><b>{1}</b></a> send comment at {2} about <a href="/web/front/goods.action?id={3}" target="_blank"><b> Goods </b></a>
+Comment_reply = Administrator <a href="mailto:{0}"><b>{1}</b></a> at {2} reply
+MergeOrder_wrongOrder = The order {0} is not exist
+OrderGoods_marketPrice = Market Price[{0}]
+OrderGoods_shopPrice = Shop Price[{0}]
+OrderList_operateSuccessfully = Modified orders:{0}
+OrderList_operateFail = Operation can not be used to these orders:{0}
+Article_addSuccess = Add article successfully.
+Article_modifySuccess = Modify article successfully.
+Article_selectCatWarning = Can not add child for this category.

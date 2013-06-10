@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.BonusType" table="tis_bonus_type" >
+  <id name="id" column="type_id" type="string" length="32">
+   <generator class="uuid.hex" />
+  </id>
+
+  <property name="name" column="type_name" length="60"/>
+  <property name="money" column="type_money" />
+  <property name="sendType" column="send_type" />
+  <property name="minAmount" column="min_amount" />
+  <property name="maxAmount" column="max_amount" />
+  <property name="sendStart" column="send_start_date" />
+  <property name="sendEnd" column="send_end_date" />
+  <property name="useStart" column="use_start_date" />
+  <property name="useEnd" column="use_end_date" />
+  <property name="minGoodsAmount" column="min_goods_amount" />
+
+ </class>
+</hibernate-mapping>

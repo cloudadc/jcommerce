@@ -1,0 +1,7 @@
+#bean.Brand.ID=id
+#bean.Brand.name=name
+bean.Goods.type.categories=Category
+bean.Goods.type.galleries=Gallery
+bean.Goods.type.attributes=GoodsAttribute
+bean.Goods.type.articles=Article
+bean.Category.type.goodsList=Goods
