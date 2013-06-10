@@ -1,8 +1,7 @@
-
 Current status
 --------------
 
- migrating from sourceforge, the original add is [here](https://sourceforge.net/projects/jcommerce/)
+ migrating from sourceforge, the original jcommerce is [here](https://sourceforge.net/projects/jcommerce/)
 
 
 
