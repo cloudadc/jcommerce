@@ -1,7 +1,7 @@
 Current status
 --------------
 
- migrating from sourceforge, the original jcommerce is [here](https://sourceforge.net/projects/jcommerce/)
+ jcommerce is migrating from sourceforge to github, the original jcommerce is [here](https://sourceforge.net/projects/jcommerce/)
 
 
 
