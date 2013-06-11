@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="location">
+        <value>/META-INF/values.properties</value>
+      </property>
+    </bean> 
+	
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName"><value>${jdbc.driver}</value></property>
+        <property name="url"><value>${jdbc.url}</value></property>
+        <property name="username"><value>${jdbc.user}</value></property>
+        <property name="password"><value>${jdbc.password}</value></property>       
+    </bean>
+
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource"><ref local="dataSource"/></property>
+        <property name="mappingResources">
+            <list>
+                <value>com/jcommerce/core/model/AccountLog.hbm.xml</value>
+                <value>com/jcommerce/core/model/AdminAction.hbm.xml</value>
+                <value>com/jcommerce/core/model/AdminLog.hbm.xml</value>
+                <value>com/jcommerce/core/model/AdminMessage.hbm.xml</value>
+                <value>com/jcommerce/core/model/AdminUser.hbm.xml</value>
+                <value>com/jcommerce/core/model/AffiliateLog.hbm.xml</value>
+                <value>com/jcommerce/core/model/Agency.hbm.xml</value>
+                <value>com/jcommerce/core/model/Attribute.hbm.xml</value>
+                <value>com/jcommerce/core/model/BonusType.hbm.xml</value>
+                <value>com/jcommerce/core/model/BookingGoods.hbm.xml</value>
+                <value>com/jcommerce/core/model/Brand.hbm.xml</value>
+                <value>com/jcommerce/core/model/Card.hbm.xml</value>
+                <value>com/jcommerce/core/model/Cart.hbm.xml</value>
+                <value>com/jcommerce/core/model/Category.hbm.xml</value>
+                <value>com/jcommerce/core/model/CollectGoods.hbm.xml</value>
+                <value>com/jcommerce/core/model/ErrorLog.hbm.xml</value>
+                <value>com/jcommerce/core/model/FailedLogin.hbm.xml</value>
+                <value>com/jcommerce/core/model/FriendLink.hbm.xml</value>
+                <value>com/jcommerce/core/model/Gallery.hbm.xml</value>
+                <value>com/jcommerce/core/model/Goods.hbm.xml</value>
+                <value>com/jcommerce/core/model/GoodsActivity.hbm.xml</value>
+                <value>com/jcommerce/core/model/GoodsAttribute.hbm.xml</value>
+                <value>com/jcommerce/core/model/GoodsType.hbm.xml</value>
+                <value>com/jcommerce/core/model/MailTemplate.hbm.xml</value>
+                <value>com/jcommerce/core/model/Order.hbm.xml</value>
+                <value>com/jcommerce/core/model/OrderAction.hbm.xml</value>
+                <value>com/jcommerce/core/model/OrderGoods.hbm.xml</value>
+                <value>com/jcommerce/core/model/Pack.hbm.xml</value>
+                <value>com/jcommerce/core/model/PayLog.hbm.xml</value>
+                <value>com/jcommerce/core/model/Payment.hbm.xml</value>
+                <value>com/jcommerce/core/model/Region.hbm.xml</value>
+                <value>com/jcommerce/core/model/Session.hbm.xml</value>
+                <value>com/jcommerce/core/model/Shipping.hbm.xml</value>
+                <value>com/jcommerce/core/model/ShippingArea.hbm.xml</value>
+                <value>com/jcommerce/core/model/Stats.hbm.xml</value>
+                <value>com/jcommerce/core/model/User.hbm.xml</value>
+                <value>com/jcommerce/core/model/UserAccount.hbm.xml</value>
+                <value>com/jcommerce/core/model/UserAddress.hbm.xml</value>
+                <value>com/jcommerce/core/model/UserBonus.hbm.xml</value>
+                <value>com/jcommerce/core/model/UserRank.hbm.xml</value>
+                <value>com/jcommerce/core/model/ArticleCategory.hbm.xml</value>
+                <value>com/jcommerce/core/model/Article.hbm.xml</value>
+                <value>com/jcommerce/core/model/GoodsArticle.hbm.xml</value>
+                <value>com/jcommerce/core/model/GroupGoods.hbm.xml</value>
+                <value>com/jcommerce/core/model/LinkGoods.hbm.xml</value>
+                <value>com/jcommerce/core/model/MemberPrice.hbm.xml</value>
+                <value>com/jcommerce/core/model/Comment.hbm.xml</value>
+                <value>com/jcommerce/core/model/Feedback.hbm.xml</value>
+                <value>com/jcommerce/core/model/AdPosition.hbm.xml</value>
+                <value>com/jcommerce/core/model/Advertisement.hbm.xml</value>
+                <value>com/jcommerce/core/model/Adsense.hbm.xml</value>
+                <value>com/jcommerce/core/model/Vote.hbm.xml</value>
+                <value>com/jcommerce/core/model/VoteData.hbm.xml</value>
+                <value>com/jcommerce/core/model/VoteLog.hbm.xml</value>
+                <value>com/jcommerce/core/model/Topic.hbm.xml</value>
+                <value>com/jcommerce/core/model/Tag.hbm.xml</value>                
+                <value>com/jcommerce/core/model/VirtualCard.hbm.xml</value>
+                <value>com/jcommerce/core/model/FavourableActivity.hbm.xml</value>
+                <value>com/jcommerce/core/model/Wholesale.hbm.xml</value>
+                <value>com/jcommerce/core/model/ShopConfig.hbm.xml</value>
+                <value>com/jcommerce/core/model/SnatchLog.hbm.xml</value>
+                <value>com/jcommerce/core/model/AuctionLog.hbm.xml</value>
+                <value>com/jcommerce/core/model/Plugins.hbm.xml</value>
+                <value>com/jcommerce/core/model/SearchEngine.hbm.xml</value>
+                <value>com/jcommerce/core/model/EmailList.hbm.xml</value>
+                <value>com/jcommerce/core/model/EmailSendList.hbm.xml</value>
+                <value>com/jcommerce/core/model/Navigation.hbm.xml</value>
+                <value>com/jcommerce/core/model/Keywords.hbm.xml</value>
+                <value>com/jcommerce/core/model/Crons.hbm.xml</value>
+                <value>com/jcommerce/core/model/AutoManage.hbm.xml</value>
+                <value>com/jcommerce/core/model/SessionsData.hbm.xml</value>     
+                <value>com/jcommerce/core/model/Snatch.hbm.xml</value>
+                <value>com/jcommerce/core/model/Auction.hbm.xml</value>      
+                <value>com/jcommerce/core/model/GroupBuy.hbm.xml</value>        
+            </list>
+        </property>
+        <property name="hibernateProperties">
+        <props>
+            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            <prop key="hibernate.cglib.use_reflection_optimizer">false</prop>
+            <prop key="hibernate.show_sql">false</prop>
+            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+          <!--  <prop key="hibernate.hbm2ddl.auto">create</prop>-->
+		 <!--  <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>-->
+        </props>
+        </property>
+    </bean>
+
+    <!--  Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean>
+    
+    
+    <bean id="txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributes">
+            <props>
+            	<prop key="getGoodsTypeList">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    
+    
+    <!-- Add DAOs here -->
+    <bean id="BrandDAO" class="com.jcommerce.core.dao.impl.BrandDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+    <bean id="BonusTypeDAO" class="com.jcommerce.core.dao.impl.BonusTypeDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+   
+    <bean id="CategoryDAO" class="com.jcommerce.core.dao.impl.CategoryDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+    <bean id="GoodsDAO" class="com.jcommerce.core.dao.impl.GoodsDAOImpl">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+	
+	<bean id="BrandManager" class="com.jcommerce.core.service.impl.BrandManagerImpl">
+		<property name="brandDAO">
+			<ref local="BrandDAO"/>
+		</property>
+	</bean>
+	<bean id="BonusTypeManager" class="com.jcommerce.core.service.impl.BonusTypeManagerImpl">
+		<property name="bonusTypeDAO">
+			<ref local="BonusTypeDAO"/>
+		</property>
+	</bean>
+
+	<bean id="CategoryManager" class="com.jcommerce.core.service.impl.CategoryManagerImpl">
+		<property name="categoryDAO">
+			<ref local="CategoryDAO"/>
+		</property>
+	</bean>
+	<bean id="GoodsManager" class="com.jcommerce.core.service.impl.GoodsManagerImpl">
+		<property name="goodsDAO">
+			<ref local="GoodsDAO"/>
+		</property>
+	</bean>
+    
+    <bean id="GoodsAttributeDAO" class="com.jcommerce.core.dao.impl.GoodsAttributeDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="GoodsAttributeManager" class="com.jcommerce.core.service.impl.GoodsAttributeManagerImpl">
+     <property name="goodsAttributeDAO">
+         <ref local="GoodsAttributeDAO"/>
+     </property>
+    </bean>
+    <bean id="ShippingDAO" class="com.jcommerce.core.dao.impl.ShippingDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="ShippingManager" class="com.jcommerce.core.service.impl.ShippingManagerImpl">
+     <property name="shippingDAO">
+         <ref local="ShippingDAO"/>
+     </property>
+    </bean>
+    <bean id="AccountLogDAO" class="com.jcommerce.core.dao.impl.AccountLogDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AccountLogManager" class="com.jcommerce.core.service.impl.AccountLogManagerImpl">
+     <property name="accountLogDAO">
+         <ref local="AccountLogDAO"/>
+     </property>
+    </bean>
+    <bean id="AdminActionDAO" class="com.jcommerce.core.dao.impl.AdminActionDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AdminActionManager" class="com.jcommerce.core.service.impl.AdminActionManagerImpl">
+     <property name="adminActionDAO">
+         <ref local="AdminActionDAO"/>
+     </property>
+    </bean>
+    <bean id="AdminMessageDAO" class="com.jcommerce.core.dao.impl.AdminMessageDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AdminMessageManager" class="com.jcommerce.core.service.impl.AdminMessageManagerImpl">
+     <property name="adminMessageDAO">
+         <ref local="AdminMessageDAO"/>
+     </property>
+    </bean>
+    <bean id="AdminUserDAO" class="com.jcommerce.core.dao.impl.AdminUserDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AdminUserManager" class="com.jcommerce.core.service.impl.AdminUserManagerImpl">
+     <property name="adminUserDAO">
+         <ref local="AdminUserDAO"/>
+     </property>
+    </bean>
+    <bean id="AffiliateLogDAO" class="com.jcommerce.core.dao.impl.AffiliateLogDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AffiliateLogManager" class="com.jcommerce.core.service.impl.AffiliateLogManagerImpl">
+     <property name="affiliateLogDAO">
+         <ref local="AffiliateLogDAO"/>
+     </property>
+    </bean>
+    <bean id="AgencyDAO" class="com.jcommerce.core.dao.impl.AgencyDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AgencyManager" class="com.jcommerce.core.service.impl.AgencyManagerImpl">
+     <property name="agencyDAO">
+         <ref local="AgencyDAO"/>
+     </property>
+    </bean>
+    <bean id="AttributeDAO" class="com.jcommerce.core.dao.impl.AttributeDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AttributeManager" class="com.jcommerce.core.service.impl.AttributeManagerImpl">
+     <property name="attributeDAO">
+         <ref local="AttributeDAO"/>
+     </property>
+    </bean>
+    <bean id="BookingGoodsDAO" class="com.jcommerce.core.dao.impl.BookingGoodsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="BookingGoodsManager" class="com.jcommerce.core.service.impl.BookingGoodsManagerImpl">
+     <property name="bookingGoodsDAO">
+         <ref local="BookingGoodsDAO"/>
+     </property>
+    </bean>
+    <bean id="CardDAO" class="com.jcommerce.core.dao.impl.CardDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="CardManager" class="com.jcommerce.core.service.impl.CardManagerImpl">
+     <property name="cardDAO">
+         <ref local="CardDAO"/>
+     </property>
+    </bean>
+    <bean id="CartDAO" class="com.jcommerce.core.dao.impl.CartDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="CartManager" class="com.jcommerce.core.service.impl.CartManagerImpl">
+     <property name="cartDAO">
+         <ref local="CartDAO"/>
+     </property>
+    </bean>
+    <bean id="CollectGoodsDAO" class="com.jcommerce.core.dao.impl.CollectGoodsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="CollectGoodsManager" class="com.jcommerce.core.service.impl.CollectGoodsManagerImpl">
+     <property name="collectGoodsDAO">
+         <ref local="CollectGoodsDAO"/>
+     </property>
+    </bean>
+    <bean id="ErrorLogDAO" class="com.jcommerce.core.dao.impl.ErrorLogDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="ErrorLogManager" class="com.jcommerce.core.service.impl.ErrorLogManagerImpl">
+     <property name="errorLogDAO">
+         <ref local="ErrorLogDAO"/>
+     </property>
+    </bean>
+    <bean id="FailedLoginDAO" class="com.jcommerce.core.dao.impl.FailedLoginDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="FailedLoginManager" class="com.jcommerce.core.service.impl.FailedLoginManagerImpl">
+     <property name="failedLoginDAO">
+         <ref local="FailedLoginDAO"/>
+     </property>
+    </bean>
+    <bean id="FriendLinkDAO" class="com.jcommerce.core.dao.impl.FriendLinkDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="FriendLinkManager" class="com.jcommerce.core.service.impl.FriendLinkManagerImpl">
+     <property name="friendLinkDAO">
+         <ref local="FriendLinkDAO"/>
+     </property>
+    </bean>
+    <bean id="GalleryDAO" class="com.jcommerce.core.dao.impl.GalleryDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="GalleryManager" class="com.jcommerce.core.service.impl.GalleryManagerImpl">
+     <property name="galleryDAO">
+         <ref local="GalleryDAO"/>
+     </property>
+    </bean>
+    <bean id="GoodsActivityDAO" class="com.jcommerce.core.dao.impl.GoodsActivityDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="GoodsActivityManager" class="com.jcommerce.core.service.impl.GoodsActivityManagerImpl">
+     <property name="goodsActivityDAO">
+         <ref local="GoodsActivityDAO"/>
+     </property>
+    </bean>
+    <bean id="GoodsTypeDAO" class="com.jcommerce.core.dao.impl.GoodsTypeDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+        <!--
+    <bean id="GoodsTypeManager" parent="txProxyTemplate">
+ 		<property name="target">
+    		<bean class="com.jcommerce.core.service.impl.GoodsTypeManagerImpl">
+     			<property name="goodsTypeDAO">
+         			<ref local="GoodsTypeDAO"/>
+     			</property>
+    		</bean>
+      </property>
+  	</bean>
+        -->
+
+    		<bean id="GoodsTypeManager" class="com.jcommerce.core.service.impl.GoodsTypeManagerImpl">
+     			<property name="goodsTypeDAO">
+         			<ref local="GoodsTypeDAO"/>
+     			</property>
+    		</bean>    
+
+    
+    <bean id="MailTemplateDAO" class="com.jcommerce.core.dao.impl.MailTemplateDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="MailTemplateManager" class="com.jcommerce.core.service.impl.MailTemplateManagerImpl">
+     <property name="mailTemplateDAO">
+         <ref local="MailTemplateDAO"/>
+     </property>
+    </bean>
+    <bean id="OrderDAO" class="com.jcommerce.core.dao.impl.OrderDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="OrderManager" class="com.jcommerce.core.service.impl.OrderManagerImpl">
+     <property name="orderDAO">
+         <ref local="OrderDAO"/>
+     </property>
+    </bean>
+    <bean id="OrderActionDAO" class="com.jcommerce.core.dao.impl.OrderActionDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="OrderActionManager" class="com.jcommerce.core.service.impl.OrderActionManagerImpl">
+     <property name="orderActionDAO">
+         <ref local="OrderActionDAO"/>
+     </property>
+    </bean>
+    <bean id="OrderGoodsDAO" class="com.jcommerce.core.dao.impl.OrderGoodsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="OrderGoodsManager" class="com.jcommerce.core.service.impl.OrderGoodsManagerImpl">
+     <property name="orderGoodsDAO">
+         <ref local="OrderGoodsDAO"/>
+     </property>
+    </bean>
+    <bean id="PackDAO" class="com.jcommerce.core.dao.impl.PackDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="PackManager" class="com.jcommerce.core.service.impl.PackManagerImpl">
+     <property name="packDAO">
+         <ref local="PackDAO"/>
+     </property>
+    </bean>
+    <bean id="PayLogDAO" class="com.jcommerce.core.dao.impl.PayLogDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="PayLogManager" class="com.jcommerce.core.service.impl.PayLogManagerImpl">
+     <property name="payLogDAO">
+         <ref local="PayLogDAO"/>
+     </property>
+    </bean>
+    <bean id="PaymentDAO" class="com.jcommerce.core.dao.impl.PaymentDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="PaymentManager" class="com.jcommerce.core.service.impl.PaymentManagerImpl">
+     <property name="paymentDAO">
+         <ref local="PaymentDAO"/>
+     </property>
+    </bean>
+    <bean id="RegionDAO" class="com.jcommerce.core.dao.impl.RegionDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="RegionManager" class="com.jcommerce.core.service.impl.RegionManagerImpl">
+     <property name="regionDAO">
+         <ref local="RegionDAO"/>
+     </property>
+    </bean>
+    <bean id="SessionDAO" class="com.jcommerce.core.dao.impl.SessionDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="SessionManager" class="com.jcommerce.core.service.impl.SessionManagerImpl">
+     <property name="sessionDAO">
+         <ref local="SessionDAO"/>
+     </property>
+     <property name="cartManager">
+         <ref local="CartManager"/>
+     </property>
+    </bean>
+    <bean id="ShippingAreaDAO" class="com.jcommerce.core.dao.impl.ShippingAreaDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="ShippingAreaManager" class="com.jcommerce.core.service.impl.ShippingAreaManagerImpl">
+     <property name="shippingAreaDAO">
+         <ref local="ShippingAreaDAO"/>
+     </property>
+    </bean>
+    <bean id="StatsDAO" class="com.jcommerce.core.dao.impl.StatsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="StatsManager" class="com.jcommerce.core.service.impl.StatsManagerImpl">
+     <property name="statsDAO">
+         <ref local="StatsDAO"/>
+     </property>
+    </bean>
+    <bean id="UserDAO" class="com.jcommerce.core.dao.impl.UserDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="UserManager" class="com.jcommerce.core.service.impl.UserManagerImpl">
+     <property name="userDAO">
+         <ref local="UserDAO"/>
+     </property>
+    </bean>
+    <bean id="UserAccountDAO" class="com.jcommerce.core.dao.impl.UserAccountDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="UserAccountManager" class="com.jcommerce.core.service.impl.UserAccountManagerImpl">
+     <property name="userAccountDAO">
+         <ref local="UserAccountDAO"/>
+     </property>
+    </bean>
+    <bean id="UserAddressDAO" class="com.jcommerce.core.dao.impl.UserAddressDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="UserAddressManager" class="com.jcommerce.core.service.impl.UserAddressManagerImpl">
+     <property name="userAddressDAO">
+         <ref local="UserAddressDAO"/>
+     </property>
+    </bean>
+    <bean id="UserBonusDAO" class="com.jcommerce.core.dao.impl.UserBonusDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="UserBonusManager" class="com.jcommerce.core.service.impl.UserBonusManagerImpl">
+     <property name="userBonusDAO">
+         <ref local="UserBonusDAO"/>
+     </property>
+    </bean>
+    <bean id="UserRankDAO" class="com.jcommerce.core.dao.impl.UserRankDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="UserRankManager" class="com.jcommerce.core.service.impl.UserRankManagerImpl">
+     <property name="userRankDAO">
+         <ref local="UserRankDAO"/>
+     </property>
+    </bean>
+    
+    <!-- Add by KingZhao -->
+    
+    <bean id="ArticleCategoryDAO" class="com.jcommerce.core.dao.impl.ArticleCategoryDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="ArticleCategoryManager" class="com.jcommerce.core.service.impl.ArticleCategoryManagerImpl">
+     <property name="articleCategoryDAO">
+         <ref local="ArticleCategoryDAO"/>
+     </property>
+    </bean>
+    <bean id="ArticleDAO" class="com.jcommerce.core.dao.impl.ArticleDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="ArticleManager" class="com.jcommerce.core.service.impl.ArticleManagerImpl">
+     <property name="articleDAO">
+         <ref local="ArticleDAO"/>
+     </property>
+    </bean>
+    <bean id="GoodsArticleDAO" class="com.jcommerce.core.dao.impl.GoodsArticleDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="GoodsArticleManager" class="com.jcommerce.core.service.impl.GoodsArticleManagerImpl">
+     <property name="goodsArticleDAO">
+         <ref local="GoodsArticleDAO"/>
+     </property>
+    </bean>
+    <bean id="GroupGoodsDAO" class="com.jcommerce.core.dao.impl.GroupGoodsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="GroupGoodsManager" class="com.jcommerce.core.service.impl.GroupGoodsManagerImpl">
+     <property name="groupGoodsDAO">
+         <ref local="GroupGoodsDAO"/>
+     </property>
+    </bean>
+    <bean id="LinkGoodsDAO" class="com.jcommerce.core.dao.impl.LinkGoodsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="LinkGoodsManager" class="com.jcommerce.core.service.impl.LinkGoodsManagerImpl">
+     <property name="linkGoodsDAO">
+         <ref local="LinkGoodsDAO"/>
+     </property>
+    </bean>
+    <bean id="MemberPriceDAO" class="com.jcommerce.core.dao.impl.MemberPriceDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="MemberPriceManager" class="com.jcommerce.core.service.impl.MemberPriceManagerImpl">
+     <property name="memberPriceDAO">
+         <ref local="MemberPriceDAO"/>
+     </property>
+    </bean>
+    <bean id="CommentDAO" class="com.jcommerce.core.dao.impl.CommentDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="CommentManager" class="com.jcommerce.core.service.impl.CommentManagerImpl">
+     <property name="commentDAO">
+         <ref local="CommentDAO"/>
+     </property>
+    </bean>
+    <bean id="FeedbackDAO" class="com.jcommerce.core.dao.impl.FeedbackDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="FeedbackManager" class="com.jcommerce.core.service.impl.FeedbackManagerImpl">
+     <property name="feedbackDAO">
+         <ref local="FeedbackDAO"/>
+     </property>
+    </bean>
+    <bean id="AdPositionDAO" class="com.jcommerce.core.dao.impl.AdPositionDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AdPositionManager" class="com.jcommerce.core.service.impl.AdPositionManagerImpl">
+     <property name="adPositionDAO">
+         <ref local="AdPositionDAO"/>
+     </property>
+    </bean>
+    <bean id="AdvertisementDAO" class="com.jcommerce.core.dao.impl.AdvertisementDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AdvertisementManager" class="com.jcommerce.core.service.impl.AdvertisementManagerImpl">
+     <property name="advertisementDAO">
+         <ref local="AdvertisementDAO"/>
+     </property>
+    </bean>
+    <bean id="AdsenseDAO" class="com.jcommerce.core.dao.impl.AdsenseDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AdsenseManager" class="com.jcommerce.core.service.impl.AdsenseManagerImpl">
+     <property name="adsenseDAO">
+         <ref local="AdsenseDAO"/>
+     </property>
+    </bean>
+    <bean id="VoteDAO" class="com.jcommerce.core.dao.impl.VoteDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="VoteManager" class="com.jcommerce.core.service.impl.VoteManagerImpl">
+     <property name="voteDAO">
+         <ref local="VoteDAO"/>
+     </property>
+    </bean>
+    <bean id="VoteDataDAO" class="com.jcommerce.core.dao.impl.VoteDataDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="VoteDataManager" class="com.jcommerce.core.service.impl.VoteDataManagerImpl">
+     <property name="voteDataDAO">
+         <ref local="VoteDataDAO"/>
+     </property>
+    </bean>
+    <bean id="VoteLogDAO" class="com.jcommerce.core.dao.impl.VoteLogDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="VoteLogManager" class="com.jcommerce.core.service.impl.VoteLogManagerImpl">
+     <property name="voteLogDAO">
+         <ref local="VoteLogDAO"/>
+     </property>
+    </bean>
+    <bean id="TopicDAO" class="com.jcommerce.core.dao.impl.TopicDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="TopicManager" class="com.jcommerce.core.service.impl.TopicManagerImpl">
+     <property name="topicDAO">
+         <ref local="TopicDAO"/>
+     </property>
+    </bean>
+    <bean id="TagDAO" class="com.jcommerce.core.dao.impl.TagDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="TagManager" class="com.jcommerce.core.service.impl.TagManagerImpl">
+     <property name="tagDAO">
+         <ref local="TagDAO"/>
+     </property>
+    </bean>    
+    <bean id="VirtualCardDAO" class="com.jcommerce.core.dao.impl.VirtualCardDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="VirtualCardManager" class="com.jcommerce.core.service.impl.VirtualCardManagerImpl">
+     <property name="virtualCardDAO">
+         <ref local="VirtualCardDAO"/>
+     </property>
+    </bean>
+    <bean id="FavourableActivityDAO" class="com.jcommerce.core.dao.impl.FavourableActivityDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="FavourableActivityManager" class="com.jcommerce.core.service.impl.FavourableActivityManagerImpl">
+     <property name="favourableActivityDAO">
+         <ref local="FavourableActivityDAO"/>
+     </property>
+    </bean>
+    <bean id="WholesaleDAO" class="com.jcommerce.core.dao.impl.WholesaleDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="WholesaleManager" class="com.jcommerce.core.service.impl.WholesaleManagerImpl">
+     <property name="wholesaleDAO">
+         <ref local="WholesaleDAO"/>
+     </property>
+    </bean>
+    <bean id="ShopConfigDAO" class="com.jcommerce.core.dao.impl.ShopConfigDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="ShopConfigManager" class="com.jcommerce.core.service.impl.ShopConfigManagerImpl">
+     	<property name="shopConfigDAO">
+         <ref local="ShopConfigDAO"/>
+     	</property>
+    </bean>
+    <bean id="SnatchLogDAO" class="com.jcommerce.core.dao.impl.SnatchLogDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="SnatchLogManager" class="com.jcommerce.core.service.impl.SnatchLogManagerImpl">
+     <property name="snatchLogDAO">
+         <ref local="SnatchLogDAO"/>
+     </property>
+    </bean>
+    <bean id="AuctionLogDAO" class="com.jcommerce.core.dao.impl.AuctionLogDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AuctionLogManager" class="com.jcommerce.core.service.impl.AuctionLogManagerImpl">
+     <property name="auctionLogDAO">
+         <ref local="AuctionLogDAO"/>
+     </property>
+    </bean>
+    <bean id="PluginsDAO" class="com.jcommerce.core.dao.impl.PluginsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="PluginsManager" class="com.jcommerce.core.service.impl.PluginsManagerImpl">
+     <property name="pluginsDAO">
+         <ref local="PluginsDAO"/>
+     </property>
+    </bean>
+    <bean id="SearchEngineDAO" class="com.jcommerce.core.dao.impl.SearchEngineDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="SearchEngineManager" class="com.jcommerce.core.service.impl.SearchEngineManagerImpl">
+     <property name="searchEngineDAO">
+         <ref local="SearchEngineDAO"/>
+     </property>
+    </bean>
+    <bean id="EmailListDAO" class="com.jcommerce.core.dao.impl.EmailListDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="EmailListManager" class="com.jcommerce.core.service.impl.EmailListManagerImpl">
+     <property name="emailListDAO">
+         <ref local="EmailListDAO"/>
+     </property>
+    </bean>
+   <bean id="EmailSendListDAO" class="com.jcommerce.core.dao.impl.EmailSendListDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="EmailSendListManager" class="com.jcommerce.core.service.impl.EmailSendListManagerImpl">
+     <property name="emailSendListDAO">
+         <ref local="EmailSendListDAO"/>
+     </property>
+    </bean>
+     <bean id="NavigationDAO" class="com.jcommerce.core.dao.impl.NavigationDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="NavigationManager" class="com.jcommerce.core.service.impl.NavigationManagerImpl">
+     <property name="navigationDAO">
+         <ref local="NavigationDAO"/>
+     </property>
+    </bean>
+    <bean id="KeywordsDAO" class="com.jcommerce.core.dao.impl.KeywordsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="KeywordsManager" class="com.jcommerce.core.service.impl.KeywordsManagerImpl">
+     <property name="keywordsDAO">
+         <ref local="KeywordsDAO"/>
+     </property>
+    </bean>
+    <bean id="CronsDAO" class="com.jcommerce.core.dao.impl.CronsDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="CronsManager" class="com.jcommerce.core.service.impl.CronsManagerImpl">
+     <property name="cronsDAO">
+         <ref local="CronsDAO"/>
+     </property>
+    </bean>
+    <bean id="AutoManageDAO" class="com.jcommerce.core.dao.impl.AutoManageDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AutoManageManager" class="com.jcommerce.core.service.impl.AutoManageManagerImpl">
+     <property name="autoManageDAO">
+         <ref local="AutoManageDAO"/>
+     </property>
+    </bean>
+    <bean id="SessionsDataDAO" class="com.jcommerce.core.dao.impl.SessionsDataDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="SessionsDataManager" class="com.jcommerce.core.service.impl.SessionsDataManagerImpl">
+     <property name="sessionsDataDAO">
+         <ref local="SessionsDataDAO"/>
+     </property>
+    </bean>
+    <bean id="WebManager" class="com.jcommerce.core.service.impl.WebManagerImpl">
+			<property name="goodsManager">
+				<ref local="GoodsManager"/>
+			</property>
+			<property name="cartManager">
+				<ref local="CartManager"/>
+			</property>
+			<property name="goodsAttributeManager">
+				<ref local="GoodsAttributeManager"/>
+			</property>
+			<property name="attributeManager">
+				<ref local="AttributeManager"/>
+			</property>
+		</bean>
+	<bean id="AdminLogDAO" class="com.jcommerce.core.dao.impl.AdminLogDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AdminLogManager" class="com.jcommerce.core.service.impl.AdminLogManagerImpl">
+     <property name="adminLogDAO">
+         <ref local="AdminLogDAO"/>
+     </property>
+    </bean>   
+    <bean id="SnatchDAO" class="com.jcommerce.core.dao.impl.SnatchDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="SnatchManager" class="com.jcommerce.core.service.impl.SnatchManagerImpl">
+     <property name="snatchDAO">
+         <ref local="SnatchDAO"/>
+     </property>
+    </bean> 
+    <bean id="AuctionDAO" class="com.jcommerce.core.dao.impl.AuctionDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="AuctionManager" class="com.jcommerce.core.service.impl.AuctionManagerImpl">
+     <property name="auctionDAO">
+         <ref local="AuctionDAO"/>
+     </property>
+    </bean> 
+    <bean id="GroupBuyDAO" class="com.jcommerce.core.dao.impl.GroupBuyDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="GroupBuyManager" class="com.jcommerce.core.service.impl.GroupBuyManagerImpl">
+     <property name="groupBuyDAO">
+         <ref local="GroupBuyDAO"/>
+     </property>
+    </bean>
+    
+    <bean id="PaymentMetaManager" class="com.jcommerce.core.service.impl.PaymentMetaManagerImpl">
+	     <property name="pluginFolder">
+	     	<value>D:\Program Files\apache-tomcat-5.5.27\webapps\jcommerce\WEB-INF\modules\payment</value>
+	     </property>
+	     <property name="paymentManager">
+	         <ref local="PaymentManager"/>
+	     </property>
+	     <property name="orderManager">
+	         <ref local="OrderManager"/>
+	     </property>
+	     <property name="orderGoodsManager">
+	         <ref local="OrderGoodsManager"/>
+	     </property>
+    </bean>
+    
+    <bean id="ShippingMetaManager" class="com.jcommerce.core.service.impl.ShippingMetaManagerImpl">
+	     <property name="pluginFolder">
+	     	<value>D:\Program Files\apache-tomcat-5.5.27\webapps\jcommerce\WEB-INF\modules\shipping</value>
+	     </property>
+	     <property name="shippingManager">
+	         <ref local="ShippingManager"/>
+	     </property>
+	     <property name="shippingAreaManager">
+	         <ref local="ShippingAreaManager"/>
+	     </property>
+    </bean>
+    
+    <bean id="spring" class="com.jcommerce.core.util.SpringUtil">
+    </bean>    
+    <!-- Add Managers here -->
+</beans>

@@ -1,0 +1,13 @@
+Create ishop database, user against mysql
+-----------------------------------------
+
+----
+CREATE DATABASE ishop;
+create user 'ishop_user'@'localhost' identified by 'ishop_pass';
+grant all on ishop.* to ishop_user@'localhost';
+FLUSH PRIVILEGES;
+----
+
+
+
+
