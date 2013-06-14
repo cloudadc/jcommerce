@@ -1,0 +1,97 @@
+Maven Dependencies
+------------------
+
+The following 3 dependency must be added:
+
+----
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-servlet</artifactId>
+			<version>${gwtVersion}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-user</artifactId>
+ 			<version>${gwtVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.gwt</groupId>
+			<artifactId>gwt-dev</artifactId>
+			<version>${gwtVersion}</version>
+			<scope>test</scope>
+		</dependency>
+----
+
+
+GWT Maven Plugin
+----------------
+
+This is important for GWT dev, this plugin similar with traditional maven-war-plugin, mainly function is for packaging your application into a WAR, it look likes:
+----
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+	        <artifactId>gwt-maven-plugin</artifactId>
+			<version>2.2.0</version>
+			<dependencies>
+				<dependency>
+		            <groupId>com.google.gwt</groupId>
+		            <artifactId>gwt-user</artifactId>
+		            <version>${gwtVersion}</version>
+	          	</dependency>
+				<dependency>
+		            <groupId>com.google.gwt</groupId>
+		            <artifactId>gwt-dev</artifactId>
+		            <version>${gwtVersion}</version>
+				</dependency>
+				<dependency>
+		            <groupId>com.google.gwt</groupId>
+		            <artifactId>gwt-servlet</artifactId>
+		            <version>${gwtVersion}</version>
+				</dependency>
+			</dependencies>
+	        <!-- JS is only needed in the package phase, this speeds up testing --> 
+	        <executions>
+				<execution>
+		            <phase>prepare-package</phase>
+		            <goals>
+		              <goal>compile</goal>
+		            </goals>
+	 			</execution>
+			</executions>
+	        <!-- Plugin configuration. There are many available options, see gwt-maven-plugin documentation at codehaus.org --> 
+			<configuration>
+	          <!-- URL that should be automatically opened in the GWT shell (gwt:run). -->
+	          <runTarget>HelloWorld.html</runTarget>
+	          <!-- Location of the develop-mode web application structure (gwt:run). -->
+	          <hostedWebapp>target/www</hostedWebapp>
+	          <!-- Ask GWT to create the Story of Your Compile (SOYC) (gwt:compile) -->
+	          <compileReport>true</compileReport>
+			</configuration>
+		</plugin>
+----
+
+
+greetServer implementaion
+-------------------------
+
+This is a popular method, you may see this thousands of times, it looks like:
+
+----
+	public String greetServer(String input) throws IllegalArgumentException {
+		
+		if (!FieldVerifier.isValidName(input)) {
+			throw new IllegalArgumentException("Name must be at least 4 characters long");
+		}
+
+		String serverInfo = getServletContext().getServerInfo();
+		String userAgent = getThreadLocalRequest().getHeader("User-Agent");
+
+		// Escape data from the client to avoid cross-site script vulnerabilities.
+		input = escapeHtml(input);
+		userAgent = escapeHtml(userAgent);
+
+		return "Hello, " + input + "!<br><br>I am running " + serverInfo + ".<br><br>It looks like you are using:<br>" + userAgent;
+	}
+----

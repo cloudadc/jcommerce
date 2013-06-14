@@ -1,0 +1,4 @@
+|=========================================================
+|*Content*                                                         |*Status*     |*Description*
+|migrate hibernate from version 2 - version 4                      |Pending      | *.hbm.xml to annotation
+|=========================================================

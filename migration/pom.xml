@@ -1,55 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <!-- POM file generated with GWT webAppCreator -->
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.jcommerce</groupId>
-  <artifactId>jcommerce-migration</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0</version>
-  <name>jcommerce migration</name>
-  
-  <properties>
-    <!-- Convenience property to set the GWT version -->
-    <gwtVersion>2.5.1</gwtVersion>
-    <!-- GWT needs at least java 1.6 -->
-    <maven.compiler.source>1.6</maven.compiler.source>
-    <maven.compiler.target>1.6</maven.compiler.target>
-  </properties>
+    <groupId>com.jcommerce</groupId>
+    <artifactId>jcommerce-migration-parent</artifactId>
+    <version>1.0</version>
+    <name>jcommerce migration parent</name>
+    <description>jcommerce migration parent</description>
+    <packaging>pom</packaging>
 
-  <dependencies>
-  
-	<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.1.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.1.0.Final</version>
-		</dependency>
-	
-	<dependency>
-		<groupId>log4j</groupId>
-		<artifactId>log4j</artifactId>
-		<version>1.2.16</version>
-	</dependency>
-    
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
-  
-  <build>
-    
-    <plugins>
-  
+    <url>https://github.com/kylinsoong/jcommerce</url>
 
-    </plugins>
-  </build>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <modules>
+        <module>test</module>
+        <module>model</module>
+    </modules>
+
 </project>
+
