@@ -1,5 +1,6 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
@@ -7,8 +8,22 @@ package com.jcommerce.core.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "region", catalog = "ishop")
 public class Region extends ModelObject {
-    public static final int TYPE_COUNTRY = 0;
+
+	private static final long serialVersionUID = 3591141458001056801L;
+	public static final int TYPE_COUNTRY = 0;
     public static final int TYPE_PROVINCE = 1;
     public static final int TYPE_CITY = 2;
     public static final int TYPE_DISTRICT = 3;
@@ -19,12 +34,20 @@ public class Region extends ModelObject {
     public static final int LEVEL_FOUR = TYPE_DISTRICT;    
     
     private Region parent;
-    private transient Set<Region> children = new HashSet<Region>();
+    
     private String name;
     private int type;
     private Agency agency;
     private Set<ShippingArea> areas = new HashSet<ShippingArea>();
+    
+    private Set<Order> orders = new HashSet<Order>();
+    private Set<UserAddress> userAddresses = new HashSet<UserAddress>();
+    private Set<Region> children = new HashSet<Region>();
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "parent_id", nullable = true )
     public Region getParent() {
         return parent;
     }
@@ -43,6 +66,10 @@ public class Region extends ModelObject {
         }
     }
 
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "parent"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "region_id", nullable = false  )
     public Set<Region> getChildren() {
         return children;
     }
@@ -65,6 +92,8 @@ public class Region extends ModelObject {
         child.parent = null;
     }
     
+    @Basic( optional = true )
+	@Column( name = "region_name", length = 120  )
     public String getName() {
         return name;
     }
@@ -73,6 +102,8 @@ public class Region extends ModelObject {
         this.name = name;
     }
 
+    @Basic( optional = true )
+	@Column( name = "region_type"  )
     public int getType() {
         return type;
     }
@@ -81,6 +112,10 @@ public class Region extends ModelObject {
         this.type = type;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "agency_id", nullable = true )
     public Agency getAgency() {
         return agency;
     }
@@ -89,6 +124,10 @@ public class Region extends ModelObject {
         this.agency = agency;
     }
 
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "regions"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "region_id", nullable = false  )
     public Set<ShippingArea> getAreas() {
         return areas;
     }
@@ -130,4 +169,38 @@ public class Region extends ModelObject {
     public boolean isDistrict() {
         return type == TYPE_DISTRICT;
     }
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "region"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "region_id", nullable = false  )
+	public Set<Order> getOrders() {
+		return this.orders;
+	}
+    
+    public void addOrder(Order order) {
+		order.setRegion(this);
+		this.orders.add(order);
+	}
+    
+    public void setOrders(final Set<Order> order) {
+		this.orders = order;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "region"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "region_id", nullable = false  )
+	public Set<UserAddress> getUserAddresses() {
+		return this.userAddresses;
+	}
+    
+    public void addUserAddress(UserAddress userAddress) {
+		userAddress.setRegion(this);
+		this.userAddresses.add(userAddress);
+	}
+    
+    public void setUserAddresses(final Set<UserAddress> userAddress) {
+		this.userAddresses = userAddress;
+	}
 }

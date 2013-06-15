@@ -1,5 +1,6 @@
 /**
 * Author: Bob Chen
+*         Kylin Soong
 */
 
 package com.jcommerce.core.model;
@@ -7,9 +8,22 @@ package com.jcommerce.core.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "category", catalog = "ishop")
 public class Category extends ModelObject {
     
-    private Category parent;
+	private static final long serialVersionUID = 7140077625195113814L;
+	private Category parent;
     private Set<Category> children = new HashSet<Category>();
     private Set<Goods> goodsList = new HashSet<Goods>();
     private String name;
@@ -31,9 +45,13 @@ public class Category extends ModelObject {
     private int grade;
     private Attribute filterAttribute;
     
-   public Category getParent() {
-        return parent;
-    }
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "parent_id", nullable = true )
+	public Category getParent() {
+		return parent;
+	}
     
     public void setParent(Category parent) {
         if (getParent() != null) {
@@ -45,6 +63,10 @@ public class Category extends ModelObject {
         }
     }
     
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "parent"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "cat_id", nullable = false  )
     public Set<Category> getChildren() {
         return children;
     }
@@ -67,6 +89,10 @@ public class Category extends ModelObject {
         child.parent = null;
     }
     
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "cat"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "cat_id", nullable = false  )
     public Set<Goods> getGoodsList() {
         return goodsList;
     }
@@ -89,6 +115,8 @@ public class Category extends ModelObject {
         }
     }
 
+    @Basic( optional = true )
+	@Column( name = "cat_name", length = 90  )
     public String getName() {
         return name;
     }
@@ -97,6 +125,8 @@ public class Category extends ModelObject {
         this.name = name;
     }
     
+    @Basic( optional = true )
+	@Column( length = 255  )
     public String getKeywords() {
         return keywords;
     }
@@ -105,6 +135,8 @@ public class Category extends ModelObject {
         this.keywords = keywords;
     }
     
+    @Basic( optional = true )
+	@Column( name = "cat_desc", length = 255  )
     public String getDescription() {
         return description;
     }
@@ -113,6 +145,8 @@ public class Category extends ModelObject {
         this.description = description;
     }
             
+    @Basic( optional = true )
+	@Column( name = "sort_order"  )
     public int getSortOrder() {
 		return sortOrder;
 	}
@@ -121,6 +155,8 @@ public class Category extends ModelObject {
 		this.sortOrder = sortOrder;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "template_file", length = 255  )
 	public String getTemplateFile() {
         return templateFile;
     }
@@ -129,6 +165,8 @@ public class Category extends ModelObject {
         this.templateFile = templateFile;
     }
     
+    @Basic( optional = true )
+	@Column( name = "measure_unit", length = 15  )
     public String getMeasureUnit() {
         return measureUnit;
     }
@@ -137,6 +175,8 @@ public class Category extends ModelObject {
         this.measureUnit = measureUnit;
     }
     
+    @Basic( optional = true )
+	@Column( name = "show_in_nav"  )
     public boolean isShowInNavigator() {
         return showInNavigator;
     }
@@ -145,6 +185,8 @@ public class Category extends ModelObject {
         this.showInNavigator = showInNavigator;
     }
     
+    @Basic( optional = true )
+	@Column( length = 150  )
     public String getStyle() {
         return style;
     }
@@ -153,6 +195,8 @@ public class Category extends ModelObject {
         this.style = style;
     }
     
+    @Basic( optional = true )
+	@Column( name = "is_show"  )
     public boolean isShow() {
         return show;
     }
@@ -169,6 +213,10 @@ public class Category extends ModelObject {
         this.grade = grade;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "filter_attr", nullable = true )
     public Attribute getFilterAttribute() {
         return filterAttribute;
     }

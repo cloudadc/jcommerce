@@ -1,10 +1,19 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 package com.jcommerce.core.model;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "navigation", catalog = "ishop")
 public class Navigation extends ModelObject {
 
+	private static final long serialVersionUID = -3694253855775909964L;
 	public static final int CATEGORYTYPE_GOODSCATEGORY=1;//货物分类导航
 	public static final int CATEGORYTYPE_ARTICLECATEGORY=2;//文章分类导航
 	
@@ -36,7 +45,9 @@ public class Navigation extends ModelObject {
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
-
+	
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getName() {
 		return name;
 	}
@@ -69,6 +80,8 @@ public class Navigation extends ModelObject {
 		this.openNew = openNew;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getUrl() {
 		return url;
 	}

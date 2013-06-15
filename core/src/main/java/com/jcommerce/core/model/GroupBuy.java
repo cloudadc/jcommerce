@@ -1,8 +1,20 @@
+/**
+ * Author: Kylin Soong
+ */
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "groupBuy", catalog = "ishop")
 public class GroupBuy extends ModelObject {
+
+	private static final long serialVersionUID = 2557812015704568869L;
 
 	private String goodName;
 	
@@ -22,6 +34,8 @@ public class GroupBuy extends ModelObject {
 	
 	private String description;
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getGoodName() {
 		return goodName;
 	}
@@ -70,6 +84,8 @@ public class GroupBuy extends ModelObject {
 		this.score = score;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getPriceRange() {
 		return priceRange;
 	}
@@ -78,6 +94,8 @@ public class GroupBuy extends ModelObject {
 		this.priceRange = priceRange;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getDescription() {
 		return description;
 	}
@@ -86,6 +104,8 @@ public class GroupBuy extends ModelObject {
 		this.description = description;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getActivityState() {
 		return activityState;
 	}

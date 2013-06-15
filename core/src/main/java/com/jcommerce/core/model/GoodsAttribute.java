@@ -1,16 +1,33 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "goods_attribute", catalog = "ishop")
 public class GoodsAttribute extends ModelObject {
 	
+	private static final long serialVersionUID = -6815699069897382387L;
 	private Goods goods;
 	private Attribute attribute;
 	private String value;
 	private String price;
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "goods_id", nullable = true )
     public Goods getGoods() {
         return goods;
     }
@@ -19,6 +36,10 @@ public class GoodsAttribute extends ModelObject {
         this.goods = goods;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "attr_id", nullable = true )
     public Attribute getAttribute() {
         return attribute;
     }
@@ -27,6 +48,8 @@ public class GoodsAttribute extends ModelObject {
         this.attribute = attribute;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_value", length = 2147483647  )
     public String getValue() {
         return value;
     }
@@ -35,6 +58,8 @@ public class GoodsAttribute extends ModelObject {
         this.value = value;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_price", length = 255  )
     public String getPrice() {
         return price;
     }

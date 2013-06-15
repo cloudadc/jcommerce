@@ -1,12 +1,21 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "email_sendlist", catalog = "ishop")
 public class EmailSendList extends ModelObject {
 
+	private static final long serialVersionUID = -7336299461753947141L;
 	public static final int TEMPLATEID_SENDPASSWORD  = 1;//密码找回
 	public static final int TEMPLATEID_ORDERCONFIRM  = 2;//订单确认通知
 	public static final int TEMPLATEID_DELIVERNOTICE = 3;//发货通知
@@ -26,6 +35,8 @@ public class EmailSendList extends ModelObject {
 	private int priority;// 优先级
 	private Timestamp lastSend;// 最后发送时间
 
+	@Basic( optional = true )
+	@Column( length = 100  )
 	public String getEmail() {
 		return email;
 	}
@@ -34,6 +45,8 @@ public class EmailSendList extends ModelObject {
 		this.email = email;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "template_id"  )
 	public int getTemplateId() {
 		return templateId;
 	}
@@ -42,6 +55,8 @@ public class EmailSendList extends ModelObject {
 		this.templateId = templateId;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "email_content", length = 2147483647  )
 	public String getEmailContent() {
 		return emailContent;
 	}
@@ -58,6 +73,8 @@ public class EmailSendList extends ModelObject {
 		this.error = error;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 10  )
 	public int getPriority() {
 		return priority;
 	}
@@ -66,6 +83,8 @@ public class EmailSendList extends ModelObject {
 		this.priority = priority;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "last_send"  )
 	public Timestamp getLastSend() {
 		return lastSend;
 	}

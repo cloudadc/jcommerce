@@ -1,19 +1,36 @@
 /**
  * @author KingZhao
  * @date 2008.9.22
+ * @author Kylin Soong
+ * @date 2013.6.15
  */
 package com.jcommerce.core.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "article_category", catalog = "ishop")
 public class ArticleCategory extends ModelObject {
 	
+	private static final long serialVersionUID = 7429311667993573426L;
 	private static final int TYPE_INNEWS=1;//站内快讯
 	private static final int TYPE_SYSTEMMSG=2;//系统分类
 	private static final int TYPE_SHOPMSG=3;//网店信息	
 	private static final int TYPE_HELPMSG=4;//网店帮助分类	
 	
+	private Set<Article> articles = new HashSet<Article>();
+		
 	private String name;
 	private int type;//文章类型
 	private String keywords;
@@ -21,9 +38,28 @@ public class ArticleCategory extends ModelObject {
 	private int sortOrder;
 	private boolean showInNavigator;//是否在导航中显示
 	private ArticleCategory parent;
-	Set<ArticleCategory> children = new HashSet<ArticleCategory>();
+	private Set<ArticleCategory> children = new HashSet<ArticleCategory>();
 
 
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "articleCategory"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "cat_id", nullable = false  )
+	public Set<Article> getArticles() {
+		return this.articles;
+	}
+	
+	public void addArticle(Article article) {
+		article.setArticleCategory(this);
+		this.articles.add(article);
+	}
+	
+	public void setArticles(final Set<Article> article) {
+		this.articles = article;
+	}
+	
+	@Basic( optional = true )
+	@Column( name = "cat_name", length = 255  )
 	public String getName() {
 		return name;
 	}
@@ -32,6 +68,8 @@ public class ArticleCategory extends ModelObject {
 		this.name = name;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "cat_type"  )
 	public int getType() {
 		return type;
 	}
@@ -40,6 +78,8 @@ public class ArticleCategory extends ModelObject {
 		this.type = type;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getKeywords() {
 		return keywords;
 	}
@@ -48,6 +88,8 @@ public class ArticleCategory extends ModelObject {
 		this.keywords = keywords;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "cat_desc", length = 255  )
 	public String getDescription() {
 		return description;
 	}
@@ -56,6 +98,8 @@ public class ArticleCategory extends ModelObject {
 		this.description = description;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "sort_order"  )
 	public int getSortOrder() {
 		return sortOrder;
 	}
@@ -64,6 +108,8 @@ public class ArticleCategory extends ModelObject {
 		this.sortOrder = sortOrder;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "show_in_nav"  )
 	public boolean isShowInNavigator() {
 		return showInNavigator;
 	}
@@ -72,6 +118,10 @@ public class ArticleCategory extends ModelObject {
 		this.showInNavigator = showInNavigator;
 	}
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "parent_id", nullable = true )
 	public ArticleCategory getParent() {
 		return parent;
 	}
@@ -90,6 +140,10 @@ public class ArticleCategory extends ModelObject {
 		}
 	}
 
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "parent"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "cat_id", nullable = false  )
 	public Set<ArticleCategory> getChildren() {
 		return children;
 	}

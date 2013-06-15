@@ -1,5 +1,6 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
@@ -7,9 +8,23 @@ package com.jcommerce.core.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name = "shipping", catalog = "ishop")
 public class Shipping extends ModelObject {
-    private Set<ShippingArea> shippingAreas = new HashSet<ShippingArea>();        
+
+	private static final long serialVersionUID = -7896034244403964599L;
+
+	private Set<ShippingArea> shippingAreas = new HashSet<ShippingArea>();  
+	private Set<Order> orders = new HashSet<Order>();
     
 	private String id;
 	private String name;
@@ -27,6 +42,8 @@ public class Shipping extends ModelObject {
 		this.id = id;
 	}
 	
+	@Basic( optional = true )
+	@Column( name = "shipping_name", length = 120  )
     public String getName() {
         return name;
     }
@@ -35,6 +52,8 @@ public class Shipping extends ModelObject {
         this.name = name;
     }
 
+    @Basic( optional = true )
+	@Column( name = "shipping_code", length = 20  )
     public String getCode() {
         return code;
     }
@@ -43,6 +62,8 @@ public class Shipping extends ModelObject {
         this.code = code;
     }
 
+    @Basic( optional = true )
+	@Column( name = "shipping_desc", length = 255  )
     public String getDescription() {
         return description;
     }
@@ -51,6 +72,8 @@ public class Shipping extends ModelObject {
         this.description = description;
     }
 
+    @Basic( optional = true )
+	@Column( length = 10  )
     public String getInsure() {
         return insure;
     }
@@ -59,6 +82,8 @@ public class Shipping extends ModelObject {
         this.insure = insure;
     }
 
+    @Basic( optional = true )
+	@Column( name = "support_cod"  )
     public boolean isSupportCod() {
         return supportCod;
     }
@@ -75,11 +100,37 @@ public class Shipping extends ModelObject {
         this.enabled = enabled;
     }
 
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "shipping"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "shipping_id", nullable = false  )
     public Set<ShippingArea> getShippingAreas() {
         return shippingAreas;
     }
+    
+    public void addShippingArea(ShippingArea shippingArea) {
+		shippingArea.setShipping(this);
+		this.shippingAreas.add(shippingArea);
+	}
 
     public void setShippingAreas(Set<ShippingArea> shippingAreas) {
         this.shippingAreas = shippingAreas;
     }
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "shipping"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "shipping_id", nullable = false  )
+	public Set<Order> getOrders() {
+		return this.orders;
+	}
+    
+    public void addOrder(Order order) {
+		order.setShipping(this);
+		this.orders.add(order);
+	}
+    
+    public void setOrders(final Set<Order> order) {
+		this.orders = order;
+	}
 }

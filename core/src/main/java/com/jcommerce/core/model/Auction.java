@@ -1,10 +1,27 @@
+/**
+ * Author: Kylin Soong
+ *        
+ */
+
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "auction", catalog = "ishop")
 public class Auction extends ModelObject {
+
+	private static final long serialVersionUID = 7966006913768565193L;
 
 	private String auctionname;
 	
@@ -26,6 +43,8 @@ public class Auction extends ModelObject {
 	
 	private Set<AuctionLog> auctionLogs = new HashSet<AuctionLog>();
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getAuctionname() {
 		return auctionname;
 	}
@@ -34,6 +53,8 @@ public class Auction extends ModelObject {
 		this.auctionname = auctionname;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getDescription() {
 		return description;
 	}
@@ -42,6 +63,8 @@ public class Auction extends ModelObject {
 		this.description = description;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getGoodName() {
 		return goodName;
 	}
@@ -98,8 +121,17 @@ public class Auction extends ModelObject {
 		this.secPrice = secPrice;
 	}
 
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "auctionlogs"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( nullable = false  )
 	public Set<AuctionLog> getAuctionLogs() {
 		return auctionLogs;
+	}
+	
+	public void addAuctionLog(AuctionLog auctionLog) {
+		auctionLog.setAuctionlogs(this);
+		this.auctionLogs.add(auctionLog);
 	}
 
 	public void setAuctionLogs(Set<AuctionLog> auctionLogs) {

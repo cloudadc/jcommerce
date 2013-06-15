@@ -1,5 +1,6 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
@@ -7,11 +8,20 @@ package com.jcommerce.core.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-/**
- * list all goods type
- */
+
+@Entity
+@Table(name = "goods_type", catalog = "ishop")
 public class GoodsType extends ModelObject {
+
+	private static final long serialVersionUID = -8336026671358179797L;
 	// liyong: keep same as in client side model constants, i.e. IGoodsType
 	public static final String ID = "id";
 	public static final String NAME = "name";
@@ -24,15 +34,19 @@ public class GoodsType extends ModelObject {
 	private Set<Attribute> attributes = new HashSet<Attribute>();
 	private int attrCount;
 	
+	private Set<Goods> goodss = new HashSet<Goods>();
+	
 	
     /**
      * ',' separated groups
      */
 	private String attributeGroup;
 
-   public String getName() {
-        return name;
-    }
+	@Basic( optional = true )
+	@Column( name = "type_name", length = 60  )
+	public String getName() {
+		return name;
+	}
 
     public void setName(String name) {
         this.name = name;
@@ -46,6 +60,8 @@ public class GoodsType extends ModelObject {
         this.enabled = enabled;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_group", length = 255  )
     public String getAttributeGroup() {
         return attributeGroup;
     }
@@ -75,6 +91,10 @@ public class GoodsType extends ModelObject {
         setAttributeGroup(sb.toString());
     }
 
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goodsType"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "cat_id", nullable = false  )
 	public Set<Attribute> getAttributes() {
 		return attributes;
 	}
@@ -89,5 +109,23 @@ public class GoodsType extends ModelObject {
 
 	public void setAttrCount(int attrcount) {
 		this.attrCount = attrcount;
+	}
+	
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "type"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "cat_id", nullable = false  )
+	public Set<Goods> getGoodss() {
+		return this.goodss;
+		
+	}
+	
+	public void addGoods(Goods goods) {
+		goods.setType(this);
+		this.goodss.add(goods);
+	}
+	
+	public void setGoodss(final Set<Goods> goods) {
+		this.goodss = goods;
 	}
 }

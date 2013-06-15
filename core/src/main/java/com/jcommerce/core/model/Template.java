@@ -1,9 +1,20 @@
+/**
+ * @author Kylin Soong
+ */
 package com.jcommerce.core.model;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "template", catalog = "ishop")
 public class Template extends ModelObject {
 
-    private String filename; 
+	private static final long serialVersionUID = 4926760182287283078L;
+
+	private String filename; 
 
     private String region; 
     
@@ -22,6 +33,8 @@ public class Template extends ModelObject {
 	public Template() {
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
     public String getFilename() {
         return filename;
     }
@@ -30,6 +43,8 @@ public class Template extends ModelObject {
         this.filename = filename;
     }
 
+    @Basic( optional = true )
+	@Column( length = 255  )
     public String getRegion() {
         return region;
     }
@@ -38,6 +53,8 @@ public class Template extends ModelObject {
         this.region = region;
     }
 
+    @Basic( optional = true )
+	@Column( length = 255  )
     public String getLibrary() {
         return library;
     }

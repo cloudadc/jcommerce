@@ -1,13 +1,26 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong	
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "affiliate_log", catalog = "ishop")
 public class AffiliateLog extends ModelObject {
 
+	private static final long serialVersionUID = -2396249717828311768L;
 	public static final int SEPARATE_BY_REGISTER = 0; // 推荐注册分成
 	public static final int SEPARATE_BY_ORDER = 1; // 推荐订单分成
 
@@ -21,6 +34,10 @@ public class AffiliateLog extends ModelObject {
 	 */
 	private int separateType;
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "order_id", nullable = true )
 	public Order getOrder() {
 		return order;
 	}
@@ -37,6 +54,10 @@ public class AffiliateLog extends ModelObject {
 		this.time = time;
 	}
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "user_id", nullable = true )
 	public User getUser() {
 		return user;
 	}
@@ -61,6 +82,8 @@ public class AffiliateLog extends ModelObject {
 		this.points = points;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "separate_type"  )
 	public int getSeparateType() {
 		return separateType;
 	}

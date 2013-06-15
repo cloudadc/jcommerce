@@ -1,14 +1,23 @@
 /**
  * Author: Bob Chen
+ * 		   Kylin Soong	
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "admin_message", catalog = "ishop")
 public class AdminMessage extends ModelObject {
-    
-    private int senderID; // can be a user ID or a admin ID
+
+	private static final long serialVersionUID = -2014815197374233891L;
+	private int senderID; // can be a user ID or a admin ID
     private int receiverID; // can be a user ID or a admin ID
     private Timestamp sentTime;
     private Timestamp readTime;
@@ -17,6 +26,8 @@ public class AdminMessage extends ModelObject {
     private String title;
     private String message;
 
+    @Basic( optional = true )
+	@Column( name = "sender_id"  )
     public int getSenderID() {
         return senderID;
     }
@@ -25,6 +36,8 @@ public class AdminMessage extends ModelObject {
         this.senderID = senderID;
     }
 
+    @Basic( optional = true )
+	@Column( name = "receiver_id"  )
     public int getReceiverID() {
         return receiverID;
     }
@@ -33,6 +46,8 @@ public class AdminMessage extends ModelObject {
         this.receiverID = receiverID;
     }
 
+    @Basic( optional = true )
+	@Column( name = "sent_time"  )
     public Timestamp getSentTime() {
         return sentTime;
     }
@@ -41,6 +56,8 @@ public class AdminMessage extends ModelObject {
         this.sentTime = sentTime;
     }
 
+    @Basic( optional = true )
+	@Column( name = "read_time"  )
     public Timestamp getReadTime() {
         return readTime;
     }
@@ -65,6 +82,8 @@ public class AdminMessage extends ModelObject {
         this.deleted = deleted;
     }
 
+    @Basic( optional = true )
+	@Column( length = 150  )
     public String getTitle() {
         return title;
     }
@@ -73,6 +92,8 @@ public class AdminMessage extends ModelObject {
         this.title = title;
     }
 
+    @Basic( optional = true )
+	@Column( length = 2147483647  )
     public String getMessage() {
         return message;
     }

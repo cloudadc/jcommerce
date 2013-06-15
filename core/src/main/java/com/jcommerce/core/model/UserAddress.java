@@ -1,11 +1,24 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user_address", catalog = "ishop")
 public class UserAddress extends ModelObject {
-    
+
+	private static final long serialVersionUID = -1114771675933755636L;
 	private User user;
 	private String name;
 	private String consignee;
@@ -26,6 +39,10 @@ public class UserAddress extends ModelObject {
      */
 	private String bestTime;
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "user_id", nullable = true )
     public User getUser() {
         return user;
     }
@@ -34,6 +51,8 @@ public class UserAddress extends ModelObject {
         this.user = user;
     }
 
+    @Basic( optional = true )
+	@Column( name = "address_name", length = 60  )
     public String getName() {
         return name;
     }
@@ -42,6 +61,8 @@ public class UserAddress extends ModelObject {
         this.name = name;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getConsignee() {
         return consignee;
     }
@@ -50,6 +71,8 @@ public class UserAddress extends ModelObject {
         this.consignee = consignee;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getEmail() {
         return email;
     }
@@ -58,6 +81,10 @@ public class UserAddress extends ModelObject {
         this.email = email;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "region_id", nullable = true )
     public Region getRegion() {
         return region;
     }
@@ -66,6 +93,8 @@ public class UserAddress extends ModelObject {
         this.region = region;
     }
 
+    @Basic( optional = true )
+	@Column( length = 120  )
     public String getAddress() {
         return address;
     }
@@ -74,6 +103,8 @@ public class UserAddress extends ModelObject {
         this.address = address;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getZip() {
         return zip;
     }
@@ -82,6 +113,8 @@ public class UserAddress extends ModelObject {
         this.zip = zip;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getPhone() {
         return phone;
     }
@@ -98,6 +131,8 @@ public class UserAddress extends ModelObject {
         this.mobile = mobile;
     }
 
+    @Basic( optional = true )
+	@Column( name = "sign_building", length = 120  )
     public String getSignBuilding() {
         return signBuilding;
     }
@@ -106,6 +141,8 @@ public class UserAddress extends ModelObject {
         this.signBuilding = signBuilding;
     }
 
+    @Basic( optional = true )
+	@Column( name = "best_time", length = 120  )
     public String getBestTime() {
         return bestTime;
     }

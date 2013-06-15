@@ -1,11 +1,28 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "attribute", catalog = "ishop")
 public class Attribute extends ModelObject {
-    
+
+	private static final long serialVersionUID = 2974594682841895389L;
 	public static final int TYPE_NEEDNOTSELECT = 0; 
     public static final int TYPE_NEEDSELECT = 1; 
 
@@ -32,7 +49,15 @@ public class Attribute extends ModelObject {
      */
     private boolean linked;
     private int group;
+    
+    private Set<Category> categories = new HashSet<Category>();
+    
+    private Set<GoodsAttribute> goodsAttributes = new HashSet<GoodsAttribute>();
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "cat_id", nullable = true )
     public GoodsType getGoodsType() {
         return goodsType;
     }
@@ -41,6 +66,8 @@ public class Attribute extends ModelObject {
         this.goodsType = goodsType;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_name", length = 60  )
     public String getName() {
         return name;
     }
@@ -49,6 +76,8 @@ public class Attribute extends ModelObject {
         this.name = name;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_input_type"  )
     public int getInputType() {
         return inputType;
     }
@@ -57,6 +86,8 @@ public class Attribute extends ModelObject {
         this.inputType = inputType;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_type"  )
     public int getType() {
         return type;
     }
@@ -65,6 +96,8 @@ public class Attribute extends ModelObject {
         this.type = type;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_values", length = 2147483647  )
     public String getValues() {
         return values;
     }
@@ -73,6 +106,8 @@ public class Attribute extends ModelObject {
         this.values = values;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_index"  )
     public int getIndex() {
         return index;
     }
@@ -81,6 +116,8 @@ public class Attribute extends ModelObject {
         this.index = index;
     }
 
+    @Basic( optional = true )
+	@Column( name = "sort_order"  )
     public int getSortOrder() {
         return sortOrder;
     }
@@ -89,6 +126,8 @@ public class Attribute extends ModelObject {
         this.sortOrder = sortOrder;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_linked"  )
     public boolean isLinked() {
         return linked;
     }
@@ -97,6 +136,8 @@ public class Attribute extends ModelObject {
         this.linked = linked;
     }
 
+    @Basic( optional = true )
+	@Column( name = "attr_group"  )
     public int getGroup() {
         return group;
     }
@@ -104,5 +145,39 @@ public class Attribute extends ModelObject {
     public void setGroup(int group) {
         this.group = group;
     }
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "filterAttribute"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "attr_id", nullable = false  )
+	public Set<Category> getCategories() {
+		return this.categories;
+	}
+    
+    public void addCategory(Category category) {
+		category.setFilterAttribute(this);
+		this.categories.add(category);
+	}
+    
+    public void setCategories(final Set<Category> category) {
+		this.categories = category;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "attribute"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "attr_id", nullable = false  )
+	public Set<GoodsAttribute> getGoodsAttributes() {
+		return this.goodsAttributes;
+	}
+    
+    public void addGoodsAttribute(GoodsAttribute goodsAttribute) {
+		goodsAttribute.setAttribute(this);
+		this.goodsAttributes.add(goodsAttribute);
+	}
+    
+    public void setGoodsAttributes(final Set<GoodsAttribute> goodsAttribute) {
+		this.goodsAttributes = goodsAttribute;
+	}
 
 }

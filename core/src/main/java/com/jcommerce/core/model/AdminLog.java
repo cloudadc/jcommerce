@@ -1,17 +1,35 @@
 /**
  * Author: Bob Chen
+ * 		   Kylin Soong	
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "admin_log", catalog = "ishop")
 public class AdminLog extends ModelObject {
+
+	private static final long serialVersionUID = -5974083167005213396L;
 	private User user;
 	private Timestamp logTime;
 	private String logInfo;
 	private String IP;
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "user_id", nullable = true )
 	public User getUser() {
 		return user;
 	}
@@ -20,6 +38,8 @@ public class AdminLog extends ModelObject {
 		this.user = user;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "log_time"  )
 	public Timestamp getLogTime() {
 		return logTime;
 	}
@@ -28,6 +48,8 @@ public class AdminLog extends ModelObject {
 		this.logTime = logTime;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "log_info", length = 255  )
 	public String getLogInfo() {
 		return logInfo;
 	}
@@ -36,6 +58,8 @@ public class AdminLog extends ModelObject {
 		this.logInfo = logInfo;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "ip_address", length = 15  )
 	public String getIP() {
 		return IP;
 	}

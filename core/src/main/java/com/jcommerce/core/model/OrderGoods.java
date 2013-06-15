@@ -1,11 +1,28 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "order_goods", catalog = "ishop")
 public class OrderGoods extends ModelObject {
-    
+
+	private static final long serialVersionUID = -3030064402133914530L;
 	private Order order;
 	private Goods goods;
 	private String goodsName;
@@ -19,7 +36,13 @@ public class OrderGoods extends ModelObject {
 	private boolean gift;
 	private String extensionCode;
 	private OrderGoods parent;
+	
+	private Set<OrderGoods> orderGoodss = new HashSet<OrderGoods>();
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "order_id", nullable = true )
     public Order getOrder() {
         return order;
     }
@@ -28,6 +51,10 @@ public class OrderGoods extends ModelObject {
         this.order = order;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "goods_id", nullable = true )
     public Goods getGoods() {
         return goods;
     }
@@ -36,6 +63,8 @@ public class OrderGoods extends ModelObject {
         this.goods = goods;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_name", length = 120  )
     public String getGoodsName() {
         return goodsName;
     }
@@ -44,6 +73,8 @@ public class OrderGoods extends ModelObject {
         this.goodsName = goodsName;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_sn", length = 60  )
     public String getGoodsSN() {
         return goodsSN;
     }
@@ -52,6 +83,8 @@ public class OrderGoods extends ModelObject {
         this.goodsSN = goodsSN;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_number"  )
     public int getGoodsNumber() {
         return goodsNumber;
     }
@@ -60,6 +93,8 @@ public class OrderGoods extends ModelObject {
         this.goodsNumber = goodsNumber;
     }
 
+    @Basic( optional = true )
+	@Column( name = "market_price"  )
     public double getMarketPrice() {
         return marketPrice;
     }
@@ -68,6 +103,8 @@ public class OrderGoods extends ModelObject {
         this.marketPrice = marketPrice;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_price"  )
     public double getGoodsPrice() {
         return goodsPrice;
     }
@@ -76,6 +113,8 @@ public class OrderGoods extends ModelObject {
         this.goodsPrice = goodsPrice;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_attr", length = 2147483647  )
     public String getGoodsAttribute() {
         return goodsAttribute;
     }
@@ -84,6 +123,8 @@ public class OrderGoods extends ModelObject {
         this.goodsAttribute = goodsAttribute;
     }
 
+    @Basic( optional = true )
+	@Column( name = "send_number"  )
     public int getSendNumber() {
         return sendNumber;
     }
@@ -92,6 +133,8 @@ public class OrderGoods extends ModelObject {
         this.sendNumber = sendNumber;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_real"  )
     public boolean isRealGoods() {
         return realGoods;
     }
@@ -100,6 +143,8 @@ public class OrderGoods extends ModelObject {
         this.realGoods = realGoods;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_gift"  )
     public boolean isGift() {
         return gift;
     }
@@ -108,6 +153,8 @@ public class OrderGoods extends ModelObject {
         this.gift = gift;
     }
 
+    @Basic( optional = true )
+	@Column( name = "extension_code", length = 30  )
     public String getExtensionCode() {
         return extensionCode;
     }
@@ -116,6 +163,10 @@ public class OrderGoods extends ModelObject {
         this.extensionCode = extensionCode;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "parent_id", nullable = true )
     public OrderGoods getParent() {
         return parent;
     }
@@ -128,4 +179,21 @@ public class OrderGoods extends ModelObject {
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "parent"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "rec_id", nullable = false  )
+	public Set<OrderGoods> getOrderGoodss() {
+		return this.orderGoodss;
+	}
+    
+    public void addOrderGoods(OrderGoods orderGoods) {
+		orderGoods.setParent(this);
+		this.orderGoodss.add(orderGoods);
+	}
+    
+    public void setOrderGoodss(final Set<OrderGoods> orderGoods) {
+		this.orderGoodss = orderGoods;
+	}
 }

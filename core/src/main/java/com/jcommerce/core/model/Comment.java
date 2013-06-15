@@ -1,11 +1,28 @@
+/**
+* Author: Kylin Soong
+*         
+*/
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "comment", catalog = "ishop")
 public class Comment extends ModelObject {
 
+	private static final long serialVersionUID = -6671573012929381400L;
 	public static final int COMMENTTYPE_GOODS=0;//评论商品
 	public static final int COMMENTTYPE_ARTICLE=1;//评论文章		
 	
@@ -20,8 +37,10 @@ public class Comment extends ModelObject {
 	private String ipAddress;//评论人的IP
 	private boolean status;//是否允许显示评论
 	private Comment parent;
-	Set<Comment> children = new HashSet<Comment>();
-
+	private Set<Comment> children = new HashSet<Comment>();
+	
+	@Basic( optional = true )
+	@Column( name = "comment_type"  )
 	public int getCommentType() {
 		return commentType;
 	}
@@ -30,6 +49,8 @@ public class Comment extends ModelObject {
 		this.commentType = commentType;
 	}
 	
+	@Basic( optional = true )
+	@Column( name = "id_value", length = 255  )
 	public String getIdValue() {
 		return idValue;
 	}
@@ -38,6 +59,8 @@ public class Comment extends ModelObject {
 		this.idValue = idValue;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 60  )
 	public String getEmail() {
 		return email;
 	}
@@ -46,6 +69,10 @@ public class Comment extends ModelObject {
 		this.email = email;
 	}
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "user_id", nullable = true )
 	public User getUser() {
 		return user;
 	}
@@ -54,6 +81,8 @@ public class Comment extends ModelObject {
 		this.user = user;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 2147483647  )
 	public String getContent() {
 		return content;
 	}
@@ -62,6 +91,8 @@ public class Comment extends ModelObject {
 		this.content = content;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "comment_rank"  )
 	public int getCommentRank() {
 		return commentRank;
 	}
@@ -70,6 +101,8 @@ public class Comment extends ModelObject {
 		this.commentRank = commentRank;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "add_time"  )
 	public Timestamp getAddTime() {
 		return addTime;
 	}
@@ -78,6 +111,8 @@ public class Comment extends ModelObject {
 		this.addTime = addTime;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "ip_address", length = 15  )
 	public String getIpAddress() {
 		return ipAddress;
 	}
@@ -94,6 +129,10 @@ public class Comment extends ModelObject {
 		this.status = status;
 	}
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "parent_id", nullable = true )
 	public Comment getParent() {
 		return parent;
 	}
@@ -112,6 +151,10 @@ public class Comment extends ModelObject {
 		}
 	}
 
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "parent"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "comment_id", nullable = false  )
 	public Set<Comment> getChildren() {
 		return children;
 	}
@@ -134,6 +177,8 @@ public class Comment extends ModelObject {
 		child.parent = null;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "user_name", length = 60  )
 	public String getUserName() {
 		return userName;
 	}

@@ -1,5 +1,6 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
@@ -7,14 +8,28 @@ package com.jcommerce.core.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "shipping_area", catalog = "ishop")
 public class ShippingArea extends ModelObject {
-    
+
+	private static final long serialVersionUID = -6017351801667054609L;
 	private String name;
 	private Shipping shipping;
 	private String config;
 	private Set<Region> regions = new HashSet<Region>();
 
+	@Basic( optional = true )
+	@Column( name = "shipping_area_name", length = 150  )
     public String getName() {
         return name;
     }
@@ -23,6 +38,10 @@ public class ShippingArea extends ModelObject {
         this.name = name;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "shipping_id", nullable = true )
     public Shipping getShipping() {
         return shipping;
     }
@@ -31,6 +50,8 @@ public class ShippingArea extends ModelObject {
         this.shipping = shipping;
     }
 
+    @Basic( optional = true )
+	@Column( length = 2147483647  )
     public String getConfig() {
         return config;
     }
@@ -39,6 +60,10 @@ public class ShippingArea extends ModelObject {
         this.config = config;
     }
 
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "id.shippingArea"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "shipping_area_id", nullable = false  )
     public Set<Region> getRegions() {
         return regions;
     }

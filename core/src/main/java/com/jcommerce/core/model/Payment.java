@@ -1,11 +1,26 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "payment", catalog = "ishop")
 public class Payment extends ModelObject {
     
+	private static final long serialVersionUID = 4013558398428845761L;
 	/**
 	 * the payment code
 	 */
@@ -24,7 +39,12 @@ public class Payment extends ModelObject {
 	private boolean enabled;
 	private boolean cod;
 	private boolean online;
+	
+	private Set<Order> orders = new HashSet<Order>();
 
+	
+	@Basic( optional = true )
+	@Column( name = "pay_code", length = 20  )
     public String getCode() {
         return code;
     }
@@ -33,6 +53,8 @@ public class Payment extends ModelObject {
         this.code = code;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_name", length = 120  )
     public String getName() {
         return name;
     }
@@ -41,6 +63,8 @@ public class Payment extends ModelObject {
         this.name = name;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_fee", length = 10  )
     public String getFee() {
         return fee;
     }
@@ -49,6 +73,8 @@ public class Payment extends ModelObject {
         this.fee = fee;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_desc", length = 2147483647  )
     public String getDescription() {
         return description;
     }
@@ -57,6 +83,8 @@ public class Payment extends ModelObject {
         this.description = description;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_order"  )
     public int getOrder() {
         return order;
     }
@@ -65,6 +93,8 @@ public class Payment extends ModelObject {
         this.order = order;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_config", length = 2147483647  )
     public String getConfig() {
         return config;
     }
@@ -81,6 +111,8 @@ public class Payment extends ModelObject {
         this.enabled = enabled;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_cod"  )
     public boolean isCod() {
         return cod;
     }
@@ -89,6 +121,8 @@ public class Payment extends ModelObject {
         this.cod = cod;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_online"  )
     public boolean isOnline() {
         return online;
     }
@@ -96,5 +130,22 @@ public class Payment extends ModelObject {
     public void setOnline(boolean online) {
         this.online = online;
     }
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "payment"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "pay_id", nullable = false  )
+	public Set<Order> getOrders() {
+		return this.orders;
+	}
+    
+    public void addOrder(Order order) {
+		order.setPayment(this);
+		this.orders.add(order);
+	}
+    
+    public void setOrders(final Set<Order> order) {
+		this.orders = order;
+	}
 
 }

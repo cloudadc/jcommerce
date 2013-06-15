@@ -1,12 +1,21 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "crons", catalog = "ishop")
 public class Crons extends ModelObject {
 
+	private static final long serialVersionUID = -1636939899692014524L;
 	private String cronCode;
 	private String cronName;
 	private String cronDesc;
@@ -23,6 +32,8 @@ public class Crons extends ModelObject {
 	private String allowIp;
 	private String allowFiles;
 
+	@Basic( optional = true )
+	@Column( name = "cron_code", length = 20  )
 	public String getCronCode() {
 		return cronCode;
 	}
@@ -35,10 +46,14 @@ public class Crons extends ModelObject {
 		return cronName;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "cron_name", length = 120  )
 	public void setCronName(String cronName) {
 		this.cronName = cronName;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "cron_desc", length = 2147483647  )
 	public String getCronDesc() {
 		return cronDesc;
 	}
@@ -47,6 +62,8 @@ public class Crons extends ModelObject {
 		this.cronDesc = cronDesc;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "cron_config", length = 2147483647  )
 	public String getCronConfig() {
 		return cronConfig;
 	}
@@ -55,6 +72,8 @@ public class Crons extends ModelObject {
 		this.cronConfig = cronConfig;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "cron_order"  )
 	public int getCronOrder() {
 		return cronOrder;
 	}
@@ -111,6 +130,8 @@ public class Crons extends ModelObject {
 		this.enable = enable;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "run_once"  )
 	public boolean isRunOnce() {
 		return runOnce;
 	}
@@ -119,6 +140,8 @@ public class Crons extends ModelObject {
 		this.runOnce = runOnce;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "allow_ip", length = 100  )
 	public String getAllowIp() {
 		return allowIp;
 	}
@@ -127,6 +150,8 @@ public class Crons extends ModelObject {
 		this.allowIp = allowIp;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "allow_files", length = 255  )
 	public String getAllowFiles() {
 		return allowFiles;
 	}
@@ -135,6 +160,8 @@ public class Crons extends ModelObject {
 		this.allowFiles = allowFiles;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getMinutes() {
 		return minutes;
 	}

@@ -1,21 +1,37 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
-/**
- * list all user ranks
- */
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user_rank", catalog = "ishop")
 public class UserRank extends ModelObject {
     
+	private static final long serialVersionUID = 6457926922216743644L;
 	private String name;
 	private int maxPoints;
 	private int minPoints;
 	private int discount;
 	private boolean showPrice;
 	private boolean special;
+	
+	private Set<MemberPrice> memberPrices = new HashSet<MemberPrice>();
 
+	@Basic( optional = true )
+	@Column( name = "rank_name", length = 255  )
     public String getName() {
         return name;
     }
@@ -63,5 +79,13 @@ public class UserRank extends ModelObject {
     public void setSpecial(boolean special) {
         this.special = special;
     }
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "userRank"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "rank_id", nullable = false  )
+	public Set<MemberPrice> getMemberPrices() {
+		return this.memberPrices;
+	}
 
 }

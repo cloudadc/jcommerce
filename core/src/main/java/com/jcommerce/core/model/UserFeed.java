@@ -1,9 +1,15 @@
 package com.jcommerce.core.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "user_feed", catalog = "ishop")
 public class UserFeed extends ModelObject {
 
-    private String feedId; 
+	private static final long serialVersionUID = -3938981382116493310L;
+
+	private String feedId; 
 
     private String userId; 
 

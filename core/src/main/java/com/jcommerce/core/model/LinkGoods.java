@@ -1,11 +1,30 @@
+/**
+ * @author Kylin Soong        
+ */
+
 package com.jcommerce.core.model;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "link_goods", catalog = "ishop")
 public class LinkGoods extends ModelObject {
 
+	private static final long serialVersionUID = 8055798240607199627L;
 	private Goods goods;
 	private Goods linkGoods;//相关货物
 	private boolean bidirectional;//是否是双向的
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "goods_id", nullable = true )
 	public Goods getGoods() {
 		return goods;
 	}
@@ -14,6 +33,10 @@ public class LinkGoods extends ModelObject {
 		this.goods = goods;
 	}
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "link_goods_id", nullable = true )
 	public Goods getLinkGoods() {
 		return linkGoods;
 	}

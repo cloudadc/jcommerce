@@ -2,6 +2,10 @@ package com.jcommerce.core.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Id;
+
 
 /**
  * Base class for Model objects.  This is basically for the toString, equals
@@ -9,8 +13,14 @@ import java.io.Serializable;
  *
  */
 public class ModelObject implements Serializable {
-    private String id;
+
+	private static final long serialVersionUID = -8291709224651447583L;
+	
+	private String id;
     
+	@Id 
+	@Basic( optional = false )
+	@Column( name = "id", nullable = false, length = 32  )
     public String getId() {
         return id;
     }

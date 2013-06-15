@@ -1,13 +1,20 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "failed_login", catalog = "ishop")
 public class FailedLogin extends ModelObject {
     
+	private static final long serialVersionUID = 230387268219813902L;
 	private int count;
 	private Timestamp lastUpdate;
 

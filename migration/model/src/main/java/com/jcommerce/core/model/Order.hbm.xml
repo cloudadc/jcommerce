@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
 <hibernate-mapping>
- <class name="com.jcommerce.core.model.Order" table="order" >
+ <class name="com.jcommerce.core.model.Order" table="order_" >
   <id name="id" column="order_id" type="string" length="32">
    <generator class="uuid.hex" />
   </id>

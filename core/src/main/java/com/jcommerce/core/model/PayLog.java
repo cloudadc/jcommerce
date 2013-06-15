@@ -1,11 +1,25 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pay_log", catalog = "ishop")
 public class PayLog extends ModelObject {
-    public static final int PAY_ORDER = Constants.PAY_ORDER; // 订单支付
+ 
+	private static final long serialVersionUID = 8165094258736858164L;
+	public static final int PAY_ORDER = Constants.PAY_ORDER; // 订单支付
     public static final int PAY_SURPLUS = Constants.PAY_SURPLUS; // 会员预付款
     
     private Order order;
@@ -13,6 +27,10 @@ public class PayLog extends ModelObject {
     private int orderType;
     private boolean paid;
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "order_id", nullable = true )
     public Order getOrder() {
         return order;
     }
@@ -21,6 +39,8 @@ public class PayLog extends ModelObject {
         this.order = order;
     }
 
+    @Basic( optional = true )
+	@Column( name = "order_amount"  )
     public double getOrderAmount() {
         return orderAmount;
     }
@@ -29,6 +49,8 @@ public class PayLog extends ModelObject {
         this.orderAmount = orderAmount;
     }
 
+    @Basic( optional = true )
+	@Column( name = "order_type"  )
     public int getOrderType() {
         return orderType;
     }
@@ -37,6 +59,8 @@ public class PayLog extends ModelObject {
         this.orderType = orderType;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_paid"  )
     public boolean isPaid() {
         return paid;
     }

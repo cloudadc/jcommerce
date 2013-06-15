@@ -1,11 +1,25 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cart", catalog = "ishop")
 public class Cart extends ModelObject {
-    public static final int TYPE_GENERAL_GOODS = Constants.CART_GENERAL_GOODS; // 普通商品
+	
+	private static final long serialVersionUID = 9116340581945936142L;
+	public static final int TYPE_GENERAL_GOODS = Constants.CART_GENERAL_GOODS; // 普通商品
     public static final int TYPE_GROUP_BUY_GOODS = Constants.CART_GROUP_BUY_GOODS; // 团购商品
     public static final int TYPE_AUCTION_GOODS = Constants.CART_AUCTION_GOODS; // 拍卖商品
     public static final int TYPE_SNATCH_GOODS = Constants.CART_SNATCH_GOODS; // 夺宝奇兵
@@ -29,6 +43,10 @@ public class Cart extends ModelObject {
     private boolean handSelectable;
     private String goodsAttribute;
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "user_id", nullable = true )
     public User getUser() {
         return user;
     }
@@ -37,6 +55,10 @@ public class Cart extends ModelObject {
         this.user = user;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "session_id", nullable = true )
     public Session getSession() {
         return session;
     }
@@ -45,6 +67,10 @@ public class Cart extends ModelObject {
         this.session = session;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "goods_id", nullable = true )
     public Goods getGoods() {
         return goods;
     }
@@ -53,6 +79,8 @@ public class Cart extends ModelObject {
         this.goods = goods;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_attr", length = 255  )
     public String getGoodsAttribute() {
         return goodsAttribute;
     }
@@ -61,6 +89,8 @@ public class Cart extends ModelObject {
         this.goodsAttribute = goodsAttribute;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_sn", length = 2147483647  )
     public String getGoodsSN() {
         return goodsSN;
     }
@@ -69,6 +99,8 @@ public class Cart extends ModelObject {
         this.goodsSN = goodsSN;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_name", length = 255  )
     public String getGoodsName() {
         return goodsName;
     }
@@ -77,6 +109,8 @@ public class Cart extends ModelObject {
         this.goodsName = goodsName;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_weight"  )
     public double getGoodsWeight() {
         return goodsWeight;
     }
@@ -85,6 +119,8 @@ public class Cart extends ModelObject {
         this.goodsWeight = goodsWeight;
     }
 
+    @Basic( optional = true )
+	@Column( name = "market_price"  )
     public double getMarketPrice() {
         return marketPrice;
     }
@@ -93,6 +129,8 @@ public class Cart extends ModelObject {
         this.marketPrice = marketPrice;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_price"  )
     public double getGoodsPrice() {
         return goodsPrice;
     }
@@ -101,6 +139,8 @@ public class Cart extends ModelObject {
         this.goodsPrice = goodsPrice;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_number"  )
     public int getGoodsNumber() {
         return goodsNumber;
     }
@@ -109,6 +149,8 @@ public class Cart extends ModelObject {
         this.goodsNumber = goodsNumber;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_real"  )
     public boolean isRealGoods() {
         return realGoods;
     }
@@ -117,6 +159,8 @@ public class Cart extends ModelObject {
         this.realGoods = realGoods;
     }
 
+    @Basic( optional = true )
+	@Column( name = "extension_code", length = 255  )
     public String getExtensionCode() {
         return extensionCode;
     }
@@ -133,6 +177,8 @@ public class Cart extends ModelObject {
         this.parent = parent;
     }
 
+    @Basic( optional = true )
+	@Column( name = "rec_type"  )
     public int getType() {
         return type;
     }
@@ -141,6 +187,8 @@ public class Cart extends ModelObject {
         this.type = type;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_gift"  )
     public boolean isGift() {
         return gift;
     }
@@ -149,6 +197,8 @@ public class Cart extends ModelObject {
         this.gift = gift;
     }
 
+    @Basic( optional = true )
+	@Column( name = "can_handsel"  )
     public boolean isHandSelectable() {
         return handSelectable;
     }
@@ -157,6 +207,8 @@ public class Cart extends ModelObject {
         this.handSelectable = handSelectable;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_thumb", length = 255  )
     public String getGoodsThumb() {
         return goodsThumb;
     }

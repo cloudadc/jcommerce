@@ -1,16 +1,33 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "vote_log", catalog = "ishop")
 public class VoteLog extends ModelObject {
 
+	private static final long serialVersionUID = -1104564581909521592L;
 	private Vote vote;
 	private String ipAddress;
 	private Timestamp voteTime;
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "vote_id", nullable = true )
 	public Vote getVote() {
 		return vote;
 	}
@@ -19,6 +36,8 @@ public class VoteLog extends ModelObject {
 		this.vote = vote;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "ip_address", length = 15  )
 	public String getIpAddress() {
 		return ipAddress;
 	}

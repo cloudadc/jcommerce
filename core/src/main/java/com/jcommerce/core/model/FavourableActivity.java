@@ -1,12 +1,21 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "favourable_activity", catalog = "ishop")
 public class FavourableActivity extends ModelObject {
 
+	private static final long serialVersionUID = -6115458983506628497L;
 	public static final int ACTRANGE_ALL = 0;//所有商品优惠
 	public static final int ACTRANGE_FOLLOWCATEGORY = 1;//以下类别优惠
 	public static final int ACTRANGE_FOLLOWBRAND = 2;//以下品牌优惠
@@ -28,6 +37,8 @@ public class FavourableActivity extends ModelObject {
 	private String gift;
 	private int sortOrder;
 
+	@Basic( optional = true )
+	@Column( name = "act_name", length = 255  )
 	public String getActName() {
 		return actName;
 	}
@@ -36,6 +47,8 @@ public class FavourableActivity extends ModelObject {
 		this.actName = actName;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "start_time"  )
 	public Timestamp getStartTime() {
 		return startTime;
 	}
@@ -44,6 +57,8 @@ public class FavourableActivity extends ModelObject {
 		this.startTime = startTime;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "end_time"  )
 	public Timestamp getEndTime() {
 		return endTime;
 	}
@@ -52,6 +67,8 @@ public class FavourableActivity extends ModelObject {
 		this.endTime = endTime;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "user_rank", length = 255  )
 	public String getUserRank() {
 		return userRank;
 	}
@@ -60,6 +77,8 @@ public class FavourableActivity extends ModelObject {
 		this.userRank = userRank;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "act_range"  )
 	public int getActRange() {
 		return actRange;
 	}
@@ -68,6 +87,8 @@ public class FavourableActivity extends ModelObject {
 		this.actRange = actRange;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "act_range_ext", length = 255  )
 	public String getActRangeExt() {
 		return actRangeExt;
 	}
@@ -76,6 +97,8 @@ public class FavourableActivity extends ModelObject {
 		this.actRangeExt = actRangeExt;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "min_amount"  )
 	public double getMinAmount() {
 		return minAmount;
 	}
@@ -84,6 +107,8 @@ public class FavourableActivity extends ModelObject {
 		this.minAmount = minAmount;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "max_amount"  )
 	public double getMaxAmount() {
 		return maxAmount;
 	}
@@ -92,6 +117,8 @@ public class FavourableActivity extends ModelObject {
 		this.maxAmount = maxAmount;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "act_type"  )
 	public int getActType() {
 		return actType;
 	}
@@ -100,6 +127,8 @@ public class FavourableActivity extends ModelObject {
 		this.actType = actType;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "act_type_ext"  )
 	public double getActTypeExt() {
 		return actTypeExt;
 	}
@@ -108,6 +137,8 @@ public class FavourableActivity extends ModelObject {
 		this.actTypeExt = actTypeExt;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 2147483647  )
 	public String getGift() {
 		return gift;
 	}
@@ -116,6 +147,8 @@ public class FavourableActivity extends ModelObject {
 		this.gift = gift;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "sort_order"  )
 	public int getSortOrder() {
 		return sortOrder;
 	}

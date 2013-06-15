@@ -1,16 +1,22 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
-/**
- * Visit log
- */
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "stats", catalog = "ishop")
 public class Stats extends ModelObject {
-    
+
+	private static final long serialVersionUID = 4132338209757756703L;
 	private Timestamp accessTime;
 	private String IP;
 	private int visitTimes;
@@ -22,6 +28,8 @@ public class Stats extends ModelObject {
 	private String refererPath;
 	private String accessUrl;
 
+	@Basic( optional = true )
+	@Column( name = "access_time"  )
     public Timestamp getAccessTime() {
         return accessTime;
     }
@@ -30,6 +38,8 @@ public class Stats extends ModelObject {
         this.accessTime = accessTime;
     }
 
+    @Basic( optional = true )
+	@Column( name = "ip_address", length = 15  )
     public String getIP() {
         return IP;
     }
@@ -38,6 +48,8 @@ public class Stats extends ModelObject {
         IP = ip;
     }
 
+    @Basic( optional = true )
+	@Column( name = "visit_times"  )
     public int getVisitTimes() {
         return visitTimes;
     }
@@ -46,6 +58,8 @@ public class Stats extends ModelObject {
         this.visitTimes = visitTimes;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getBrowser() {
         return browser;
     }
@@ -54,6 +68,8 @@ public class Stats extends ModelObject {
         this.browser = browser;
     }
 
+    @Basic( optional = true )
+	@Column( length = 20  )
     public String getSystem() {
         return system;
     }
@@ -62,6 +78,8 @@ public class Stats extends ModelObject {
         this.system = system;
     }
 
+    @Basic( optional = true )
+	@Column( length = 20  )
     public String getLanguage() {
         return language;
     }
@@ -70,6 +88,8 @@ public class Stats extends ModelObject {
         this.language = language;
     }
 
+    @Basic( optional = true )
+	@Column( length = 30  )
     public String getArea() {
         return area;
     }
@@ -78,6 +98,8 @@ public class Stats extends ModelObject {
         this.area = area;
     }
 
+    @Basic( optional = true )
+	@Column( name = "referer_domain", length = 100  )
     public String getRefererDomain() {
         return refererDomain;
     }
@@ -86,6 +108,8 @@ public class Stats extends ModelObject {
         this.refererDomain = refererDomain;
     }
 
+    @Basic( optional = true )
+	@Column( name = "referer_path", length = 200  )
     public String getRefererPath() {
         return refererPath;
     }
@@ -94,6 +118,8 @@ public class Stats extends ModelObject {
         this.refererPath = refererPath;
     }
 
+    @Basic( optional = true )
+	@Column( name = "access_url", length = 255  )
     public String getAccessUrl() {
         return accessUrl;
     }

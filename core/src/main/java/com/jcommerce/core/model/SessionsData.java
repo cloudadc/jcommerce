@@ -1,16 +1,27 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "sessions_data", catalog = "ishop")
 public class SessionsData extends ModelObject {
 
+	private static final long serialVersionUID = 7092032939069062524L;
 	private String sesskey;
 	private Timestamp expiry;
 	private String data;
 
+	@Basic( optional = true )
+	@Column( length = 32  )
 	public String getSesskey() {
 		return sesskey;
 	}
@@ -27,6 +38,8 @@ public class SessionsData extends ModelObject {
 		this.expiry = expiry;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 2147483647  )
 	public String getData() {
 		return data;
 	}

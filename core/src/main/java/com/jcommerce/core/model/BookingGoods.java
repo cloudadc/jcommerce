@@ -1,13 +1,26 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "booking_goods", catalog = "ishop")
 public class BookingGoods extends ModelObject {
     
+	private static final long serialVersionUID = -920761604883319608L;
 	private User user;
 	private String email;
 	private String linker;
@@ -21,6 +34,10 @@ public class BookingGoods extends ModelObject {
 	private Timestamp disposeTime;
 	private String disposeNote;
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "user_id", nullable = true )
     public User getUser() {
         return user;
     }
@@ -29,6 +46,8 @@ public class BookingGoods extends ModelObject {
         this.user = user;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getEmail() {
         return email;
     }
@@ -37,6 +56,8 @@ public class BookingGoods extends ModelObject {
         this.email = email;
     }
 
+    @Basic( optional = true )
+	@Column( name = "link_man", length = 60  )
     public String getLinker() {
         return linker;
     }
@@ -45,6 +66,8 @@ public class BookingGoods extends ModelObject {
         this.linker = linker;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getPhone() {
         return phone;
     }
@@ -53,6 +76,10 @@ public class BookingGoods extends ModelObject {
         this.phone = phone;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "goods_id", nullable = true )
     public Goods getGoods() {
         return goods;
     }
@@ -61,6 +88,8 @@ public class BookingGoods extends ModelObject {
         this.goods = goods;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_desc", length = 255  )
     public String getGoodsDescription() {
         return goodsDescription;
     }
@@ -69,6 +98,8 @@ public class BookingGoods extends ModelObject {
         this.goodsDescription = goodsDescription;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_number"  )
     public int getGoodsNumber() {
         return goodsNumber;
     }
@@ -77,6 +108,8 @@ public class BookingGoods extends ModelObject {
         this.goodsNumber = goodsNumber;
     }
 
+    @Basic( optional = true )
+	@Column( name = "booking_time"  )
     public Timestamp getTime() {
         return time;
     }
@@ -85,6 +118,8 @@ public class BookingGoods extends ModelObject {
         this.time = time;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_dispose"  )
     public boolean isDisposed() {
         return disposed;
     }
@@ -93,6 +128,8 @@ public class BookingGoods extends ModelObject {
         this.disposed = disposed;
     }
 
+    @Basic( optional = true )
+	@Column( name = "dispose_user", length = 30  )
     public String getDisposeUser() {
         return disposeUser;
     }
@@ -101,6 +138,8 @@ public class BookingGoods extends ModelObject {
         this.disposeUser = disposeUser;
     }
 
+    @Basic( optional = true )
+	@Column( name = "dispose_time"  )
     public Timestamp getDisposeTime() {
         return disposeTime;
     }
@@ -109,6 +148,8 @@ public class BookingGoods extends ModelObject {
         this.disposeTime = disposeTime;
     }
 
+    @Basic( optional = true )
+	@Column( name = "dispose_note", length = 255  )
     public String getDisposeNote() {
         return disposeNote;
     }

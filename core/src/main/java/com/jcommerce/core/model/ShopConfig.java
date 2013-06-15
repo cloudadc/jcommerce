@@ -1,5 +1,6 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
@@ -7,8 +8,22 @@ package com.jcommerce.core.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "shop_config", catalog = "ishop")
 public class ShopConfig extends ModelObject {
-    public final static int DISPLAY_LIST = 0;
+
+	private static final long serialVersionUID = 8079659670356189625L;
+	public final static int DISPLAY_LIST = 0;
     public final static int DISPLAY_GRID = 1;
     public final static int DISPLAY_TEXT = 2;
 
@@ -38,6 +53,10 @@ public class ShopConfig extends ModelObject {
 	private String value;
 	private int sortOrder;
 
+	@ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "parent_id", nullable = true )
 	public ShopConfig getParent() {
 		return parent;
 	}
@@ -52,6 +71,10 @@ public class ShopConfig extends ModelObject {
 		}
 	}
 
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "parent"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( nullable = false  )
 	public Set<ShopConfig> getChildren() {
 		return children;
 	}
@@ -74,6 +97,8 @@ public class ShopConfig extends ModelObject {
 		child.parent = null;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 30  )
 	public String getCode() {
 		return code;
 	}
@@ -82,6 +107,8 @@ public class ShopConfig extends ModelObject {
 		this.code = code;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 10  )
 	public String getType() {
 		return type;
 	}
@@ -90,6 +117,8 @@ public class ShopConfig extends ModelObject {
 		this.type = type;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "store_range", length = 255  )
 	public String getStoreRange() {
 		return storeRange;
 	}
@@ -98,6 +127,8 @@ public class ShopConfig extends ModelObject {
 		this.storeRange = storeRange;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "store_dir", length = 255  )
 	public String getStoreDir() {
 		return storeDir;
 	}
@@ -106,6 +137,8 @@ public class ShopConfig extends ModelObject {
 		this.storeDir = storeDir;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 2147483647  )
 	public String getValue() {
 		return value;
 	}
@@ -114,6 +147,8 @@ public class ShopConfig extends ModelObject {
 		this.value = value;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "sort_order"  )
 	public int getSortOrder() {
 		return sortOrder;
 	}

@@ -1,12 +1,19 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "auto_manage", catalog = "ishop")
 public class AutoManage extends ModelObject {
 
+	private static final long serialVersionUID = 875311306796552446L;
 	public static final int AUTOTYPE_MANAGEGOODS = 1;//自動處理貨物上架下架
 	public static final int AUTOTYPE_MANAGEARTICLE = 2;//自動處理文章發布撤銷
 

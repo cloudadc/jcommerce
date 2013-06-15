@@ -1,12 +1,21 @@
 /**
  * @author KingZhao
+ *         Kylin Soong
  */
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "topic", catalog = "ishop")
 public class Topic extends ModelObject {
 
+	private static final long serialVersionUID = 7531273570554580848L;
 	private String title;
 	private String intro;
 	private Timestamp startTime;
@@ -15,6 +24,8 @@ public class Topic extends ModelObject {
 	private String template;
 	private String css;
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getTitle() {
 		return title;
 	}
@@ -23,6 +34,8 @@ public class Topic extends ModelObject {
 		this.title = title;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 2147483647  )
 	public String getIntro() {
 		return intro;
 	}
@@ -47,6 +60,8 @@ public class Topic extends ModelObject {
 		this.endTime = endTime;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 2147483647  )
 	public String getData() {
 		return data;
 	}
@@ -55,6 +70,8 @@ public class Topic extends ModelObject {
 		this.data = data;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getTemplate() {
 		return template;
 	}
@@ -63,6 +80,8 @@ public class Topic extends ModelObject {
 		this.template = template;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 2147483647  )
 	public String getCss() {
 		return css;
 	}

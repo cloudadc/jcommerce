@@ -1,5 +1,6 @@
 /**
 * Author: Bob Chen
+*         Kylin Soong
 */
 
 package com.jcommerce.core.model;
@@ -8,8 +9,22 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "goods", catalog = "ishop")
 public class Goods extends ModelObject {
-    private Set<Category> categories = new HashSet<Category>();
+
+	private static final long serialVersionUID = -247792556865375989L;
+	
     private String SN;
     private String name;
     private String nameStyle;
@@ -48,10 +63,25 @@ public class Goods extends ModelObject {
     private String sellerNote;
     private int giveIntegral;
     private Category mainCategory;
+     
+    private Set<Category> categories = new HashSet<Category>();
     private Set<Gallery> galleries = new HashSet<Gallery>();
-    private Set<Article> articles;
     private Set<GoodsAttribute> attributes = new HashSet<GoodsAttribute>();
+    private Set<BookingGoods> bookingGoodss = new HashSet<BookingGoods>();
+    private Set<Cart> carts = new HashSet<Cart>();
+    private Set<CollectGoods> collectGoodss = new HashSet<CollectGoods>();
+    private Set<GoodsActivity> goodsActivities = new HashSet<GoodsActivity>();
+    private Set<GoodsArticle> goodsArticles = new HashSet<GoodsArticle>();
+    private Set<GroupGoods> groupGoodss = new HashSet<GroupGoods>();
+    private Set<LinkGoods> linkGoodss = new HashSet<LinkGoods>();
+    private Set<MemberPrice> memberPrices = new HashSet<MemberPrice>();
+    private Set<OrderGoods> orderGoodss = new HashSet<OrderGoods>();
+    private Set<Tag> tags = new HashSet<Tag>();
+    private Set<VirtualCard> virtualCards = new HashSet<VirtualCard>();
+    private Set<Wholesale> wholesales = new HashSet<Wholesale>();
     
+    @Basic( optional = true )
+	@Column( name = "goods_sn", length = 60  )
     public String getSN() {
         return SN;
     }
@@ -60,6 +90,8 @@ public class Goods extends ModelObject {
         SN = sn;
     }
     
+    @Basic( optional = true )
+	@Column( name = "goods_name", length = 120  )
     public String getName() {
         return name;
     }
@@ -68,6 +100,8 @@ public class Goods extends ModelObject {
         this.name = name;
     }
     
+    @Basic( optional = true )
+	@Column( name = "goods_name_style", length = 60  )
     public String getNameStyle() {
         return nameStyle;
     }
@@ -76,6 +110,8 @@ public class Goods extends ModelObject {
         this.nameStyle = nameStyle;
     }
     
+    @Basic( optional = true )
+	@Column( name = "click_count"  )
     public int getClickCount() {
         return clickCount;
     }
@@ -84,6 +120,10 @@ public class Goods extends ModelObject {
         this.clickCount = clickCount;
     }
     
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "cat_id", nullable = true )
     public Category getMainCategory() {
         return mainCategory;
     }
@@ -92,6 +132,10 @@ public class Goods extends ModelObject {
         this.mainCategory = mainCategory;
     }
 
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goodsList"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
     public Set<Category> getCategories() {
         return categories;
     }
@@ -114,6 +158,10 @@ public class Goods extends ModelObject {
         }
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "brand_id", nullable = true )
     public Brand getBrand() {
         return brand;
     }
@@ -122,6 +170,8 @@ public class Goods extends ModelObject {
         this.brand = brand;
     }
 
+    @Basic( optional = true )
+	@Column( name = "provider_name", length = 100  )
     public String getProviderName() {
         return providerName;
     }
@@ -130,6 +180,8 @@ public class Goods extends ModelObject {
         this.providerName = providerName;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_number"  )
     public int getNumber() {
         return number;
     }
@@ -138,6 +190,8 @@ public class Goods extends ModelObject {
         this.number = number;
     }
     
+    @Basic( optional = true )
+	@Column( name = "goods_weight"  )
     public double getWeight() {
         return weight;
     }
@@ -146,6 +200,8 @@ public class Goods extends ModelObject {
         this.weight = weight;
     }
     
+    @Basic( optional = true )
+	@Column( name = "market_price"  )
     public double getMarketPrice() {
         return marketPrice;
     }
@@ -154,6 +210,8 @@ public class Goods extends ModelObject {
         this.marketPrice = marketPrice;
     }
     
+    @Basic( optional = true )
+	@Column( name = "shop_price"  )
     public double getShopPrice() {
         return shopPrice;
     }
@@ -162,6 +220,8 @@ public class Goods extends ModelObject {
         this.shopPrice = shopPrice;
     }
     
+    @Basic( optional = true )
+	@Column( name = "promote_price"  )
     public double getPromotePrice() {
         return promotePrice;
     }
@@ -170,6 +230,8 @@ public class Goods extends ModelObject {
         this.promotePrice = promotePrice;
     }
     
+    @Basic( optional = true )
+	@Column( name = "promote_start_date"  )
     public Timestamp getPromoteStart() {
         return promoteStart;
     }
@@ -178,6 +240,8 @@ public class Goods extends ModelObject {
         this.promoteStart = promoteStart;
     }
     
+    @Basic( optional = true )
+	@Column( name = "promote_end_date"  )
     public Timestamp getPromoteEnd() {
         return promoteEnd;
     }
@@ -186,6 +250,8 @@ public class Goods extends ModelObject {
         this.promoteEnd = promoteEnd;
     }
     
+    @Basic( optional = true )
+	@Column( name = "warn_number"  )
     public int getWarnNumber() {
         return warnNumber;
     }
@@ -194,6 +260,8 @@ public class Goods extends ModelObject {
         this.warnNumber = warnNumber;
     }
     
+    @Basic( optional = true )
+	@Column( length = 255  )
     public String getKeywords() {
         return keywords;
     }
@@ -202,6 +270,8 @@ public class Goods extends ModelObject {
         this.keywords = keywords;
     }
     
+    @Basic( optional = true )
+	@Column( name = "goods_brief", length = 255  )
     public String getBrief() {
         return brief;
     }
@@ -210,6 +280,8 @@ public class Goods extends ModelObject {
         this.brief = brief;
     }
     
+    @Basic( optional = true )
+	@Column( name = "goods_desc", length = 2147483647  )
     public String getDescription() {
         return description;
     }
@@ -218,6 +290,8 @@ public class Goods extends ModelObject {
         this.description = description;
     }
     
+    @Basic( optional = true )
+	@Column( name = "goods_thumb", length = 255  )
     public String getThumb() {
         return thumb;
     }
@@ -226,6 +300,8 @@ public class Goods extends ModelObject {
         this.thumb = thumb;
     }
     
+    @Basic( optional = true )
+	@Column( name = "goods_img", length = 255  )
     public String getImage() {
         return image;
     }
@@ -234,6 +310,8 @@ public class Goods extends ModelObject {
         this.image = image;
     }
     
+    @Basic( optional = true )
+	@Column( name = "original_img", length = 255  )
     public String getOriginalImage() {
         return originalImage;
     }
@@ -242,6 +320,8 @@ public class Goods extends ModelObject {
         this.originalImage = originalImage;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_real"  )
     public boolean isRealGoods() {
         return realGoods;
     }
@@ -250,6 +330,8 @@ public class Goods extends ModelObject {
         this.realGoods = realGoods;
     }
 
+    @Basic( optional = true )
+	@Column( name = "extension_code", length = 30  )
     public String getExtensionCode() {
         return extensionCode;
     }
@@ -258,6 +340,8 @@ public class Goods extends ModelObject {
         this.extensionCode = extensionCode;
     }
     
+    @Basic( optional = true )
+	@Column( name = "is_on_sale"  )
     public boolean isOnSale() {
         return onSale;
     }
@@ -266,6 +350,8 @@ public class Goods extends ModelObject {
         this.onSale = onSale;
     }
     
+    @Basic( optional = true )
+	@Column( name = "is_alone_sale"  )
     public boolean isAloneSale() {
         return aloneSale;
     }
@@ -282,6 +368,8 @@ public class Goods extends ModelObject {
         this.integral = integral;
     }
     
+    @Basic( optional = true )
+	@Column( name = "add_time"  )
     public Timestamp getAddTime() {
         return addTime;
     }
@@ -290,6 +378,8 @@ public class Goods extends ModelObject {
         this.addTime = addTime;
     }
     
+    @Basic( optional = true )
+	@Column( name = "sort_order"  )
     public int getSortOrder() {
         return sortOrder;
     }
@@ -298,6 +388,8 @@ public class Goods extends ModelObject {
         this.sortOrder = sortOrder;
     }
     
+    @Basic( optional = true )
+	@Column( name = "is_delete"  )
     public boolean isDeleted() {
         return deleted;
     }
@@ -306,6 +398,8 @@ public class Goods extends ModelObject {
         this.deleted = deleted;
     }
     
+    @Basic( optional = true )
+	@Column( name = "is_best"  )
     public boolean isBestSold() {
         return bestSold;
     }
@@ -314,6 +408,8 @@ public class Goods extends ModelObject {
         this.bestSold = bestSold;
     }
     
+    @Basic( optional = true )
+	@Column( name = "is_new"  )
     public boolean isNewAdded() {
         return newAdded;
     }
@@ -322,6 +418,8 @@ public class Goods extends ModelObject {
         this.newAdded = newAdded;
     }
     
+    @Basic( optional = true )
+	@Column( name = "is_hot"  )
     public boolean isHotSold() {
         return hotSold;
     }
@@ -330,6 +428,8 @@ public class Goods extends ModelObject {
         this.hotSold = hotSold;
     }
     
+    @Basic( optional = true )
+	@Column( name = "is_promote"  )
     public boolean isPromoted() {
         return promoted;
     }
@@ -338,6 +438,8 @@ public class Goods extends ModelObject {
         this.promoted = promoted;
     }
     
+    @Basic( optional = true )
+	@Column( name = "last_update"  )
     public Timestamp getLastUpdate() {
         return lastUpdate;
     }
@@ -346,6 +448,10 @@ public class Goods extends ModelObject {
         this.lastUpdate = lastUpdate;
     }
     
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "goods_type", nullable = true )
     public GoodsType getType() {
         return type;
     }
@@ -354,6 +460,8 @@ public class Goods extends ModelObject {
         this.type = type;
     }
 
+    @Basic( optional = true )
+	@Column( name = "seller_note", length = 255  )
     public String getSellerNote() {
         return sellerNote;
     }
@@ -362,6 +470,8 @@ public class Goods extends ModelObject {
         this.sellerNote = sellerNote;
     }
     
+    @Basic( optional = true )
+	@Column( name = "give_integral"  )
     public int getGiveIntegral() {
         return giveIntegral;
     }
@@ -370,6 +480,10 @@ public class Goods extends ModelObject {
         this.giveIntegral = giveIntegral;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "bonus_type_id", nullable = true )
     public BonusType getBonusType() {
         return bonusType;
     }
@@ -378,6 +492,10 @@ public class Goods extends ModelObject {
         this.bonusType = bonusType;
     }
 
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
     public Set<Gallery> getGalleries() {
         return galleries;
     }
@@ -386,14 +504,10 @@ public class Goods extends ModelObject {
         this.galleries = galleries;
     }
 
-    public Set<Article> getArticles() {
-        return articles;
-    }
-
-    public void setArticles(Set<Article> articles) {
-        this.articles = articles;
-    }
-
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
     public Set<GoodsAttribute> getAttributes() {
         return attributes;
     }
@@ -402,4 +516,208 @@ public class Goods extends ModelObject {
         this.attributes = attributes;
     }
     
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<BookingGoods> getBookingGoodss() {
+		return this.bookingGoodss;	
+	}
+    
+    public void addBookingGoods(BookingGoods bookingGoods) {
+		bookingGoods.setGoods(this);
+		this.bookingGoodss.add(bookingGoods);
+	}
+    
+    public void setBookingGoodss(final Set<BookingGoods> bookingGoods) {
+		this.bookingGoodss = bookingGoods;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<Cart> getCarts() {
+		return this.carts;	
+	}
+    
+    public void addCart(Cart cart) {
+		cart.setGoods(this);
+		this.carts.add(cart);
+	}
+    
+    public void setCarts(final Set<Cart> cart) {
+		this.carts = cart;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<CollectGoods> getCollectGoodss() {
+		return collectGoodss;
+	}
+    
+    public void addCollectGoods(CollectGoods collectGoods) {
+		collectGoods.setGoods(this);
+		this.collectGoodss.add(collectGoods);
+	}
+    
+    public void setCollectGoodss(final Set<CollectGoods> collectGoods) {
+		this.collectGoodss = collectGoods;
+	}
+
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<GoodsActivity> getGoodsActivities() {
+		return this.goodsActivities;
+	}
+    
+    public void addGoodsActivity(GoodsActivity goodsActivity) {
+		goodsActivity.setGoods(this);
+		this.goodsActivities.add(goodsActivity);
+	}
+    
+    public void setGoodsActivities(final Set<GoodsActivity> goodsActivity) {
+		this.goodsActivities = goodsActivity;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<GoodsArticle> getGoodsArticles() {
+		return this.goodsArticles;
+	}
+    
+    public void addGoodsArticle(GoodsArticle goodsArticle) {
+		goodsArticle.setGoods(this);
+		this.goodsArticles.add(goodsArticle);
+	}
+    
+    public void setGoodsArticles(final Set<GoodsArticle> goodsArticle) {
+		this.goodsArticles = goodsArticle;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<GroupGoods> getGroupGoodss() {
+		return this.groupGoodss;	
+	}
+    
+    public void addGroupGoods(GroupGoods groupGoods) {
+		groupGoods.setGoods(this);
+		this.groupGoodss.add(groupGoods);
+	}
+    
+    public void setGroupGoodss(final Set<GroupGoods> groupGoods) {
+		this.groupGoodss = groupGoods;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<LinkGoods> getLinkGoodss() {
+		return this.linkGoodss;	
+	}
+    
+    public void addLinkGoods(LinkGoods linkGoods) {
+		linkGoods.setGoods(this);
+		this.linkGoodss.add(linkGoods);
+	}
+    
+    public void setLinkGoodss(final Set<LinkGoods> linkGoods) {
+		this.linkGoodss = linkGoods;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<MemberPrice> getMemberPrices() {
+		return this.memberPrices;	
+	}
+    
+    public void addMemberPrice(MemberPrice memberPrice) {
+		memberPrice.setGoods(this);
+		this.memberPrices.add(memberPrice);
+	}
+    
+    public void setMemberPrices(final Set<MemberPrice> memberPrice) {
+		this.memberPrices = memberPrice;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<OrderGoods> getOrderGoodss() {
+		return this.orderGoodss;	
+	}
+    
+    public void addOrderGoods(OrderGoods orderGoods) {
+		orderGoods.setGoods(this);
+		this.orderGoodss.add(orderGoods);
+	}
+    
+    public void setOrderGoodss(final Set<OrderGoods> orderGoods) {
+		this.orderGoodss = orderGoods;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<Tag> getTags() {
+		return this.tags;	
+	}
+    
+    public void addTag(Tag tag) {
+		tag.setGoods(this);
+		this.tags.add(tag);
+	}
+    
+    public void setTags(final Set<Tag> tag) {
+		this.tags = tag;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<VirtualCard> getVirtualCards() {
+		return this.virtualCards;	
+	}
+    
+    public void addVirtualCard(VirtualCard virtualCard) {
+		virtualCard.setGoods(this);
+		this.virtualCards.add(virtualCard);
+	}
+    
+    public void setVirtualCards(final Set<VirtualCard> virtualCard) {
+		this.virtualCards = virtualCard;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "goods"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "goods_id", nullable = false  )
+	public Set<Wholesale> getWholesales() {
+		return this.wholesales;
+	}
+    
+    public void addWholesale(Wholesale wholesale) {
+		wholesale.setGoods(this);
+		this.wholesales.add(wholesale);
+	}
+    
+    public void setWholesales(final Set<Wholesale> wholesale) {
+		this.wholesales = wholesale;
+	}
+
 }

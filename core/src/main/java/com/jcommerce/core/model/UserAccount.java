@@ -1,13 +1,26 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "user_account", catalog = "ishop")
 public class UserAccount extends ModelObject {
-    
+
+	private static final long serialVersionUID = 571376475294276199L;
 	public static final int TYPE_SAVING = Constants.SURPLUS_SAVE; // 为帐户冲值
     public static final int TYPE_DRAWING = Constants.SURPLUS_RETURN; // 从帐户提款
 
@@ -30,6 +43,10 @@ public class UserAccount extends ModelObject {
     private String payment;
     private boolean paid;
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "user_id", nullable = true )
     public User getUser() {
         return user;
     }
@@ -38,6 +55,8 @@ public class UserAccount extends ModelObject {
         this.user = user;
     }
 
+    @Basic( optional = true )
+	@Column( name = "admin_user", length = 255  )
     public String getAdminUser() {
         return adminUser;
     }
@@ -70,6 +89,8 @@ public class UserAccount extends ModelObject {
         this.paidTime = paidTime;
     }
 
+    @Basic( optional = true )
+	@Column( name = "admin_note", length = 255  )
     public String getAdminNote() {
         return adminNote;
     }
@@ -78,6 +99,8 @@ public class UserAccount extends ModelObject {
         this.adminNote = adminNote;
     }
 
+    @Basic( optional = true )
+	@Column( name = "user_note", length = 255  )
     public String getUserNote() {
         return userNote;
     }
@@ -86,6 +109,8 @@ public class UserAccount extends ModelObject {
         this.userNote = userNote;
     }
 
+    @Basic( optional = true )
+	@Column( name = "process_type"  )
     public int getProcessType() {
         return processType;
     }
@@ -94,6 +119,8 @@ public class UserAccount extends ModelObject {
         this.processType = processType;
     }
 
+    @Basic( optional = true )
+	@Column( length = 90  )
     public String getPayment() {
         return payment;
     }

@@ -1,13 +1,26 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "goods_activity", catalog = "ishop")
 public class GoodsActivity extends ModelObject {
     
+	private static final long serialVersionUID = 8787172027468081897L;
 	public static final int TYPE_SNATCH = Constants.GOODSACT_SNATCH;
     public static final int TYPE_GROUP_BUY = Constants.GOODSACT_GROUP_BUY;
     public static final int TYPE_AUCTION = Constants.GOODSACT_AUCTION;
@@ -22,14 +35,18 @@ public class GoodsActivity extends ModelObject {
     private boolean finished;
     private String extraInfo;
 
-   public String getName() {
-        return name;
-    }
+    @Basic( optional = true )
+	@Column( name = "act_name", length = 255  )
+	public String getName() {
+		return name;
+	}
 
     public void setName(String name) {
         this.name = name;
     }
 
+    @Basic( optional = true )
+	@Column( name = "act_desc", length = 2147483647  )
     public String getDescription() {
         return description;
     }
@@ -38,6 +55,8 @@ public class GoodsActivity extends ModelObject {
         this.description = description;
     }
 
+    @Basic( optional = true )
+	@Column( name = "act_type"  )
     public int getType() {
         return type;
     }
@@ -46,6 +65,8 @@ public class GoodsActivity extends ModelObject {
         this.type = type;
     }
 
+    @Basic( optional = true )
+	@Column( name = "start_time"  )
     public Timestamp getStartTime() {
         return startTime;
     }
@@ -54,6 +75,8 @@ public class GoodsActivity extends ModelObject {
         this.startTime = startTime;
     }
 
+    @Basic( optional = true )
+	@Column( name = "end_time"  )
     public Timestamp getEndTime() {
         return endTime;
     }
@@ -62,6 +85,10 @@ public class GoodsActivity extends ModelObject {
         this.endTime = endTime;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "goods_id", nullable = true )
     public Goods getGoods() {
         return goods;
     }
@@ -70,6 +97,8 @@ public class GoodsActivity extends ModelObject {
         this.goods = goods;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_finished"  )
     public boolean isFinished() {
         return finished;
     }
@@ -78,6 +107,8 @@ public class GoodsActivity extends ModelObject {
         this.finished = finished;
     }
 
+    @Basic( optional = true )
+	@Column( name = "ext_info", length = 2147483647  )
     public String getExtraInfo() {
         return extraInfo;
     }

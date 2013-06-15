@@ -1,13 +1,30 @@
 /**
  * Author: Bob Chen
+ *         Kylin Soong
  */
 
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "order_", catalog = "ishop")
 public class Order extends ModelObject {
-    public static final int ORDER_UNCONFIRMED = Constants.ORDER_UNCONFIRMED; // 未确认
+
+	private static final long serialVersionUID = -3913187141365126574L;
+	public static final int ORDER_UNCONFIRMED = Constants.ORDER_UNCONFIRMED; // 未确认
     public static final int ORDER_CONFIRMED = Constants.ORDER_CONFIRMED; // 已确认
     public static final int ORDER_CANCELED = Constants.ORDER_CANCELED; // 已取消
     public static final int ORDER_INVALID = Constants.ORDER_INVALID; // 无效
@@ -82,6 +99,14 @@ public class Order extends ModelObject {
     private String shippingName;
     private String payName;
     
+    private Set<AffiliateLog> affiliateLogs = new HashSet<AffiliateLog>();
+    private Set<Order> orders = new HashSet<Order>();
+    private Set<OrderAction> orderActions = new HashSet<OrderAction>();
+    private Set<OrderGoods> orderGoodss = new HashSet<OrderGoods>();
+    private Set<PayLog> payLogs = new HashSet<PayLog>();
+    
+    @Basic( optional = true )
+	@Column( name = "order_sn", length = 20  )
     public String getSN() {
         return SN;
     }
@@ -90,6 +115,10 @@ public class Order extends ModelObject {
         SN = sn;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "user_id", nullable = true )
     public User getUser() {
         return user;
     }
@@ -98,6 +127,8 @@ public class Order extends ModelObject {
         this.user = user;
     }
 
+    @Basic( optional = true )
+	@Column( name = "order_status"  )
     public int getStatus() {
         return status;
     }
@@ -106,6 +137,8 @@ public class Order extends ModelObject {
         this.status = status;
     }
 
+    @Basic( optional = true )
+	@Column( name = "shipping_status"  )
     public int getShippingStatus() {
         return shippingStatus;
     }
@@ -114,6 +147,10 @@ public class Order extends ModelObject {
         this.shippingStatus = shippingStatus;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "region", nullable = true )
     public Region getRegion() {
         return region;
     }
@@ -122,6 +159,8 @@ public class Order extends ModelObject {
         this.region = region;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_status"  )
     public int getPayStatus() {
         return payStatus;
     }
@@ -130,6 +169,8 @@ public class Order extends ModelObject {
         this.payStatus = payStatus;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getConsignee() {
         return consignee;
     }
@@ -138,6 +179,8 @@ public class Order extends ModelObject {
         this.consignee = consignee;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getEmail() {
         return email;
     }
@@ -146,6 +189,8 @@ public class Order extends ModelObject {
         this.email = email;
     }
 
+    @Basic( optional = true )
+	@Column( length = 255  )
     public String getAddress() {
         return address;
     }
@@ -154,6 +199,8 @@ public class Order extends ModelObject {
         this.address = address;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getZip() {
         return zip;
     }
@@ -162,6 +209,8 @@ public class Order extends ModelObject {
         this.zip = zip;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getPhone() {
         return phone;
     }
@@ -170,6 +219,8 @@ public class Order extends ModelObject {
         this.phone = phone;
     }
 
+    @Basic( optional = true )
+	@Column( length = 60  )
     public String getMobile() {
         return mobile;
     }
@@ -178,6 +229,8 @@ public class Order extends ModelObject {
         this.mobile = mobile;
     }
 
+    @Basic( optional = true )
+	@Column( name = "sign_building", length = 120  )
     public String getSignBuilding() {
         return signBuilding;
     }
@@ -186,6 +239,8 @@ public class Order extends ModelObject {
         this.signBuilding = signBuilding;
     }
 
+    @Basic( optional = true )
+	@Column( name = "best_time", length = 120  )
     public String getBestTime() {
         return bestTime;
     }
@@ -194,6 +249,8 @@ public class Order extends ModelObject {
         this.bestTime = bestTime;
     }
 
+    @Basic( optional = true )
+	@Column( length = 255  )
     public String getPostScript() {
         return postScript;
     }
@@ -202,6 +259,8 @@ public class Order extends ModelObject {
         this.postScript = postScript;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pack_name", length = 120  )
     public String getPackName() {
         return packName;
     }
@@ -210,6 +269,8 @@ public class Order extends ModelObject {
         this.packName = packName;
     }
 
+    @Basic( optional = true )
+	@Column( name = "card_name", length = 120  )
     public String getCardName() {
         return cardName;
     }
@@ -218,6 +279,8 @@ public class Order extends ModelObject {
         this.cardName = cardName;
     }
 
+    @Basic( optional = true )
+	@Column( name = "card_message", length = 255  )
     public String getCardMessage() {
         return cardMessage;
     }
@@ -226,6 +289,8 @@ public class Order extends ModelObject {
         this.cardMessage = cardMessage;
     }
 
+    @Basic( optional = true )
+	@Column( name = "inv_payee", length = 120  )
     public String getInvoicePayee() {
         return invoicePayee;
     }
@@ -234,6 +299,8 @@ public class Order extends ModelObject {
         this.invoicePayee = invoicePayee;
     }
 
+    @Basic( optional = true )
+	@Column( name = "inv_content", length = 120  )
     public String getInvoiceContent() {
         return invoiceContent;
     }
@@ -242,6 +309,8 @@ public class Order extends ModelObject {
         this.invoiceContent = invoiceContent;
     }
 
+    @Basic( optional = true )
+	@Column( name = "goods_amount"  )
     public double getGoodsAmount() {
         return goodsAmount;
     }
@@ -250,6 +319,8 @@ public class Order extends ModelObject {
         this.goodsAmount = goodsAmount;
     }
 
+    @Basic( optional = true )
+	@Column( name = "shipping_fee"  )
     public double getShippingFee() {
         return shippingFee;
     }
@@ -258,6 +329,8 @@ public class Order extends ModelObject {
         this.shippingFee = shippingFee;
     }
 
+    @Basic( optional = true )
+	@Column( name = "insure_fee"  )
     public double getInsureFee() {
         return insureFee;
     }
@@ -266,6 +339,8 @@ public class Order extends ModelObject {
         this.insureFee = insureFee;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_fee"  )
     public double getPayFee() {
         return payFee;
     }
@@ -274,6 +349,10 @@ public class Order extends ModelObject {
         this.payFee = payFee;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "payment_id", nullable = true )
     public Payment getPayment() {
         return payment;
     }
@@ -282,6 +361,10 @@ public class Order extends ModelObject {
         this.payment = payment;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "shipping_id", nullable = true )
     public Shipping getShipping() {
         return shipping;
     }
@@ -290,6 +373,8 @@ public class Order extends ModelObject {
         this.shipping = shipping;
     }
 
+    @Basic( optional = true )
+	@Column( name = "how_oss", length = 120  )
     public String getHowOss() {
         return howOss;
     }
@@ -298,6 +383,8 @@ public class Order extends ModelObject {
         this.howOss = howOss;
     }
 
+    @Basic( optional = true )
+	@Column( name = "how_surplus", length = 120  )
     public String getHowSurplus() {
         return howSurplus;
     }
@@ -306,6 +393,8 @@ public class Order extends ModelObject {
         this.howSurplus = howSurplus;
     }
 
+    @Basic( optional = true )
+	@Column( name = "money_paid"  )
     public double getMoneyPaid() {
         return moneyPaid;
     }
@@ -330,6 +419,8 @@ public class Order extends ModelObject {
         this.integral = integral;
     }
 
+    @Basic( optional = true )
+	@Column( name = "integral_money"  )
     public double getIntegralMoney() {
         return integralMoney;
     }
@@ -338,6 +429,8 @@ public class Order extends ModelObject {
         this.integralMoney = integralMoney;
     }
 
+    @Basic( optional = true )
+	@Column( name = "order_amount"  )
     public double getOrderAmount() {
         return orderAmount;
     }
@@ -354,6 +447,8 @@ public class Order extends ModelObject {
         this.bonusMoney = bonus;
     }
 
+    @Basic( optional = true )
+	@Column( name = "from_ad"  )
     public int getFromAD() {
         return fromAD;
     }
@@ -362,6 +457,8 @@ public class Order extends ModelObject {
         this.fromAD = fromAD;
     }
 
+    @Basic( optional = true )
+	@Column( length = 255  )
     public String getReferer() {
         return referer;
     }
@@ -370,6 +467,8 @@ public class Order extends ModelObject {
         this.referer = referer;
     }
 
+    @Basic( optional = true )
+	@Column( name = "add_time" ) 
     public Timestamp getAddTime() {
         return addTime;
     }
@@ -378,6 +477,8 @@ public class Order extends ModelObject {
         this.addTime = addTime;
     }
 
+    @Basic( optional = true )
+	@Column( name = "confirm_time"  )
     public Timestamp getConfirmTime() {
         return confirmTime;
     }
@@ -386,6 +487,8 @@ public class Order extends ModelObject {
         this.confirmTime = confirmTime;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_time"  )
     public Timestamp getPayTime() {
         return payTime;
     }
@@ -394,6 +497,8 @@ public class Order extends ModelObject {
         this.payTime = payTime;
     }
 
+    @Basic( optional = true )
+	@Column( name = "shipping_time"  )
     public Timestamp getShippingTime() {
         return shippingTime;
     }
@@ -402,6 +507,10 @@ public class Order extends ModelObject {
         this.shippingTime = shippingTime;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "pack_id", nullable = true )
     public Pack getPack() {
         return pack;
     }
@@ -410,6 +519,10 @@ public class Order extends ModelObject {
         this.pack = pack;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "card_id", nullable = true )
     public Card getCard() {
         return card;
     }
@@ -418,6 +531,10 @@ public class Order extends ModelObject {
         this.card = card;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "bonus_id", nullable = true )
     public UserBonus getUserBonus() {
         return userBonus;
     }
@@ -426,6 +543,8 @@ public class Order extends ModelObject {
         this.userBonus = userBonus;
     }
 
+    @Basic( optional = true )
+	@Column( name = "invoice_no", length = 50  )
     public String getInvoiceNO() {
         return invoiceNO;
     }
@@ -434,6 +553,8 @@ public class Order extends ModelObject {
         this.invoiceNO = invoiceNO;
     }
 
+    @Basic( optional = true )
+	@Column( name = "extension_code", length = 30  )
     public String getExtensionCode() {
         return extensionCode;
     }
@@ -442,6 +563,8 @@ public class Order extends ModelObject {
         this.extensionCode = extensionCode;
     }
 
+    @Basic( optional = true )
+	@Column( name = "extension_id"  )
     public int getExtensionId() {
         return extensionId;
     }
@@ -450,6 +573,8 @@ public class Order extends ModelObject {
         this.extensionId = extensionId;
     }
 
+    @Basic( optional = true )
+	@Column( name = "to_buyer", length = 255  )
     public String getToBuyer() {
         return toBuyer;
     }
@@ -458,6 +583,8 @@ public class Order extends ModelObject {
         this.toBuyer = toBuyer;
     }
 
+    @Basic( optional = true )
+	@Column( name = "pay_note", length = 255  )
     public String getPayNote() {
         return payNote;
     }
@@ -466,6 +593,10 @@ public class Order extends ModelObject {
         this.payNote = payNote;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "agency_id", nullable = true )
     public Agency getAgency() {
         return agency;
     }
@@ -474,6 +605,8 @@ public class Order extends ModelObject {
         this.agency = agency;
     }
 
+    @Basic( optional = true )
+	@Column( name = "inv_type", length = 60  )
     public String getInvoceType() {
         return invoceType;
     }
@@ -490,6 +623,8 @@ public class Order extends ModelObject {
         this.tax = tax;
     }
 
+    @Basic( optional = true )
+	@Column( name = "is_separate"  )
     public boolean isSeparate() {
         return separate;
     }
@@ -506,6 +641,10 @@ public class Order extends ModelObject {
         this.discount = discount;
     }
 
+    @ManyToOne( cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY )
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = true )
+	@JoinColumn(name = "parent_id", nullable = true )
     public Order getParent() {
         return parent;
     }
@@ -514,6 +653,8 @@ public class Order extends ModelObject {
         this.parent = parent;
     }
 
+    @Basic( optional = true )
+	@Column( name = "card_fee"  )
 	public double getCardFee() {
 		return cardFee;
 	}
@@ -522,6 +663,8 @@ public class Order extends ModelObject {
 		this.cardFee = cardFee;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "pack_fee"  )
 	public double getPackFee() {
 		return packFee;
 	}
@@ -530,6 +673,8 @@ public class Order extends ModelObject {
 		this.packFee = packFee;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "shipping_name", length = 120  )
 	public String getShippingName() {
 		return shippingName;
 	}
@@ -538,6 +683,8 @@ public class Order extends ModelObject {
 		this.shippingName = shippingName;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "pay_name", length = 120  )
 	public String getPayName() {
 		return payName;
 	}
@@ -550,6 +697,8 @@ public class Order extends ModelObject {
         return super.clone();
     }
 
+    @Basic( optional = true )
+	@Column( name = "invoice_note", length = 255  )
     public String getInvoiceNote() {
         return invoiceNote;
     }
@@ -557,4 +706,89 @@ public class Order extends ModelObject {
     public void setInvoiceNote(String invoiceNote) {
         this.invoiceNote = invoiceNote;
     }
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "order"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "order_id", nullable = false  )
+	public Set<AffiliateLog> getAffiliateLogs() {
+		return this.affiliateLogs;	
+	}
+    
+    public void addAffiliateLog(AffiliateLog affiliateLog) {
+		affiliateLog.setOrder(this);
+		this.affiliateLogs.add(affiliateLog);
+	}
+    
+    public void setAffiliateLogs(final Set<AffiliateLog> affiliateLog) {
+		this.affiliateLogs = affiliateLog;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "parent"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "order_id", nullable = false  )
+	public Set<Order> getOrders() {
+		return orders;
+	}
+    
+    public void addOrder(Order order) {
+		order.setParent(this);
+		this.orders.add(order);
+	}
+    
+    public void setOrders(final Set<Order> order) {
+		this.orders = order;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "order"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "order_id", nullable = false  )
+	public Set<OrderAction> getOrderActions() {
+		return this.orderActions;
+	}
+    
+    public void addOrderAction(OrderAction orderAction) {
+		orderAction.setOrder(this);
+		this.orderActions.add(orderAction);
+	}
+    
+    public void setOrderActions(final Set<OrderAction> orderAction) {
+		this.orderActions = orderAction;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "order"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "order_id", nullable = false  )
+	public Set<OrderGoods> getOrderGoodss() {
+		return this.orderGoodss;	
+	}
+    
+    public void addOrderGoods(OrderGoods orderGoods) {
+		orderGoods.setOrder(this);
+		this.orderGoodss.add(orderGoods);
+	}
+    
+    public void setOrderGoodss(final Set<OrderGoods> orderGoods) {
+		this.orderGoodss = orderGoods;
+	}
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "order"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( name = "order_id", nullable = false  )
+	public Set<PayLog> getPayLogs() {
+		return this.payLogs;
+	}
+    
+    public void addPayLog(PayLog payLog) {
+		payLog.setOrder(this);
+		this.payLogs.add(payLog);
+	}
+    
+    public void setPayLogs(final Set<PayLog> payLog) {
+		this.payLogs = payLog;
+	}
 }

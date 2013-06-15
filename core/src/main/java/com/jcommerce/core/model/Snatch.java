@@ -1,11 +1,27 @@
+/**
+ * @author Kylin Soong     
+ */
+
 package com.jcommerce.core.model;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "snatch", catalog = "ishop")
 public class Snatch extends ModelObject {
-	
+
+	private static final long serialVersionUID = 7472289754726786363L;
+
 	private String snachname;
 	
 	private String goodName;
@@ -26,6 +42,8 @@ public class Snatch extends ModelObject {
 	
 	private Set<SnatchLog> snatchLogs = new HashSet<SnatchLog>();
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getSnachname() {
 		return snachname;
 	}
@@ -34,6 +52,8 @@ public class Snatch extends ModelObject {
 		this.snachname = snachname;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getGoodName() {
 		return goodName;
 	}
@@ -90,6 +110,10 @@ public class Snatch extends ModelObject {
 		this.maxpaidPrice = maxpaidPrice;
 	}
 
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "snatchid"  )
+ 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
+	@Basic( optional = false )
+	@Column( nullable = false  )
 	public Set<SnatchLog> getSnatchLogs() {
 		return snatchLogs;
 	}
@@ -98,6 +122,8 @@ public class Snatch extends ModelObject {
 		this.snatchLogs = snatchLogs;
 	}
 
+	@Basic( optional = true )
+	@Column( length = 255  )
 	public String getDescription() {
 		return description;
 	}
