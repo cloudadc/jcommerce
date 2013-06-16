@@ -13,12 +13,26 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "snatch", catalog = "ishop")
 public class Snatch extends ModelObject {
+	
+private String id;
+    
+	@Id 
+	@Basic( optional = false )
+	@Column( name = "id", nullable = false, length = 32  )
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
 	private static final long serialVersionUID = 7472289754726786363L;
 
@@ -110,7 +124,7 @@ public class Snatch extends ModelObject {
 		this.maxpaidPrice = maxpaidPrice;
 	}
 
-	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "snatchid"  )
+	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE } )
  	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	@Basic( optional = false )
 	@Column( nullable = false  )

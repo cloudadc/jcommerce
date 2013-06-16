@@ -14,6 +14,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -22,6 +23,19 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user_", catalog = "ishop")
 public class User extends ModelObject {
+	
+private String id;
+    
+	@Id 
+	@Basic( optional = false )
+	@Column( name = "id", nullable = false, length = 32  )
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
 	private static final long serialVersionUID = 5770487304958940671L;
 	public static final int SEX_UNKNOWN = 0; 

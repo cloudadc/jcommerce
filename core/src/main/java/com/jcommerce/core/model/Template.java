@@ -6,11 +6,25 @@ package com.jcommerce.core.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "template", catalog = "ishop")
 public class Template extends ModelObject {
+	
+private String id;
+    
+	@Id 
+	@Basic( optional = false )
+	@Column( name = "id", nullable = false, length = 32  )
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
 	private static final long serialVersionUID = 4926760182287283078L;
 

@@ -13,6 +13,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,13 +21,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "shipping", catalog = "ishop")
 public class Shipping extends ModelObject {
+	
+private String id;
+    
+	@Id 
+	@Basic( optional = false )
+	@Column( name = "id", nullable = false, length = 32  )
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
 	private static final long serialVersionUID = -7896034244403964599L;
 
 	private Set<ShippingArea> shippingAreas = new HashSet<ShippingArea>();  
 	private Set<Order> orders = new HashSet<Order>();
     
-	private String id;
+	private String shippingId;
 	private String name;
 	private String code;
 	private String description;
@@ -34,14 +48,15 @@ public class Shipping extends ModelObject {
 	private boolean supportCod;
 	private boolean enabled;
 
-	public String getId() {
-		return id;
+	
+	public String getShippingId() {
+		return shippingId;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setShippingId(String shippingId) {
+		this.shippingId = shippingId;
 	}
-	
+
 	@Basic( optional = true )
 	@Column( name = "shipping_name", length = 120  )
     public String getName() {

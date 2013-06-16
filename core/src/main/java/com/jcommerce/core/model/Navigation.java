@@ -7,11 +7,25 @@ package com.jcommerce.core.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "navigation", catalog = "ishop")
 public class Navigation extends ModelObject {
+	
+private String id;
+    
+	@Id 
+	@Basic( optional = false )
+	@Column( name = "id", nullable = false, length = 32  )
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
 	private static final long serialVersionUID = -3694253855775909964L;
 	public static final int CATEGORYTYPE_GOODSCATEGORY=1;//货物分类导航

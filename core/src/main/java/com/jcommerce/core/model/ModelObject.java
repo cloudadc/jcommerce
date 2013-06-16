@@ -12,22 +12,26 @@ import javax.persistence.Id;
  * and hashCode methods.
  *
  */
-public class ModelObject implements Serializable {
+public abstract class ModelObject implements Serializable {
 
 	private static final long serialVersionUID = -8291709224651447583L;
 	
-	private String id;
-    
-	@Id 
-	@Basic( optional = false )
-	@Column( name = "id", nullable = false, length = 32  )
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+	public abstract String getId();
+	
+	public abstract void setId(String id); 
+	
+//	private String id;
+//    
+//	@Id 
+//	@Basic( optional = false )
+//	@Column( name = "id", nullable = false, length = 32  )
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
     public String getModelName() {
         return getClass().getSimpleName();

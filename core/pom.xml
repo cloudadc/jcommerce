@@ -17,7 +17,7 @@
       <version.org.jboss.spec.jboss.javaee.6.0>3.0.0.Final</version.org.jboss.spec.jboss.javaee.6.0>
 
       <!-- Other dependency versions -->
-      <version.com.google.gwt>2.4.0</version.com.google.gwt>
+      <version.hibernate>4.2.0.Final</version.hibernate>
 
       <!-- other plugin versions -->
       <version.compiler.plugin>2.3.1</version.compiler.plugin>
@@ -41,8 +41,21 @@
     </dependencies>
   </dependencyManagement>
 
-  <dependencies>
-  	
+	<dependencies>
+  		<!-- Hibernate jar -->
+  		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${version.hibernate}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${version.hibernate}</version>
+			<scope>provided</scope>
+		</dependency>
+	  	
   	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-context</artifactId>
@@ -53,12 +66,6 @@
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-orm</artifactId>
 		<version>2.5.6</version>
-	</dependency>
-	
-	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-core</artifactId>
-		<version>3.6.10.Final</version>
 	</dependency>
 	
 	<dependency>
@@ -116,14 +123,6 @@
 		<version>3.2</version>
 	</dependency>
 
-    <!-- Import the CDI API, we use provided scope as the API is included 
-      in JBoss AS 7 -->
-    <dependency>
-      <groupId>javax.enterprise</groupId>
-      <artifactId>cdi-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
     <!-- Import the Common Annotations API (JSR-250), we use provided scope 
       as the API is included in JBoss AS 7 -->
     <dependency>
@@ -132,21 +131,6 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Import the JAX-RS API, we use provided scope as the API is included 
-      in JBoss AS 7 -->
-    <dependency>
-      <groupId>org.jboss.spec.javax.ws.rs</groupId>
-      <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- GWT -->
-    <dependency>
-      <groupId>com.google.gwt</groupId>
-      <artifactId>gwt-user</artifactId>
-      <version>${version.com.google.gwt}</version>
-      <scope>provided</scope>
-    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
