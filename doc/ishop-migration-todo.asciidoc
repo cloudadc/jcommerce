@@ -1,4 +1,5 @@
 |=========================================================
 |*Content*                                                         |*Status*     |*Description*
-|migrate hibernate from version 2 - version 4                      |Pending      | *.hbm.xml to annotation
+|migrate hibernate from version 2 - version 4                      |DONE         | *.hbm.xml to annotation
+|migrate spring from version 2 - latest version                    |Pending      | need make service code can work
 |=========================================================
