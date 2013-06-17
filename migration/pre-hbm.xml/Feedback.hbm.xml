@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+	<class name="com.jcommerce.core.model.Feedback" table="tis_feedback">
+		<id name="id" column="msg_id" type="string" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="userName" column="user_name" length="60" />
+		<property name="userEmail" column="user_email" length="60" />
+		<property name="msgTitle" column="msg_title" length="200" />
+		<property name="msgType" column="msg_type" length="1" />
+		<property name="msgContent" column="msg_content" type="text" />
+		<property name="msgTime" column="msg_time" />
+		<property name="messageImage" column="message_img" length="255" />
+		<property name="orderID" column="order_id" length="11" />
+
+		<many-to-one name="parent" column="parent_id"
+			class="com.jcommerce.core.model.Feedback" cascade="save-update" />
+		<many-to-one name="user" column="user_id"
+			class="com.jcommerce.core.model.User" cascade="none" />
+	</class>
+</hibernate-mapping>

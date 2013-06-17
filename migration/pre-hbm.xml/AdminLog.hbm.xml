@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.AdminLog" table="tis_admin_log" >
+  <id name="id" column="log_id" type="string" length="32">
+   <generator class="uuid.hex" />
+  </id>
+
+  <property name="logTime" column="log_time" />
+  <property name="logInfo" column="log_info" length="255"/>
+  <property name="IP" column="ip_address" length="15"/>
+
+  <many-to-one name="user" column="user_id" class="com.jcommerce.core.model.User" cascade="none" />
+
+ </class>
+</hibernate-mapping>

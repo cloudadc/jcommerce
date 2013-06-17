@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+	<class name="com.jcommerce.core.model.Topic" table="tis_topic">
+		<id name="id" column="topic_id" type="string" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="title" column="title" length="255" />
+		<property name="intro" column="intro" type="text" />
+		<property name="startTime" column="start_time" />
+		<property name="endTime" column="end_time" />
+		<property name="data" column="data" type="text" />
+		<property name="template" column="template" length="255" />
+		<property name="css" column="css" type="text" />
+	</class>
+</hibernate-mapping>

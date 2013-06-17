@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+	<class name="com.jcommerce.core.model.Crons" table="tis_crons">
+		<id name="id" column="cron_id" type="string" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="cronCode" column="cron_code" length="20" />
+		<property name="cronName" column="cron_name" length="120" />
+		<property name="cronOrder" column="cron_order" length="3" />
+		<property name="cronDesc" column="cron_desc" type="text" />
+		<property name="cronConfig" column="cron_config" type="text" />
+		<property name="day" column="day" length="2" />
+		<property name="week" column="week" length="1" />
+		<property name="hour" column="hour" length="2" />
+		<property name="minutes" column="minute"/>
+		<property name="enable" column="enable"/>
+		<property name="runOnce" column="run_once"/>
+		<property name="thisTime" column="thistime" />
+		<property name="nextTime" column="nexttime" />
+		<property name="allowIp" column="allow_ip" length="100" />
+		<property name="allowFiles" column="allow_files" length="255" />
+	</class>
+</hibernate-mapping>

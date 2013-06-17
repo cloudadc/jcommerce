@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.Region" table="tis_region" >
+  <id name="id" column="region_id" type="string" length="32">
+   <generator class="uuid.hex" />
+  </id>
+
+  <property name="name" column="region_name" length="120"/>
+  <property name="type" column="region_type" length="1"/>
+  
+  <many-to-one name="parent" column="parent_id" class="com.jcommerce.core.model.Region" cascade="save-update" />
+  <many-to-one name="agency" column="agency_id" class="com.jcommerce.core.model.Agency" cascade="none" />
+  
+  <set name="areas" table="tis_area_region" inverse="true" cascade="save-update">
+   <key column="region_id"/>
+   <many-to-many column="shipping_area_id" class="com.jcommerce.core.model.ShippingArea" />
+  </set>
+  
+ </class>
+</hibernate-mapping>

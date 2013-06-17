@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+ <class name="com.jcommerce.core.model.OrderAction" table="tis_order_action" >
+  <id name="id" column="action_id" type="string" length="32">
+   <generator class="uuid.hex" />
+  </id>
+
+  <property name="actionUser" column="action_user" length="30"/>
+  <property name="orderStatus" column="order_status" length="1"/>
+  <property name="shippingStatus" column="shipping_status" length="1"/>
+  <property name="payStatus" column="pay_status" length="1"/>
+  <property name="actionNote" column="action_note" length="255"/>
+  <property name="logTime" column="log_time" />
+
+  <many-to-one name="order" column="order_id" class="com.jcommerce.core.model.Order" cascade="none" />
+
+ </class>
+</hibernate-mapping>

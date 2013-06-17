@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+<hibernate-mapping>
+	<class name="com.jcommerce.core.model.AdPosition"
+		table="tis_ad_position">
+		<id name="id" column="position_id" type="string" length="32">
+			<generator class="uuid.hex" />
+		</id>
+		<property name="positionName" column="position_name"
+			length="60" />
+		<property name="adWidth" column="ad_width" length="5" />
+		<property name="adHeight" column="ad_height" length="5" />
+		<property name="positionDescription" column="position_desc"
+			length="255" />
+		<property name="positionStyle" column="position_style"
+			type="text" />
+	</class>
+</hibernate-mapping>
