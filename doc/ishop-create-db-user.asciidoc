@@ -9,5 +9,16 @@ FLUSH PRIVILEGES;
 ----
 
 
+How to generate tables via java code
+------------------------------------
 
+* Edit core/src/test/resources/META-INF/persistence.xml, make sure he following properties point to your own's setting:
 
+----
+<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+<property name="hibernate.connection.username" value="ishop_user"/>
+<property name="hibernate.connection.password" value="ishop_pass"/>
+<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ishop"/>
+---- 
+
+* Run `com.jcommerce.core.model.TableGenerate` under core/src/test/java

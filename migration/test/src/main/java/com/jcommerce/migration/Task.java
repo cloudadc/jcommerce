@@ -5,16 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity 
-@Table(name="t_task")
+//@Entity 
+//@Table(name="t_task")
 public class Task {
 
 	private int id;  
     
     private String name;
 
-    @Id    
-    @GeneratedValue 
+//    @Id    
+//    @GeneratedValue 
 	public int getId() {
 		return id;
 	}

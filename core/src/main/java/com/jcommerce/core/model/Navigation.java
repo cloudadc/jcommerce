@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "navigation", catalog = "ishop")
 public class Navigation extends ModelObject {
 	
-private String id;
+	private String id;
     
 	@Id 
 	@Basic( optional = false )
@@ -38,12 +38,14 @@ private String id;
 	private int categoryType;//导航類別
 	private int categoryId;//所在類別下ID
 	private String name;
-	private boolean show;//是否显示导航
+	private boolean isShow;//是否显示导航
 	private int viewOrder;
 	private boolean openNew;//是否在新窗口查看
 	private String url;
 	private int type;//位置類型
 
+	@Basic( optional = true )
+	@Column( name = "ctype")
 	public int getCategoryType() {
 		return categoryType;
 	}
@@ -52,6 +54,8 @@ private String id;
 		this.categoryType = categoryType;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "cid", length = 10  )
 	public int getCategoryId() {
 		return categoryId;
 	}
@@ -70,6 +74,8 @@ private String id;
 		this.name = name;
 	}
 
+	@Basic( optional = true )
+	@Column( name = "vieworder")
 	public int getViewOrder() {
 		return viewOrder;
 	}
@@ -77,13 +83,15 @@ private String id;
 	public void setViewOrder(int viewOrder) {
 		this.viewOrder = viewOrder;
 	}
-	
+
+	@Basic( optional = true )
+	@Column( name = "is_show")
 	public boolean isShow() {
-		return show;
+		return isShow;
 	}
 
-	public void setShow(boolean show) {
-		this.show = show;
+	public void setShow(boolean isShow) {
+		this.isShow = isShow;
 	}
 
 	public boolean isOpenNew() {

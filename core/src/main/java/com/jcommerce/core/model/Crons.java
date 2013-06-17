@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "crons", catalog = "ishop")
@@ -184,6 +185,7 @@ private String id;
 		this.minutes = minutes;
 	}
 
+	@Transient 
 	public int[] getMinute() {
 		String[] minute = this.minutes.split(" ");
 		int[] minut = new int[minute.length];
