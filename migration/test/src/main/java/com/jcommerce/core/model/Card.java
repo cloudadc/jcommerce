@@ -18,8 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pack", catalog = "ishop")
-public class Pack extends ModelObject {
+@Table(name = "card", catalog = "ishop")
+public class Card extends ModelObject {
 	
 private String id;
     
@@ -34,17 +34,17 @@ private String id;
         this.id = id;
     }
 	
-	private static final long serialVersionUID = -5518222336643416511L;
+	private static final long serialVersionUID = 7751500108299020424L;
 	private String name;
-	private String image;
-	private int fee;
-	private int freeMoney;
 	private String description;
+	private String image;
+	private double fee;
+	private double freeMoney;
 	
 	private Set<Order> orders = new HashSet<Order>();
 
 	@Basic( optional = true )
-	@Column( name = "pack_name", length = 120  )
+	@Column( name = "card_name", length = 120  )
     public String getName() {
         return name;
     }
@@ -54,7 +54,17 @@ private String id;
     }
 
     @Basic( optional = true )
-	@Column( name = "pack_img", length = 255  )
+	@Column( name = "card_desc", length = 255  )
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Basic( optional = true )
+	@Column( name = "card_img", length = 255  )
     public String getImage() {
         return image;
     }
@@ -64,50 +74,41 @@ private String id;
     }
 
     @Basic( optional = true )
-	@Column( name = "pack_fee"  )
-    public int getFee() {
+	@Column( name = "card_fee"  )
+    public double getFee() {
         return fee;
     }
 
-    public void setFee(int fee) {
+    public void setFee(double fee) {
         this.fee = fee;
     }
 
     @Basic( optional = true )
 	@Column( name = "free_money"  )
-    public int getFreeMoney() {
+    public double getFreeMoney() {
         return freeMoney;
     }
 
-    public void setFreeMoney(int freeMoney) {
+    public void setFreeMoney(double freeMoney) {
         this.freeMoney = freeMoney;
     }
-
-    @Basic( optional = true )
-	@Column( name = "pack_desc", length = 255  )
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
     
-    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "pack"  )
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "card"  )
  	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	@Basic( optional = false )
-	@Column( name = "pack_id", nullable = false  )
+	@Column( name = "card_id", nullable = false  )
 	public Set<Order> getOrders() {
 		return this.orders;
 	}
     
     public void addOrder(Order order) {
-    	order.setPack(this);
-    	orders.add(order);
-    }
-
-	public void setOrders(Set<Order> orders) {
-		this.orders = orders;
+		order.setCard(this);
+		this.orders.add(order);
 	}
+    
+    public void setOrders(final Set<Order> order) {
+		this.orders = order;
+	}
+
 
 }

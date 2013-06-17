@@ -95,7 +95,7 @@ private String id;
     private Set<Comment> comments = new HashSet<Comment>();
     private Set<Feedback> feedbacks = new HashSet<Feedback>();
     private Set<Order> orders = new HashSet<Order>();
-    private Set<Session> sessions = new HashSet<Session>();
+    private Set<Session> sessionss = new HashSet<Session>();
     private Set<Tag> tags = new HashSet<Tag>();
     private Set<User> users = new HashSet<User>();
     private Set<UserAccount> userAccounts = new HashSet<UserAccount>();
@@ -521,20 +521,20 @@ private String id;
  	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	@Basic( optional = false )
 	@Column( name = "user_id", nullable = false  )
-    public Set<Session> getSessions() {
-		return sessions;
+	public Set<Session> getSessions() {
+		return sessionss;
 	}
     
     public void addSessions(Session session) {
 		session.setUser(this);
-		this.sessions.add(session);
+		this.sessionss.add(session);
 	}
-
-	public void setSessions(Set<Session> sessions) {
-		this.sessions = sessions;
+    
+    public void setSessionss(final Set<Session> sessions) {
+		this.sessionss = sessions;
 	}
-
-	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "user"  )
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "user"  )
  	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	@Basic( optional = false )
 	@Column( name = "user_id", nullable = false  )

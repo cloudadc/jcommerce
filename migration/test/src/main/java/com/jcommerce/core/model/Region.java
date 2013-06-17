@@ -167,52 +167,24 @@ private String id;
 //            area.removeRegion(this);
         }
     }
-    
-    private boolean isCountry;
-    
-    private boolean isProvince;
-    
-    private boolean isCity;
-    
-    private boolean isDistrict;
 
     public boolean isCountry() {
-    	isCountry = (type == TYPE_COUNTRY);
-        return isCountry;
+        return type == TYPE_COUNTRY;
     }
 
-	public void setCountry(boolean isCountry) {
-		this.isCountry = isCountry;
-	}
-
-	public boolean isProvince() {
-		isProvince = (type == TYPE_PROVINCE);
-        return isProvince ;
+    public boolean isProvince() {
+        return type == TYPE_PROVINCE;
     }
 
-	public void setProvince(boolean isProvince) {
-		this.isProvince = isProvince;
-	}
-    
     public boolean isCity() {
-    	isCity = (type == TYPE_CITY);
-		return isCity ;
-	}
+        return type == TYPE_CITY;
+    }
 
-	public void setCity(boolean isCity) {
-		this.isCity = isCity;
-	}
-	
-	public boolean isDistrict() {
-		isDistrict = (type == TYPE_DISTRICT);
-		return isDistrict;
-	}
-
-	public void setDistrict(boolean isDistrict) {
-		this.isDistrict = isDistrict;
-	}
-
-	@OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "region"  )
+    public boolean isDistrict() {
+        return type == TYPE_DISTRICT;
+    }
+    
+    @OneToMany( fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "region"  )
  	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE})
 	@Basic( optional = false )
 	@Column( name = "region_id", nullable = false  )

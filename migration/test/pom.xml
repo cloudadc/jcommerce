@@ -10,43 +10,41 @@
   <version>1.0</version>
   <name>jcommerce migration test</name>
   
-  <properties>
-    <maven.compiler.source>1.6</maven.compiler.source>
-    <maven.compiler.target>1.6</maven.compiler.target>
-  </properties>
+	<properties>
+		<version.hibernate>4.2.0.Final</version.hibernate>
+	</properties>
 
-  <dependencies>
+	<dependencies>
   
-	<dependency>
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.1.0.Final</version>
+			<version>${version.hibernate}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.1.0.Final</version>
+			<version>${version.hibernate}</version>
+			<scope>provided</scope>
 		</dependency>
 	
-	<dependency>
-		<groupId>log4j</groupId>
-		<artifactId>log4j</artifactId>
-		<version>1.2.16</version>
-	</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
     
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+      		<artifactId>junit</artifactId>
+     		<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
   
-  <build>
-    
-    <plugins>
-  
-
-    </plugins>
-  </build>
+	<build>  
+		<plugins>
+		</plugins>
+	</build>
 </project>

@@ -101,14 +101,5 @@ private String id;
 	public Set<MemberPrice> getMemberPrices() {
 		return this.memberPrices;
 	}
-    
-    public void addMemberPrice(MemberPrice memberPrice) {
-    	memberPrice.setUserRank(this);
-    	memberPrices.add(memberPrice);
-    }
-
-	public void setMemberPrices(Set<MemberPrice> memberPrices) {
-		this.memberPrices = memberPrices;
-	}
 
 }

@@ -1,0 +1,34 @@
+What's this?
+------------
+This doc will contain all exception which I had met during jcommerce migration.
+
+
+I - ClassCastException
+----------------------
+
+While using hibernate `hibernate.hbm2ddl.auto` generate table, the following Exception threw:
+
+----
+Exception in thread "main" java.lang.ClassCastException: org.hibernate.mapping.SimpleValue cannot be cast to org.hibernate.mapping.Component
+	at org.hibernate.mapping.PersistentClass.getRecursiveProperty(PersistentClass.java:424)
+	at org.hibernate.mapping.PersistentClass.getRecursiveProperty(PersistentClass.java:380)
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:654)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:626)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:66)
+	at org.hibernate.cfg.Configuration.originalSecondPassCompile(Configuration.java:1587)
+	at org.hibernate.cfg.Configuration.secondPassCompile(Configuration.java:1362)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:1727)
+	at org.hibernate.ejb.EntityManagerFactoryImpl.<init>(EntityManagerFactoryImpl.java:88)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:904)
+	at org.hibernate.ejb.Ejb3Configuration.buildEntityManagerFactory(Ejb3Configuration.java:889)
+	at org.hibernate.ejb.HibernatePersistence.createEntityManagerFactory(HibernatePersistence.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:63)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:47)
+	at com.jcommerce.migration.App.main(App.java:13)
+----
+
+Problem Solution
+++++++++++++++++
+
+This due to wrong ManyToMany annotaion between Entities.
+
