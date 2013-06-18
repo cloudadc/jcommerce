@@ -11,6 +11,7 @@
   <name>jcommerce migration test</name>
   
 	<properties>
+		<spring.version>3.2.3.RELEASE</spring.version>
 		<version.hibernate>4.2.0.Final</version.hibernate>
 	</properties>
 
@@ -28,6 +29,25 @@
 			<version>${version.hibernate}</version>
 			<scope>provided</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>quartz</groupId>
+					<artifactId>quartz</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
 	
 		<dependency>
 			<groupId>log4j</groupId>

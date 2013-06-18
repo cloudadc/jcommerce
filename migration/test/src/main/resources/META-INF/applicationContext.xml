@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="location">
+        <value>/META-INF/values.properties</value>
+      </property>
+    </bean> 
+	
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName"><value>${jdbc.driver}</value></property>
+        <property name="url"><value>${jdbc.url}</value></property>
+        <property name="username"><value>${jdbc.user}</value></property>
+        <property name="password"><value>${jdbc.password}</value></property>       
+    </bean>
+
+    <!-- Hibernate SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource"><ref local="dataSource"/></property>
+        <property name="packagesToScan">
+            <list>
+                <value>com.jcommerce.core.model.KylinSoong</value>
+                <value>com.jcommerce.core.model.ModelObject</value>     
+            </list>
+        </property>
+        <property name="hibernateProperties">
+        <props>
+            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            <prop key="hibernate.cglib.use_reflection_optimizer">false</prop>
+            <prop key="hibernate.show_sql">true</prop>
+            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+        </props>
+        </property>
+    </bean>
+
+    <!--  Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean>
+    
+    
+    <bean id="txProxyTemplate" abstract="true"
+        class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager"><ref bean="transactionManager"/></property>
+        <property name="transactionAttributes">
+            <props>
+            	<prop key="getGoodsTypeList">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+    
+    
+    <!-- Add DAOs here -->
+
+    <bean id="KylinSoongDAO" class="com.jcommerce.core.dao.impl.KylinSoongDAOImpl">
+     <property name="sessionFactory">
+         <ref local="sessionFactory"/>
+     </property>
+    </bean>
+    <bean id="KylinSoongManager" class="com.jcommerce.core.service.impl.KylinSoongManagerImpl">
+     <property name="kylinSoongDAO">
+         <ref local="KylinSoongDAO"/>
+     </property>
+    </bean>
+
+    <!-- Add Managers here -->
+</beans>
