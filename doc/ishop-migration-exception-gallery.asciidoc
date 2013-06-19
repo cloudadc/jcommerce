@@ -32,3 +32,24 @@ Problem Solution
 
 This due to wrong ManyToMany annotaion between Entities.
 
+
+II - NoSuchMethodError
+----------------------
+
+While integrating hibernate 4 + spring 3, the following Exception threw:
+
+----
+Exception in thread "main" java.lang.NoSuchMethodError: org.hibernate.SessionFactory.openSession()Lorg/hibernate/classic/Session;
+	at org.springframework.orm.hibernate3.SessionFactoryUtils.doGetSession(SessionFactoryUtils.java:323)
+	at org.springframework.orm.hibernate3.SessionFactoryUtils.getSession(SessionFactoryUtils.java:235)
+	at org.springframework.orm.hibernate3.HibernateTemplate.getSession(HibernateTemplate.java:457)
+	at org.springframework.orm.hibernate3.HibernateTemplate.doExecute(HibernateTemplate.java:392)
+	at org.springframework.orm.hibernate3.HibernateTemplate.executeWithNativeSession(HibernateTemplate.java:374)
+	at org.springframework.orm.hibernate3.HibernateTemplate.merge(HibernateTemplate.java:813)
+	at com.jcommerce.core.dao.impl.DAOImpl.save(DAOImpl.java:23)
+	at com.jcommerce.core.dao.impl.KylinSoongDAOImpl.saveKylinSoong(KylinSoongDAOImpl.java:13)
+	at com.jcommerce.migration.DAOTest.main(DAOTest.java:18)
+----
+
+Problem Solution
+++++++++++++++++

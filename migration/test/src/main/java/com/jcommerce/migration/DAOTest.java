@@ -1,5 +1,6 @@
 package com.jcommerce.migration;
 
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,8 +18,8 @@ public class DAOTest {
 		
 		dao.saveKylinSoong(new KylinSoong());
 		
-//		dao.getList("select k from KylinSoong as k");
-	
+		dao.removeKylinSoong("2");
+		
 		System.out.println("DONE");
 	}
 

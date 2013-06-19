@@ -2,7 +2,7 @@ package com.jcommerce.migration;
 
 import javax.persistence.Persistence;
 
-public class App {
+public class TableGenerateTest {
 
 	public static void main(String[] args) {
 		

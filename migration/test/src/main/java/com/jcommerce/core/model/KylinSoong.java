@@ -3,6 +3,7 @@ package com.jcommerce.core.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,6 +16,16 @@ public class KylinSoong extends ModelObject{
 	private String id;
 	
 	private String name;
+	
+	public KylinSoong() {
+		
+	}
+
+	public KylinSoong(String id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 
 	@Id
 	@Basic(optional = false)
@@ -33,6 +44,11 @@ public class KylinSoong extends ModelObject{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "KylinSoong [id=" + id + ", name=" + name + "]";
 	}
 
 }
