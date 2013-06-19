@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jcommerce.core.dao.DAO;
 import com.jcommerce.core.model.ModelObject;
@@ -16,9 +17,10 @@ public class DAOImpl implements DAO {
 
 	protected Class modelClass = null;
 	
-	@PersistenceContext
-	private EntityManager entityManager;
+//	@PersistenceContext
+//	private EntityManager entityManager;
 	
+	@Autowired
 	private SessionFactory sessionFactory;
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {

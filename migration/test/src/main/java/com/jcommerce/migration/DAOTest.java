@@ -14,13 +14,13 @@ public class DAOTest {
 		String[] paths = {"/META-INF/applicationContext.xml"};
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(paths);
 		
-		KylinSoongDAO dao = (KylinSoongDAO) ctx.getBean("KylinSoongDAO");
+		KylinSoongDAO dao = (KylinSoongDAO) ctx.getBean("KylinSoongDAOImpl");
 		
-		dao.saveKylinSoong(new KylinSoong());
+//		dao.saveKylinSoong(new KylinSoong());
+//		
+//		dao.removeKylinSoong("2");
 		
-		dao.removeKylinSoong("2");
-		
-		System.out.println("DONE");
+		System.out.println(dao);
 	}
 
 }
