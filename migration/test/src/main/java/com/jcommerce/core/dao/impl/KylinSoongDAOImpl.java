@@ -1,11 +1,11 @@
 package com.jcommerce.core.dao.impl;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import com.jcommerce.core.dao.KylinSoongDAO;
 import com.jcommerce.core.model.KylinSoong;
 
-@Service
+@Repository
 public class KylinSoongDAOImpl extends DAOImpl implements KylinSoongDAO {
 	
 	public KylinSoongDAOImpl() {

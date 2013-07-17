@@ -1,16 +1,19 @@
 package com.jcommerce.migration.test;
 
-import java.util.Date;
-import java.util.TimeZone;
+import com.jcommerce.core.service.KylinSoongManager;
+import com.jcommerce.core.service.impl.KylinSoongManagerImpl;
 
 public class Test {
+	
+	private KylinSoongManagerImpl manager = new KylinSoongManagerImpl();
 
 	public static void main(String[] args) {
 		
-		System.out.println(new Date());
-		TimeZone zone = TimeZone.getDefault();
-	    System.out.println(zone.getDisplayName());
-	    System.out.println(zone.getID());
+		new Test().test();
+	}
+
+	private void test() {
+		System.out.println(manager.getDAO());
 	}
 
 }

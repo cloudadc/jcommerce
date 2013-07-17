@@ -3,9 +3,6 @@ package com.jcommerce.core.dao.impl;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +18,11 @@ public class DAOImpl implements DAO {
 //	private EntityManager entityManager;
 	
 	@Autowired
-	private SessionFactory sessionFactory;
-	
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+    private SessionFactory sessionFactory;
+
+    public Session getCurrentSession() {
+        return sessionFactory.getCurrentSession();
+    }
 
 	public List<DAO> getList(String hql) {
 		return null;

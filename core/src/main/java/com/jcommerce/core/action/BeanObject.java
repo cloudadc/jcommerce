@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import javax.management.RuntimeErrorException;
-
-
 
 public class BeanObject implements Serializable {
-    private String modelName;
+
+	private static final long serialVersionUID = 1185960887499949881L;
+	
+	private String modelName;
     private Map<String, Object> values = new HashMap<String, Object>();
     
     public BeanObject() {

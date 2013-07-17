@@ -5,16 +5,12 @@ import java.util.List;
 import com.jcommerce.core.dao.DAO;
 import com.jcommerce.core.service.Manager;
 
-public class ManagerImpl implements Manager {
-	
-	private DAO dao;
-    
-    protected void setDao(DAO dao) {
-        this.dao = dao;
-    }
+public abstract class ManagerImpl implements Manager {
+ 
+	public abstract DAO getDAO();
 
 	public List getList(String hsql) {
-		return dao.getList(hsql);
+		return getDAO().getList(hsql);
 	}
 
 }
