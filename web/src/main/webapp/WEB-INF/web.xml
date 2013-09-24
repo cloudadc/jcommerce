@@ -5,20 +5,10 @@
          version="2.5"
          xmlns="http://java.sun.com/xml/ns/javaee">
 
-  <!-- Servlets -->
-  <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>com.kylin.gwt.server.GreetingServiceImpl</servlet-class>
-  </servlet>
   
-  <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/helloworld/greet</url-pattern>
-  </servlet-mapping>
-  
-  <!-- Default page to serve -->
+  <!-- Default page to serve 
   <welcome-file-list>
-    <welcome-file>HelloWorld.html</welcome-file>
+    <welcome-file>iShop.html</welcome-file>
   </welcome-file-list>
-
+-->
 </web-app>

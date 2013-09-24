@@ -3,22 +3,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kylin.gwt</groupId>
-    <artifactId>gwt-test</artifactId>
+    <groupId>com.google.gwt.tutorials</groupId>
+    <artifactId>gwt-tutorials</artifactId>
     <version>1.0</version>
-    <name>GWT</name>
-    <description>GWT</description>
+    <name>GWT Tutorials</name>
+    <description>GWT Tutorials</description>
     <packaging>pom</packaging>
 
-    <url>https://github.com/kylinsoong</url>
+    <url>http://www.gwtproject.org/doc/latest/DevGuide.html</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
-        <module>helloworld</module>
-        <module>HelloWorld</module>
+        <module>StockWatcher</module>
     </modules>
 
 </project>

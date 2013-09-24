@@ -53,3 +53,50 @@ Exception in thread "main" java.lang.NoSuchMethodError: org.hibernate.SessionFac
 
 Problem Solution
 ++++++++++++++++
+
+III - NullPointerException
+--------------------------
+
+While build web module via `mvn clean install` below error threw:
+----
+[ERROR] Exception in thread "pool-1-thread-1" java.lang.NullPointerException
+[ERROR] 	at com.google.gwt.dev.util.DiskCache.transferToStream(DiskCache.java:187)
+[ERROR] 	at com.google.gwt.dev.util.DiskCacheToken.writeObject(DiskCacheToken.java:91)
+[ERROR] 	at sun.reflect.GeneratedMethodAccessor25.invoke(Unknown Source)
+[ERROR] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ERROR] 	at java.lang.reflect.Method.invoke(Method.java:601)
+[ERROR] 	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:975)
+[ERROR] 	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1480)
+[ERROR] 	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+[ERROR] 	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+[ERROR] 	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1528)
+[ERROR] 	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1493)
+[ERROR] 	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+[ERROR] 	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+[ERROR] 	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
+[ERROR] 	at java.util.ArrayList.writeObject(ArrayList.java:710)
+[ERROR] 	at sun.reflect.GeneratedMethodAccessor23.invoke(Unknown Source)
+[ERROR] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ERROR] 	at java.lang.reflect.Method.invoke(Method.java:601)
+[ERROR] 	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:975)
+[ERROR] 	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1480)
+[ERROR] 	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+[ERROR] 	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+[ERROR] 	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
+[ERROR] 	at com.google.gwt.dev.javac.CachedCompilationUnit.writeObject(CachedCompilationUnit.java:223)
+[ERROR] 	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
+[ERROR] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ERROR] 	at java.lang.reflect.Method.invoke(Method.java:601)
+[ERROR] 	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:975)
+[ERROR] 	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1480)
+[ERROR] 	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
+[ERROR] 	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
+[ERROR] 	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
+[ERROR] 	at com.google.gwt.dev.javac.PersistentUnitCache$6.run(PersistentUnitCache.java:446)
+[ERROR] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+[ERROR] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+[ERROR] 	at java.lang.Thread.run(Thread.java:722)
+----
+
+Problem Solution
+++++++++++++++++
