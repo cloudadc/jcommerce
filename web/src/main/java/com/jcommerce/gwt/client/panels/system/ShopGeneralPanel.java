@@ -62,7 +62,7 @@ public class ShopGeneralPanel extends ColumnPanel {
 		createPanel(SHOPDESC, Resources.constants.Shop_desc(), new TextBox());
 		createPanel(SHOPKEYWORDS, Resources.constants.shop_keywords(), new TextBox());
 		ListBox country = new ListBox();
-		country.addItem(Resources.constants.select_notice(), null);
+		country.addItem(Resources.constants.select_notice());
 		country.addItem("中国", "1");
 		country.setSelectedIndex(1);
 		createPanel(SHOPCOUNTRY, Resources.constants.shop_country(), country);
@@ -117,7 +117,7 @@ public class ShopGeneralPanel extends ColumnPanel {
 	 */
 	private void showRegion(final ListBox listBox, final int provinceIndex, final String cityIndex) {
 		listBox.clear();
-		listBox.addItem(Resources.constants.select_notice(), null);
+		listBox.addItem(Resources.constants.select_notice());
 		listBox.setSelectedIndex(0);
 		if (provinceIndex != 0) {
 			new RegionService().getRegionChildList(provinceIndex+1+"", new RegionService.Listener() {
@@ -142,9 +142,9 @@ public class ShopGeneralPanel extends ColumnPanel {
 	public void refresh() {		
 		city.clear();
 		province.clear();
-		city.addItem(Resources.constants.select_notice(), null);
+		city.addItem(Resources.constants.select_notice());
 		city.setSelectedIndex(0);
-		province.addItem(Resources.constants.select_notice(), null);
+		province.addItem(Resources.constants.select_notice());
 		province.setSelectedIndex(0);
         new RegionService().getRegionChildList(COUNTRYID, new RegionService.Listener() {
             public void onSuccess(List<BeanObject> beans) {

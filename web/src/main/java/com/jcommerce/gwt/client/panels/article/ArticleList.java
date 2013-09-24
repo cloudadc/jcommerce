@@ -175,7 +175,7 @@ public class ArticleList extends ContentWidget{
 		
 		add(header);
 		
-		lstCategory.addItem("全部分类", null);
+		lstCategory.addItem("全部分类");
 		new ListService().listBeans(ModelNames.ARTICLECATAGORY,
 				new ListService.Listener() {
 					public void onSuccess(List<BeanObject> result) {

@@ -166,7 +166,7 @@ public class NewCategory extends ContentWidget {
     
     public void refresh() {
     	c_parent.clear();
-    	c_parent.addItem("",null);
+    	c_parent.addItem("");
         
         new ListService().listBeans(ModelNames.CATEGORY, new ListService.Listener() {            
             public synchronized void onSuccess(List<BeanObject> beans) {

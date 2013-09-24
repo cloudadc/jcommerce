@@ -8,11 +8,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.logging.LogFactory;
+import org.junit.Ignore;
 
 import com.jcommerce.core.BaseDAOTestCase;
 import com.jcommerce.core.dao.ArticleDAO;
 import com.jcommerce.core.model.Article;
 
+@Ignore
 public class GoodsDAOTest extends BaseDAOTestCase {
     private Article goods = null;
     private ArticleDAO dao = null;

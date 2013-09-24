@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.apache.commons.logging.LogFactory;
+import org.junit.Ignore;
 
 import com.jcommerce.core.BaseDAOTestCase;
 import com.jcommerce.core.model.Brand;
@@ -20,6 +21,7 @@ import com.jcommerce.core.service.BrandManager;
 import com.jcommerce.core.service.CategoryManager;
 import com.jcommerce.core.service.GoodsManager;
 
+@Ignore
 public class GoodsManagerTest extends BaseDAOTestCase {
     private GoodsManager goodsManager = null;
     private BrandManager brandManager = null;

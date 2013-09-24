@@ -72,6 +72,17 @@ This is important for GWT dev, this plugin similar with traditional maven-war-pl
 		</plugin>
 ----
 
+Maven commands quick view
+-------------------------
+
+----
+mvn clean         # delete temporary stuff
+mvn test          # run all the tests (gwt and junit)
+mvn gwt:run       # run development mode
+mvn gwt:compile   # compile to javascript
+mvn package       # generate a .war package ready to deploy
+----
+
 
 greetServer implementaion
 -------------------------

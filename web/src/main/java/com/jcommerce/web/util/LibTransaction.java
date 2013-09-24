@@ -81,9 +81,9 @@ public class LibTransaction {
 	public static boolean saveConsignee(UserAddressWrapper consignee , User user, boolean isDefault){
 		/* 修改地址 */
 		UserAddress ua = consignee.getUserAddress();
-		user.addAddress(ua);
+		user.addUserAddress(ua);
 		
-        Set<UserAddress> addresses = user.getAddresses();        
+        Set<UserAddress> addresses = user.getUserAddresses();     
         if (isDefault) {
             for (UserAddress a : addresses) {
                 ua.setDefaultAddress(a == ua);

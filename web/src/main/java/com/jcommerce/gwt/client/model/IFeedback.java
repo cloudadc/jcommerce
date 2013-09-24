@@ -16,11 +16,11 @@ public interface IFeedback {
 	public static final String ORDERID = "orderID";
 	
 	
-	public static final int MESSAGE_TYPE_LIU = 1; // 留言
-	public static final int MESSAGE_TYPE_TOU = 2; // 投诉
-	public static final int MESSAGE_TYPE_XUN = 3; // 询问
-	public static final int MESSAGE_TYPE_SHOU = 4; // 售后
-	public static final int MESSAGE_TYPE_QIU = 5; // 求购
-	public static final int MESSAGE_TYPE_SHANG = 6; // 商家留言
+	public static final int MESSAGE_TYPE_LIU = 1; 
+	public static final int MESSAGE_TYPE_TOU = 2; 
+	public static final int MESSAGE_TYPE_XUN = 3; 
+	public static final int MESSAGE_TYPE_SHOU = 4; 
+	public static final int MESSAGE_TYPE_QIU = 5; 
+	public static final int MESSAGE_TYPE_SHANG = 6; 
 	
 }

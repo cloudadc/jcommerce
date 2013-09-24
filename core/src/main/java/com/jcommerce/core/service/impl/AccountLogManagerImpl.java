@@ -16,7 +16,8 @@ import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AccountLogManager;
 
 public class AccountLogManagerImpl extends ManagerImpl implements AccountLogManager {
-    private static Log log = LogFactory.getLog(AccountLogManagerImpl.class);
+   
+	private static Log log = LogFactory.getLog(AccountLogManagerImpl.class);
     private AccountLogDAO dao;
 
     public void setAccountLogDAO(AccountLogDAO dao) {
