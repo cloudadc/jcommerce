@@ -54,7 +54,7 @@ Exception in thread "main" java.lang.NoSuchMethodError: org.hibernate.SessionFac
 
 
 3 - NoSuchFieldError
-----------------------
+--------------------
 
 Issue
 ++++++
@@ -111,10 +111,12 @@ While using Maven build web module(build commands like `mvn clean install`) belo
 [ERROR] 	... 23 more
 ----
 
+
 Environment
 +++++++++++
 
 * gwt 2.5.1
+
 
 Resolution
 +++++++++++
@@ -139,6 +141,7 @@ Root Cause
 ++++++++++
 
 Jar collision is the root casue, jasperreports-3.5.0.jar depend on jdtcore-3.2.0.v_658.jar, jdtcore-3.2.0.v_658.jar's class org.eclipse.jdt.internal.compiler.impl.CompilerOptions conflict with gwt-dev-2.5.1.jar
+
 
 Diagnostic Steps
 +++++++++++++++++
