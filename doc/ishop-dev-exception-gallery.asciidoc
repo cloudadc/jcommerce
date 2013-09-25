@@ -51,8 +51,7 @@ Exception in thread "main" java.lang.NoSuchMethodError: org.hibernate.SessionFac
 	at com.jcommerce.migration.DAOTest.main(DAOTest.java:18)
 ----
 
-Problem Solution
-++++++++++++++++
+
 
 3 - NoSuchFieldError
 ----------------------
