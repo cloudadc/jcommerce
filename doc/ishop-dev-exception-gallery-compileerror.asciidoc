@@ -1,0 +1,149 @@
+NoSuchFieldError
+-----------------
+
+While using Maven build web module(build commands like `mvn clean install`) below error threw:
+----
+[INFO]    [ERROR] An internal compiler exception occurred
+[INFO] com.google.gwt.dev.jjs.InternalCompilerException: Unexpected error during visit.
+[INFO] 	at com.google.gwt.dev.jjs.ast.JVisitor.translateException(JVisitor.java:109)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:276)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:265)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JVisitor.accept(JVisitor.java:116)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JCastOperation.traverse(JCastOperation.java:65)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.traverse(JModVisitor.java:361)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:273)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:265)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JVisitor.accept(JVisitor.java:116)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JBinaryOperation.traverse(JBinaryOperation.java:81)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.traverse(JModVisitor.java:361)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:273)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:265)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JVisitor.accept(JVisitor.java:116)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JExpressionStatement.traverse(JExpressionStatement.java:41)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor$ListContextImmutable.traverse(JModVisitor.java:170)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.acceptWithInsertRemoveImmutable(JModVisitor.java:336)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JBlock.traverse(JBlock.java:83)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.traverse(JModVisitor.java:361)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:273)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JVisitor.accept(JVisitor.java:137)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JIfStatement.traverse(JIfStatement.java:52)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor$ListContextImmutable.traverse(JModVisitor.java:170)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.acceptWithInsertRemoveImmutable(JModVisitor.java:336)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JBlock.traverse(JBlock.java:83)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.traverse(JModVisitor.java:361)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:273)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JVisitor.accept(JVisitor.java:137)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JIfStatement.traverse(JIfStatement.java:52)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor$ListContextImmutable.traverse(JModVisitor.java:170)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.acceptWithInsertRemoveImmutable(JModVisitor.java:336)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JBlock.traverse(JBlock.java:83)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.traverse(JModVisitor.java:361)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:273)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JVisitor.accept(JVisitor.java:137)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JVisitor.accept(JVisitor.java:133)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JMethodBody.traverse(JMethodBody.java:82)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.traverse(JModVisitor.java:361)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:273)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:265)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JMethod.visitChildren(JMethod.java:434)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JMethod.traverse(JMethod.java:403)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.traverse(JModVisitor.java:361)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:273)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:265)
+[INFO] 	at com.google.gwt.dev.jjs.impl.UnifyAst.mainLoop(UnifyAst.java:900)
+[INFO] 	at com.google.gwt.dev.jjs.impl.UnifyAst.exec(UnifyAst.java:625)
+[INFO] 	at com.google.gwt.dev.jjs.JavaToJavaScriptCompiler.precompile(JavaToJavaScriptCompiler.java:640)
+[INFO] 	at com.google.gwt.dev.jjs.JavaScriptCompiler.precompile(JavaScriptCompiler.java:33)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:278)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:229)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:141)
+[INFO] 	at com.google.gwt.dev.Compiler.run(Compiler.java:232)
+[INFO] 	at com.google.gwt.dev.Compiler.run(Compiler.java:198)
+[INFO] 	at com.google.gwt.dev.Compiler$1.run(Compiler.java:170)
+[INFO] 	at com.google.gwt.dev.CompileTaskRunner.doRun(CompileTaskRunner.java:88)
+[INFO] 	at com.google.gwt.dev.CompileTaskRunner.runWithAppropriateLogger(CompileTaskRunner.java:82)
+[INFO] 	at com.google.gwt.dev.Compiler.main(Compiler.java:177)
+[INFO] Caused by: java.lang.IncompatibleClassChangeError: Found interface com.google.gwt.core.ext.typeinfo.JClassType, but class was expected
+[INFO] 	at com.extjs.gxt.ui.rebind.core.BeanModelGenerator.isBeanMarker(BeanModelGenerator.java:197)
+[INFO] 	at com.extjs.gxt.ui.rebind.core.BeanModelGenerator.generate(BeanModelGenerator.java:54)
+[INFO] 	at com.google.gwt.core.ext.IncrementalGenerator.generateNonIncrementally(IncrementalGenerator.java:40)
+[INFO] 	at com.google.gwt.dev.javac.StandardGeneratorContext.runGeneratorIncrementally(StandardGeneratorContext.java:657)
+[INFO] 	at com.google.gwt.dev.cfg.RuleGenerateWith.realize(RuleGenerateWith.java:41)
+[INFO] 	at com.google.gwt.dev.shell.StandardRebindOracle$Rebinder.rebind(StandardRebindOracle.java:79)
+[INFO] 	at com.google.gwt.dev.shell.StandardRebindOracle.rebind(StandardRebindOracle.java:276)
+[INFO] 	at com.google.gwt.dev.shell.StandardRebindOracle.rebind(StandardRebindOracle.java:265)
+[INFO] 	at com.google.gwt.dev.DistillerRebindPermutationOracle.getAllPossibleRebindAnswers(DistillerRebindPermutationOracle.java:91)
+[INFO] 	at com.google.gwt.dev.jjs.impl.UnifyAst$UnifyVisitor.handleGwtCreate(UnifyAst.java:355)
+[INFO] 	at com.google.gwt.dev.jjs.impl.UnifyAst$UnifyVisitor.handleMagicMethodCall(UnifyAst.java:433)
+[INFO] 	at com.google.gwt.dev.jjs.impl.UnifyAst$UnifyVisitor.endVisit(UnifyAst.java:237)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JMethodCall.traverse(JMethodCall.java:243)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.traverse(JModVisitor.java:361)
+[INFO] 	at com.google.gwt.dev.jjs.ast.JModVisitor.accept(JModVisitor.java:273)
+[INFO] 	... 56 more
+[INFO]       [ERROR] at BeanModelLookup.java(34): GWT.create(BeanModelLookup.class)
+[INFO]          com.google.gwt.dev.jjs.ast.JMethodCall
+[INFO]       [ERROR] at BeanModelLookup.java(34): (BeanModelLookup) GWT.create(BeanModelLookup.class)
+[INFO]          com.google.gwt.dev.jjs.ast.JCastOperation
+[INFO]       [ERROR] at BeanModelLookup.java(34): BeanModelLookup.instance = (BeanModelLookup) GWT.create(BeanModelLookup.class)
+[INFO]          com.google.gwt.dev.jjs.ast.JBinaryOperation
+[INFO]       [ERROR] at BeanModelLookup.java(34): BeanModelLookup.instance = (BeanModelLookup) GWT.create(BeanModelLookup.class)
+[INFO]          com.google.gwt.dev.jjs.ast.JExpressionStatement
+[INFO]       [ERROR] at BeanModelLookup.java(33): {
+[INFO]   BeanModelLookup.instance = (BeanModelLookup) GWT.create(BeanModelLookup.class);
+[INFO] }
+[INFO]          com.google.gwt.dev.jjs.ast.JBlock
+[INFO]       [ERROR] at BeanModelLookup.java(33): if (GWT.isClient()) {
+[INFO]   BeanModelLookup.instance = (BeanModelLookup) GWT.create(BeanModelLookup.class);
+[INFO] }
+[INFO]          com.google.gwt.dev.jjs.ast.JIfStatement
+[INFO]       [ERROR] at BeanModelLookup.java(32): {
+[INFO]   if (GWT.isClient()) {
+[INFO]     BeanModelLookup.instance = (BeanModelLookup) GWT.create(BeanModelLookup.class);
+[INFO]   }
+[INFO] }
+[INFO]          com.google.gwt.dev.jjs.ast.JBlock
+[INFO]       [ERROR] at BeanModelLookup.java(32): if (BeanModelLookup.instance == null) {
+[INFO]   if (GWT.isClient()) {
+[INFO]     BeanModelLookup.instance = (BeanModelLookup) GWT.create(BeanModelLookup.class);
+[INFO]   }
+[INFO] }
+[INFO]          com.google.gwt.dev.jjs.ast.JIfStatement
+[INFO]       [ERROR] at BeanModelLookup.java(31): {
+[INFO]   if (BeanModelLookup.instance == null) {
+[INFO]     if (GWT.isClient()) {
+[INFO]       BeanModelLookup.instance = (BeanModelLookup) GWT.create(BeanModelLookup.class);
+[INFO]     }
+[INFO]   }
+[INFO]   return BeanModelLookup.instance;
+[INFO] }
+[INFO]          com.google.gwt.dev.jjs.ast.JBlock
+[INFO]       [ERROR] at BeanModelLookup.java(31): {
+[INFO]   if (BeanModelLookup.instance == null) {
+[INFO]     if (GWT.isClient()) {
+[INFO]       BeanModelLookup.instance = (BeanModelLookup) GWT.create(BeanModelLookup.class);
+[INFO]     }
+[INFO]   }
+[INFO]   return BeanModelLookup.instance;
+[INFO] }
+[INFO]          com.google.gwt.dev.jjs.ast.JMethodBody
+[INFO]       [ERROR] at BeanModelLookup.java(31): public static BeanModelLookup get();
+[INFO] 
+[INFO]          com.google.gwt.dev.jjs.ast.JMethod
+----
+
+Environment
+-----------
+
+* gwt 2.5.1
+
+Resolution
+----------
+
+
+
+Root Cause
+----------
+
+
+Diagnostic Steps
+----------------
