@@ -4,11 +4,77 @@
               http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5"
          xmlns="http://java.sun.com/xml/ns/javaee">
+    
+    <servlet>
+        <servlet-name>ishopService</servlet-name>
+        <servlet-class>com.jcommerce.gwt.server.IShopServiceImpl</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+	<servlet>
+        <servlet-name>uploadService</servlet-name>
+        <servlet-class>com.jcommerce.gwt.server.FileUploadServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>downloadService</servlet-name>
+        <servlet-class>com.jcommerce.gwt.server.FileDownloadServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>specialService</servlet-name>
+        <servlet-class>com.jcommerce.gwt.server.SpecialServiceImpl</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>reportService</servlet-name>
+        <servlet-class>com.jcommerce.gwt.server.ReportServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>imageService</servlet-name>
+        <servlet-class>com.jcommerce.gwt.server.DynaImageServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>orderService</servlet-name>
+        <servlet-class>com.jcommerce.gwt.server.OrderServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ishopService</servlet-name>
+        <url-pattern>/ishop/ishopService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>uploadService</servlet-name>
+        <url-pattern>/ishop/uploadService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>       
+		<servlet-name>downloadService</servlet-name>       
+		<url-pattern>/ishop/downloadService</url-pattern>       
+	</servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>specialService</servlet-name>
+        <url-pattern>/ishop/specialService</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>       
+		<servlet-name>reportService</servlet-name>       
+		<url-pattern>/ishop/reportService</url-pattern>       
+	</servlet-mapping> 
+	<servlet-mapping>
+        <servlet-name>imageService</servlet-name>
+        <url-pattern>/ishop/dynaImageService.do</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>       
+		<servlet-name>orderService</servlet-name>       
+		<url-pattern>/ishop/orderService</url-pattern>       
+	</servlet-mapping> 
+    
 
   
-  <!-- Default page to serve 
+  <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>iShop.html</welcome-file>
   </welcome-file-list>
--->
+
 </web-app>
