@@ -10,6 +10,8 @@ import com.jcommerce.gwt.client.resources.Resources;
 
 public class AdminUserForm extends BeanObject {
 	
+	private static final long serialVersionUID = -7901704931620878339L;
+
 	public AdminUserForm(){
 		super();
 	}

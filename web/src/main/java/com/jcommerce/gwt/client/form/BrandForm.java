@@ -11,7 +11,10 @@ import com.jcommerce.gwt.client.model.IBrand;
 import com.jcommerce.gwt.client.resources.Resources;
 
 public class BrandForm extends BeanObject implements IBrand{
-    public BrandForm(){
+
+	private static final long serialVersionUID = 7079768224400554791L;
+
+	public BrandForm(){
     	super();
     }
     

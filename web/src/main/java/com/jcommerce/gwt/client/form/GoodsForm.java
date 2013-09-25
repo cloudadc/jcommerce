@@ -19,7 +19,9 @@ import com.jcommerce.gwt.client.resources.Resources;
 import com.jcommerce.gwt.client.widgets.MyHTMLEditor;
 
 public class GoodsForm extends BeanObject implements IGoods {
-	
+
+	private static final long serialVersionUID = 4412128134233660517L;
+
 	public GoodsForm() {
 		super();
 	}

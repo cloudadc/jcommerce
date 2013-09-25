@@ -3,7 +3,9 @@ package com.jcommerce.gwt.client.form;
 import java.util.Map;
 
 public class FileForm extends BeanObject {
-	
+
+	private static final long serialVersionUID = 7202705697197107183L;
+
 	public FileForm() {
 		super();
 	}

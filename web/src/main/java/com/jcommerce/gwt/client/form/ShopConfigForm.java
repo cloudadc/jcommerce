@@ -1,14 +1,13 @@
 package com.jcommerce.gwt.client.form;
 
 import com.extjs.gxt.ui.client.widget.form.HiddenField;
-import com.extjs.gxt.ui.client.widget.form.Radio;
-import com.extjs.gxt.ui.client.widget.form.RadioGroup;
 import com.extjs.gxt.ui.client.widget.form.TextField;
-import com.extjs.gxt.ui.client.widget.form.TextField.TextFieldMessages;
 import com.jcommerce.gwt.client.model.IShopConfig;
 import com.jcommerce.gwt.client.resources.Resources;
 
 public class ShopConfigForm extends BeanObject implements IShopConfig {
+
+	private static final long serialVersionUID = -3780689483821025943L;
 
 	public static HiddenField<String> getIdField(){
 		HiddenField<String> idField = new HiddenField<String>();

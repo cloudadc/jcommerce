@@ -2,12 +2,13 @@ package com.jcommerce.gwt.client.form;
 
 import com.extjs.gxt.ui.client.widget.form.HiddenField;
 import com.extjs.gxt.ui.client.widget.form.TextField;
-import com.extjs.gxt.ui.client.widget.form.TextField.TextFieldMessages;
 import com.jcommerce.gwt.client.model.IRegion;
 import com.jcommerce.gwt.client.resources.Resources;
 
 public class RegionForm  extends BeanObject implements IRegion{
-	
+
+	private static final long serialVersionUID = -6187708657265312246L;
+
 	public static HiddenField<String> getIdField(){
 		HiddenField<String> idField = new HiddenField<String>();
 		idField.setName(ID);

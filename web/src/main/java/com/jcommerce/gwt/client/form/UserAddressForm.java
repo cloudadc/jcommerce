@@ -4,15 +4,15 @@ import java.util.Map;
 
 import com.extjs.gxt.ui.client.widget.form.ComboBox;
 import com.extjs.gxt.ui.client.widget.form.TextField;
-import com.extjs.gxt.ui.client.widget.form.ComboBox.ComboBoxMessages;
 import com.extjs.gxt.ui.client.widget.form.Field.FieldMessages;
-import com.extjs.gxt.ui.client.widget.form.TextField.TextFieldMessages;
-import com.jcommerce.gwt.client.model.IGoodsType;
 import com.jcommerce.gwt.client.model.IRegion;
 import com.jcommerce.gwt.client.model.IUserAddress;
 import com.jcommerce.gwt.client.resources.Resources;
 
 public class UserAddressForm  extends BeanObject implements IUserAddress{
+
+	private static final long serialVersionUID = -6092563358605629002L;
+
 	public UserAddressForm() {
 		super();
 	}

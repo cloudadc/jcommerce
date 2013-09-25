@@ -3,7 +3,7 @@ What's this?
 This doc will contain all exception which I had met during jcommerce migration.
 
 
-I - ClassCastException
+1 - ClassCastException
 ----------------------
 
 While using hibernate `hibernate.hbm2ddl.auto` generate table, the following Exception threw:
@@ -33,7 +33,7 @@ Problem Solution
 This due to wrong ManyToMany annotaion between Entities.
 
 
-II - NoSuchMethodError
+2 - NoSuchMethodError
 ----------------------
 
 While integrating hibernate 4 + spring 3, the following Exception threw:
@@ -54,15 +54,37 @@ Exception in thread "main" java.lang.NoSuchMethodError: org.hibernate.SessionFac
 Problem Solution
 ++++++++++++++++
 
-III - NullPointerException
---------------------------
+3 - NoSuchFieldError
+----------------------
 
-While build web module via `mvn clean install` below error threw:
+Issue
+++++++
+
+While using Maven build web module(build commands like `mvn clean install`) below error threw:
 ----
-[ERROR] Exception in thread "pool-1-thread-1" java.lang.NullPointerException
-[ERROR] 	at com.google.gwt.dev.util.DiskCache.transferToStream(DiskCache.java:187)
+[INFO] Compiling module com.jcommerce.gwt.iShop
+[INFO] [ERROR] Unexpected internal compiler error
+[INFO] java.lang.NoSuchFieldError: reportUnusedDeclaredThrownExceptionIncludeDocCommentReference
+[INFO] 	at com.google.gwt.dev.javac.JdtCompiler.getCompilerOptions(JdtCompiler.java:411)
+[INFO] 	at com.google.gwt.dev.javac.JdtCompiler$CompilerImpl.<init>(JdtCompiler.java:228)
+[INFO] 	at com.google.gwt.dev.javac.JdtCompiler.doCompile(JdtCompiler.java:717)
+[INFO] 	at com.google.gwt.dev.javac.CompilationStateBuilder$CompileMoreLater.compile(CompilationStateBuilder.java:248)
+[INFO] 	at com.google.gwt.dev.javac.CompilationStateBuilder.doBuildFrom(CompilationStateBuilder.java:463)
+[INFO] 	at com.google.gwt.dev.javac.CompilationStateBuilder.buildFrom(CompilationStateBuilder.java:388)
+[INFO] 	at com.google.gwt.dev.cfg.ModuleDef.getCompilationState(ModuleDef.java:373)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:246)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:229)
+[INFO] 	at com.google.gwt.dev.Precompile.precompile(Precompile.java:141)
+[INFO] 	at com.google.gwt.dev.Compiler.run(Compiler.java:232)
+[INFO] 	at com.google.gwt.dev.Compiler.run(Compiler.java:198)
+[INFO] 	at com.google.gwt.dev.Compiler$1.run(Compiler.java:170)
+[INFO] 	at com.google.gwt.dev.CompileTaskRunner.doRun(CompileTaskRunner.java:88)
+[INFO] 	at com.google.gwt.dev.CompileTaskRunner.runWithAppropriateLogger(CompileTaskRunner.java:82)
+[INFO] 	at com.google.gwt.dev.Compiler.main(Compiler.java:177)
+[ERROR] Exception in thread "pool-1-thread-1" java.lang.RuntimeException: Unable to read from byte cache
+[ERROR] 	at com.google.gwt.dev.util.DiskCache.transferToStream(DiskCache.java:201)
 [ERROR] 	at com.google.gwt.dev.util.DiskCacheToken.writeObject(DiskCacheToken.java:91)
-[ERROR] 	at sun.reflect.GeneratedMethodAccessor25.invoke(Unknown Source)
+[ERROR] 	at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source)
 [ERROR] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 [ERROR] 	at java.lang.reflect.Method.invoke(Method.java:601)
 [ERROR] 	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:975)
@@ -70,20 +92,8 @@ While build web module via `mvn clean install` below error threw:
 [ERROR] 	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
 [ERROR] 	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
 [ERROR] 	at java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1528)
-[ERROR] 	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1493)
-[ERROR] 	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
-[ERROR] 	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
-[ERROR] 	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
-[ERROR] 	at java.util.ArrayList.writeObject(ArrayList.java:710)
-[ERROR] 	at sun.reflect.GeneratedMethodAccessor23.invoke(Unknown Source)
-[ERROR] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-[ERROR] 	at java.lang.reflect.Method.invoke(Method.java:601)
-[ERROR] 	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:975)
-[ERROR] 	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1480)
-[ERROR] 	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1416)
-[ERROR] 	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1174)
-[ERROR] 	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:346)
-[ERROR] 	at com.google.gwt.dev.javac.CachedCompilationUnit.writeObject(CachedCompilationUnit.java:223)
+[ERROR] 	at java.io.ObjectOutputStream.defaultWriteObject(ObjectOutputStream.java:438)
+[ERROR] 	at com.google.gwt.dev.javac.CachedCompilationUnit.writeObject(CachedCompilationUnit.java:222)
 [ERROR] 	at sun.reflect.GeneratedMethodAccessor27.invoke(Unknown Source)
 [ERROR] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 [ERROR] 	at java.lang.reflect.Method.invoke(Method.java:601)
@@ -96,7 +106,50 @@ While build web module via `mvn clean install` below error threw:
 [ERROR] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 [ERROR] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 [ERROR] 	at java.lang.Thread.run(Thread.java:722)
+[ERROR] Caused by: java.io.EOFException
+[ERROR] 	at java.io.RandomAccessFile.readInt(RandomAccessFile.java:776)
+[ERROR] 	at com.google.gwt.dev.util.DiskCache.transferToStream(DiskCache.java:188)
+[ERROR] 	... 23 more
 ----
 
-Problem Solution
-++++++++++++++++
+Environment
++++++++++++
+
+* gwt 2.5.1
+
+Resolution
++++++++++++
+
+In maven pom.xml, add maven exclustion as below:
+----
+	<dependency>
+		<groupId>jasperreports</groupId>
+		<artifactId>jasperreports</artifactId>
+		<version>3.5.0</version>
+		<exclusions> 
+           <exclusion> 
+             <artifactId>jdtcore</artifactId> 
+             <groupId>eclipse</groupId> 
+           </exclusion> 
+        </exclusions> 
+	</dependency>
+----
+
+
+Root Cause
+++++++++++
+
+Jar collision is the root casue, jasperreports-3.5.0.jar depend on jdtcore-3.2.0.v_658.jar, jdtcore-3.2.0.v_658.jar's class org.eclipse.jdt.internal.compiler.impl.CompilerOptions conflict with gwt-dev-2.5.1.jar
+
+Diagnostic Steps
++++++++++++++++++
+
+[java] java.lang.NoSuchFieldError: reportUnusedDeclaredThrownExceptionIncludeDocCommentReference
+[java] at com.google.gwt.dev.javac.JdtCompiler.getCompilerOptions(JdtCompiler.java:411) ....
+
+This basically means that java claims the class org.eclipse.jdt.internal.compiler.impl.CompilerOptions doesn't have the field reportUnusedDeclaredThrownExceptionIncludeDocCommentReference which is not true.
+
+org.eclipse.jdt.internal.compiler.impl.CompilerOptions has been found 2 times.
+  jdtcore-3.2.0.v_658.jar
+  gwt-dev-2.5.1.jar
+

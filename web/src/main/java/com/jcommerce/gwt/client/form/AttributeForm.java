@@ -14,9 +14,9 @@ public class AttributeForm extends BeanObject implements IAttribute{
 //    public static final int INPUT_MULTIPLELINETEXT = 2;
 //    public static final int INPUT_CHOICE = 1;
 	
+	private static final long serialVersionUID = 548143552785136676L;
 
-    
-    public AttributeForm(){
+	public AttributeForm(){
     	super();
     }
     

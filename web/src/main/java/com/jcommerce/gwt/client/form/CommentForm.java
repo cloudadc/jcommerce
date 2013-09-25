@@ -9,6 +9,8 @@ import com.jcommerce.gwt.client.model.IComment;
 import com.jcommerce.gwt.client.resources.Resources;
 
 public class CommentForm extends BeanObject implements IComment {
+
+	private static final long serialVersionUID = 8775690196212517268L;
 	
 	public static String validate(Map<String, String> props) {
 		String error = null;

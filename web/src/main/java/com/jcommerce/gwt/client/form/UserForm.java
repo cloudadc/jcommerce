@@ -3,11 +3,12 @@ package com.jcommerce.gwt.client.form;
 import com.extjs.gxt.ui.client.widget.form.DateField;
 import com.extjs.gxt.ui.client.widget.form.NumberField;
 import com.extjs.gxt.ui.client.widget.form.TextField;
-import com.extjs.gxt.ui.client.widget.form.TimeField;
 import com.jcommerce.gwt.client.model.IUser;
 import com.jcommerce.gwt.client.resources.Resources;
 
 public class UserForm  extends BeanObject implements IUser{
+
+	private static final long serialVersionUID = -6247348907787202867L;
 
 	public UserForm() {
 		super();

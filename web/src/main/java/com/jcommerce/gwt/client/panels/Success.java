@@ -9,7 +9,6 @@ import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.jcommerce.gwt.client.ContentWidget;
 import com.jcommerce.gwt.client.PageState;
-import com.jcommerce.gwt.client.panels.data.ImportPanel.State;
 
 public class Success extends ContentWidget {
 	

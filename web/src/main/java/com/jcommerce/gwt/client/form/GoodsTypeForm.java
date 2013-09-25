@@ -10,8 +10,9 @@ import com.jcommerce.gwt.client.model.IGoodsType;
 import com.jcommerce.gwt.client.resources.Resources;
 
 public class GoodsTypeForm extends BeanObject implements IGoodsType {
-	
-	
+
+	private static final long serialVersionUID = -7786244549930241230L;
+
 	public GoodsTypeForm() {
 		super();
 	}

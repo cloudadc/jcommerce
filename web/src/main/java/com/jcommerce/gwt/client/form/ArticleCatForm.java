@@ -7,13 +7,14 @@ import com.extjs.gxt.ui.client.widget.form.Radio;
 import com.extjs.gxt.ui.client.widget.form.TextArea;
 import com.extjs.gxt.ui.client.widget.form.TextField;
 import com.extjs.gxt.ui.client.widget.form.ComboBox.TriggerAction;
-import com.extjs.gxt.ui.client.widget.form.TextField.TextFieldMessages;
 import com.jcommerce.gwt.client.model.IArticleCategory;
-import com.jcommerce.gwt.client.model.IAttribute;
 import com.jcommerce.gwt.client.resources.Resources;
 import com.jcommerce.gwt.client.widgets.MyRadioGroup;
 
 public class ArticleCatForm extends BeanObject implements IArticleCategory{
+
+	private static final long serialVersionUID = 4816197240791706163L;
+
 	public ArticleCatForm(){
 		super();
 	} 

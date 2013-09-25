@@ -6,8 +6,8 @@
     <groupId>com.google.gwt.tutorials</groupId>
     <artifactId>gwt-tutorials</artifactId>
     <version>1.0</version>
-    <name>GWT Tutorials</name>
-    <description>GWT Tutorials</description>
+    <name>GWT Tutorials(http://www.gwtproject.org/doc/latest/DevGuide.html)</name>
+    <description>GWT Tutorials(http://www.gwtproject.org/doc/latest/DevGuide.html)</description>
     <packaging>pom</packaging>
 
     <url>http://www.gwtproject.org/doc/latest/DevGuide.html</url>

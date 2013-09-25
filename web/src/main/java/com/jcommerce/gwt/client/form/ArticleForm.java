@@ -12,6 +12,9 @@ import com.jcommerce.gwt.client.widgets.MyHTMLEditor;
 import com.jcommerce.gwt.client.widgets.MyRadioGroup;
 
 public class ArticleForm extends BeanObject implements IArticle {
+	
+	private static final long serialVersionUID = -5252851137860149301L;
+
 	public ArticleForm (){
 		super();
 	}

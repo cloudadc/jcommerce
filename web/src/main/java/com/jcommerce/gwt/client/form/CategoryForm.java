@@ -4,8 +4,6 @@ import java.util.Map;
 
 import com.extjs.gxt.ui.client.widget.form.ComboBox;
 import com.extjs.gxt.ui.client.widget.form.NumberField;
-import com.extjs.gxt.ui.client.widget.form.Radio;
-import com.extjs.gxt.ui.client.widget.form.RadioGroup;
 import com.extjs.gxt.ui.client.widget.form.TextField;
 import com.jcommerce.gwt.client.ValidationException;
 import com.jcommerce.gwt.client.model.ICategory;
@@ -13,7 +11,9 @@ import com.jcommerce.gwt.client.resources.Resources;
 
 public class CategoryForm extends BeanObject implements ICategory {
 	 
-    public CategoryForm(){
+	private static final long serialVersionUID = 6209018353073021080L;
+
+	public CategoryForm(){
     	super();
     }
     

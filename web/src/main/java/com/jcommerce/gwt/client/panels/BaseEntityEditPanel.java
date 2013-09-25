@@ -30,7 +30,6 @@ import com.extjs.gxt.ui.client.widget.layout.FormData;
 import com.extjs.gxt.ui.client.widget.layout.FormLayout;
 import com.google.gwt.user.client.Window;
 import com.jcommerce.gwt.client.ContentWidget;
-import com.jcommerce.gwt.client.Logger;
 import com.jcommerce.gwt.client.PageState;
 import com.jcommerce.gwt.client.form.BeanObject;
 import com.jcommerce.gwt.client.form.SimpleOptionData;

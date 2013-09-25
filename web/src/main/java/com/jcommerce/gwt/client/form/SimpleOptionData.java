@@ -2,6 +2,8 @@ package com.jcommerce.gwt.client.form;
 
 
 public class SimpleOptionData extends BeanObject {
+
+	private static final long serialVersionUID = -9116188742875226292L;
 	public static final String TEXT = "text";
 	public static final String VALUE = "value";
 	
