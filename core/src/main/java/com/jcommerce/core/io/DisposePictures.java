@@ -74,14 +74,13 @@ public class DisposePictures {
 			int height = theImg.getHeight(null); // 源图片高度
 			// System.out.println(height + "");
 
-			if (savePath.equals(""))
+			if (savePath.equals("")){
 				savePath = filePath;// 如果未指定保存路径则保存回原路径
-
-			else
+			}else{
 				savePath = savePath + "\\" + picname;// 指定保存文件夹时,拼接出保存路径
+			}
 
-			BufferedImage bimage = new BufferedImage(width, height,
-					BufferedImage.TYPE_INT_RGB);
+			BufferedImage bimage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 
 			Graphics2D g = bimage.createGraphics();
 
@@ -96,9 +95,6 @@ public class DisposePictures {
 
 			g.drawString(logoWords, width - 120, height - 10); // 添加文字
 
-			
-			
-			
 			FileOutputStream out = new FileOutputStream(savePath);
 			ImageIO.write(bimage,"JPEG",new File(savePath));   
 			out.close();
@@ -204,8 +200,7 @@ public class DisposePictures {
 		return target;
 	}
 
-	public synchronized void saveImageAsJpg(String fromFileStr, String saveToFileStr,
-			int width, int hight) throws Exception {
+	public synchronized void saveImageAsJpg(String fromFileStr, String saveToFileStr, int width, int hight) throws Exception {
 		BufferedImage srcImage;
 		// String ex =
 		// fromFileStr.substring(fromFileStr.indexOf("."),fromFileStr.length());

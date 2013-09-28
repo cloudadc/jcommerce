@@ -14,7 +14,6 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.Token;
 import org.apache.commons.lang.StringUtils;
 
-
 public class DWTConverter {
 	public static interface RegexReplaceCallback {
 		public String execute(String... groups);

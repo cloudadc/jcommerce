@@ -139,10 +139,15 @@ Environment
 Resolution
 ----------
 
+roll back gwt version from 2.5 to 2.0
 
 
 Root Cause
 ----------
+
+GWT made several breaking changes in their APIs in the last year or two, and you are running into one made around GWT 2.2. The GXT version you are using is from before GWT 2.2 was released, so it can't automatically be compatible with all future versions.
+
+You've got a few choices - cleanest would be to move to a newer version of GXT - the more recent 2.2.x versions have three different jars in them, you need the -22 version, as that is compatible with GWT 2.2.0 and onward to current (2.5.0-rc1 at the time of writing). 
 
 
 Diagnostic Steps

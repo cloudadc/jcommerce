@@ -4,8 +4,6 @@
 
 package com.jcommerce.core.service.impl;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -13,7 +11,6 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
 
 import com.jcommerce.core.dao.RegionDAO;
-import com.jcommerce.core.model.Category;
 import com.jcommerce.core.model.Region;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.RegionManager;

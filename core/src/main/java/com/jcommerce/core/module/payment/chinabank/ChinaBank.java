@@ -19,7 +19,6 @@ import com.jcommerce.core.module.FieldMetaData;
 import com.jcommerce.core.module.IConfigMetaData;
 import com.jcommerce.core.module.IFieldMetaData;
 import com.jcommerce.core.module.payment.IPaymentModule;
-import com.jcommerce.core.payment.PaymentConfigFieldMeta;
 import com.jcommerce.core.util.MD5;
 
 public class ChinaBank implements IPaymentModule {
