@@ -8,6 +8,8 @@ import com.jcommerce.core.model.ModelObject;
 
 public class ArticleCategoryWrapper extends BaseModelWrapper {
 
+	private static final long serialVersionUID = 6866015169737655171L;
+
 	List<ArticleCategoryWrapper> children = new ArrayList<ArticleCategoryWrapper>();
 	
 	ArticleCategory articleCat;

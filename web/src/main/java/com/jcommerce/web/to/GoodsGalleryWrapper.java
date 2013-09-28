@@ -6,6 +6,7 @@ import com.jcommerce.gwt.client.util.URLConstants;
 
 public class GoodsGalleryWrapper extends BaseModelWrapper implements URLConstants{
 
+	private static final long serialVersionUID = -9006456008535560387L;
 	Gallery goodsGallery;
 	@Override
 	protected Object getWrapped() {

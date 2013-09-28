@@ -8,7 +8,9 @@ import com.jcommerce.gwt.client.util.URLConstants;
 import com.jcommerce.web.util.WebFormatUtils;
 
 public class GoodsWrapper extends BaseModelWrapper implements URLConstants{
-	
+
+	private static final long serialVersionUID = 6656053152068070960L;
+
 	public static final String GOODS_BRAND = "goodsBrand";
 	
 	Goods goods;

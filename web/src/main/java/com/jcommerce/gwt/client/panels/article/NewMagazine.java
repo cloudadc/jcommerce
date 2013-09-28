@@ -24,7 +24,6 @@ import com.jcommerce.gwt.client.ModelNames;
 import com.jcommerce.gwt.client.PageState;
 import com.jcommerce.gwt.client.form.BeanObject;
 import com.jcommerce.gwt.client.model.IMailTemplate;
-import com.jcommerce.gwt.client.panels.article.MagazineManager.State;
 import com.jcommerce.gwt.client.resources.Resources;
 import com.jcommerce.gwt.client.service.CreateService;
 import com.jcommerce.gwt.client.service.UpdateService;

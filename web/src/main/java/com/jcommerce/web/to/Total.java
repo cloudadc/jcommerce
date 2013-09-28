@@ -7,6 +7,8 @@ import com.jcommerce.web.util.WebFormatUtils;
 
 public class Total extends BaseWrapper{
 
+	private static final long serialVersionUID = -230085058068887407L;
+
 	Double discount = 0.0;
 //	String discountFormated = "0.0";
 	

@@ -14,7 +14,8 @@ import com.jcommerce.core.util.Utf8ResourceBundle;
 import com.jcommerce.core.wrapper.BaseWrapper;
 
 public class Lang extends BaseWrapper {
-	
+
+	private static final long serialVersionUID = 4677602222516338260L;
 	private static ThreadLocal<Locale> threadLocal = new ThreadLocal<Locale>();
 	
 	public static void setCurrentLocale(Locale locale) {

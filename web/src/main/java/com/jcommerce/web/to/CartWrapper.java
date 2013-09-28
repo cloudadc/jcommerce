@@ -7,6 +7,7 @@ import com.jcommerce.web.util.WebFormatUtils;
 
 public class CartWrapper extends BaseModelWrapper {
 
+	private static final long serialVersionUID = -5459094637515439242L;
 	Cart cart;
 	double price;
 	

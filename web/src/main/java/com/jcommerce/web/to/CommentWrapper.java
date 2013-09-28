@@ -7,6 +7,7 @@ import com.jcommerce.core.model.ModelObject;
 
 public class CommentWrapper extends BaseModelWrapper {
 
+	private static final long serialVersionUID = 8443649239714698175L;
 	Comment comment;
 	@Override
 	protected Object getWrapped() {

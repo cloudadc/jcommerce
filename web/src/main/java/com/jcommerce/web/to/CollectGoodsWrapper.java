@@ -10,6 +10,7 @@ import com.jcommerce.web.util.WebFormatUtils;
 
 public class CollectGoodsWrapper extends BaseModelWrapper implements URLConstants{
 
+	private static final long serialVersionUID = -1287912993189223626L;
 	CollectGoods collectGoods;
 	Goods goods;
 	

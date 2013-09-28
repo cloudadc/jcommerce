@@ -5,7 +5,10 @@ import com.jcommerce.core.model.Shipping;
 import com.jcommerce.web.util.WebFormatUtils;
 
 public class ShippingWrapper extends BaseModelWrapper {
-    String configure;
+
+	private static final long serialVersionUID = 5397967596176479865L;
+
+	String configure;
 
     double shippingFee;
     double freeMoney;

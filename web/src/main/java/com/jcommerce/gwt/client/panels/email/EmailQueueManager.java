@@ -25,7 +25,6 @@ import com.jcommerce.gwt.client.PageState;
 import com.jcommerce.gwt.client.form.BeanObject;
 import com.jcommerce.gwt.client.model.IEmailSendList;
 import com.jcommerce.gwt.client.model.IMailTemplate;
-import com.jcommerce.gwt.client.panels.data.ImportPanel.State;
 import com.jcommerce.gwt.client.service.Criteria;
 import com.jcommerce.gwt.client.service.DeleteService;
 import com.jcommerce.gwt.client.service.PagingListService;

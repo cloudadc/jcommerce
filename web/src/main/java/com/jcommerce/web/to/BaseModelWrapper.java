@@ -8,6 +8,8 @@ import com.jcommerce.gwt.client.model.IModelObject;
 
 public abstract class BaseModelWrapper extends BaseWrapper {
 	
+	private static final long serialVersionUID = -8710222072830485269L;
+
 	public void debug(String s) {
 		System.out.println(" in [BaseModelWrapper]: "+s );
 	}

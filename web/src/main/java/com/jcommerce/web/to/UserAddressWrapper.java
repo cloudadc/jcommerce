@@ -4,11 +4,11 @@ import org.apache.commons.lang.StringUtils;
 
 import com.jcommerce.core.model.ModelObject;
 import com.jcommerce.core.model.UserAddress;
-import com.jcommerce.core.util.SpringUtil;
 
 public class UserAddressWrapper extends BaseModelWrapper {
 
-    UserAddress userAddress;
+	private static final long serialVersionUID = -540864110403187412L;
+	UserAddress userAddress;
 
     @Override
     protected Object getWrapped() {

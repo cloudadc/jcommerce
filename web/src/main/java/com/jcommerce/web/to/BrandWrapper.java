@@ -5,6 +5,8 @@ import com.jcommerce.core.model.ModelObject;
 import com.jcommerce.gwt.client.util.URLConstants;
 
 public class BrandWrapper extends BaseModelWrapper implements URLConstants{
+
+	private static final long serialVersionUID = -1489148495634202565L;
 	Brand brand;
 	@Override
 	protected Object getWrapped() {

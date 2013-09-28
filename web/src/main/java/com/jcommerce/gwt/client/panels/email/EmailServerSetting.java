@@ -14,7 +14,6 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.jcommerce.gwt.client.ContentWidget;
 import com.jcommerce.gwt.client.PageState;
-import com.jcommerce.gwt.client.panels.data.ImportPanel.State;
 import com.jcommerce.gwt.client.resources.ServerSettingConstants;
 import com.jcommerce.gwt.client.service.EmailSettings;
 import com.jcommerce.gwt.client.widgets.ColumnPanel;

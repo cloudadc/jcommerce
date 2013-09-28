@@ -7,6 +7,8 @@ import com.jcommerce.core.model.ModelObject;
 import com.jcommerce.gwt.client.util.URLConstants;
 
 public class ArticleWrapper extends BaseModelWrapper implements URLConstants{
+
+	private static final long serialVersionUID = 5926787594403023309L;
 	Article article;
 	@Override
 	protected Object getWrapped() {

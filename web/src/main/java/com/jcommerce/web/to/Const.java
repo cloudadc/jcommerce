@@ -7,7 +7,10 @@ import com.jcommerce.core.model.ShopConfig;
 import com.jcommerce.core.wrapper.BaseWrapper;
 
 public class Const extends BaseWrapper {
-    private static Const inst = new Const();
+
+	private static final long serialVersionUID = -2384268505500540451L;
+
+	private static Const inst = new Const();
     
     public final static int DISPLAY_LIST = ShopConfig.DISPLAY_LIST;
     public final static int DISPLAY_GRID = ShopConfig.DISPLAY_GRID;

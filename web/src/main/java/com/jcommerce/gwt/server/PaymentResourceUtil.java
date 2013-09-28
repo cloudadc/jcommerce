@@ -9,9 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.jcommerce.core.module.ModuleManager;
-import com.jcommerce.core.module.payment.IPaymentModule;
-import com.jcommerce.core.module.shipping.IShippingModule;
 import com.jcommerce.core.payment.IPaymentMetaPlugin;
 import com.jcommerce.gwt.client.ModelNames;
 import com.jcommerce.gwt.client.form.BeanObject;

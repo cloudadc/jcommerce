@@ -4,7 +4,9 @@ import com.jcommerce.core.model.ModelObject;
 import com.jcommerce.core.model.OrderGoods;
 
 public class OrderGoodsWrapper extends BaseModelWrapper {
-    private OrderGoods orderGoods;
+
+	private static final long serialVersionUID = -4871881541724575837L;
+	private OrderGoods orderGoods;
 
 	protected Object getWrapped() {
 		return getOrderGoods();

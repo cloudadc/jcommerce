@@ -12,6 +12,7 @@ import com.jcommerce.web.util.WebFormatUtils;
 
 public class OrderWrapper extends BaseModelWrapper {
 
+	private static final long serialVersionUID = 280900524263812196L;
 	Order order;
 	@Override
 	protected Object getWrapped() {

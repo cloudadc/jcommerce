@@ -5,7 +5,7 @@ import com.jcommerce.core.model.Payment;
 
 public class PaymentWrapper extends BaseModelWrapper {
 
-
+	private static final long serialVersionUID = -6926305057213301409L;
 	Payment payment;
 	@Override
 	protected Object getWrapped() {

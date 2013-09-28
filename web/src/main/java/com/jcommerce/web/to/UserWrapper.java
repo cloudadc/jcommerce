@@ -13,6 +13,8 @@ import com.jcommerce.core.model.User;
 import com.jcommerce.web.util.WebFormatUtils;
 
 public class UserWrapper extends BaseModelWrapper {
+
+	private static final long serialVersionUID = -7715527551948516186L;
 	User user;
 	List<Order> orderList;
 	

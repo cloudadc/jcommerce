@@ -8,9 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Vector;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -19,9 +17,6 @@ import com.jcommerce.core.model.Payment;
 import com.jcommerce.core.module.DynamicClassLoader;
 import com.jcommerce.core.module.IModule;
 import com.jcommerce.core.payment.IPaymentMetaPlugin;
-import com.jcommerce.gwt.client.ModelNames;
-import com.jcommerce.gwt.client.form.BeanObject;
-import com.jcommerce.gwt.client.model.IPayment;
 
 public class MetaPluginManager {
     private File rootPath = new File("C:\\modules");

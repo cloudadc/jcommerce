@@ -3,7 +3,8 @@ package com.jcommerce.web.to;
 import com.jcommerce.core.wrapper.BaseWrapper;
 
 public class Message extends BaseWrapper{
-	
+
+	private static final long serialVersionUID = 7769863480296358089L;
 	String content;
 	String link;
 	String href;

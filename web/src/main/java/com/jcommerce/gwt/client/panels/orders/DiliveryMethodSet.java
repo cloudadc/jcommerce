@@ -28,7 +28,6 @@ import com.jcommerce.gwt.client.ModelNames;
 import com.jcommerce.gwt.client.PageState;
 import com.jcommerce.gwt.client.form.BeanObject;
 import com.jcommerce.gwt.client.model.IDeliveryMeta;
-import com.jcommerce.gwt.client.panels.data.ImportPanel.State;
 import com.jcommerce.gwt.client.panels.system.ShippingInstaller;
 import com.jcommerce.gwt.client.panels.system.Success;
 import com.jcommerce.gwt.client.service.CreateService;
@@ -265,8 +264,7 @@ public class DiliveryMethodSet extends ContentWidget {
 				act.setAction("setDeliveryZone($id)");
 				addAction(act);
 			}
-			return super.render(model, property, config, rowIndex, colIndex,
-					store, grid);
+			return super.render(model, property, config, rowIndex, colIndex, store, grid);
 		}
 	}
 }
