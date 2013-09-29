@@ -18,6 +18,7 @@
 
     <modules>
         <module>StockWatcher</module>
+        <module>migration</module>
     </modules>
 
 </project>

@@ -12,7 +12,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -115,7 +114,7 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 //	private EmailAccountManager emailAccountManager;
 	ArticleCategoryManager articleCategoryManager;
 	
-	DataSource dataSource;
+//	DataSource dataSource;
 	
 	protected void doUnexpectedFailure(Throwable e) 
 	{
@@ -123,10 +122,10 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 	}
 	
 	public IShopServiceImpl() {
-		String[] paths = { "/WEB-INF/applicationContext.xml" };
-		ApplicationContext ctx = new ClassPathXmlApplicationContext(paths);
-		
-		dataSource = (DataSource) ctx.getBean("dataSource");
+//		String[] paths = { "/WEB-INF/applicationContext.xml" };
+		ApplicationContext ctx /*= new ClassPathXmlApplicationContext(paths)*/ = null;
+//		
+//		dataSource = (DataSource) ctx.getBean("dataSource");
 		
 		Properties beanProps = new Properties();
 		InputStream is = getClass().getResourceAsStream("beans.properties");
@@ -1004,50 +1003,50 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 //            Session session = sessionFactory.openSession();
 //            Transaction transaction = session.beginTransaction();
             
-            try {            
-                Map _params = getParameters(name, params);
-
-                InputStream is = FileManagerFactory.getFileManager().getFile("reports/"+name+".jrxml").getInputStream();
-                JasperReport report = JasperCompileManager.compileReport(is);
-                is.close();
-                JasperPrint print = JasperFillManager.fillReport(report, _params, dataSource.getConnection());
-                
-//                transaction.rollback();
-//                session.close();
-  
-                JRHtmlExporter exporter = new JRHtmlExporter();
-                
-                OutputStream os = FileManagerFactory.getFileManager().createFile("reports/result/"+name+".html").getOutputStream();
-                
-                exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, os);                
-                exporter.setParameter(JRHtmlExporterParameter.BETWEEN_PAGES_HTML, "");
-                exporter.setParameter(JRHtmlExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
-//                exporter.setParameter(JRHtmlExporterParameter.IS_USING_IMAGES_TO_ALIGN, Boolean.FALSE);
-                exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI, "reportService/reports/result/"+name+".html_files/");
-                exporter.setParameter(JRHtmlExporterParameter.IS_OUTPUT_IMAGES_TO_DIR, Boolean.FALSE);
-                
-                Map images = new HashMap();
-                
-                exporter.setParameter(JRHtmlExporterParameter.IMAGES_MAP, images);
-                
-                exporter.exportReport();
-                
-                os.close();
-                
-                for (Iterator<String> it = images.keySet().iterator() ; it.hasNext() ; ) {
-                    String imageName = it.next();
-                    byte[] content = (byte[])images.get(imageName);
-                    
-                    FileManagerFactory.getFileManager().createFile("reports/result/"+name+".html_files/"+imageName).saveContent(content);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JRException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try {            
+//                Map _params = getParameters(name, params);
+//
+//                InputStream is = FileManagerFactory.getFileManager().getFile("reports/"+name+".jrxml").getInputStream();
+//                JasperReport report = JasperCompileManager.compileReport(is);
+//                is.close();
+//                JasperPrint print = JasperFillManager.fillReport(report, _params, dataSource.getConnection());
+//                
+////                transaction.rollback();
+////                session.close();
+//  
+//                JRHtmlExporter exporter = new JRHtmlExporter();
+//                
+//                OutputStream os = FileManagerFactory.getFileManager().createFile("reports/result/"+name+".html").getOutputStream();
+//                
+//                exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
+//                exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, os);                
+//                exporter.setParameter(JRHtmlExporterParameter.BETWEEN_PAGES_HTML, "");
+//                exporter.setParameter(JRHtmlExporterParameter.IS_REMOVE_EMPTY_SPACE_BETWEEN_ROWS, Boolean.TRUE);
+////                exporter.setParameter(JRHtmlExporterParameter.IS_USING_IMAGES_TO_ALIGN, Boolean.FALSE);
+//                exporter.setParameter(JRHtmlExporterParameter.IMAGES_URI, "reportService/reports/result/"+name+".html_files/");
+//                exporter.setParameter(JRHtmlExporterParameter.IS_OUTPUT_IMAGES_TO_DIR, Boolean.FALSE);
+//                
+//                Map images = new HashMap();
+//                
+//                exporter.setParameter(JRHtmlExporterParameter.IMAGES_MAP, images);
+//                
+//                exporter.exportReport();
+//                
+//                os.close();
+//                
+//                for (Iterator<String> it = images.keySet().iterator() ; it.hasNext() ; ) {
+//                    String imageName = it.next();
+//                    byte[] content = (byte[])images.get(imageName);
+//                    
+//                    FileManagerFactory.getFileManager().createFile("reports/result/"+name+".html_files/"+imageName).saveContent(content);
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } catch (JRException e) {
+//                e.printStackTrace();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
             
             return "reportService/reports/result/"+name+".html";
         }
@@ -1182,10 +1181,8 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
     		IFileManager fileManager = (LocalFileManager) managerFactory.getFileManager();
     		IFile file = (LocalFile) fileManager.getFile(path);
     		try {
-				ByteArrayInputStream byteStream = new ByteArrayInputStream(file
-						.readContent());
-				InputStreamReader streamReader = new InputStreamReader(byteStream,
-						encoding);
+				ByteArrayInputStream byteStream = new ByteArrayInputStream(file.readContent());
+				InputStreamReader streamReader = new InputStreamReader(byteStream, encoding);
 				CSVReader reader = new CSVReader(streamReader);
 				
 				List<BeanObject> objs = new ArrayList<BeanObject>();
@@ -1225,8 +1222,7 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 					BeanObject obj = new BeanObject(modelName, values);
 					objs.add(obj);
 					
-					createAction.newObject(obj.getModelName(), obj
-							.getProperties());
+					createAction.newObject(obj.getModelName(), obj.getProperties());
 				}
 				
 				fileManager.deleteFile(path);

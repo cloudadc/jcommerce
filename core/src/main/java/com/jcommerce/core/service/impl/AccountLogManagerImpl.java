@@ -9,12 +9,14 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.AccountLogDAO;
 import com.jcommerce.core.model.AccountLog;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AccountLogManager;
 
+@Service("accountLogManager")
 public class AccountLogManagerImpl extends ManagerImpl implements AccountLogManager {
    
 	private static Log log = LogFactory.getLog(AccountLogManagerImpl.class);

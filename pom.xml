@@ -20,7 +20,7 @@
         <module>sandbox</module>
         <module>web</module>
 	<module>core</module>
-	<module>migration</module>
+	<module>test</module>
     </modules>
 
 </project>
