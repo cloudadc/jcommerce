@@ -1,5 +1,7 @@
 |=========================================================
 |*Content*                                                         |*Status*     |*Description*
 |migrate hibernate from version 2 - version 4                      |DONE         | *.hbm.xml to annotation
+|migrate gwt from version 1.7 - version 2.0                        |DONE         | ext 2.2 compatiable gwt version is 2.0
+|spring-web.war run on JBoss EAP 6                                 |DONE         | jcommerce ui can show correct via deploy on JBoss eap 6
 |migrate spring from version 2 - latest version                    |Pending      | need make service code can work
 |=========================================================
