@@ -2,9 +2,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.SnatchDAO;
 import com.jcommerce.core.model.Snatch;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class SnatchDAOImpl extends DAOImpl implements SnatchDAO {
 
 	public SnatchDAOImpl() {

@@ -9,14 +9,20 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.KeywordsDAO;
 import com.jcommerce.core.model.Keywords;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.KeywordsManager;
 
+@Service("keywordsManager")
 public class KeywordsManagerImpl extends ManagerImpl implements KeywordsManager {
+	
     private static Log log = LogFactory.getLog(KeywordsManagerImpl.class);
+    
+    @Autowired
     private KeywordsDAO dao;
 
     public void setKeywordsDAO(KeywordsDAO dao) {

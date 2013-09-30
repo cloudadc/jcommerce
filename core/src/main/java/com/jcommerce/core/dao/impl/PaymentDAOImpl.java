@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.PaymentDAO;
 import com.jcommerce.core.model.Payment;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class PaymentDAOImpl extends DAOImpl implements PaymentDAO {
     public PaymentDAOImpl() {
         modelClass = Payment.class;

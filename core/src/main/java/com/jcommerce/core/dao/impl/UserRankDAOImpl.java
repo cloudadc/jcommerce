@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.UserRankDAO;
 import com.jcommerce.core.model.UserRank;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class UserRankDAOImpl extends DAOImpl implements UserRankDAO {
     public UserRankDAOImpl() {
         modelClass = UserRank.class;

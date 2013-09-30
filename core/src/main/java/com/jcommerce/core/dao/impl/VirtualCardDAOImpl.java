@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.VirtualCardDAO;
 import com.jcommerce.core.model.VirtualCard;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class VirtualCardDAOImpl extends DAOImpl implements VirtualCardDAO {
     public VirtualCardDAOImpl() {
         modelClass = VirtualCard.class;

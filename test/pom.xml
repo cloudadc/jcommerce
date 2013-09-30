@@ -5,7 +5,7 @@
   <!-- POM file generated with GWT webAppCreator -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jcommerce</groupId>
-  <artifactId>jcommerce-migration-entry</artifactId>
+  <artifactId>jcommerce-test</artifactId>
   <packaging>jar</packaging>
   <version>1.0</version>
   <name>jcommerce migration entry</name>
@@ -13,9 +13,18 @@
 	<properties>
 		<spring.version>3.2.3.RELEASE</spring.version>
 		<version.hibernate>4.2.0.Final</version.hibernate>
+		
+		<version.compiler.plugin>2.3.1</version.compiler.plugin>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>1.6</maven.compiler.source>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.jcommerce</groupId>
+			<artifactId>jcommerce-core</artifactId>
+			<version>1.0</version>
+		</dependency>
   
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -48,7 +57,11 @@
 			</exclusions>
 		</dependency>
 		
-	
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.10</version>
+		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -65,6 +78,14 @@
   
 	<build>  
 		<plugins>
+		<plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.compiler.plugin}</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
 		</plugins>
 	</build>
 </project>

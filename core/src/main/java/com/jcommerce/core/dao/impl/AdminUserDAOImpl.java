@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.AdminUserDAO;
 import com.jcommerce.core.model.AdminUser;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class AdminUserDAOImpl extends DAOImpl implements AdminUserDAO {
     public AdminUserDAOImpl() {
         modelClass = AdminUser.class;

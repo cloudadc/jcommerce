@@ -9,6 +9,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.AccountLogDAO;
@@ -20,6 +21,8 @@ import com.jcommerce.core.service.AccountLogManager;
 public class AccountLogManagerImpl extends ManagerImpl implements AccountLogManager {
    
 	private static Log log = LogFactory.getLog(AccountLogManagerImpl.class);
+	
+	@Autowired
     private AccountLogDAO dao;
 
     public void setAccountLogDAO(AccountLogDAO dao) {

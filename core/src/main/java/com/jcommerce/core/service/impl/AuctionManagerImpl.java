@@ -5,15 +5,20 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.AuctionDAO;
 import com.jcommerce.core.model.Auction;
 import com.jcommerce.core.service.AuctionManager;
 import com.jcommerce.core.service.Criteria;
 
+@Service("auctionManager")
 public class AuctionManagerImpl extends ManagerImpl implements AuctionManager {
 
 	private static Log log = LogFactory.getLog(AuctionManagerImpl.class);
+	
+	@Autowired
     private AuctionDAO dao;
 
     public void setAuctionDAO(AuctionDAO dao) {

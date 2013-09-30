@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.MemberPriceDAO;
 import com.jcommerce.core.model.MemberPrice;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class MemberPriceDAOImpl extends DAOImpl implements MemberPriceDAO {
     public MemberPriceDAOImpl() {
         modelClass = MemberPrice.class;

@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.AdPositionDAO;
 import com.jcommerce.core.model.AdPosition;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class AdPositionDAOImpl extends DAOImpl implements AdPositionDAO {
     public AdPositionDAOImpl() {
         modelClass = AdPosition.class;

@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.CategoryDAO;
 import com.jcommerce.core.model.Category;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class CategoryDAOImpl extends DAOImpl implements CategoryDAO {
     public CategoryDAOImpl() {
         modelClass = Category.class;

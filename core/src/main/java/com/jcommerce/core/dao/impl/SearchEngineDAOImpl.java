@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.SearchEngineDAO;
 import com.jcommerce.core.model.SearchEngine;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class SearchEngineDAOImpl extends DAOImpl implements SearchEngineDAO {
     public SearchEngineDAOImpl() {
         modelClass = SearchEngine.class;

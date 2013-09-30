@@ -26,10 +26,11 @@ import org.jfree.chart.title.TextTitle;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.ui.HorizontalAlignment;
 import org.jfree.ui.RectangleEdge;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.service.ReportManager;
 
-
+@Service("reportManager")
 public class ReportManagerImpl extends ManagerImpl implements ReportManager{
 
 	private static int CHARTS_WIDTH = 700;

@@ -5,14 +5,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.SnatchDAO;
 import com.jcommerce.core.model.Snatch;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.SnatchManager;
 
+@Service("snatchManager")
 public class SnatchManagerImpl extends ManagerImpl implements SnatchManager {
 	private static Log log = LogFactory.getLog(SnatchManagerImpl.class);
+	
+	@Autowired
     private SnatchDAO dao;
 
     public void setSnatchDAO(SnatchDAO dao) {

@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.AdvertisementDAO;
 import com.jcommerce.core.model.Advertisement;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class AdvertisementDAOImpl extends DAOImpl implements AdvertisementDAO {
     public AdvertisementDAOImpl() {
         modelClass = Advertisement.class;

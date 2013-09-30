@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.AutoManageDAO;
 import com.jcommerce.core.model.AutoManage;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AutoManageManager;
 
+@Service("autoManageManager")
 public class AutoManageManagerImpl extends ManagerImpl implements AutoManageManager {
     private static Log log = LogFactory.getLog(AutoManageManagerImpl.class);
+    
+    @Autowired
     private AutoManageDAO dao;
 
     public void setAutoManageDAO(AutoManageDAO dao) {

@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.AdsenseDAO;
 import com.jcommerce.core.model.Adsense;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class AdsenseDAOImpl extends DAOImpl implements AdsenseDAO {
     public AdsenseDAOImpl() {
         modelClass = Adsense.class;

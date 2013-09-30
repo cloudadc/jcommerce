@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.AttributeDAO;
 import com.jcommerce.core.model.Attribute;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AttributeManager;
 
+@Service("attributeManager")
 public class AttributeManagerImpl extends ManagerImpl implements AttributeManager {
     private static Log log = LogFactory.getLog(AttributeManagerImpl.class);
+    
+    @Autowired
     private AttributeDAO dao;
 
     public void setAttributeDAO(AttributeDAO dao) {

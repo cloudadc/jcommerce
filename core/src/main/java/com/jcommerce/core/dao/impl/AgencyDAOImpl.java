@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.AgencyDAO;
 import com.jcommerce.core.model.Agency;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class AgencyDAOImpl extends DAOImpl implements AgencyDAO {
     public AgencyDAOImpl() {
         modelClass = Agency.class;

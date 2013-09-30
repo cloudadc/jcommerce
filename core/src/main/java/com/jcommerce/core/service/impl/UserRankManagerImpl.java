@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.UserRankDAO;
 import com.jcommerce.core.model.UserRank;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.UserRankManager;
 
+@Service("userRankManager")
 public class UserRankManagerImpl extends ManagerImpl implements UserRankManager {
     private static Log log = LogFactory.getLog(UserRankManagerImpl.class);
+    
+    @Autowired
     private UserRankDAO dao;
 
     public void setUserRankDAO(UserRankDAO dao) {

@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.ArticleDAO;
 import com.jcommerce.core.model.Article;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.ArticleManager;
 
+@Service("articleManager")
 public class ArticleManagerImpl extends ManagerImpl implements ArticleManager {
     private static Log log = LogFactory.getLog(ArticleManagerImpl.class);
+    
+    @Autowired
     private ArticleDAO dao;
 
     public void setArticleDAO(ArticleDAO dao) {

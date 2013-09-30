@@ -5,9 +5,14 @@
 package com.jcommerce.core.dao.impl;
 
 import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.model.AdminLog;
 import com.jcommerce.core.dao.AdminLogDAO;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class AdminLogDAOImpl extends DAOImpl implements AdminLogDAO {
     public AdminLogDAOImpl() {
         modelClass = AdminLog.class;

@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.UserAddressDAO;
 import com.jcommerce.core.model.UserAddress;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.UserAddressManager;
 
+@Service("userAddressManager")
 public class UserAddressManagerImpl extends ManagerImpl implements UserAddressManager {
     private static Log log = LogFactory.getLog(UserAddressManagerImpl.class);
+    
+    @Autowired
     private UserAddressDAO dao;
 
     public void setUserAddressDAO(UserAddressDAO dao) {

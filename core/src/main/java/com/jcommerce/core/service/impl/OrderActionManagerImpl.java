@@ -10,6 +10,8 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.OrderActionDAO;
 import com.jcommerce.core.model.ModelObject;
@@ -17,8 +19,11 @@ import com.jcommerce.core.model.OrderAction;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.OrderActionManager;
 
+@Service("orderActionManager")
 public class OrderActionManagerImpl extends ManagerImpl implements OrderActionManager {
     private static Log log = LogFactory.getLog(OrderActionManagerImpl.class);
+    
+    @Autowired
     private OrderActionDAO dao;
 
     public void setOrderActionDAO(OrderActionDAO dao) {

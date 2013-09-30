@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.FailedLoginDAO;
 import com.jcommerce.core.model.FailedLogin;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.FailedLoginManager;
 
+@Service("failedLoginManager")
 public class FailedLoginManagerImpl extends ManagerImpl implements FailedLoginManager {
     private static Log log = LogFactory.getLog(FailedLoginManagerImpl.class);
+    
+    @Autowired
     private FailedLoginDAO dao;
 
     public void setFailedLoginDAO(FailedLoginDAO dao) {

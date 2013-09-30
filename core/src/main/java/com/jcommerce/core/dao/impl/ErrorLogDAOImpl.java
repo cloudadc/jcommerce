@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.ErrorLogDAO;
 import com.jcommerce.core.model.ErrorLog;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class ErrorLogDAOImpl extends DAOImpl implements ErrorLogDAO {
     public ErrorLogDAOImpl() {
         modelClass = ErrorLog.class;

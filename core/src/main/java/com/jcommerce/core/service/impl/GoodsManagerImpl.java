@@ -10,6 +10,8 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.GoodsDAO;
 import com.jcommerce.core.model.Goods;
@@ -18,8 +20,11 @@ import com.jcommerce.core.service.Condition;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.GoodsManager;
 
+@Service("goodsManager")
 public class GoodsManagerImpl extends ManagerImpl implements GoodsManager {
     private static Log log = LogFactory.getLog(GoodsManagerImpl.class);
+    
+    @Autowired
     private GoodsDAO dao;
 
     public void setGoodsDAO(GoodsDAO dao) {

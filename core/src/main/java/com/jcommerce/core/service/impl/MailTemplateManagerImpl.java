@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.MailTemplateDAO;
 import com.jcommerce.core.model.MailTemplate;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.MailTemplateManager;
 
+@Service("mailTemplateManager")
 public class MailTemplateManagerImpl extends ManagerImpl implements MailTemplateManager {
     private static Log log = LogFactory.getLog(MailTemplateManagerImpl.class);
+    
+    @Autowired
     private MailTemplateDAO dao;
 
     public void setMailTemplateDAO(MailTemplateDAO dao) {

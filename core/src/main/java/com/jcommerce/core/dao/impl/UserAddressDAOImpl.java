@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.UserAddressDAO;
 import com.jcommerce.core.model.UserAddress;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class UserAddressDAOImpl extends DAOImpl implements UserAddressDAO {
     public UserAddressDAOImpl() {
         modelClass = UserAddress.class;

@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.AutoManageDAO;
 import com.jcommerce.core.model.AutoManage;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class AutoManageDAOImpl extends DAOImpl implements AutoManageDAO {
     public AutoManageDAOImpl() {
         modelClass = AutoManage.class;

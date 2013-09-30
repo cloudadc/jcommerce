@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.BookingGoodsDAO;
 import com.jcommerce.core.model.BookingGoods;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.BookingGoodsManager;
 
+@Service("bookingGoodsManager")
 public class BookingGoodsManagerImpl extends ManagerImpl implements BookingGoodsManager {
     private static Log log = LogFactory.getLog(BookingGoodsManagerImpl.class);
+    
+    @Autowired
     private BookingGoodsDAO dao;
 
     public void setBookingGoodsDAO(BookingGoodsDAO dao) {

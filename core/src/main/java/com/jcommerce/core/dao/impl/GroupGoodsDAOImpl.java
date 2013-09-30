@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.GroupGoodsDAO;
 import com.jcommerce.core.model.GroupGoods;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class GroupGoodsDAOImpl extends DAOImpl implements GroupGoodsDAO {
     public GroupGoodsDAOImpl() {
         modelClass = GroupGoods.class;

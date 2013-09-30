@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.RegionDAO;
 import com.jcommerce.core.model.Region;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class RegionDAOImpl extends DAOImpl implements RegionDAO {
     public RegionDAOImpl() {
         modelClass = Region.class;

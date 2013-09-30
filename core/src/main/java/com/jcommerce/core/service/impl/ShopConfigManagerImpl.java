@@ -17,6 +17,8 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.ShopConfigDAO;
 import com.jcommerce.core.model.ShopConfig;
@@ -25,8 +27,11 @@ import com.jcommerce.core.service.ShopConfigManager;
 import com.jcommerce.core.util.ResourceUtil;
 import com.jcommerce.core.wrapper.ShopConfigWrapper;
 
+@Service("shopConfigManager")
 public class ShopConfigManagerImpl extends ManagerImpl implements ShopConfigManager {
     private static Log log = LogFactory.getLog(ShopConfigManagerImpl.class);
+    
+    @Autowired
     private ShopConfigDAO dao;
 
     public void setShopConfigDAO(ShopConfigDAO dao) {

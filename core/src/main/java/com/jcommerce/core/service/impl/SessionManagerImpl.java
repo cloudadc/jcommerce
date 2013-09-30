@@ -9,6 +9,8 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.SessionDAO;
 import com.jcommerce.core.model.Cart;
@@ -18,9 +20,13 @@ import com.jcommerce.core.service.Condition;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.SessionManager;
 
+@Service("sessionManager")
 public class SessionManagerImpl extends ManagerImpl implements SessionManager {
     private static Log log = LogFactory.getLog(SessionManagerImpl.class);
+    
+    @Autowired
     private SessionDAO dao;
+    
     private CartManager cartManager; 
     
     public CartManager getCartManager() {

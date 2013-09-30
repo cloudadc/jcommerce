@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.PluginsDAO;
 import com.jcommerce.core.model.Plugins;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class PluginsDAOImpl extends DAOImpl implements PluginsDAO {
     public PluginsDAOImpl() {
         modelClass = Plugins.class;

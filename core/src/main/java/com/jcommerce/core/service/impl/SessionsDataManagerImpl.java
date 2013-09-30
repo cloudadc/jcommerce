@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.SessionsDataDAO;
 import com.jcommerce.core.model.SessionsData;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.SessionsDataManager;
 
+@Service("sessionsDataManager")
 public class SessionsDataManagerImpl extends ManagerImpl implements SessionsDataManager {
     private static Log log = LogFactory.getLog(SessionsDataManagerImpl.class);
+    
+    @Autowired
     private SessionsDataDAO dao;
 
     public void setSessionsDataDAO(SessionsDataDAO dao) {

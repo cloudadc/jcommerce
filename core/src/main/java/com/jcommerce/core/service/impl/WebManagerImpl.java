@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.jcommerce.core.model.Attribute;
 import com.jcommerce.core.model.Cart;
 import com.jcommerce.core.model.Constants;
@@ -19,6 +21,7 @@ import com.jcommerce.core.service.GoodsManager;
 import com.jcommerce.core.service.IWebManager;
 import com.jcommerce.core.util.SpringUtil;
 
+@Service("webManager")
 public class WebManagerImpl extends ManagerImpl implements IWebManager {
     AttributeManager attributeManager; 
     GoodsManager goodsManager; 

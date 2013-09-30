@@ -4,24 +4,25 @@
 
 package com.jcommerce.core.service.impl;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.OrderDAO;
-import com.jcommerce.core.model.Goods;
 import com.jcommerce.core.model.Order;
-import com.jcommerce.core.model.Region;
 import com.jcommerce.core.service.Criteria;
-import com.jcommerce.core.service.OrderGoodsManager;
 import com.jcommerce.core.service.OrderManager;
 
+@Service("orderManager")
 public class OrderManagerImpl extends ManagerImpl implements OrderManager {
     private static Log log = LogFactory.getLog(OrderManagerImpl.class);
+    
+    @Autowired
     private OrderDAO dao;
 
     public void setOrderDAO(OrderDAO dao) {

@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.PackDAO;
 import com.jcommerce.core.model.Pack;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.PackManager;
 
+@Service("packManager")
 public class PackManagerImpl extends ManagerImpl implements PackManager {
     private static Log log = LogFactory.getLog(PackManagerImpl.class);
+    
+    @Autowired
     private PackDAO dao;
 
     public void setPackDAO(PackDAO dao) {

@@ -9,13 +9,18 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.AdminLogDAO;
 import com.jcommerce.core.model.AdminLog;
 import com.jcommerce.core.service.AdminLogManager;
 
+@Service("adminLogManager")
 public class AdminLogManagerImpl extends ManagerImpl implements AdminLogManager {
     private static Log log = LogFactory.getLog(AdminLogManagerImpl.class);
+    
+    @Autowired
     private AdminLogDAO dao;
 
     public void setAdminLogDAO(AdminLogDAO dao) {

@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.BonusTypeDAO;
 import com.jcommerce.core.model.BonusType;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.BonusTypeManager;
 
+@Service("bonusTypeManager")
 public class BonusTypeManagerImpl extends ManagerImpl implements BonusTypeManager {
     private static Log log = LogFactory.getLog(BonusTypeManagerImpl.class);
+    
+    @Autowired
     private BonusTypeDAO dao;
 
     public void setBonusTypeDAO(BonusTypeDAO dao) {

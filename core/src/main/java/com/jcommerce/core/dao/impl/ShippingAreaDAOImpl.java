@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.ShippingAreaDAO;
 import com.jcommerce.core.model.ShippingArea;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class ShippingAreaDAOImpl extends DAOImpl implements ShippingAreaDAO {
     public ShippingAreaDAOImpl() {
         modelClass = ShippingArea.class;

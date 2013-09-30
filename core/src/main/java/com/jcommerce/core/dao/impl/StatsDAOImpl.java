@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.StatsDAO;
 import com.jcommerce.core.model.Stats;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class StatsDAOImpl extends DAOImpl implements StatsDAO {
     public StatsDAOImpl() {
         modelClass = Stats.class;

@@ -2,9 +2,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.GroupBuyDAO;
 import com.jcommerce.core.model.GroupBuy;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class GroupBuyDAOImpl extends DAOImpl implements GroupBuyDAO {
 
 	 public GroupBuyDAOImpl() {

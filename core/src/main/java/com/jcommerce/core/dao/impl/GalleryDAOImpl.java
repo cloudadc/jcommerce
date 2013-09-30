@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.GalleryDAO;
 import com.jcommerce.core.model.Gallery;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class GalleryDAOImpl extends DAOImpl implements GalleryDAO {
     public GalleryDAOImpl() {
         modelClass = Gallery.class;

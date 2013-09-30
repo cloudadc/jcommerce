@@ -35,7 +35,7 @@ import com.jcommerce.gwt.client.resources.Resources;
 import com.jcommerce.gwt.client.service.DeleteService;
 import com.jcommerce.gwt.client.widgets.ActionCellRenderer;
 
-public class ArticleCatListPanel extends ContentWidget{
+public class ArticleCatListPanel extends ContentWidget {
 	public static interface Constants {
 		String ArticleCat_MenuName();
 		String ArticleCat_col_name();
@@ -51,6 +51,7 @@ public class ArticleCatListPanel extends ContentWidget{
 	    curState = new State();
 		initJS(this);
 	}
+	
 	private native void initJS(ArticleCatListPanel me) /*-{
 		$wnd.changeArticleCat = function (id) {
            me.@com.jcommerce.gwt.client.panels.article.ArticleCatListPanel::modifyArticleCatAndRefrsh(Ljava/lang/String;)(id);

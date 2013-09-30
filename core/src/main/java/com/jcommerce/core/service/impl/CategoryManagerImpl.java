@@ -12,14 +12,19 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.CategoryDAO;
-import com.jcommerce.core.model.Brand;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.model.Category;
 import com.jcommerce.core.service.CategoryManager;
+
+@Service("categoryManager")
 public class CategoryManagerImpl extends ManagerImpl implements CategoryManager {
     private static Log log = LogFactory.getLog(CategoryManagerImpl.class);
+    
+    @Autowired
     private CategoryDAO dao;
 
     public void setCategoryDAO(CategoryDAO dao) {

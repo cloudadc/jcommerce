@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.EmailListDAO;
 import com.jcommerce.core.model.EmailList;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.EmailListManager;
 
+@Service("emailListManager")
 public class EmailListManagerImpl extends ManagerImpl implements EmailListManager {
     private static Log log = LogFactory.getLog(EmailListManagerImpl.class);
+    
+    @Autowired
     private EmailListDAO dao;
 
     public void setEmailListDAO(EmailListDAO dao) {

@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.GalleryDAO;
 import com.jcommerce.core.model.Gallery;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.GalleryManager;
 
+@Service("galleryManager")
 public class GalleryManagerImpl extends ManagerImpl implements GalleryManager {
     private static Log log = LogFactory.getLog(GalleryManagerImpl.class);
+    
+    @Autowired
     private GalleryDAO dao;
 
     public void setGalleryDAO(GalleryDAO dao) {

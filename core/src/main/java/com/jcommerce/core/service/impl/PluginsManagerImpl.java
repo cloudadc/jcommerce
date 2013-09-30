@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.PluginsDAO;
 import com.jcommerce.core.model.Plugins;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.PluginsManager;
 
+@Service("pluginsManager")
 public class PluginsManagerImpl extends ManagerImpl implements PluginsManager {
     private static Log log = LogFactory.getLog(PluginsManagerImpl.class);
+    
+    @Autowired
     private PluginsDAO dao;
 
     public void setPluginsDAO(PluginsDAO dao) {

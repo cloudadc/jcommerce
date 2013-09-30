@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.SessionDAO;
 import com.jcommerce.core.model.Session;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class SessionDAOImpl extends DAOImpl implements SessionDAO {
     public SessionDAOImpl() {
         modelClass = Session.class;

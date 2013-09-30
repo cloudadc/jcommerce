@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.VoteDAO;
 import com.jcommerce.core.model.Vote;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.VoteManager;
 
+@Service("voteManager")
 public class VoteManagerImpl extends ManagerImpl implements VoteManager {
     private static Log log = LogFactory.getLog(VoteManagerImpl.class);
+    
+    @Autowired
     private VoteDAO dao;
 
     public void setVoteDAO(VoteDAO dao) {

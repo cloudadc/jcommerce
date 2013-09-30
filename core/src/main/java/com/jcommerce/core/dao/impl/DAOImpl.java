@@ -14,9 +14,12 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.jcommerce.core.dao.DAO;
 import com.jcommerce.core.model.ModelObject;
 
+@Transactional 
 public class DAOImpl implements DAO {
 	
     protected Log log = LogFactory.getLog(getClass());
@@ -35,9 +38,9 @@ public class DAOImpl implements DAO {
     }
     
     public List getList(final String hsql, final int firstRow, final int maxRow) {
-        System.out.println(" hsql:"+hsql);
+		System.out.println(" hsql:" + hsql);
         if (firstRow < 0 || maxRow <=0) {
-            throw new IllegalArgumentException("firstRow="+firstRow+" maxRow="+maxRow);
+			throw new IllegalArgumentException("firstRow=" + firstRow + " maxRow=" + maxRow);
         }
         
         Query query = getCurrentSession().createQuery(hsql);

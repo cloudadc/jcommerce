@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.CartDAO;
 import com.jcommerce.core.model.Cart;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class CartDAOImpl extends DAOImpl implements CartDAO {
     public CartDAOImpl() {
         modelClass = Cart.class;

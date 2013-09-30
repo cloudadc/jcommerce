@@ -9,14 +9,19 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.StatsDAO;
 import com.jcommerce.core.model.Stats;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.StatsManager;
 
+@Service("statsManager")
 public class StatsManagerImpl extends ManagerImpl implements StatsManager {
     private static Log log = LogFactory.getLog(StatsManagerImpl.class);
+    
+    @Autowired
     private StatsDAO dao;
 
     public void setStatsDAO(StatsDAO dao) {

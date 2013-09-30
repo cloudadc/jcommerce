@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.OrderDAO;
 import com.jcommerce.core.model.Order;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class OrderDAOImpl extends DAOImpl implements OrderDAO {
     public OrderDAOImpl() {
         modelClass = Order.class;

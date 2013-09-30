@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.AdminMessageDAO;
 import com.jcommerce.core.model.AdminMessage;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class AdminMessageDAOImpl extends DAOImpl implements AdminMessageDAO {
     public AdminMessageDAOImpl() {
         modelClass = AdminMessage.class;

@@ -6,9 +6,13 @@ package com.jcommerce.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.jcommerce.core.dao.CollectGoodsDAO;
 import com.jcommerce.core.model.CollectGoods;
 
+@Repository
+@SuppressWarnings("unchecked")
 public class CollectGoodsDAOImpl extends DAOImpl implements CollectGoodsDAO {
     public CollectGoodsDAOImpl() {
         modelClass = CollectGoods.class;
