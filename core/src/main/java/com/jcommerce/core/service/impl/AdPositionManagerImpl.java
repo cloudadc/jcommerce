@@ -17,7 +17,7 @@ import com.jcommerce.core.model.AdPosition;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AdPositionManager;
 
-@Service("adPositionManager")
+@Service("AdPositionManager")
 public class AdPositionManagerImpl extends ManagerImpl implements AdPositionManager {
     private static Log log = LogFactory.getLog(AdPositionManagerImpl.class);
     

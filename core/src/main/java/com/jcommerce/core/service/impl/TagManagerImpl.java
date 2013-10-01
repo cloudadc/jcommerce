@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Tag;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.TagManager;
 
-@Service("tagManager")
+@Service("TagManager")
 public class TagManagerImpl extends ManagerImpl implements TagManager {
     private static Log log = LogFactory.getLog(TagManagerImpl.class);
     

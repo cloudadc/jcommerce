@@ -17,7 +17,7 @@ import com.jcommerce.core.model.GoodsAttribute;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.GoodsAttributeManager;
 
-@Service("goodsAttributeManager")
+@Service("GoodsAttributeManager")
 public class GoodsAttributeManagerImpl extends ManagerImpl implements GoodsAttributeManager {
     private static Log log = LogFactory.getLog(GoodsAttributeManagerImpl.class);
     

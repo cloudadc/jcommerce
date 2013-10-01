@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.model.Order;
@@ -25,11 +26,18 @@ import com.jcommerce.core.service.payment.impl.ChinaBank;
 import com.jcommerce.core.service.payment.impl.GoogleCheckout;
 import com.jcommerce.core.service.payment.impl.Paypal;
 
-@Service("paymentMetaManager")
+@Service("PaymentMetaManager")
 public class PaymentMetaManagerImpl extends ManagerImpl implements IPaymentMetaManager{
+	
+	@Autowired
     PaymentManager paymentManager;
-    OrderManager orderManager;    
+	
+	@Autowired
+    OrderManager orderManager;   
+	
+	@Autowired
     OrderGoodsManager orderGoodsManager;    
+	
     private String pluginFolder;
     
     public PaymentMetaManagerImpl() {

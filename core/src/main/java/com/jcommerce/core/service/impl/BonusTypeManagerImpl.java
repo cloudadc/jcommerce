@@ -17,7 +17,7 @@ import com.jcommerce.core.model.BonusType;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.BonusTypeManager;
 
-@Service("bonusTypeManager")
+@Service("BonusTypeManager")
 public class BonusTypeManagerImpl extends ManagerImpl implements BonusTypeManager {
     private static Log log = LogFactory.getLog(BonusTypeManagerImpl.class);
     

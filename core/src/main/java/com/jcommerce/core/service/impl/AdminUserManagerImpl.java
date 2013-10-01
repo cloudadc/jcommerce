@@ -17,7 +17,7 @@ import com.jcommerce.core.model.AdminUser;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AdminUserManager;
 
-@Service("adminUserManager")
+@Service("AdminUserManager")
 public class AdminUserManagerImpl extends ManagerImpl implements AdminUserManager {
     private static Log log = LogFactory.getLog(AdminUserManagerImpl.class);
     

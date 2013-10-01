@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Card;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.CardManager;
 
-@Service("cardManager")
+@Service("CardManager")
 public class CardManagerImpl extends ManagerImpl implements CardManager {
     private static Log log = LogFactory.getLog(CardManagerImpl.class);
     

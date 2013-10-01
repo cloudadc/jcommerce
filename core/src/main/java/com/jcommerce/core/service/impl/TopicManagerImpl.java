@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Topic;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.TopicManager;
 
-@Service("topicManager")
+@Service("TopicManager")
 public class TopicManagerImpl extends ManagerImpl implements TopicManager {
     private static Log log = LogFactory.getLog(TopicManagerImpl.class);
     

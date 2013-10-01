@@ -17,7 +17,7 @@ import com.jcommerce.core.model.SnatchLog;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.SnatchLogManager;
 
-@Service("snatchLogManager")
+@Service("SnatchLogManager")
 public class SnatchLogManagerImpl extends ManagerImpl implements SnatchLogManager {
     private static Log log = LogFactory.getLog(SnatchLogManagerImpl.class);
     

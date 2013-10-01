@@ -17,7 +17,7 @@ import com.jcommerce.core.model.AccountLog;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AccountLogManager;
 
-@Service("accountLogManager")
+@Service("AccountLogManager")
 public class AccountLogManagerImpl extends ManagerImpl implements AccountLogManager {
    
 	private static Log log = LogFactory.getLog(AccountLogManagerImpl.class);

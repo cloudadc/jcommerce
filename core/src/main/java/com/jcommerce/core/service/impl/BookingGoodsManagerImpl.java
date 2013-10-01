@@ -17,7 +17,7 @@ import com.jcommerce.core.model.BookingGoods;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.BookingGoodsManager;
 
-@Service("bookingGoodsManager")
+@Service("BookingGoodsManager")
 public class BookingGoodsManagerImpl extends ManagerImpl implements BookingGoodsManager {
     private static Log log = LogFactory.getLog(BookingGoodsManagerImpl.class);
     

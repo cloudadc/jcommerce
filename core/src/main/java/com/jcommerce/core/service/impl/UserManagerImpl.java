@@ -17,7 +17,7 @@ import com.jcommerce.core.model.User;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.UserManager;
 
-@Service("userManager")
+@Service("UserManager")
 public class UserManagerImpl extends ManagerImpl implements UserManager {
     private static Log log = LogFactory.getLog(UserManagerImpl.class);
     

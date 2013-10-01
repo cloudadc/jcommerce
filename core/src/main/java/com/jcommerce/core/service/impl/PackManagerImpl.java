@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Pack;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.PackManager;
 
-@Service("packManager")
+@Service("PackManager")
 public class PackManagerImpl extends ManagerImpl implements PackManager {
     private static Log log = LogFactory.getLog(PackManagerImpl.class);
     

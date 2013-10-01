@@ -17,7 +17,7 @@ import com.jcommerce.core.model.AdminAction;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AdminActionManager;
 
-@Service("adminActionManager")
+@Service("AdminActionManager")
 public class AdminActionManagerImpl extends ManagerImpl implements AdminActionManager {
     private static Log log = LogFactory.getLog(AdminActionManagerImpl.class);
     

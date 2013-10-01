@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Brand;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.BrandManager;
 
-@Service("brandManager")
+@Service("BrandManager")
 public class BrandManagerImpl extends ManagerImpl implements BrandManager {
     private static Log log = LogFactory.getLog(BrandManagerImpl.class);
     

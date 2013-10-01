@@ -20,7 +20,7 @@ import com.jcommerce.core.service.Condition;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.OrderGoodsManager;
 
-@Service("orderGoodsManager")
+@Service("OrderGoodsManager")
 public class OrderGoodsManagerImpl extends ManagerImpl implements OrderGoodsManager {
     private static Log log = LogFactory.getLog(OrderGoodsManagerImpl.class);
     

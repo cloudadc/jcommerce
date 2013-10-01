@@ -17,7 +17,7 @@ import com.jcommerce.core.model.UserBonus;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.UserBonusManager;
 
-@Service("userBonusManager")
+@Service("UserBonusManager")
 public class UserBonusManagerImpl extends ManagerImpl implements UserBonusManager {
     private static Log log = LogFactory.getLog(UserBonusManagerImpl.class);
     

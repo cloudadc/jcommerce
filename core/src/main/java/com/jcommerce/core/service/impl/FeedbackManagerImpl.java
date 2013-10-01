@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Feedback;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.FeedbackManager;
 
-@Service("feedbackManager")
+@Service("FeedbackManager")
 public class FeedbackManagerImpl extends ManagerImpl implements FeedbackManager {
     private static Log log = LogFactory.getLog(FeedbackManagerImpl.class);
     

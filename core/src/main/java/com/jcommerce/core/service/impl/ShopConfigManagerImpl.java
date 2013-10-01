@@ -27,7 +27,7 @@ import com.jcommerce.core.service.ShopConfigManager;
 import com.jcommerce.core.util.ResourceUtil;
 import com.jcommerce.core.wrapper.ShopConfigWrapper;
 
-@Service("shopConfigManager")
+@Service("ShopConfigManager")
 public class ShopConfigManagerImpl extends ManagerImpl implements ShopConfigManager {
     private static Log log = LogFactory.getLog(ShopConfigManagerImpl.class);
     

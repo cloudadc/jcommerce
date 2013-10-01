@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Navigation;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.NavigationManager;
 
-@Service("navigationManager")
+@Service("NavigationManager")
 public class NavigationManagerImpl extends ManagerImpl implements NavigationManager {
     private static Log log = LogFactory.getLog(NavigationManagerImpl.class);
     

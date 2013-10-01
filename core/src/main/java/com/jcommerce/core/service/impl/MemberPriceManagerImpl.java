@@ -17,7 +17,7 @@ import com.jcommerce.core.model.MemberPrice;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.MemberPriceManager;
 
-@Service("memberPriceManager")
+@Service("MemberPriceManager")
 public class MemberPriceManagerImpl extends ManagerImpl implements MemberPriceManager {
     private static Log log = LogFactory.getLog(MemberPriceManagerImpl.class);
     

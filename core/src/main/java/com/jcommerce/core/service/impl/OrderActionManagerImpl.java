@@ -19,7 +19,7 @@ import com.jcommerce.core.model.OrderAction;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.OrderActionManager;
 
-@Service("orderActionManager")
+@Service("OrderActionManager")
 public class OrderActionManagerImpl extends ManagerImpl implements OrderActionManager {
     private static Log log = LogFactory.getLog(OrderActionManagerImpl.class);
     

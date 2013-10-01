@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Region;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.RegionManager;
 
-@Service("regionManager")
+@Service("RegionManager")
 public class RegionManagerImpl extends ManagerImpl implements RegionManager {
     private static Log log = LogFactory.getLog(RegionManagerImpl.class);
     

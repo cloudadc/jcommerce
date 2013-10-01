@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Keywords;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.KeywordsManager;
 
-@Service("keywordsManager")
+@Service("KeywordsManager")
 public class KeywordsManagerImpl extends ManagerImpl implements KeywordsManager {
 	
     private static Log log = LogFactory.getLog(KeywordsManagerImpl.class);

@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Payment;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.PaymentManager;
 
-@Service("paymentManager")
+@Service("PaymentManager")
 public class PaymentManagerImpl extends ManagerImpl implements PaymentManager {
     private static Log log = LogFactory.getLog(PaymentManagerImpl.class);
     

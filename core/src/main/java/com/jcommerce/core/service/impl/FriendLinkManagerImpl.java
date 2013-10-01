@@ -17,7 +17,7 @@ import com.jcommerce.core.model.FriendLink;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.FriendLinkManager;
 
-@Service("friendLinkManager")
+@Service("FriendLinkManager")
 public class FriendLinkManagerImpl extends ManagerImpl implements FriendLinkManager {
     private static Log log = LogFactory.getLog(FriendLinkManagerImpl.class);
     

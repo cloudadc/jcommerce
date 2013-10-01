@@ -17,7 +17,7 @@ import com.jcommerce.core.model.EmailList;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.EmailListManager;
 
-@Service("emailListManager")
+@Service("EmailListManager")
 public class EmailListManagerImpl extends ManagerImpl implements EmailListManager {
     private static Log log = LogFactory.getLog(EmailListManagerImpl.class);
     

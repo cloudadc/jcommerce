@@ -17,7 +17,7 @@ import com.jcommerce.core.model.LinkGoods;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.LinkGoodsManager;
 
-@Service("linkGoodsManager")
+@Service("LinkGoodsManager")
 public class LinkGoodsManagerImpl extends ManagerImpl implements LinkGoodsManager {
     private static Log log = LogFactory.getLog(LinkGoodsManagerImpl.class);
     

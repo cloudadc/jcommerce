@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Adsense;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AdsenseManager;
 
-@Service("adsenseManager")
+@Service("AdsenseManager")
 public class AdsenseManagerImpl extends ManagerImpl implements AdsenseManager {
     private static Log log = LogFactory.getLog(AdsenseManagerImpl.class);
     

@@ -17,7 +17,7 @@ import com.jcommerce.core.model.UserAddress;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.UserAddressManager;
 
-@Service("userAddressManager")
+@Service("UserAddressManager")
 public class UserAddressManagerImpl extends ManagerImpl implements UserAddressManager {
     private static Log log = LogFactory.getLog(UserAddressManagerImpl.class);
     

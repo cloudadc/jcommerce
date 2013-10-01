@@ -13,7 +13,7 @@ import com.jcommerce.core.model.Snatch;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.SnatchManager;
 
-@Service("snatchManager")
+@Service("SnatchManager")
 public class SnatchManagerImpl extends ManagerImpl implements SnatchManager {
 	private static Log log = LogFactory.getLog(SnatchManagerImpl.class);
 	

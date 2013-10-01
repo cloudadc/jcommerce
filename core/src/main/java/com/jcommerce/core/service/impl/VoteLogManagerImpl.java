@@ -17,7 +17,7 @@ import com.jcommerce.core.model.VoteLog;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.VoteLogManager;
 
-@Service("voteLogManager")
+@Service("VoteLogManager")
 public class VoteLogManagerImpl extends ManagerImpl implements VoteLogManager {
     private static Log log = LogFactory.getLog(VoteLogManagerImpl.class);
     

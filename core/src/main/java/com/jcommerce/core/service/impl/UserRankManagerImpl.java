@@ -17,7 +17,7 @@ import com.jcommerce.core.model.UserRank;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.UserRankManager;
 
-@Service("userRankManager")
+@Service("UserRankManager")
 public class UserRankManagerImpl extends ManagerImpl implements UserRankManager {
     private static Log log = LogFactory.getLog(UserRankManagerImpl.class);
     

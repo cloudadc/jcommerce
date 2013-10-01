@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Shipping;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.ShippingManager;
 
-@Service("shippingManager")
+@Service("ShippingManager")
 public class ShippingManagerImpl extends ManagerImpl implements ShippingManager {
     private static Log log = LogFactory.getLog(ShippingManagerImpl.class);
     

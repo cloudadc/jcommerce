@@ -17,7 +17,7 @@ import com.jcommerce.core.model.AdminMessage;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AdminMessageManager;
 
-@Service("adminMessageManager")
+@Service("AdminMessageManager")
 public class AdminMessageManagerImpl extends ManagerImpl implements AdminMessageManager {
     private static Log log = LogFactory.getLog(AdminMessageManagerImpl.class);
     

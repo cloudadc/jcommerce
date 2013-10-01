@@ -17,7 +17,7 @@ import com.jcommerce.core.model.SearchEngine;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.SearchEngineManager;
 
-@Service("searchEngineManager")
+@Service("SearchEngineManager")
 public class SearchEngineManagerImpl extends ManagerImpl implements SearchEngineManager {
     private static Log log = LogFactory.getLog(SearchEngineManagerImpl.class);
     

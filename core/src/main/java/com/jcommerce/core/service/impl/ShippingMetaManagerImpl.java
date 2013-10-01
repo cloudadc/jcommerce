@@ -20,7 +20,7 @@ import com.jcommerce.core.service.shipping.impl.EMS;
 import com.jcommerce.core.service.shipping.impl.YuanTong;
 import com.jcommerce.core.util.MyPropertyUtil;
 
-@Service("shippingMetaManager")
+@Service("ShippingMetaManager")
 public class ShippingMetaManagerImpl extends ManagerImpl implements IShippingMetaManager {
     private String pluginFolder;
     ShippingManager shippingManager;

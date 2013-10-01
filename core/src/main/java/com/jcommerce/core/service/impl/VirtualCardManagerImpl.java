@@ -17,7 +17,7 @@ import com.jcommerce.core.model.VirtualCard;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.VirtualCardManager;
 
-@Service("virtualCardManager")
+@Service("VirtualCardManager")
 public class VirtualCardManagerImpl extends ManagerImpl implements VirtualCardManager {
     private static Log log = LogFactory.getLog(VirtualCardManagerImpl.class);
     

@@ -17,7 +17,7 @@ import com.jcommerce.core.model.EmailSendList;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.EmailSendListManager;
 
-@Service("emailSendListManager")
+@Service("EmailSendListManager")
 public class EmailSendListManagerImpl extends ManagerImpl implements EmailSendListManager {
     private static Log log = LogFactory.getLog(EmailSendListManagerImpl.class);
     

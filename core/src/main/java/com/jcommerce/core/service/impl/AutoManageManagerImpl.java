@@ -17,7 +17,7 @@ import com.jcommerce.core.model.AutoManage;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AutoManageManager;
 
-@Service("autoManageManager")
+@Service("AutoManageManager")
 public class AutoManageManagerImpl extends ManagerImpl implements AutoManageManager {
     private static Log log = LogFactory.getLog(AutoManageManagerImpl.class);
     

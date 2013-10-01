@@ -13,7 +13,7 @@ import com.jcommerce.core.model.Auction;
 import com.jcommerce.core.service.AuctionManager;
 import com.jcommerce.core.service.Criteria;
 
-@Service("auctionManager")
+@Service("AuctionManager")
 public class AuctionManagerImpl extends ManagerImpl implements AuctionManager {
 
 	private static Log log = LogFactory.getLog(AuctionManagerImpl.class);

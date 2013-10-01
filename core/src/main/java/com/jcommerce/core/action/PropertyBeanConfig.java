@@ -55,7 +55,7 @@ public class PropertyBeanConfig implements BeanConfig {
     }
     
     public String getItemType(String modelName, String fieldName) {
-        String type = beanProps.getProperty("bean."+modelName+".type."+fieldName);
+		String type = beanProps.getProperty("bean." + modelName + ".type."+ fieldName);
         if (type == null) {
             throw new RuntimeException("Field type must be defined: "+modelName+"."+fieldName);
         }

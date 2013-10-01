@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Gallery;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.GalleryManager;
 
-@Service("galleryManager")
+@Service("GalleryManager")
 public class GalleryManagerImpl extends ManagerImpl implements GalleryManager {
     private static Log log = LogFactory.getLog(GalleryManagerImpl.class);
     

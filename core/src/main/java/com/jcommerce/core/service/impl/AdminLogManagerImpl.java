@@ -16,7 +16,7 @@ import com.jcommerce.core.dao.AdminLogDAO;
 import com.jcommerce.core.model.AdminLog;
 import com.jcommerce.core.service.AdminLogManager;
 
-@Service("adminLogManager")
+@Service("AdminLogManager")
 public class AdminLogManagerImpl extends ManagerImpl implements AdminLogManager {
     private static Log log = LogFactory.getLog(AdminLogManagerImpl.class);
     

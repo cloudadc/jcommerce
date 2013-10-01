@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Advertisement;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AdvertisementManager;
 
-@Service("advertisementManager")
+@Service("AdvertisementManager")
 public class AdvertisementManagerImpl extends ManagerImpl implements AdvertisementManager {
     private static Log log = LogFactory.getLog(AdvertisementManagerImpl.class);
     

@@ -17,7 +17,7 @@ import com.jcommerce.core.model.ShippingArea;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.ShippingAreaManager;
 
-@Service("shippingAreaManager")
+@Service("ShippingAreaManager")
 public class ShippingAreaManagerImpl extends ManagerImpl implements ShippingAreaManager {
     private static Log log = LogFactory.getLog(ShippingAreaManagerImpl.class);
     

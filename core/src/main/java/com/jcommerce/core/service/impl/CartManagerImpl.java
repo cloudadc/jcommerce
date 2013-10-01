@@ -20,7 +20,7 @@ import com.jcommerce.core.model.ModelObject;
 import com.jcommerce.core.model.Session;
 import com.jcommerce.core.service.CartManager;
 
-@Service("cartManager")
+@Service("CartManager")
 public class CartManagerImpl extends ManagerImpl implements CartManager {
     private static Log log = LogFactory.getLog(CartManagerImpl.class);
     

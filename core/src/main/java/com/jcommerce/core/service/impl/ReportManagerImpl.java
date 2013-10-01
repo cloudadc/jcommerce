@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.service.ReportManager;
 
-@Service("reportManager")
+@Service("ReportManager")
 public class ReportManagerImpl extends ManagerImpl implements ReportManager{
 
 	private static int CHARTS_WIDTH = 700;

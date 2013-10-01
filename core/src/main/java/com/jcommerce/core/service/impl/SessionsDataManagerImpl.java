@@ -17,7 +17,7 @@ import com.jcommerce.core.model.SessionsData;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.SessionsDataManager;
 
-@Service("sessionsDataManager")
+@Service("SessionsDataManager")
 public class SessionsDataManagerImpl extends ManagerImpl implements SessionsDataManager {
     private static Log log = LogFactory.getLog(SessionsDataManagerImpl.class);
     

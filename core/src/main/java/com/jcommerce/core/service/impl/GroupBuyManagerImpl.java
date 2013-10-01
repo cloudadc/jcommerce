@@ -10,11 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.jcommerce.core.dao.GroupBuyDAO;
 import com.jcommerce.core.model.GroupBuy;
-import com.jcommerce.core.model.GroupBuy;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.GroupBuyManager;
 
-@Service("groupBuyManager")
+@Service("GroupBuyManager")
 public class GroupBuyManagerImpl extends ManagerImpl implements GroupBuyManager {
 
 	private static Log log = LogFactory.getLog(GroupBuyManagerImpl.class);

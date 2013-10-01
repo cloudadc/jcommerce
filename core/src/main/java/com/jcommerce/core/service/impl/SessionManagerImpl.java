@@ -20,7 +20,7 @@ import com.jcommerce.core.service.Condition;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.SessionManager;
 
-@Service("sessionManager")
+@Service("SessionManager")
 public class SessionManagerImpl extends ManagerImpl implements SessionManager {
     private static Log log = LogFactory.getLog(SessionManagerImpl.class);
     

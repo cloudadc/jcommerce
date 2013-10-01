@@ -21,7 +21,7 @@ import com.jcommerce.core.service.GoodsManager;
 import com.jcommerce.core.service.IWebManager;
 import com.jcommerce.core.util.SpringUtil;
 
-@Service("webManager")
+@Service("WebManager")
 public class WebManagerImpl extends ManagerImpl implements IWebManager {
     AttributeManager attributeManager; 
     GoodsManager goodsManager; 

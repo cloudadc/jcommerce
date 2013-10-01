@@ -17,7 +17,7 @@ import com.jcommerce.core.model.ErrorLog;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.ErrorLogManager;
 
-@Service("errorLogManager")
+@Service("ErrorLogManager")
 public class ErrorLogManagerImpl extends ManagerImpl implements ErrorLogManager {
     private static Log log = LogFactory.getLog(ErrorLogManagerImpl.class);
     

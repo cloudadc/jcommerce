@@ -17,7 +17,7 @@ import com.jcommerce.core.model.FavourableActivity;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.FavourableActivityManager;
 
-@Service("favourableActivityManager")
+@Service("FavourableActivityManager")
 public class FavourableActivityManagerImpl extends ManagerImpl implements FavourableActivityManager {
     private static Log log = LogFactory.getLog(FavourableActivityManagerImpl.class);
     

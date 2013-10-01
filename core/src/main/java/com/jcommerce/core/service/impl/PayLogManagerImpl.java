@@ -17,7 +17,7 @@ import com.jcommerce.core.model.PayLog;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.PayLogManager;
 
-@Service("payLogManager")
+@Service("PayLogManager")
 public class PayLogManagerImpl extends ManagerImpl implements PayLogManager {
     private static Log log = LogFactory.getLog(PayLogManagerImpl.class);
     

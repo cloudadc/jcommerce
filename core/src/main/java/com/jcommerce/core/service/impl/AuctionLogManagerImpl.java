@@ -17,7 +17,7 @@ import com.jcommerce.core.model.AuctionLog;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AuctionLogManager;
 
-@Service("auctionLogManager")
+@Service("AuctionLogManager")
 public class AuctionLogManagerImpl extends ManagerImpl implements AuctionLogManager {
     private static Log log = LogFactory.getLog(AuctionLogManagerImpl.class);
     

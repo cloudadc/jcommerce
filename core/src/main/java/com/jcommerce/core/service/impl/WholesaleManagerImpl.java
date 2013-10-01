@@ -17,9 +17,10 @@ import com.jcommerce.core.model.Wholesale;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.WholesaleManager;
 
-@Service("wholesaleManager")
+@Service("WholesaleManager")
 public class WholesaleManagerImpl extends ManagerImpl implements WholesaleManager {
-    private static Log log = LogFactory.getLog(WholesaleManagerImpl.class);
+    
+	private static Log log = LogFactory.getLog(WholesaleManagerImpl.class);
     
     @Autowired
     private WholesaleDAO dao;

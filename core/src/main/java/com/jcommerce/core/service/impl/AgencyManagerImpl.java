@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Agency;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AgencyManager;
 
-@Service("agencyManager")
+@Service("AgencyManager")
 public class AgencyManagerImpl extends ManagerImpl implements AgencyManager {
     private static Log log = LogFactory.getLog(AgencyManagerImpl.class);
     

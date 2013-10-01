@@ -17,7 +17,7 @@ import com.jcommerce.core.model.GroupGoods;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.GroupGoodsManager;
 
-@Service("groupGoodsManager")
+@Service("GroupGoodsManager")
 public class GroupGoodsManagerImpl extends ManagerImpl implements GroupGoodsManager {
 	
     private static Log log = LogFactory.getLog(GroupGoodsManagerImpl.class);

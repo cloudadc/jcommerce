@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Article;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.ArticleManager;
 
-@Service("articleManager")
+@Service("ArticleManager")
 public class ArticleManagerImpl extends ManagerImpl implements ArticleManager {
     private static Log log = LogFactory.getLog(ArticleManagerImpl.class);
     

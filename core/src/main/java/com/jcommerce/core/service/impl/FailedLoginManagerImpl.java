@@ -17,7 +17,7 @@ import com.jcommerce.core.model.FailedLogin;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.FailedLoginManager;
 
-@Service("failedLoginManager")
+@Service("FailedLoginManager")
 public class FailedLoginManagerImpl extends ManagerImpl implements FailedLoginManager {
     private static Log log = LogFactory.getLog(FailedLoginManagerImpl.class);
     

@@ -1,0 +1,9 @@
+<jboss-deployment-structure>
+	<deployment>
+		<dependencies>
+		<!--  
+			<module name="org.hibernate" />
+			-->
+		</dependencies>
+	</deployment>
+</jboss-deployment-structure>

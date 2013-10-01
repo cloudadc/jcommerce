@@ -17,7 +17,7 @@ import com.jcommerce.core.model.GoodsArticle;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.GoodsArticleManager;
 
-@Service("goodsArticleManager")
+@Service("GoodsArticleManager")
 public class GoodsArticleManagerImpl extends ManagerImpl implements GoodsArticleManager {
     private static Log log = LogFactory.getLog(GoodsArticleManagerImpl.class);
     

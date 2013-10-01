@@ -17,7 +17,7 @@ import com.jcommerce.core.model.MailTemplate;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.MailTemplateManager;
 
-@Service("mailTemplateManager")
+@Service("MailTemplateManager")
 public class MailTemplateManagerImpl extends ManagerImpl implements MailTemplateManager {
     private static Log log = LogFactory.getLog(MailTemplateManagerImpl.class);
     

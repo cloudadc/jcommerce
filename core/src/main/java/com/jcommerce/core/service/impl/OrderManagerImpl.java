@@ -18,7 +18,7 @@ import com.jcommerce.core.model.Order;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.OrderManager;
 
-@Service("orderManager")
+@Service("OrderManager")
 public class OrderManagerImpl extends ManagerImpl implements OrderManager {
     private static Log log = LogFactory.getLog(OrderManagerImpl.class);
     

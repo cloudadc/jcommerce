@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Plugins;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.PluginsManager;
 
-@Service("pluginsManager")
+@Service("PluginsManager")
 public class PluginsManagerImpl extends ManagerImpl implements PluginsManager {
     private static Log log = LogFactory.getLog(PluginsManagerImpl.class);
     

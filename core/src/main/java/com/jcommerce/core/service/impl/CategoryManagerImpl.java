@@ -20,7 +20,7 @@ import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.model.Category;
 import com.jcommerce.core.service.CategoryManager;
 
-@Service("categoryManager")
+@Service("CategoryManager")
 public class CategoryManagerImpl extends ManagerImpl implements CategoryManager {
     private static Log log = LogFactory.getLog(CategoryManagerImpl.class);
     

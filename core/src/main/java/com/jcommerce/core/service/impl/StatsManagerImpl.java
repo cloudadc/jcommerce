@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Stats;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.StatsManager;
 
-@Service("statsManager")
+@Service("StatsManager")
 public class StatsManagerImpl extends ManagerImpl implements StatsManager {
     private static Log log = LogFactory.getLog(StatsManagerImpl.class);
     

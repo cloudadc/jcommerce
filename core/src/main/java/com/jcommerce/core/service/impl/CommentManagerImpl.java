@@ -17,7 +17,7 @@ import com.jcommerce.core.model.Comment;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.CommentManager;
 
-@Service("commentManager")
+@Service("CommentManager")
 public class CommentManagerImpl extends ManagerImpl implements CommentManager {
     private static Log log = LogFactory.getLog(CommentManagerImpl.class);
     

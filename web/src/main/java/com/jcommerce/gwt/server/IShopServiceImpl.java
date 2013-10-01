@@ -96,6 +96,8 @@ import com.jcommerce.gwt.client.service.Criteria;
 
 public class IShopServiceImpl extends RemoteServiceServlet implements IShopService {
 	
+	private static final long serialVersionUID = -5503090832737327245L;
+	
 	private DeleteAction deleteAction;
 	private MapReadAction readAction;
 	private MapCreateAction createAction;
@@ -122,13 +124,16 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 	}
 	
 	public IShopServiceImpl() {
-//		String[] paths = { "/WEB-INF/applicationContext.xml" };
-		ApplicationContext ctx /*= new ClassPathXmlApplicationContext(paths)*/ = null;
-//		
+		
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
 //		dataSource = (DataSource) ctx.getBean("dataSource");
 		
 		Properties beanProps = new Properties();
 		InputStream is = getClass().getResourceAsStream("beans.properties");
+		if(null == is) {
+			is = Thread.currentThread().getContextClassLoader().getResourceAsStream("beans.properties");
+		}
 		try {
 			beanProps.load(is);
 			is.close();

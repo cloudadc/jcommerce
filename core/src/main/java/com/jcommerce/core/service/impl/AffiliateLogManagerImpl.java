@@ -17,7 +17,7 @@ import com.jcommerce.core.model.AffiliateLog;
 import com.jcommerce.core.service.Criteria;
 import com.jcommerce.core.service.AffiliateLogManager;
 
-@Service("affiliateLogManager")
+@Service("AffiliateLogManager")
 public class AffiliateLogManagerImpl extends ManagerImpl implements AffiliateLogManager {
     private static Log log = LogFactory.getLog(AffiliateLogManagerImpl.class);
     
