@@ -12,7 +12,7 @@ public class Test {
 	public static void main(String[] args) {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		AccountLogManager accountLogManager =  (AccountLogManager) ctx.getBean("accountLogManager");
+		AccountLogManager accountLogManager =  (AccountLogManager) ctx.getBean("AccountLogManager");
 		
 		AccountLog log = new AccountLog();
 		log.setId("123");

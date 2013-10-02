@@ -1,61 +1,0 @@
-10
-
-dir
-522
-svn+ssh://kylinsoong@svn.code.sf.net/p/jcommerce/code/ishop/core/src/com/jcommerce/core
-svn+ssh://kylinsoong@svn.code.sf.net/p/jcommerce/code
-
-
-
-2010-08-26T08:22:33.089433Z
-438
-kylinsoong
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3857f104-7e53-448c-8461-900ebf8f2c37
-
-model
-dir
-
-service
-dir
-
-wrapper
-dir
-
-dao
-dir
-
-database
-dir
-
-module
-dir
-
-io
-dir
-
-resource
-dir
-
-action
-dir
-
-payment
-dir
-
-util
-dir
-
