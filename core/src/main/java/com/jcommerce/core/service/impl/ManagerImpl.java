@@ -16,6 +16,7 @@ import com.jcommerce.core.service.Manager;
 import com.jcommerce.core.service.Order;
 
 public class ManagerImpl implements Manager {
+	
     private DAO dao;
     
     protected void setDao(DAO dao) {
@@ -57,7 +58,7 @@ public class ManagerImpl implements Manager {
     }
     protected String getObjName() {
         // the name may conflict with SQL key words
-    	return "l_"+dao.getModelClass().getSimpleName().toLowerCase();
+		return "l_" + dao.getModelClass().getSimpleName().toLowerCase();
     	
     }
 

@@ -73,7 +73,7 @@ public class Application extends Composite implements WindowResizeListener {
 
   private Button rightButton = new Button("OK");
   
-  private String title = "jCommerce管理中心";
+  private String title = "jCommerce Administation";
   
   /**
    * The panel that contains the menu and content.
@@ -161,7 +161,7 @@ public class Application extends Composite implements WindowResizeListener {
     CellFormatter formatter = contentLayout.getCellFormatter();
     formatter.setStyleName(0, 0, DEFAULT_STYLE_NAME + "-content-title");
 
-    setContentTitle(new HTML("jCommerce管理中心"));
+    setContentTitle(new HTML("jCommerce Administation"));
 
     // Add the content wrapper
     contentWrapper = new SimplePanel();
@@ -385,9 +385,7 @@ public class Application extends Composite implements WindowResizeListener {
     }
 
     // Align the content to the top
-    topPanel.getRowFormatter().setVerticalAlign(0,
-        HasVerticalAlignment.ALIGN_TOP);
-    topPanel.getRowFormatter().setVerticalAlign(1,
-        HasVerticalAlignment.ALIGN_TOP);
+    topPanel.getRowFormatter().setVerticalAlign(0, HasVerticalAlignment.ALIGN_TOP);
+    topPanel.getRowFormatter().setVerticalAlign(1, HasVerticalAlignment.ALIGN_TOP);
   }
 }

@@ -619,7 +619,7 @@ public class iShop implements EntryPoint, GWT.UncaughtExceptionHandler, Applicat
         setupMainMenuOption(catGoods, new NewVirtualCard.State(), Resources.images.catWidgets());
         setupMainMenuOption(catGoods, new GoodsBatchUpload.State(), Resources.images.catWidgets());
 		
-        TreeItem promote = mainMenu.addItem("促销管理 ");
+        TreeItem promote = mainMenu.addItem(Resources.constants.promotionGoods());
         setupMainMenuOption(promote, new SnatchListPanel.State(),Resources.images.catWidgets());
         setupMainMenuOption(promote, new PackListPanel.State(),Resources.images.catWidgets());
         setupMainMenuOption(promote, new BonusListPanel.State(),Resources.images.catWidgets());

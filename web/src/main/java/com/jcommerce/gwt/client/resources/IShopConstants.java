@@ -69,6 +69,8 @@ public interface IShopConstants extends Constants, GoodsConstants, ShopConfigCon
     String[] STYLE_THEMES = { "standard", "chrome", "dark" };
 
     String mainMenuTitle();
+    
+    String promotionGoods();
 
     /**
      * @return the title of the application
