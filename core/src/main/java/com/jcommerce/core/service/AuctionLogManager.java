@@ -21,9 +21,9 @@ public interface AuctionLogManager extends Manager {
 
     public List<AuctionLog> getAuctionLogList();
 
-    public AuctionLog getAuctionLog(String id);
+    public AuctionLog getAuctionLog(Long id);
 
     public void saveAuctionLog(AuctionLog obj);
 
-    public void removeAuctionLog(String id);
+    public void removeAuctionLog(Long id);
 }

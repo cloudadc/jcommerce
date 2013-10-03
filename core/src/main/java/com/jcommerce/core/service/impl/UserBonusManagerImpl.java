@@ -59,7 +59,7 @@ public class UserBonusManagerImpl extends ManagerImpl implements UserBonusManage
         return dao.getUserBonusList();
     }
 
-    public UserBonus getUserBonus(String id) {
+    public UserBonus getUserBonus(Long id) {
         UserBonus obj = dao.getUserBonus(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class UserBonusManagerImpl extends ManagerImpl implements UserBonusManage
         dao.saveUserBonus(obj);
     }
 
-    public void removeUserBonus(String id) {
+    public void removeUserBonus(Long id) {
         dao.removeUserBonus(id);
     }
 }

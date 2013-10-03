@@ -22,7 +22,7 @@ public class EmailListDAOImpl extends DAOImpl implements EmailListDAO {
         return getList();
     }
 
-    public EmailList getEmailList(String id) {
+    public EmailList getEmailList(Long id) {
         return (EmailList)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class EmailListDAOImpl extends DAOImpl implements EmailListDAO {
         save(obj);
     }
 
-    public void removeEmailList(String id) {
+    public void removeEmailList(Long id) {
         deleteById(id);
     }
 }

@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Agency;
 public interface AgencyDAO extends DAO {
     public List<Agency> getAgencyList();
 
-    public Agency getAgency(String id);
+    public Agency getAgency(Long id);
 
     public void saveAgency(Agency obj);
 
-    public void removeAgency(String id);
+    public void removeAgency(Long id);
 }

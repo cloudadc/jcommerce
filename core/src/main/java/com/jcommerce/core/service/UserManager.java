@@ -21,11 +21,11 @@ public interface UserManager extends Manager {
 
     public List<User> getUserList();
 
-    public User getUser(String id);
+    public User getUser(Long id);
 
     public void saveUser(User obj);
 
-    public void removeUser(String id);
+    public void removeUser(Long id);
     
     public User getUserByName(String userName);
 

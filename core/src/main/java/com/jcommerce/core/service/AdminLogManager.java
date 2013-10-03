@@ -12,9 +12,9 @@ public interface AdminLogManager extends Manager {
 
     public List<AdminLog> getAdminLogList();
 
-    public AdminLog getAdminLog(String id);
+    public AdminLog getAdminLog(Long id);
 
     public void saveAdminLog(AdminLog obj);
 
-    public void removeAdminLog(String id);
+    public void removeAdminLog(Long id);
 }

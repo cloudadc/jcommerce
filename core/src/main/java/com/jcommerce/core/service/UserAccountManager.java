@@ -21,9 +21,9 @@ public interface UserAccountManager extends Manager {
 
     public List<UserAccount> getUserAccountList();
 
-    public UserAccount getUserAccount(String id);
+    public UserAccount getUserAccount(Long id);
 
     public void saveUserAccount(UserAccount obj);
 
-    public void removeUserAccount(String id);
+    public void removeUserAccount(Long id);
 }

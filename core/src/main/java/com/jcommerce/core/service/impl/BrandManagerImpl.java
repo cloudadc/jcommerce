@@ -59,7 +59,7 @@ public class BrandManagerImpl extends ManagerImpl implements BrandManager {
         return dao.getBrandList();
     }
 
-    public Brand getBrand(String id) {
+    public Brand getBrand(Long id) {
         Brand obj = dao.getBrand(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class BrandManagerImpl extends ManagerImpl implements BrandManager {
         dao.saveBrand(obj);
     }
 
-    public void removeBrand(String id) {
+    public void removeBrand(Long id) {
         dao.removeBrand(id);
     }
             

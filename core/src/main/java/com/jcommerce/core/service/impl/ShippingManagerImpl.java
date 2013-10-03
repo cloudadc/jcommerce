@@ -59,7 +59,7 @@ public class ShippingManagerImpl extends ManagerImpl implements ShippingManager 
         return dao.getShippingList();
     }
 
-    public Shipping getShipping(String id) {
+    public Shipping getShipping(Long id) {
         Shipping obj = dao.getShipping(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class ShippingManagerImpl extends ManagerImpl implements ShippingManager 
         dao.saveShipping(obj);
     }
 
-    public void removeShipping(String id) {
+    public void removeShipping(Long id) {
         dao.removeShipping(id);
     }
 }

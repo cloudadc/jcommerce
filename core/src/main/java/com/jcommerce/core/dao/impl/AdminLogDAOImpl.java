@@ -22,7 +22,7 @@ public class AdminLogDAOImpl extends DAOImpl implements AdminLogDAO {
         return getList();
     }
 
-    public AdminLog getAdminLog(String id) {
+    public AdminLog getAdminLog(Long id) {
         return (AdminLog)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AdminLogDAOImpl extends DAOImpl implements AdminLogDAO {
         save(obj);
     }
 
-    public void removeAdminLog(String id) {
+    public void removeAdminLog(Long id) {
         deleteById(id);
     }
 }

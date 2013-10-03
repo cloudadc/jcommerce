@@ -40,7 +40,7 @@ public class ShopConfigMeta {
 	private final String defaultValue;
 	
 	// data
-	private String pkId;
+	private Long pkId;
 	private String value;
 
 
@@ -94,13 +94,11 @@ public class ShopConfigMeta {
 
 
 
-	public String getPkId() {
+	public Long getPkId() {
 		return pkId;
 	}
 
-
-
-	public void setPkId(String pkId) {
+	public void setPkId(Long pkId) {
 		this.pkId = pkId;
 	}
 

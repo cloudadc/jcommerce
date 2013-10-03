@@ -22,7 +22,7 @@ public class CardDAOImpl extends DAOImpl implements CardDAO {
         return getList();
     }
 
-    public Card getCard(String id) {
+    public Card getCard(Long id) {
         return (Card)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class CardDAOImpl extends DAOImpl implements CardDAO {
         save(obj);
     }
 
-    public void removeCard(String id) {
+    public void removeCard(Long id) {
         deleteById(id);
     }
 }

@@ -39,7 +39,7 @@ public class AdminLogManagerImpl extends ManagerImpl implements AdminLogManager 
         return dao.getAdminLogList();
     }
 
-    public AdminLog getAdminLog(String id) {
+    public AdminLog getAdminLog(Long id) {
         AdminLog obj = dao.getAdminLog(id);
         return obj;
     }
@@ -48,7 +48,7 @@ public class AdminLogManagerImpl extends ManagerImpl implements AdminLogManager 
         dao.saveAdminLog(obj);
     }
 
-    public void removeAdminLog(String id) {
+    public void removeAdminLog(Long id) {
         dao.removeAdminLog(id);
     }
 }

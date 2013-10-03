@@ -22,7 +22,7 @@ public class SnatchLogDAOImpl extends DAOImpl implements SnatchLogDAO {
         return getList();
     }
 
-    public SnatchLog getSnatchLog(String id) {
+    public SnatchLog getSnatchLog(Long id) {
         return (SnatchLog)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class SnatchLogDAOImpl extends DAOImpl implements SnatchLogDAO {
         save(obj);
     }
 
-    public void removeSnatchLog(String id) {
+    public void removeSnatchLog(Long id) {
         deleteById(id);
     }
 }

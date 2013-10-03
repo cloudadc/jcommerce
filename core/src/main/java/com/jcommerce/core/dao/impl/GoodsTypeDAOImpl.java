@@ -75,7 +75,7 @@ public class GoodsTypeDAOImpl extends DAOImpl implements GoodsTypeDAO {
 //    	}
     }
     
-    public GoodsType getGoodsType(String id) {
+    public GoodsType getGoodsType(Long id) {
         return (GoodsType)getById(id);
     }
 
@@ -83,7 +83,7 @@ public class GoodsTypeDAOImpl extends DAOImpl implements GoodsTypeDAO {
         save(obj);
     }
 
-    public void removeGoodsType(String id) {
+    public void removeGoodsType(Long id) {
         deleteById(id);
     }
 }

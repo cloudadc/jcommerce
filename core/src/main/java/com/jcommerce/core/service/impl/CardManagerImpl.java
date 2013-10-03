@@ -59,7 +59,7 @@ public class CardManagerImpl extends ManagerImpl implements CardManager {
         return dao.getCardList();
     }
 
-    public Card getCard(String id) {
+    public Card getCard(Long id) {
         Card obj = dao.getCard(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class CardManagerImpl extends ManagerImpl implements CardManager {
         dao.saveCard(obj);
     }
 
-    public void removeCard(String id) {
+    public void removeCard(Long id) {
         dao.removeCard(id);
     }
 }

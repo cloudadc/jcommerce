@@ -11,9 +11,9 @@ import com.jcommerce.core.model.AffiliateLog;
 public interface AffiliateLogDAO extends DAO {
     public List<AffiliateLog> getAffiliateLogList();
 
-    public AffiliateLog getAffiliateLog(String id);
+    public AffiliateLog getAffiliateLog(Long id);
 
     public void saveAffiliateLog(AffiliateLog obj);
 
-    public void removeAffiliateLog(String id);
+    public void removeAffiliateLog(Long id);
 }

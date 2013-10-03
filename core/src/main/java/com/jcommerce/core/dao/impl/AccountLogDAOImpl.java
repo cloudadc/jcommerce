@@ -23,7 +23,7 @@ public class AccountLogDAOImpl extends DAOImpl implements AccountLogDAO {
         return getList();
     }
 
-    public AccountLog getAccountLog(String id) {
+    public AccountLog getAccountLog(Long id) {
         return (AccountLog)getById(id);
     }
 
@@ -31,7 +31,7 @@ public class AccountLogDAOImpl extends DAOImpl implements AccountLogDAO {
         save(obj);
     }
 
-    public void removeAccountLog(String id) {
+    public void removeAccountLog(Long id) {
         deleteById(id);
     }
 }

@@ -35,11 +35,11 @@ public interface CategoryManager extends Manager {
     */
     public List<Category> getCategoryList();
     
-    public Category getCategory(String id);
+    public Category getCategory(Long id);
 
     public void saveCategory(Category obj);
 
-    public void removeCategory(String id);
+    public void removeCategory(Long id);
 
     /**
      * Get the top category, the category that has no parent, list 

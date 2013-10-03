@@ -59,7 +59,7 @@ public class UserRankManagerImpl extends ManagerImpl implements UserRankManager 
         return dao.getUserRankList();
     }
 
-    public UserRank getUserRank(String id) {
+    public UserRank getUserRank(Long id) {
         UserRank obj = dao.getUserRank(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class UserRankManagerImpl extends ManagerImpl implements UserRankManager 
         dao.saveUserRank(obj);
     }
 
-    public void removeUserRank(String id) {
+    public void removeUserRank(Long id) {
         dao.removeUserRank(id);
     }
 }

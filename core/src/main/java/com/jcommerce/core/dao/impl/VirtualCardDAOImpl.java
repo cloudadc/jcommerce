@@ -22,7 +22,7 @@ public class VirtualCardDAOImpl extends DAOImpl implements VirtualCardDAO {
         return getList();
     }
 
-    public VirtualCard getVirtualCard(String id) {
+    public VirtualCard getVirtualCard(Long id) {
         return (VirtualCard)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class VirtualCardDAOImpl extends DAOImpl implements VirtualCardDAO {
         save(obj);
     }
 
-    public void removeVirtualCard(String id) {
+    public void removeVirtualCard(Long id) {
         deleteById(id);
     }
 }

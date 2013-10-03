@@ -21,9 +21,9 @@ public interface UserAddressManager extends Manager {
 
     public List<UserAddress> getUserAddressList();
 
-    public UserAddress getUserAddress(String id);
+    public UserAddress getUserAddress(Long id);
 
     public void saveUserAddress(UserAddress obj);
 
-    public void removeUserAddress(String id);
+    public void removeUserAddress(Long id);
 }

@@ -21,9 +21,9 @@ public interface ShippingAreaManager extends Manager {
 
     public List<ShippingArea> getShippingAreaList();
 
-    public ShippingArea getShippingArea(String id);
+    public ShippingArea getShippingArea(Long id);
 
     public void saveShippingArea(ShippingArea obj);
 
-    public void removeShippingArea(String id);
+    public void removeShippingArea(Long id);
 }

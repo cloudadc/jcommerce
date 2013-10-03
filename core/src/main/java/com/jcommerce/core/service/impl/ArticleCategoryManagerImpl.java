@@ -57,7 +57,7 @@ public class ArticleCategoryManagerImpl extends ManagerImpl implements ArticleCa
         return dao.getArticleCategoryList();
     }
 
-    public ArticleCategory getArticleCategory(String id) {
+    public ArticleCategory getArticleCategory(Long id) {
         ArticleCategory obj = dao.getArticleCategory(id);
         return obj;
     }
@@ -66,7 +66,7 @@ public class ArticleCategoryManagerImpl extends ManagerImpl implements ArticleCa
         dao.saveArticleCategory(obj);
     }
 
-    public void removeArticleCategory(String id) {
+    public void removeArticleCategory(Long id) {
         dao.removeArticleCategory(id);
     }
 }

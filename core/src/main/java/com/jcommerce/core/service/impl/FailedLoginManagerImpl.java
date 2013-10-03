@@ -59,7 +59,7 @@ public class FailedLoginManagerImpl extends ManagerImpl implements FailedLoginMa
         return dao.getFailedLoginList();
     }
 
-    public FailedLogin getFailedLogin(String id) {
+    public FailedLogin getFailedLogin(Long id) {
         FailedLogin obj = dao.getFailedLogin(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class FailedLoginManagerImpl extends ManagerImpl implements FailedLoginMa
         dao.saveFailedLogin(obj);
     }
 
-    public void removeFailedLogin(String id) {
+    public void removeFailedLogin(Long id) {
         dao.removeFailedLogin(id);
     }
 }

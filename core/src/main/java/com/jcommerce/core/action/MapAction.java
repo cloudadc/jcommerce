@@ -51,7 +51,7 @@ public class MapAction extends Action {
             Object value = getBeanProperty(obj, name);
             
             if (value instanceof ModelObject) {
-                String id = ((ModelObject)value).getId();
+                String id = ((ModelObject)value).getModelId();
                 props.put(name, id);
             } else if (value instanceof Collection) {
                 String s = null;

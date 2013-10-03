@@ -21,9 +21,9 @@ public interface AdminUserManager extends Manager {
 
     public List<AdminUser> getAdminUserList();
 
-    public AdminUser getAdminUser(String id);
+    public AdminUser getAdminUser(Long id);
 
     public void saveAdminUser(AdminUser obj);
 
-    public void removeAdminUser(String id);
+    public void removeAdminUser(Long id);
 }

@@ -59,7 +59,7 @@ public class MemberPriceManagerImpl extends ManagerImpl implements MemberPriceMa
         return dao.getMemberPriceList();
     }
 
-    public MemberPrice getMemberPrice(String id) {
+    public MemberPrice getMemberPrice(Long id) {
         MemberPrice obj = dao.getMemberPrice(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class MemberPriceManagerImpl extends ManagerImpl implements MemberPriceMa
         dao.saveMemberPrice(obj);
     }
 
-    public void removeMemberPrice(String id) {
+    public void removeMemberPrice(Long id) {
         dao.removeMemberPrice(id);
     }
 }

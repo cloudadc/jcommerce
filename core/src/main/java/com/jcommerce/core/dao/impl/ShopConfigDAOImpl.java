@@ -22,7 +22,7 @@ public class ShopConfigDAOImpl extends DAOImpl implements ShopConfigDAO {
         return getList();
     }
 
-    public ShopConfig getShopConfig(String id) {
+    public ShopConfig getShopConfig(Long id) {
         return (ShopConfig)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class ShopConfigDAOImpl extends DAOImpl implements ShopConfigDAO {
         save(obj);
     }
 
-    public void removeShopConfig(String id) {
+    public void removeShopConfig(Long id) {
         deleteById(id);
     }
 }

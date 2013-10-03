@@ -22,7 +22,7 @@ public class UserAccountDAOImpl extends DAOImpl implements UserAccountDAO {
         return getList();
     }
 
-    public UserAccount getUserAccount(String id) {
+    public UserAccount getUserAccount(Long id) {
         return (UserAccount)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class UserAccountDAOImpl extends DAOImpl implements UserAccountDAO {
         save(obj);
     }
 
-    public void removeUserAccount(String id) {
+    public void removeUserAccount(Long id) {
         deleteById(id);
     }
 }

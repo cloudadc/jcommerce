@@ -21,9 +21,9 @@ public interface VoteDataManager extends Manager {
 
     public List<VoteData> getVoteDataList();
 
-    public VoteData getVoteData(String id);
+    public VoteData getVoteData(Long id);
 
     public void saveVoteData(VoteData obj);
 
-    public void removeVoteData(String id);
+    public void removeVoteData(Long id);
 }

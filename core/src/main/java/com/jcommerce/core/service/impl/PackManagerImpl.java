@@ -59,7 +59,7 @@ public class PackManagerImpl extends ManagerImpl implements PackManager {
         return dao.getPackList();
     }
 
-    public Pack getPack(String id) {
+    public Pack getPack(Long id) {
         Pack obj = dao.getPack(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class PackManagerImpl extends ManagerImpl implements PackManager {
         dao.savePack(obj);
     }
 
-    public void removePack(String id) {
+    public void removePack(Long id) {
         dao.removePack(id);
     }
 }

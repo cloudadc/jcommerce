@@ -22,7 +22,7 @@ public class ErrorLogDAOImpl extends DAOImpl implements ErrorLogDAO {
         return getList();
     }
 
-    public ErrorLog getErrorLog(String id) {
+    public ErrorLog getErrorLog(Long id) {
         return (ErrorLog)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class ErrorLogDAOImpl extends DAOImpl implements ErrorLogDAO {
         save(obj);
     }
 
-    public void removeErrorLog(String id) {
+    public void removeErrorLog(Long id) {
         deleteById(id);
     }
 }

@@ -59,7 +59,7 @@ public class ArticleManagerImpl extends ManagerImpl implements ArticleManager {
         return dao.getArticleList();
     }
 
-    public Article getArticle(String id) {
+    public Article getArticle(Long id) {
         Article obj = dao.getArticle(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class ArticleManagerImpl extends ManagerImpl implements ArticleManager {
         dao.saveArticle(obj);
     }
 
-    public void removeArticle(String id) {
+    public void removeArticle(Long id) {
         dao.removeArticle(id);
     }
 }

@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Region;
 public interface RegionDAO extends DAO {
     public List<Region> getRegionList();
 
-    public Region getRegion(String id);
+    public Region getRegion(Long id);
 
     public void saveRegion(Region obj);
 
-    public void removeRegion(String id);
+    public void removeRegion(Long id);
 }

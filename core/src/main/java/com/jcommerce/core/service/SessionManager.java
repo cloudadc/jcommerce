@@ -21,9 +21,9 @@ public interface SessionManager extends Manager {
 
     public List<Session> getSessionList();
 
-    public Session getSession(String id);
+    public Session getSession(Long id);
 
     public void saveSession(Session obj);
 
-    public void removeSession(String id);
+    public void removeSession(Long id);
 }

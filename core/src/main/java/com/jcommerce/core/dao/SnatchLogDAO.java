@@ -11,9 +11,9 @@ import com.jcommerce.core.model.SnatchLog;
 public interface SnatchLogDAO extends DAO {
     public List<SnatchLog> getSnatchLogList();
 
-    public SnatchLog getSnatchLog(String id);
+    public SnatchLog getSnatchLog(Long id);
 
     public void saveSnatchLog(SnatchLog obj);
 
-    public void removeSnatchLog(String id);
+    public void removeSnatchLog(Long id);
 }

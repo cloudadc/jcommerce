@@ -21,9 +21,9 @@ public interface PackManager extends Manager {
 
     public List<Pack> getPackList();
 
-    public Pack getPack(String id);
+    public Pack getPack(Long id);
 
     public void savePack(Pack obj);
 
-    public void removePack(String id);
+    public void removePack(Long id);
 }

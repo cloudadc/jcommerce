@@ -59,7 +59,7 @@ public class ShippingAreaManagerImpl extends ManagerImpl implements ShippingArea
         return dao.getShippingAreaList();
     }
 
-    public ShippingArea getShippingArea(String id) {
+    public ShippingArea getShippingArea(Long id) {
         ShippingArea obj = dao.getShippingArea(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class ShippingAreaManagerImpl extends ManagerImpl implements ShippingArea
         dao.saveShippingArea(obj);
     }
 
-    public void removeShippingArea(String id) {
+    public void removeShippingArea(Long id) {
         dao.removeShippingArea(id);
     }
 }

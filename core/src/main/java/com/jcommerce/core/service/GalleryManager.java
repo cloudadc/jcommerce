@@ -21,9 +21,9 @@ public interface GalleryManager extends Manager {
 
     public List<Gallery> getGalleryList();
 
-    public Gallery getGallery(String id);
+    public Gallery getGallery(Long id);
 
     public void saveGallery(Gallery obj);
 
-    public void removeGallery(String id);
+    public void removeGallery(Long id);
 }

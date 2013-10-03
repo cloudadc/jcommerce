@@ -21,9 +21,9 @@ public interface PaymentManager extends Manager {
 
     public List<Payment> getPaymentList();
 
-    public Payment getPayment(String id);
+    public Payment getPayment(Long id);
 
     public void savePayment(Payment obj);
 
-    public void removePayment(String id);
+    public void removePayment(Long id);
 }

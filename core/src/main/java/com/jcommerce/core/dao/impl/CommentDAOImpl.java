@@ -22,7 +22,7 @@ public class CommentDAOImpl extends DAOImpl implements CommentDAO {
         return getList();
     }
 
-    public Comment getComment(String id) {
+    public Comment getComment(Long id) {
         return (Comment)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class CommentDAOImpl extends DAOImpl implements CommentDAO {
         save(obj);
     }
 
-    public void removeComment(String id) {
+    public void removeComment(Long id) {
         deleteById(id);
     }
 }

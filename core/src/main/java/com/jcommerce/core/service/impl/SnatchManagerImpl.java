@@ -55,7 +55,7 @@ public class SnatchManagerImpl extends ManagerImpl implements SnatchManager {
         return dao.getSnatchList();
     }
 
-    public Snatch getSnatch(String id) {
+    public Snatch getSnatch(Long id) {
         Snatch obj = dao.getSnatch(id);
         return obj;
     }
@@ -64,7 +64,7 @@ public class SnatchManagerImpl extends ManagerImpl implements SnatchManager {
         dao.saveSnatch(obj);
     }
 
-    public void removeSnatch(String id) {
+    public void removeSnatch(Long id) {
         dao.removeSnatch(id);
     }
 }

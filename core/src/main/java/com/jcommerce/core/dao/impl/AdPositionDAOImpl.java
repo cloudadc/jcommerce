@@ -22,7 +22,7 @@ public class AdPositionDAOImpl extends DAOImpl implements AdPositionDAO {
         return getList();
     }
 
-    public AdPosition getAdPosition(String id) {
+    public AdPosition getAdPosition(Long id) {
         return (AdPosition)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AdPositionDAOImpl extends DAOImpl implements AdPositionDAO {
         save(obj);
     }
 
-    public void removeAdPosition(String id) {
+    public void removeAdPosition(Long id) {
         deleteById(id);
     }
 }

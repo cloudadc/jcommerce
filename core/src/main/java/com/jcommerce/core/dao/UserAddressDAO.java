@@ -11,9 +11,9 @@ import com.jcommerce.core.model.UserAddress;
 public interface UserAddressDAO extends DAO {
     public List<UserAddress> getUserAddressList();
 
-    public UserAddress getUserAddress(String id);
+    public UserAddress getUserAddress(Long id);
 
     public void saveUserAddress(UserAddress obj);
 
-    public void removeUserAddress(String id);
+    public void removeUserAddress(Long id);
 }

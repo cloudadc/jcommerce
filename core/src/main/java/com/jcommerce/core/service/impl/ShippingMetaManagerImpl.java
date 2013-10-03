@@ -135,7 +135,7 @@ public class ShippingMetaManagerImpl extends ManagerImpl implements IShippingMet
 		}
 	}
 
-	public ShippingConfigMeta getShippingConfigMeta(String shippingId) {
+	public ShippingConfigMeta getShippingConfigMeta(Long shippingId) {
         try {
             ShippingConfigMeta res = new ShippingConfigMeta();
             Shipping shipping = shippingManager.getShipping(shippingId);
@@ -157,7 +157,7 @@ public class ShippingMetaManagerImpl extends ManagerImpl implements IShippingMet
             throw new RuntimeException(e);
         }
 	}
-	public ShippingAreaMeta getShippingAreaMeta(String shippingAreaId, String shippingId) {
+	public ShippingAreaMeta getShippingAreaMeta(Long shippingAreaId, Long shippingId) {
         try {
         	System.out.println("shippingAreaId: "+shippingAreaId+", shippingId: "+shippingId);
             Shipping s = shippingManager.getShipping(shippingId);
@@ -232,7 +232,7 @@ public class ShippingMetaManagerImpl extends ManagerImpl implements IShippingMet
 
 	}
 
-	public void uninstall(String shippingId) {
+	public void uninstall(Long shippingId) {
         try {
             shippingManager.removeShipping(shippingId);
         } catch (RuntimeException e) {
@@ -242,8 +242,8 @@ public class ShippingMetaManagerImpl extends ManagerImpl implements IShippingMet
 	}
     public boolean saveShippingArea(ShippingArea to, Map<String, Object> props) {
     	try {
-			String saId = to.getId();
-			String shippingId = to.getShipping().getId();
+    		Long saId = to.getId();
+    		Long shippingId = to.getShipping().getId();
 			Shipping shipping = shippingManager.getShipping(shippingId);
 			String code = shipping.getCode();
 			IShippingMetaPlugin plugin = metaRepo.get(code);
@@ -302,5 +302,6 @@ public class ShippingMetaManagerImpl extends ManagerImpl implements IShippingMet
 	public void setPluginFolder(String pluginFolder) {
 		this.pluginFolder = pluginFolder;
 	}
+
 
 }

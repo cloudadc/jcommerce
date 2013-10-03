@@ -22,7 +22,7 @@ public class RegionDAOImpl extends DAOImpl implements RegionDAO {
         return getList();
     }
 
-    public Region getRegion(String id) {
+    public Region getRegion(Long id) {
         return (Region)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class RegionDAOImpl extends DAOImpl implements RegionDAO {
         save(obj);
     }
 
-    public void removeRegion(String id) {
+    public void removeRegion(Long id) {
         deleteById(id);
     }
 }

@@ -60,7 +60,7 @@ public class AccountLogManagerImpl extends ManagerImpl implements AccountLogMana
         return dao.getAccountLogList();
     }
 
-    public AccountLog getAccountLog(String id) {
+    public AccountLog getAccountLog(Long id) {
         AccountLog obj = dao.getAccountLog(id);
         return obj;
     }
@@ -69,7 +69,7 @@ public class AccountLogManagerImpl extends ManagerImpl implements AccountLogMana
         dao.saveAccountLog(obj);
     }
 
-    public void removeAccountLog(String id) {
+    public void removeAccountLog(Long id) {
         dao.removeAccountLog(id);
     }
 }

@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Brand;
 public interface BrandDAO extends DAO {
     public List<Brand> getBrandList();
 
-    public Brand getBrand(String id);
+    public Brand getBrand(Long id);
 
     public void saveBrand(Brand obj);
 
-    public void removeBrand(String id);
+    public void removeBrand(Long id);
 }

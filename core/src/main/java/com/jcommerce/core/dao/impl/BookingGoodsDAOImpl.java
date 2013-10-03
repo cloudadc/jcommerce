@@ -22,7 +22,7 @@ public class BookingGoodsDAOImpl extends DAOImpl implements BookingGoodsDAO {
         return getList();
     }
 
-    public BookingGoods getBookingGoods(String id) {
+    public BookingGoods getBookingGoods(Long id) {
         return (BookingGoods)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class BookingGoodsDAOImpl extends DAOImpl implements BookingGoodsDAO {
         save(obj);
     }
 
-    public void removeBookingGoods(String id) {
+    public void removeBookingGoods(Long id) {
         deleteById(id);
     }
 }

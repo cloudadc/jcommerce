@@ -22,7 +22,7 @@ public class KeywordsDAOImpl extends DAOImpl implements KeywordsDAO {
         return getList();
     }
 
-    public Keywords getKeywords(String id) {
+    public Keywords getKeywords(Long id) {
         return (Keywords)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class KeywordsDAOImpl extends DAOImpl implements KeywordsDAO {
         save(obj);
     }
 
-    public void removeKeywords(String id) {
+    public void removeKeywords(Long id) {
         deleteById(id);
     }
 }

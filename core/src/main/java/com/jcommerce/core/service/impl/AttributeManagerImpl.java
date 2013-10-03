@@ -59,7 +59,7 @@ public class AttributeManagerImpl extends ManagerImpl implements AttributeManage
         return dao.getAttributeList();
     }
 
-    public Attribute getAttribute(String id) {
+    public Attribute getAttribute(Long id) {
         Attribute obj = dao.getAttribute(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AttributeManagerImpl extends ManagerImpl implements AttributeManage
         dao.saveAttribute(obj);
     }
 
-    public void removeAttribute(String id) {
+    public void removeAttribute(Long id) {
         dao.removeAttribute(id);
     }
 }

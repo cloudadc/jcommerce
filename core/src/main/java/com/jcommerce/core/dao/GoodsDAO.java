@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Goods;
 public interface GoodsDAO extends DAO {
     public List<Goods> getGoodsList();
 
-    public Goods getGoods(String id);
+    public Goods getGoods(Long id);
 
     public void saveGoods(Goods obj);
 
-    public void removeGoods(String id);
+    public void removeGoods(Long id);
 }

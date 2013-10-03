@@ -21,9 +21,9 @@ public interface PluginsManager extends Manager {
 
     public List<Plugins> getPluginsList();
 
-    public Plugins getPlugins(String id);
+    public Plugins getPlugins(Long id);
 
     public void savePlugins(Plugins obj);
 
-    public void removePlugins(String id);
+    public void removePlugins(Long id);
 }

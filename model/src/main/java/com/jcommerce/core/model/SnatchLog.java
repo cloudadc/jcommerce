@@ -21,19 +21,19 @@ import javax.persistence.Table;
 @Table(name = "snatch_log")
 public class SnatchLog extends ModelObject {
 	
-private String id;
-    
+	private Long id;
+	
 	@Id 
 	@GeneratedValue
-	@Basic( optional = false )
-	@Column( name = "id", nullable = false, length = 32  )
-    public String getId() {
-        return id;
-    }
+	@Basic(optional = false)
+	@Column(name = "id", nullable = false)
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	private static final long serialVersionUID = 1386419836960171448L;
 	private int snatchId;

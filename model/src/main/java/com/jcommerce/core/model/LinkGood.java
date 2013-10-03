@@ -77,15 +77,17 @@ public class LinkGood extends ModelObject {
   }
 
 @Override
-public String getId() {
+public Long getId() {
 	// TODO Auto-generated method stub
 	return null;
 }
 
 @Override
-public void setId(String id) {
+public void setId(Long id) {
 	// TODO Auto-generated method stub
 	
 }
+
+
 
 }

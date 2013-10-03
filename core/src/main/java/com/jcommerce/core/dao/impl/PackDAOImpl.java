@@ -22,7 +22,7 @@ public class PackDAOImpl extends DAOImpl implements PackDAO {
         return getList();
     }
 
-    public Pack getPack(String id) {
+    public Pack getPack(Long id) {
         return (Pack)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class PackDAOImpl extends DAOImpl implements PackDAO {
         save(obj);
     }
 
-    public void removePack(String id) {
+    public void removePack(Long id) {
         deleteById(id);
     }
 }

@@ -59,7 +59,7 @@ public class AdsenseManagerImpl extends ManagerImpl implements AdsenseManager {
         return dao.getAdsenseList();
     }
 
-    public Adsense getAdsense(String id) {
+    public Adsense getAdsense(Long id) {
         Adsense obj = dao.getAdsense(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AdsenseManagerImpl extends ManagerImpl implements AdsenseManager {
         dao.saveAdsense(obj);
     }
 
-    public void removeAdsense(String id) {
+    public void removeAdsense(Long id) {
         dao.removeAdsense(id);
     }
 }

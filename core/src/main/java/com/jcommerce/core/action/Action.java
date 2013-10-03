@@ -26,7 +26,7 @@ public class Action {
     }
     
     protected String getId(ModelObject obj) {
-        return obj.getId();
+        return obj.getModelId();
     }
 
     protected String saveObject(String modelName, ModelObject model) {

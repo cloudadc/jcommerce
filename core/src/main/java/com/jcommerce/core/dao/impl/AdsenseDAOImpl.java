@@ -22,7 +22,7 @@ public class AdsenseDAOImpl extends DAOImpl implements AdsenseDAO {
         return getList();
     }
 
-    public Adsense getAdsense(String id) {
+    public Adsense getAdsense(Long id) {
         return (Adsense)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AdsenseDAOImpl extends DAOImpl implements AdsenseDAO {
         save(obj);
     }
 
-    public void removeAdsense(String id) {
+    public void removeAdsense(Long id) {
         deleteById(id);
     }
 }

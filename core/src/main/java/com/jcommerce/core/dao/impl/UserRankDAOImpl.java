@@ -22,7 +22,7 @@ public class UserRankDAOImpl extends DAOImpl implements UserRankDAO {
         return getList();
     }
 
-    public UserRank getUserRank(String id) {
+    public UserRank getUserRank(Long id) {
         return (UserRank)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class UserRankDAOImpl extends DAOImpl implements UserRankDAO {
         save(obj);
     }
 
-    public void removeUserRank(String id) {
+    public void removeUserRank(Long id) {
         deleteById(id);
     }
 }

@@ -22,19 +22,33 @@ import javax.persistence.Table;
 @Table(name = "account_log")
 public class AccountLog extends ModelObject {
 	
-	private String id;
-    
+//	private String id;
+//    
+//	@Id 
+//	@GeneratedValue
+//	@Basic( optional = false )
+//	@Column( name = "id", nullable = false, length = 32  )
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String id) {
+//        this.id = id;
+//    }
+	
+	private Long id;
+	
 	@Id 
 	@GeneratedValue
-	@Basic( optional = false )
-	@Column( name = "id", nullable = false, length = 32  )
-    public String getId() {
-        return id;
-    }
+	@Basic(optional = false)
+	@Column(name = "id", nullable = false)
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	private static final long serialVersionUID = 807356556179952819L;
 	

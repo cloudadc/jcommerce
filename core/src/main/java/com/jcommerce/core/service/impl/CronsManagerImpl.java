@@ -59,7 +59,7 @@ public class CronsManagerImpl extends ManagerImpl implements CronsManager {
         return dao.getCronsList();
     }
 
-    public Crons getCrons(String id) {
+    public Crons getCrons(Long id) {
         Crons obj = dao.getCrons(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class CronsManagerImpl extends ManagerImpl implements CronsManager {
         dao.saveCrons(obj);
     }
 
-    public void removeCrons(String id) {
+    public void removeCrons(Long id) {
         dao.removeCrons(id);
     }
 }

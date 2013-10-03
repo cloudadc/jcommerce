@@ -129,10 +129,10 @@ public class DAOImpl implements DAO {
      * Require all ModelObject have a getId() or getID() method
      */
     private Serializable getId(ModelObject obj) {
-        return obj.getId();
+        return obj.getModelId();
     }
     
     private void setId(ModelObject obj, Serializable id) {
-        obj.setId((String)id);
+        obj.setModelId((String)id);
     }
 }

@@ -20,11 +20,11 @@ public interface OrderManager extends Manager {
 
     public List<Order> getOrderList();
 
-    public Order getOrder(String id);
+    public Order getOrder(Long id);
     
     public Order getOrderBySN(String SN);
 
     public void saveOrder(Order obj);
     
-    public void removeOrder(String id);
+    public void removeOrder(Long id);
 }

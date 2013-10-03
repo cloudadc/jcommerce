@@ -56,7 +56,7 @@ public class AuctionManagerImpl extends ManagerImpl implements AuctionManager {
         return dao.getAuctionList();
     }
 
-    public Auction getAuction(String id) {
+    public Auction getAuction(Long id) {
         Auction obj = dao.getAuction(id);
         return obj;
     }
@@ -65,7 +65,7 @@ public class AuctionManagerImpl extends ManagerImpl implements AuctionManager {
         dao.saveAuction(obj);
     }
 
-    public void removeAuction(String id) {
+    public void removeAuction(Long id) {
         dao.removeAuction(id);
     }
 

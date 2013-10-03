@@ -22,7 +22,7 @@ public class FriendLinkDAOImpl extends DAOImpl implements FriendLinkDAO {
         return getList();
     }
 
-    public FriendLink getFriendLink(String id) {
+    public FriendLink getFriendLink(Long id) {
         return (FriendLink)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class FriendLinkDAOImpl extends DAOImpl implements FriendLinkDAO {
         save(obj);
     }
 
-    public void removeFriendLink(String id) {
+    public void removeFriendLink(Long id) {
         deleteById(id);
     }
 }

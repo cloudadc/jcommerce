@@ -88,7 +88,7 @@ public class JDOQLHelper {
     
     public static void addCondtion(StringBuffer hql, StringBuffer paraDeclars, List<Object> paras, Condition cond, String className) {
     	String name = cond.getField();
-    	String value = cond.getValue();
+    	Long value = cond.getValue();
     	String paraName = name+"Param";
     	try {
     		Field field = null;

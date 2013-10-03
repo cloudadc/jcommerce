@@ -59,7 +59,7 @@ public class SearchEngineManagerImpl extends ManagerImpl implements SearchEngine
         return dao.getSearchEngineList();
     }
 
-    public SearchEngine getSearchEngine(String id) {
+    public SearchEngine getSearchEngine(Long id) {
         SearchEngine obj = dao.getSearchEngine(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class SearchEngineManagerImpl extends ManagerImpl implements SearchEngine
         dao.saveSearchEngine(obj);
     }
 
-    public void removeSearchEngine(String id) {
+    public void removeSearchEngine(Long id) {
         dao.removeSearchEngine(id);
     }
 }

@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Card;
 public interface CardDAO extends DAO {
     public List<Card> getCardList();
 
-    public Card getCard(String id);
+    public Card getCard(Long id);
 
     public void saveCard(Card obj);
 
-    public void removeCard(String id);
+    public void removeCard(Long id);
 }

@@ -59,7 +59,7 @@ public class GoodsAttributeManagerImpl extends ManagerImpl implements GoodsAttri
         return dao.getGoodsAttributeList();
     }
 
-    public GoodsAttribute getGoodsAttribute(String id) {
+    public GoodsAttribute getGoodsAttribute(Long id) {
         GoodsAttribute obj = dao.getGoodsAttribute(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class GoodsAttributeManagerImpl extends ManagerImpl implements GoodsAttri
         dao.saveGoodsAttribute(obj);
     }
 
-    public void removeGoodsAttribute(String id) {
+    public void removeGoodsAttribute(Long id) {
         dao.removeGoodsAttribute(id);
     }
 }

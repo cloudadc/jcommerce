@@ -21,9 +21,9 @@ public interface AdvertisementManager extends Manager {
 
     public List<Advertisement> getAdvertisementList();
 
-    public Advertisement getAdvertisement(String id);
+    public Advertisement getAdvertisement(Long id);
 
     public void saveAdvertisement(Advertisement obj);
 
-    public void removeAdvertisement(String id);
+    public void removeAdvertisement(Long id);
 }

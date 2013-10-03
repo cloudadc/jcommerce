@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Stats;
 public interface StatsDAO extends DAO {
     public List<Stats> getStatsList();
 
-    public Stats getStats(String id);
+    public Stats getStats(Long id);
 
     public void saveStats(Stats obj);
 
-    public void removeStats(String id);
+    public void removeStats(Long id);
 }

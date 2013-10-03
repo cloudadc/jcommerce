@@ -22,7 +22,7 @@ public class NavigationDAOImpl extends DAOImpl implements NavigationDAO {
         return getList();
     }
 
-    public Navigation getNavigation(String id) {
+    public Navigation getNavigation(Long id) {
         return (Navigation)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class NavigationDAOImpl extends DAOImpl implements NavigationDAO {
         save(obj);
     }
 
-    public void removeNavigation(String id) {
+    public void removeNavigation(Long id) {
         deleteById(id);
     }
 }

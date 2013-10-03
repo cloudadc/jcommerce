@@ -11,9 +11,9 @@ import com.jcommerce.core.model.FavourableActivity;
 public interface FavourableActivityDAO extends DAO {
     public List<FavourableActivity> getFavourableActivityList();
 
-    public FavourableActivity getFavourableActivity(String id);
+    public FavourableActivity getFavourableActivity(Long id);
 
     public void saveFavourableActivity(FavourableActivity obj);
 
-    public void removeFavourableActivity(String id);
+    public void removeFavourableActivity(Long id);
 }

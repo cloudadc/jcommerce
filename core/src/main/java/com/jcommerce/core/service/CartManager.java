@@ -23,11 +23,11 @@ public interface CartManager extends Manager {
 
     public List<Cart> getCartList();
 
-    public Cart getCart(String id);
+    public Cart getCart(Long id);
 
     public void saveCart(Cart obj);
 
-    public void removeCart(String id);
+    public void removeCart(Long id);
     
     public List<Cart> getCartList(Session session);
 

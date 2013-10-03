@@ -59,7 +59,7 @@ public class EmailSendListManagerImpl extends ManagerImpl implements EmailSendLi
         return dao.getEmailSendListList();
     }
 
-    public EmailSendList getEmailSendList(String id) {
+    public EmailSendList getEmailSendList(Long id) {
         EmailSendList obj = dao.getEmailSendList(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class EmailSendListManagerImpl extends ManagerImpl implements EmailSendLi
         dao.saveEmailSendList(obj);
     }
 
-    public void removeEmailSendList(String id) {
+    public void removeEmailSendList(Long id) {
         dao.removeEmailSendList(id);
     }
 }

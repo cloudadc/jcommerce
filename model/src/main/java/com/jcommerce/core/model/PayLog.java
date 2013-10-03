@@ -20,19 +20,19 @@ import javax.persistence.Table;
 @Table(name = "pay_log")
 public class PayLog extends ModelObject {
 	
-private String id;
-    
+	private Long id;
+	
 	@Id 
 	@GeneratedValue
-	@Basic( optional = false )
-	@Column( name = "id", nullable = false, length = 32  )
-    public String getId() {
-        return id;
-    }
+	@Basic(optional = false)
+	@Column(name = "id", nullable = false)
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
  
 	private static final long serialVersionUID = 8165094258736858164L;
 	public static final int PAY_ORDER = Constants.PAY_ORDER; // 订单支付

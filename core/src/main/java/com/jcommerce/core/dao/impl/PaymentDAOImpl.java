@@ -22,7 +22,7 @@ public class PaymentDAOImpl extends DAOImpl implements PaymentDAO {
         return getList();
     }
 
-    public Payment getPayment(String id) {
+    public Payment getPayment(Long id) {
         return (Payment)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class PaymentDAOImpl extends DAOImpl implements PaymentDAO {
         save(obj);
     }
 
-    public void removePayment(String id) {
+    public void removePayment(Long id) {
         deleteById(id);
     }
 }

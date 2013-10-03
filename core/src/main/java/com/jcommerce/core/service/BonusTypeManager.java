@@ -21,9 +21,9 @@ public interface BonusTypeManager extends Manager {
 
     public List<BonusType> getBonusTypeList();
 
-    public BonusType getBonusType(String id);
+    public BonusType getBonusType(Long id);
 
     public void saveBonusType(BonusType obj);
 
-    public void removeBonusType(String id);
+    public void removeBonusType(Long id);
 }

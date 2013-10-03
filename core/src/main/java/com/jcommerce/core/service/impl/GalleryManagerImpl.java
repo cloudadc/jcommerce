@@ -59,7 +59,7 @@ public class GalleryManagerImpl extends ManagerImpl implements GalleryManager {
         return dao.getGalleryList();
     }
 
-    public Gallery getGallery(String id) {
+    public Gallery getGallery(Long id) {
         Gallery obj = dao.getGallery(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class GalleryManagerImpl extends ManagerImpl implements GalleryManager {
         dao.saveGallery(obj);
     }
 
-    public void removeGallery(String id) {
+    public void removeGallery(Long id) {
         dao.removeGallery(id);
     }
 }

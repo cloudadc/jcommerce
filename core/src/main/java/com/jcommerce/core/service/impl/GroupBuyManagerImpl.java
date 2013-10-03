@@ -56,7 +56,7 @@ public class GroupBuyManagerImpl extends ManagerImpl implements GroupBuyManager 
         return dao.getGroupBuyList();
     }
 
-    public GroupBuy getGroupBuy(String id) {
+    public GroupBuy getGroupBuy(Long id) {
         GroupBuy obj = dao.getGroupBuy(id);
         return obj;
     }
@@ -65,7 +65,7 @@ public class GroupBuyManagerImpl extends ManagerImpl implements GroupBuyManager 
         dao.saveGroupBuy(obj);
     }
 
-    public void removeGroupBuy(String id) {
+    public void removeGroupBuy(Long id) {
         dao.removeGroupBuy(id);
     }
 

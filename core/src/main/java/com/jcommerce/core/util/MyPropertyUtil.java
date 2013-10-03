@@ -46,7 +46,7 @@ public class MyPropertyUtil {
 	        		// OpenPersistenceManagerInViewFilter and lazy-loading works here
 	        		ModelObject assoc = (ModelObject)PropertyUtils.getProperty(obj, name);
 	        		if(assoc!=null) {
-	        			res.put(name, assoc.getId());	        			
+	        			res.put(name, assoc.getModelId());	        			
 	        		}
 	        	}
 	        	else if(Set.class.isAssignableFrom(type)) {
@@ -208,7 +208,7 @@ public class MyPropertyUtil {
                     // the value is ID
                 	debug("form2To-- type="+type);
                 	ModelObject mo = (ModelObject)type.newInstance();
-                	mo.setId((String)value);
+                	mo.setModelId((String)value);
 //                    ModelObject mo = getModelObject(bean, (String)value);
                     _props.put(fn, mo);
                 } else if (value instanceof Map) {

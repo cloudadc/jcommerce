@@ -11,9 +11,9 @@ import com.jcommerce.core.model.AdminAction;
 public interface AdminActionDAO extends DAO {
     public List<AdminAction> getAdminActionList();
 
-    public AdminAction getAdminAction(String id);
+    public AdminAction getAdminAction(Long id);
 
     public void saveAdminAction(AdminAction obj);
 
-    public void removeAdminAction(String id);
+    public void removeAdminAction(Long id);
 }

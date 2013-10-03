@@ -22,7 +22,7 @@ public class FavourableActivityDAOImpl extends DAOImpl implements FavourableActi
         return getList();
     }
 
-    public FavourableActivity getFavourableActivity(String id) {
+    public FavourableActivity getFavourableActivity(Long id) {
         return (FavourableActivity)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class FavourableActivityDAOImpl extends DAOImpl implements FavourableActi
         save(obj);
     }
 
-    public void removeFavourableActivity(String id) {
+    public void removeFavourableActivity(Long id) {
         deleteById(id);
     }
 }

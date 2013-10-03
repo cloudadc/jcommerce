@@ -59,7 +59,7 @@ public class AuctionLogManagerImpl extends ManagerImpl implements AuctionLogMana
         return dao.getAuctionLogList();
     }
 
-    public AuctionLog getAuctionLog(String id) {
+    public AuctionLog getAuctionLog(Long id) {
         AuctionLog obj = dao.getAuctionLog(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AuctionLogManagerImpl extends ManagerImpl implements AuctionLogMana
         dao.saveAuctionLog(obj);
     }
 
-    public void removeAuctionLog(String id) {
+    public void removeAuctionLog(Long id) {
         dao.removeAuctionLog(id);
     }
 }

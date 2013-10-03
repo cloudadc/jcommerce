@@ -22,7 +22,7 @@ public class OrderActionDAOImpl extends DAOImpl implements OrderActionDAO {
         return getList();
     }
 
-    public OrderAction getOrderAction(String id) {
+    public OrderAction getOrderAction(Long id) {
         return (OrderAction)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class OrderActionDAOImpl extends DAOImpl implements OrderActionDAO {
         save(obj);
     }
 
-    public void removeOrderAction(String id) {
+    public void removeOrderAction(Long id) {
         deleteById(id);
     }
 }

@@ -22,7 +22,7 @@ public class BonusTypeDAOImpl extends DAOImpl implements BonusTypeDAO {
         return getList();
     }
 
-    public BonusType getBonusType(String id) {
+    public BonusType getBonusType(Long id) {
         return (BonusType)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class BonusTypeDAOImpl extends DAOImpl implements BonusTypeDAO {
         save(obj);
     }
 
-    public void removeBonusType(String id) {
+    public void removeBonusType(Long id) {
         deleteById(id);
     }
 }

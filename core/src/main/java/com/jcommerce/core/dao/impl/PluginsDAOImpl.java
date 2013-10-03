@@ -22,7 +22,7 @@ public class PluginsDAOImpl extends DAOImpl implements PluginsDAO {
         return getList();
     }
 
-    public Plugins getPlugins(String id) {
+    public Plugins getPlugins(Long id) {
         return (Plugins)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class PluginsDAOImpl extends DAOImpl implements PluginsDAO {
         save(obj);
     }
 
-    public void removePlugins(String id) {
+    public void removePlugins(Long id) {
         deleteById(id);
     }
 }

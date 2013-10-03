@@ -21,9 +21,9 @@ public interface VirtualCardManager extends Manager {
 
     public List<VirtualCard> getVirtualCardList();
 
-    public VirtualCard getVirtualCard(String id);
+    public VirtualCard getVirtualCard(Long id);
 
     public void saveVirtualCard(VirtualCard obj);
 
-    public void removeVirtualCard(String id);
+    public void removeVirtualCard(Long id);
 }

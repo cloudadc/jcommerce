@@ -22,7 +22,7 @@ public class UserBonusDAOImpl extends DAOImpl implements UserBonusDAO {
         return getList();
     }
 
-    public UserBonus getUserBonus(String id) {
+    public UserBonus getUserBonus(Long id) {
         return (UserBonus)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class UserBonusDAOImpl extends DAOImpl implements UserBonusDAO {
         save(obj);
     }
 
-    public void removeUserBonus(String id) {
+    public void removeUserBonus(Long id) {
         deleteById(id);
     }
 }

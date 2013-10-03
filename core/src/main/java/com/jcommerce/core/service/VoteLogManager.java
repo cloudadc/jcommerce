@@ -21,9 +21,9 @@ public interface VoteLogManager extends Manager {
 
     public List<VoteLog> getVoteLogList();
 
-    public VoteLog getVoteLog(String id);
+    public VoteLog getVoteLog(Long id);
 
     public void saveVoteLog(VoteLog obj);
 
-    public void removeVoteLog(String id);
+    public void removeVoteLog(Long id);
 }

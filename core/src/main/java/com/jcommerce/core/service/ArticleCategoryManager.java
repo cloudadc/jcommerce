@@ -21,9 +21,9 @@ public interface ArticleCategoryManager extends Manager {
 
     public List<ArticleCategory> getArticleCategoryList();
 
-    public ArticleCategory getArticleCategory(String id);
+    public ArticleCategory getArticleCategory(Long id);
 
     public void saveArticleCategory(ArticleCategory obj);
 
-    public void removeArticleCategory(String id);
+    public void removeArticleCategory(Long id);
 }

@@ -89,7 +89,7 @@ public class Paypal extends BasePaymentMetaPlugin implements IPaymentMetaPlugin 
         PaymentConfigMeta configMeta = deserializeConfig(payment.getConfig());
         Map<String, String> values = configMeta.getFieldValues();
         
-        String dataOrderId = order.getId();
+        Long dataOrderId = order.getId();
         Double dataAmount = order.getGoodsAmount();
         String url = "";
         String dataPayAccount = values.get(ACCOUNT);

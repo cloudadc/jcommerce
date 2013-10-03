@@ -22,7 +22,7 @@ public class TopicDAOImpl extends DAOImpl implements TopicDAO {
         return getList();
     }
 
-    public Topic getTopic(String id) {
+    public Topic getTopic(Long id) {
         return (Topic)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class TopicDAOImpl extends DAOImpl implements TopicDAO {
         save(obj);
     }
 
-    public void removeTopic(String id) {
+    public void removeTopic(Long id) {
         deleteById(id);
     }
 }

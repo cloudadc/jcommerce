@@ -22,7 +22,7 @@ public class TagDAOImpl extends DAOImpl implements TagDAO {
         return getList();
     }
 
-    public Tag getTag(String id) {
+    public Tag getTag(Long id) {
         return (Tag)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class TagDAOImpl extends DAOImpl implements TagDAO {
         save(obj);
     }
 
-    public void removeTag(String id) {
+    public void removeTag(Long id) {
         deleteById(id);
     }
 }

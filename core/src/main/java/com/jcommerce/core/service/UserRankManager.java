@@ -21,9 +21,9 @@ public interface UserRankManager extends Manager {
 
     public List<UserRank> getUserRankList();
 
-    public UserRank getUserRank(String id);
+    public UserRank getUserRank(Long id);
 
     public void saveUserRank(UserRank obj);
 
-    public void removeUserRank(String id);
+    public void removeUserRank(Long id);
 }

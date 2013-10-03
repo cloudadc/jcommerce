@@ -22,7 +22,7 @@ public class MemberPriceDAOImpl extends DAOImpl implements MemberPriceDAO {
         return getList();
     }
 
-    public MemberPrice getMemberPrice(String id) {
+    public MemberPrice getMemberPrice(Long id) {
         return (MemberPrice)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class MemberPriceDAOImpl extends DAOImpl implements MemberPriceDAO {
         save(obj);
     }
 
-    public void removeMemberPrice(String id) {
+    public void removeMemberPrice(Long id) {
         deleteById(id);
     }
 }

@@ -17,9 +17,9 @@ public interface AuctionManager extends Manager {
 
     public List<Auction> getAuctionList();
 
-    public Auction getAuction(String id);
+    public Auction getAuction(Long id);
 
     public void saveAuction(Auction obj);
 
-    public void removeAuction(String id);
+    public void removeAuction(Long id);
 }

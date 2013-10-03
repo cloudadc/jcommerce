@@ -21,9 +21,9 @@ public interface FriendLinkManager extends Manager {
 
     public List<FriendLink> getFriendLinkList();
 
-    public FriendLink getFriendLink(String id);
+    public FriendLink getFriendLink(Long id);
 
     public void saveFriendLink(FriendLink obj);
 
-    public void removeFriendLink(String id);
+    public void removeFriendLink(Long id);
 }

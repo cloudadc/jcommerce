@@ -22,7 +22,7 @@ public class AttributeDAOImpl extends DAOImpl implements AttributeDAO {
         return getList();
     }
 
-    public Attribute getAttribute(String id) {
+    public Attribute getAttribute(Long id) {
         return (Attribute)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AttributeDAOImpl extends DAOImpl implements AttributeDAO {
         save(obj);
     }
 
-    public void removeAttribute(String id) {
+    public void removeAttribute(Long id) {
         deleteById(id);
     }
 }

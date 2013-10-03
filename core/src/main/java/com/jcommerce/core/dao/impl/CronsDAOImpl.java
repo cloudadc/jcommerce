@@ -22,7 +22,7 @@ public class CronsDAOImpl extends DAOImpl implements CronsDAO {
         return getList();
     }
 
-    public Crons getCrons(String id) {
+    public Crons getCrons(Long id) {
         return (Crons)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class CronsDAOImpl extends DAOImpl implements CronsDAO {
         save(obj);
     }
 
-    public void removeCrons(String id) {
+    public void removeCrons(Long id) {
         deleteById(id);
     }
 }

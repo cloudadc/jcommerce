@@ -17,9 +17,9 @@ public interface SnatchManager extends Manager {
 
     public List<Snatch> getSnatchList();
 
-    public Snatch getSnatch(String id);
+    public Snatch getSnatch(Long id);
 
     public void saveSnatch(Snatch obj);
 
-    public void removeSnatch(String id);
+    public void removeSnatch(Long id);
 }

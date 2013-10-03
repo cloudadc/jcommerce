@@ -59,7 +59,7 @@ public class AutoManageManagerImpl extends ManagerImpl implements AutoManageMana
         return dao.getAutoManageList();
     }
 
-    public AutoManage getAutoManage(String id) {
+    public AutoManage getAutoManage(Long id) {
         AutoManage obj = dao.getAutoManage(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AutoManageManagerImpl extends ManagerImpl implements AutoManageMana
         dao.saveAutoManage(obj);
     }
 
-    public void removeAutoManage(String id) {
+    public void removeAutoManage(Long id) {
         dao.removeAutoManage(id);
     }
 }

@@ -59,7 +59,7 @@ public class UserAccountManagerImpl extends ManagerImpl implements UserAccountMa
         return dao.getUserAccountList();
     }
 
-    public UserAccount getUserAccount(String id) {
+    public UserAccount getUserAccount(Long id) {
         UserAccount obj = dao.getUserAccount(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class UserAccountManagerImpl extends ManagerImpl implements UserAccountMa
         dao.saveUserAccount(obj);
     }
 
-    public void removeUserAccount(String id) {
+    public void removeUserAccount(Long id) {
         dao.removeUserAccount(id);
     }
 }

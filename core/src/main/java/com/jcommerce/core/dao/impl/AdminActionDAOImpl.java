@@ -22,7 +22,7 @@ public class AdminActionDAOImpl extends DAOImpl implements AdminActionDAO {
         return getList();
     }
 
-    public AdminAction getAdminAction(String id) {
+    public AdminAction getAdminAction(Long id) {
         return (AdminAction)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AdminActionDAOImpl extends DAOImpl implements AdminActionDAO {
         save(obj);
     }
 
-    public void removeAdminAction(String id) {
+    public void removeAdminAction(Long id) {
         deleteById(id);
     }
 }

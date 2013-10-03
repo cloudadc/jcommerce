@@ -22,7 +22,7 @@ public class AuctionLogDAOImpl extends DAOImpl implements AuctionLogDAO {
         return getList();
     }
 
-    public AuctionLog getAuctionLog(String id) {
+    public AuctionLog getAuctionLog(Long id) {
         return (AuctionLog)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AuctionLogDAOImpl extends DAOImpl implements AuctionLogDAO {
         save(obj);
     }
 
-    public void removeAuctionLog(String id) {
+    public void removeAuctionLog(Long id) {
         deleteById(id);
     }
 }

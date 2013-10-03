@@ -59,7 +59,7 @@ public class AdvertisementManagerImpl extends ManagerImpl implements Advertiseme
         return dao.getAdvertisementList();
     }
 
-    public Advertisement getAdvertisement(String id) {
+    public Advertisement getAdvertisement(Long id) {
         Advertisement obj = dao.getAdvertisement(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AdvertisementManagerImpl extends ManagerImpl implements Advertiseme
         dao.saveAdvertisement(obj);
     }
 
-    public void removeAdvertisement(String id) {
+    public void removeAdvertisement(Long id) {
         dao.removeAdvertisement(id);
     }
 }

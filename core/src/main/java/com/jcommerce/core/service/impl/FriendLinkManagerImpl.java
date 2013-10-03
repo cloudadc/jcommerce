@@ -59,7 +59,7 @@ public class FriendLinkManagerImpl extends ManagerImpl implements FriendLinkMana
         return dao.getFriendLinkList();
     }
 
-    public FriendLink getFriendLink(String id) {
+    public FriendLink getFriendLink(Long id) {
         FriendLink obj = dao.getFriendLink(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class FriendLinkManagerImpl extends ManagerImpl implements FriendLinkMana
         dao.saveFriendLink(obj);
     }
 
-    public void removeFriendLink(String id) {
+    public void removeFriendLink(Long id) {
         dao.removeFriendLink(id);
     }
 }

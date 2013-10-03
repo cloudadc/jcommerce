@@ -16,9 +16,16 @@ public abstract class ModelObject implements Serializable {
 
 	private static final long serialVersionUID = -8291709224651447583L;
 	
-	public abstract String getId();
+	public String getModelId(){
+		return getId().toString();
+	}
 	
-	public abstract void setId(String id); 
+	public void setModelId(String id){
+		setId(Long.valueOf(id));
+	} 
+	
+	public abstract Long getId();
+	public abstract void setId(Long id);
 	
 //	private String id;
 //    

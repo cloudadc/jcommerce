@@ -59,7 +59,7 @@ public class SessionsDataManagerImpl extends ManagerImpl implements SessionsData
         return dao.getSessionsDataList();
     }
 
-    public SessionsData getSessionsData(String id) {
+    public SessionsData getSessionsData(Long id) {
         SessionsData obj = dao.getSessionsData(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class SessionsDataManagerImpl extends ManagerImpl implements SessionsData
         dao.saveSessionsData(obj);
     }
 
-    public void removeSessionsData(String id) {
+    public void removeSessionsData(Long id) {
         dao.removeSessionsData(id);
     }
 }

@@ -21,9 +21,9 @@ public interface GoodsArticleManager extends Manager {
 
     public List<GoodsArticle> getGoodsArticleList();
 
-    public GoodsArticle getGoodsArticle(String id);
+    public GoodsArticle getGoodsArticle(Long id);
 
     public void saveGoodsArticle(GoodsArticle obj);
 
-    public void removeGoodsArticle(String id);
+    public void removeGoodsArticle(Long id);
 }

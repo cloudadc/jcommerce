@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Payment;
 public interface PaymentDAO extends DAO {
     public List<Payment> getPaymentList();
 
-    public Payment getPayment(String id);
+    public Payment getPayment(Long id);
 
     public void savePayment(Payment obj);
 
-    public void removePayment(String id);
+    public void removePayment(Long id);
 }

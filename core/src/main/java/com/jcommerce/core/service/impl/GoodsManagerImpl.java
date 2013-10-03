@@ -67,7 +67,7 @@ public class GoodsManagerImpl extends ManagerImpl implements GoodsManager {
         return dao.getGoodsList();
     }
 
-    public Goods getGoods(String id) {
+    public Goods getGoods(Long id) {
         Goods obj = dao.getGoods(id);
         return obj;
     }
@@ -76,7 +76,7 @@ public class GoodsManagerImpl extends ManagerImpl implements GoodsManager {
         dao.saveGoods(obj);
     }
 
-    public void removeGoods(String id) {
+    public void removeGoods(Long id) {
         Goods goods = getGoods(id);
         goods.setDeleted(true);
         saveGoods(goods);
@@ -94,9 +94,9 @@ public class GoodsManagerImpl extends ManagerImpl implements GoodsManager {
         return getGoodsList(getNewGoodsCriteria());
     }   
     
-    public List<Goods> getGoodsListByIds (List<String> ids) {
+    public List<Goods> getGoodsListByIds (List<Long> ids) {
         List res = new ArrayList();
-        for(String id : ids) {
+        for(Long id : ids) {
             ModelObject obj = getGoods(id);
             if(obj!=null) {
                 res.add(obj);
@@ -105,11 +105,11 @@ public class GoodsManagerImpl extends ManagerImpl implements GoodsManager {
         return res;
     }
 
-    public void purgeGoods(String id) {
+    public void purgeGoods(Long id) {
         dao.removeGoods(id);
     }
 
-    public void undoDeletedGoods(String id) {
+    public void undoDeletedGoods(Long id) {
         Goods goods = getGoods(id);
         goods.setDeleted(false);
         saveGoods(goods);
@@ -117,25 +117,25 @@ public class GoodsManagerImpl extends ManagerImpl implements GoodsManager {
 
     public Criteria getBestSoldGoodsCriteria() {
         Criteria criteria = new Criteria();
-        criteria.addCondition(new Condition("bestSold", Condition.EQUALS, "true"));
-        criteria.addCondition(new Condition("deleted", Condition.EQUALS, "false"));
-        criteria.addCondition(new Condition("onSale", Condition.EQUALS, "true"));
+        criteria.addCondition(new Condition("bestSold", Condition.EQUALS, new Long(1)));
+        criteria.addCondition(new Condition("deleted", Condition.EQUALS, new Long(0)));
+        criteria.addCondition(new Condition("onSale", Condition.EQUALS, new Long(1)));
         return criteria;
     }
 
     public Criteria getHotSoldGoodsCriteria() {
         Criteria criteria = new Criteria();
-        criteria.addCondition(new Condition("hotSold", Condition.EQUALS, "true"));
-        criteria.addCondition(new Condition("deleted", Condition.EQUALS, "false"));
-        criteria.addCondition(new Condition("onSale", Condition.EQUALS, "true"));
+        criteria.addCondition(new Condition("hotSold", Condition.EQUALS, new Long(1)));
+        criteria.addCondition(new Condition("deleted", Condition.EQUALS, new Long(0)));
+        criteria.addCondition(new Condition("onSale", Condition.EQUALS, new Long(1)));
         return criteria;
     }
 
     public Criteria getNewGoodsCriteria() {
         Criteria criteria = new Criteria();
-        criteria.addCondition(new Condition("newAdded", Condition.EQUALS, "true"));
-        criteria.addCondition(new Condition("deleted", Condition.EQUALS, "false"));
-        criteria.addCondition(new Condition("onSale", Condition.EQUALS, "true"));
+        criteria.addCondition(new Condition("newAdded", Condition.EQUALS, new Long(1)));
+        criteria.addCondition(new Condition("deleted", Condition.EQUALS, new Long(0)));
+        criteria.addCondition(new Condition("onSale", Condition.EQUALS, new Long(1)));
         return criteria;
     }
 }

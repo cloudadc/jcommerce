@@ -21,9 +21,9 @@ public interface AccountLogManager extends Manager {
 
     public List<AccountLog> getAccountLogList();
 
-    public AccountLog getAccountLog(String id);
+    public AccountLog getAccountLog(Long id);
 
     public void saveAccountLog(AccountLog obj);
 
-    public void removeAccountLog(String id);
+    public void removeAccountLog(Long id);
 }

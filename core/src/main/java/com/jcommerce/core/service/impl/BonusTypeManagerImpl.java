@@ -59,7 +59,7 @@ public class BonusTypeManagerImpl extends ManagerImpl implements BonusTypeManage
         return dao.getBonusTypeList();
     }
 
-    public BonusType getBonusType(String id) {
+    public BonusType getBonusType(Long id) {
         BonusType obj = dao.getBonusType(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class BonusTypeManagerImpl extends ManagerImpl implements BonusTypeManage
         dao.saveBonusType(obj);
     }
 
-    public void removeBonusType(String id) {
+    public void removeBonusType(Long id) {
         dao.removeBonusType(id);
     }
 }

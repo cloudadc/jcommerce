@@ -59,7 +59,7 @@ public class TopicManagerImpl extends ManagerImpl implements TopicManager {
         return dao.getTopicList();
     }
 
-    public Topic getTopic(String id) {
+    public Topic getTopic(Long id) {
         Topic obj = dao.getTopic(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class TopicManagerImpl extends ManagerImpl implements TopicManager {
         dao.saveTopic(obj);
     }
 
-    public void removeTopic(String id) {
+    public void removeTopic(Long id) {
         dao.removeTopic(id);
     }
 }

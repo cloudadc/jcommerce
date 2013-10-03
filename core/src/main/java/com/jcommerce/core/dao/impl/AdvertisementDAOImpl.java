@@ -22,7 +22,7 @@ public class AdvertisementDAOImpl extends DAOImpl implements AdvertisementDAO {
         return getList();
     }
 
-    public Advertisement getAdvertisement(String id) {
+    public Advertisement getAdvertisement(Long id) {
         return (Advertisement)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AdvertisementDAOImpl extends DAOImpl implements AdvertisementDAO {
         save(obj);
     }
 
-    public void removeAdvertisement(String id) {
+    public void removeAdvertisement(Long id) {
         deleteById(id);
     }
 }

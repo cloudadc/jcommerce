@@ -22,7 +22,7 @@ public class GoodsArticleDAOImpl extends DAOImpl implements GoodsArticleDAO {
         return getList();
     }
 
-    public GoodsArticle getGoodsArticle(String id) {
+    public GoodsArticle getGoodsArticle(Long id) {
         return (GoodsArticle)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class GoodsArticleDAOImpl extends DAOImpl implements GoodsArticleDAO {
         save(obj);
     }
 
-    public void removeGoodsArticle(String id) {
+    public void removeGoodsArticle(Long id) {
         deleteById(id);
     }
 }

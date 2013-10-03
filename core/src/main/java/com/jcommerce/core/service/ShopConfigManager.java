@@ -24,11 +24,11 @@ public interface ShopConfigManager extends Manager {
 
     public List<ShopConfig> getShopConfigList();
 
-    public ShopConfig getShopConfig(String id);
+    public ShopConfig getShopConfig(Long id);
 
     public void saveShopConfig(ShopConfig obj);
 
-    public void removeShopConfig(String id);
+    public void removeShopConfig(Long id);
     
     public SortedMap<Integer, List<ShopConfigMeta>> getCombinedShopConfigMetaMap(String locale);
     public Boolean saveShopConfig(List<ShopConfig> tos);

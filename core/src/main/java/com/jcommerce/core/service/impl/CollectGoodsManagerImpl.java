@@ -59,7 +59,7 @@ public class CollectGoodsManagerImpl extends ManagerImpl implements CollectGoods
         return dao.getCollectGoodsList();
     }
 
-    public CollectGoods getCollectGoods(String id) {
+    public CollectGoods getCollectGoods(Long id) {
         CollectGoods obj = dao.getCollectGoods(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class CollectGoodsManagerImpl extends ManagerImpl implements CollectGoods
         dao.saveCollectGoods(obj);
     }
 
-    public void removeCollectGoods(String id) {
+    public void removeCollectGoods(Long id) {
         dao.removeCollectGoods(id);
     }
 }

@@ -21,9 +21,9 @@ public interface ErrorLogManager extends Manager {
 
     public List<ErrorLog> getErrorLogList();
 
-    public ErrorLog getErrorLog(String id);
+    public ErrorLog getErrorLog(Long id);
 
     public void saveErrorLog(ErrorLog obj);
 
-    public void removeErrorLog(String id);
+    public void removeErrorLog(Long id);
 }

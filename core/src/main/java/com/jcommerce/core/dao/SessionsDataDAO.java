@@ -11,9 +11,9 @@ import com.jcommerce.core.model.SessionsData;
 public interface SessionsDataDAO extends DAO {
     public List<SessionsData> getSessionsDataList();
 
-    public SessionsData getSessionsData(String id);
+    public SessionsData getSessionsData(Long id);
 
     public void saveSessionsData(SessionsData obj);
 
-    public void removeSessionsData(String id);
+    public void removeSessionsData(Long id);
 }

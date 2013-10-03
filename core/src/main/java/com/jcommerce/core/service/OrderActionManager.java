@@ -20,11 +20,11 @@ public interface OrderActionManager extends Manager {
 
     public List<OrderAction> getOrderActionList();
 
-    public OrderAction getOrderAction(String id);
+    public OrderAction getOrderAction(Long id);
 
     public void saveOrderAction(OrderAction obj);
 
-    public void removeOrderAction(String id);
+    public void removeOrderAction(Long id);
     
     public void removeOrderActions(List<OrderAction> actions);
 }

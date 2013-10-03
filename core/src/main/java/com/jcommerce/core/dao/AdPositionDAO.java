@@ -11,9 +11,9 @@ import com.jcommerce.core.model.AdPosition;
 public interface AdPositionDAO extends DAO {
     public List<AdPosition> getAdPositionList();
 
-    public AdPosition getAdPosition(String id);
+    public AdPosition getAdPosition(Long id);
 
     public void saveAdPosition(AdPosition obj);
 
-    public void removeAdPosition(String id);
+    public void removeAdPosition(Long id);
 }

@@ -59,7 +59,7 @@ public class VirtualCardManagerImpl extends ManagerImpl implements VirtualCardMa
         return dao.getVirtualCardList();
     }
 
-    public VirtualCard getVirtualCard(String id) {
+    public VirtualCard getVirtualCard(Long id) {
         VirtualCard obj = dao.getVirtualCard(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class VirtualCardManagerImpl extends ManagerImpl implements VirtualCardMa
         dao.saveVirtualCard(obj);
     }
 
-    public void removeVirtualCard(String id) {
+    public void removeVirtualCard(Long id) {
         dao.removeVirtualCard(id);
     }
 }

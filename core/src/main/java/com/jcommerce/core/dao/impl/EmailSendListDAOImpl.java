@@ -22,7 +22,7 @@ public class EmailSendListDAOImpl extends DAOImpl implements EmailSendListDAO {
         return getList();
     }
 
-    public EmailSendList getEmailSendList(String id) {
+    public EmailSendList getEmailSendList(Long id) {
         return (EmailSendList)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class EmailSendListDAOImpl extends DAOImpl implements EmailSendListDAO {
         save(obj);
     }
 
-    public void removeEmailSendList(String id) {
+    public void removeEmailSendList(Long id) {
         deleteById(id);
     }
 }

@@ -59,7 +59,7 @@ public class PaymentManagerImpl extends ManagerImpl implements PaymentManager {
         return dao.getPaymentList();
     }
 
-    public Payment getPayment(String id) {
+    public Payment getPayment(Long id) {
         Payment obj = dao.getPayment(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class PaymentManagerImpl extends ManagerImpl implements PaymentManager {
         dao.savePayment(obj);
     }
 
-    public void removePayment(String id) {
+    public void removePayment(Long id) {
         dao.removePayment(id);
     }
 }

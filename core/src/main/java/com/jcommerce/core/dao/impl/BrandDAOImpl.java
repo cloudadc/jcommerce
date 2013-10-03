@@ -22,7 +22,7 @@ public class BrandDAOImpl extends DAOImpl implements BrandDAO {
         return getList();
     }
 
-    public Brand getBrand(String id) {
+    public Brand getBrand(Long id) {
         return (Brand)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class BrandDAOImpl extends DAOImpl implements BrandDAO {
         save(obj);
     }
 
-    public void removeBrand(String id) {
+    public void removeBrand(Long id) {
         deleteById(id);
     }
 }

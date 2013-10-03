@@ -59,7 +59,7 @@ public class PayLogManagerImpl extends ManagerImpl implements PayLogManager {
         return dao.getPayLogList();
     }
 
-    public PayLog getPayLog(String id) {
+    public PayLog getPayLog(Long id) {
         PayLog obj = dao.getPayLog(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class PayLogManagerImpl extends ManagerImpl implements PayLogManager {
         dao.savePayLog(obj);
     }
 
-    public void removePayLog(String id) {
+    public void removePayLog(Long id) {
         dao.removePayLog(id);
     }
 }

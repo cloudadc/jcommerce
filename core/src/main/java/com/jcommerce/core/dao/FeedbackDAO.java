@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Feedback;
 public interface FeedbackDAO extends DAO {
     public List<Feedback> getFeedbackList();
 
-    public Feedback getFeedback(String id);
+    public Feedback getFeedback(Long id);
 
     public void saveFeedback(Feedback obj);
 
-    public void removeFeedback(String id);
+    public void removeFeedback(Long id);
 }

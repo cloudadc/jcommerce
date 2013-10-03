@@ -21,9 +21,9 @@ public interface BookingGoodsManager extends Manager {
 
     public List<BookingGoods> getBookingGoodsList();
 
-    public BookingGoods getBookingGoods(String id);
+    public BookingGoods getBookingGoods(Long id);
 
     public void saveBookingGoods(BookingGoods obj);
 
-    public void removeBookingGoods(String id);
+    public void removeBookingGoods(Long id);
 }

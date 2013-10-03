@@ -59,7 +59,7 @@ public class TagManagerImpl extends ManagerImpl implements TagManager {
         return dao.getTagList();
     }
 
-    public Tag getTag(String id) {
+    public Tag getTag(Long id) {
         Tag obj = dao.getTag(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class TagManagerImpl extends ManagerImpl implements TagManager {
         dao.saveTag(obj);
     }
 
-    public void removeTag(String id) {
+    public void removeTag(Long id) {
         dao.removeTag(id);
     }
 }

@@ -59,7 +59,7 @@ public class FeedbackManagerImpl extends ManagerImpl implements FeedbackManager 
         return dao.getFeedbackList();
     }
 
-    public Feedback getFeedback(String id) {
+    public Feedback getFeedback(Long id) {
         Feedback obj = dao.getFeedback(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class FeedbackManagerImpl extends ManagerImpl implements FeedbackManager 
         dao.saveFeedback(obj);
     }
 
-    public void removeFeedback(String id) {
+    public void removeFeedback(Long id) {
         dao.removeFeedback(id);
     }
 }

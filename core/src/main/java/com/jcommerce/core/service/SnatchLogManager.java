@@ -21,9 +21,9 @@ public interface SnatchLogManager extends Manager {
 
     public List<SnatchLog> getSnatchLogList();
 
-    public SnatchLog getSnatchLog(String id);
+    public SnatchLog getSnatchLog(Long id);
 
     public void saveSnatchLog(SnatchLog obj);
 
-    public void removeSnatchLog(String id);
+    public void removeSnatchLog(Long id);
 }

@@ -11,9 +11,9 @@ import com.jcommerce.core.model.LinkGoods;
 public interface LinkGoodsDAO extends DAO {
     public List<LinkGoods> getLinkGoodsList();
 
-    public LinkGoods getLinkGoods(String id);
+    public LinkGoods getLinkGoods(Long id);
 
     public void saveLinkGoods(LinkGoods obj);
 
-    public void removeLinkGoods(String id);
+    public void removeLinkGoods(Long id);
 }

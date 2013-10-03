@@ -22,7 +22,7 @@ public class AutoManageDAOImpl extends DAOImpl implements AutoManageDAO {
         return getList();
     }
 
-    public AutoManage getAutoManage(String id) {
+    public AutoManage getAutoManage(Long id) {
         return (AutoManage)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AutoManageDAOImpl extends DAOImpl implements AutoManageDAO {
         save(obj);
     }
 
-    public void removeAutoManage(String id) {
+    public void removeAutoManage(Long id) {
         deleteById(id);
     }
 }

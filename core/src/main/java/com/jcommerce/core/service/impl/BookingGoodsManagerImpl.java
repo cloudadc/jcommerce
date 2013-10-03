@@ -59,7 +59,7 @@ public class BookingGoodsManagerImpl extends ManagerImpl implements BookingGoods
         return dao.getBookingGoodsList();
     }
 
-    public BookingGoods getBookingGoods(String id) {
+    public BookingGoods getBookingGoods(Long id) {
         BookingGoods obj = dao.getBookingGoods(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class BookingGoodsManagerImpl extends ManagerImpl implements BookingGoods
         dao.saveBookingGoods(obj);
     }
 
-    public void removeBookingGoods(String id) {
+    public void removeBookingGoods(Long id) {
         dao.removeBookingGoods(id);
     }
 }

@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Adsense;
 public interface AdsenseDAO extends DAO {
     public List<Adsense> getAdsenseList();
 
-    public Adsense getAdsense(String id);
+    public Adsense getAdsense(Long id);
 
     public void saveAdsense(Adsense obj);
 
-    public void removeAdsense(String id);
+    public void removeAdsense(Long id);
 }

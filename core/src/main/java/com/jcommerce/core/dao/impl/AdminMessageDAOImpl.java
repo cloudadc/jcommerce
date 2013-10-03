@@ -22,7 +22,7 @@ public class AdminMessageDAOImpl extends DAOImpl implements AdminMessageDAO {
         return getList();
     }
 
-    public AdminMessage getAdminMessage(String id) {
+    public AdminMessage getAdminMessage(Long id) {
         return (AdminMessage)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AdminMessageDAOImpl extends DAOImpl implements AdminMessageDAO {
         save(obj);
     }
 
-    public void removeAdminMessage(String id) {
+    public void removeAdminMessage(Long id) {
         deleteById(id);
     }
 }

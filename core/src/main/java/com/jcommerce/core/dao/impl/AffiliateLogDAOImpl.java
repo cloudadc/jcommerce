@@ -22,7 +22,7 @@ public class AffiliateLogDAOImpl extends DAOImpl implements AffiliateLogDAO {
         return getList();
     }
 
-    public AffiliateLog getAffiliateLog(String id) {
+    public AffiliateLog getAffiliateLog(Long id) {
         return (AffiliateLog)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AffiliateLogDAOImpl extends DAOImpl implements AffiliateLogDAO {
         save(obj);
     }
 
-    public void removeAffiliateLog(String id) {
+    public void removeAffiliateLog(Long id) {
         deleteById(id);
     }
 }

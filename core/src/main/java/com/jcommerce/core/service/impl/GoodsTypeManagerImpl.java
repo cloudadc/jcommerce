@@ -69,7 +69,7 @@ public class GoodsTypeManagerImpl extends ManagerImpl implements GoodsTypeManage
     	return getGoodsTypeList(-1,-1, null);
     }
 
-    public GoodsType getGoodsType(String id) {
+    public GoodsType getGoodsType(Long id) {
         GoodsType obj = dao.getGoodsType(id);
         return obj;
     }
@@ -78,7 +78,7 @@ public class GoodsTypeManagerImpl extends ManagerImpl implements GoodsTypeManage
         dao.saveGoodsType(obj);
     }
 
-    public void removeGoodsType(String id) {
+    public void removeGoodsType(Long id) {
         dao.removeGoodsType(id);
     }
 }

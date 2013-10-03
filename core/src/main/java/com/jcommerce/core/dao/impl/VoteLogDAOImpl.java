@@ -22,7 +22,7 @@ public class VoteLogDAOImpl extends DAOImpl implements VoteLogDAO {
         return getList();
     }
 
-    public VoteLog getVoteLog(String id) {
+    public VoteLog getVoteLog(Long id) {
         return (VoteLog)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class VoteLogDAOImpl extends DAOImpl implements VoteLogDAO {
         save(obj);
     }
 
-    public void removeVoteLog(String id) {
+    public void removeVoteLog(Long id) {
         deleteById(id);
     }
 }

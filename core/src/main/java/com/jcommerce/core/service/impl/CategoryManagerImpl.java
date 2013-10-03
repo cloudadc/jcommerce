@@ -88,7 +88,7 @@ public class CategoryManagerImpl extends ManagerImpl implements CategoryManager 
         return sorted;
     }
 
-    public Category getCategory(String id) {
+    public Category getCategory(Long id) {
         Category obj = dao.getCategory(id);
         return obj;
     }
@@ -97,7 +97,7 @@ public class CategoryManagerImpl extends ManagerImpl implements CategoryManager 
         dao.saveCategory(obj);
     }
 
-    public void removeCategory(String id) {
+    public void removeCategory(Long id) {
         dao.removeCategory(id);
     }
 

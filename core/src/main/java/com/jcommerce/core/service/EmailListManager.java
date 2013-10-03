@@ -21,9 +21,9 @@ public interface EmailListManager extends Manager {
 
     public List<EmailList> getEmailListList();
 
-    public EmailList getEmailList(String id);
+    public EmailList getEmailList(Long id);
 
     public void saveEmailList(EmailList obj);
 
-    public void removeEmailList(String id);
+    public void removeEmailList(Long id);
 }

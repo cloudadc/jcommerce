@@ -59,7 +59,7 @@ public class SnatchLogManagerImpl extends ManagerImpl implements SnatchLogManage
         return dao.getSnatchLogList();
     }
 
-    public SnatchLog getSnatchLog(String id) {
+    public SnatchLog getSnatchLog(Long id) {
         SnatchLog obj = dao.getSnatchLog(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class SnatchLogManagerImpl extends ManagerImpl implements SnatchLogManage
         dao.saveSnatchLog(obj);
     }
 
-    public void removeSnatchLog(String id) {
+    public void removeSnatchLog(Long id) {
         dao.removeSnatchLog(id);
     }
 }

@@ -22,7 +22,7 @@ public class GalleryDAOImpl extends DAOImpl implements GalleryDAO {
         return getList();
     }
 
-    public Gallery getGallery(String id) {
+    public Gallery getGallery(Long id) {
         return (Gallery)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class GalleryDAOImpl extends DAOImpl implements GalleryDAO {
         save(obj);
     }
 
-    public void removeGallery(String id) {
+    public void removeGallery(Long id) {
         deleteById(id);
     }
 }

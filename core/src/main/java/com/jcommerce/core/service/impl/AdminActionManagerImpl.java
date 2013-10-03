@@ -59,7 +59,7 @@ public class AdminActionManagerImpl extends ManagerImpl implements AdminActionMa
         return dao.getAdminActionList();
     }
 
-    public AdminAction getAdminAction(String id) {
+    public AdminAction getAdminAction(Long id) {
         AdminAction obj = dao.getAdminAction(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AdminActionManagerImpl extends ManagerImpl implements AdminActionMa
         dao.saveAdminAction(obj);
     }
 
-    public void removeAdminAction(String id) {
+    public void removeAdminAction(Long id) {
         dao.removeAdminAction(id);
     }
 }

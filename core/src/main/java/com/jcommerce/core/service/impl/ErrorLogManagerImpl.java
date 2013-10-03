@@ -59,7 +59,7 @@ public class ErrorLogManagerImpl extends ManagerImpl implements ErrorLogManager 
         return dao.getErrorLogList();
     }
 
-    public ErrorLog getErrorLog(String id) {
+    public ErrorLog getErrorLog(Long id) {
         ErrorLog obj = dao.getErrorLog(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class ErrorLogManagerImpl extends ManagerImpl implements ErrorLogManager 
         dao.saveErrorLog(obj);
     }
 
-    public void removeErrorLog(String id) {
+    public void removeErrorLog(Long id) {
         dao.removeErrorLog(id);
     }
 }

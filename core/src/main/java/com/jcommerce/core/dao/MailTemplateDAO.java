@@ -11,9 +11,9 @@ import com.jcommerce.core.model.MailTemplate;
 public interface MailTemplateDAO extends DAO {
     public List<MailTemplate> getMailTemplateList();
 
-    public MailTemplate getMailTemplate(String id);
+    public MailTemplate getMailTemplate(Long id);
 
     public void saveMailTemplate(MailTemplate obj);
 
-    public void removeMailTemplate(String id);
+    public void removeMailTemplate(Long id);
 }

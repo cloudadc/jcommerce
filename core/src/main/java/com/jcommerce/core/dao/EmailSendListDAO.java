@@ -11,9 +11,9 @@ import com.jcommerce.core.model.EmailSendList;
 public interface EmailSendListDAO extends DAO {
     public List<EmailSendList> getEmailSendListList();
 
-    public EmailSendList getEmailSendList(String id);
+    public EmailSendList getEmailSendList(Long id);
 
     public void saveEmailSendList(EmailSendList obj);
 
-    public void removeEmailSendList(String id);
+    public void removeEmailSendList(Long id);
 }

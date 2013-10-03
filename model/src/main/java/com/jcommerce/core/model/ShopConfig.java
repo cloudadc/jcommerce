@@ -24,19 +24,19 @@ import javax.persistence.Table;
 @Table(name = "shop_config")
 public class ShopConfig extends ModelObject {
 	
-private String id;
-    
+	private Long id;
+	
 	@Id 
 	@GeneratedValue
-	@Basic( optional = false )
-	@Column( name = "id", nullable = false, length = 32  )
-    public String getId() {
-        return id;
-    }
+	@Basic(optional = false)
+	@Column(name = "id", nullable = false)
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	private static final long serialVersionUID = 8079659670356189625L;
 	public final static int DISPLAY_LIST = 0;

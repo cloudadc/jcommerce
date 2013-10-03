@@ -21,9 +21,9 @@ public interface CronsManager extends Manager {
 
     public List<Crons> getCronsList();
 
-    public Crons getCrons(String id);
+    public Crons getCrons(Long id);
 
     public void saveCrons(Crons obj);
 
-    public void removeCrons(String id);
+    public void removeCrons(Long id);
 }

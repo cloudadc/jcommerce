@@ -59,7 +59,7 @@ public class VoteManagerImpl extends ManagerImpl implements VoteManager {
         return dao.getVoteList();
     }
 
-    public Vote getVote(String id) {
+    public Vote getVote(Long id) {
         Vote obj = dao.getVote(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class VoteManagerImpl extends ManagerImpl implements VoteManager {
         dao.saveVote(obj);
     }
 
-    public void removeVote(String id) {
+    public void removeVote(Long id) {
         dao.removeVote(id);
     }
 }

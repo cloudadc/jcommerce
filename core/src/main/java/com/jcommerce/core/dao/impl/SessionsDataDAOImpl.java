@@ -22,7 +22,7 @@ public class SessionsDataDAOImpl extends DAOImpl implements SessionsDataDAO {
         return getList();
     }
 
-    public SessionsData getSessionsData(String id) {
+    public SessionsData getSessionsData(Long id) {
         return (SessionsData)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class SessionsDataDAOImpl extends DAOImpl implements SessionsDataDAO {
         save(obj);
     }
 
-    public void removeSessionsData(String id) {
+    public void removeSessionsData(Long id) {
         deleteById(id);
     }
 }

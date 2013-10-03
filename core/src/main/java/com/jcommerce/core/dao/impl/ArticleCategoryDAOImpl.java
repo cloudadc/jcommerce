@@ -22,7 +22,7 @@ public class ArticleCategoryDAOImpl extends DAOImpl implements ArticleCategoryDA
         return getList();
     }
 
-    public ArticleCategory getArticleCategory(String id) {
+    public ArticleCategory getArticleCategory(Long id) {
         return (ArticleCategory)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class ArticleCategoryDAOImpl extends DAOImpl implements ArticleCategoryDA
         save(obj);
     }
 
-    public void removeArticleCategory(String id) {
+    public void removeArticleCategory(Long id) {
         deleteById(id);
     }
 }

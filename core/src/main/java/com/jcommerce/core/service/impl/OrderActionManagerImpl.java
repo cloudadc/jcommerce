@@ -61,7 +61,7 @@ public class OrderActionManagerImpl extends ManagerImpl implements OrderActionMa
         return dao.getOrderActionList();
     }
 
-    public OrderAction getOrderAction(String id) {
+    public OrderAction getOrderAction(Long id) {
         OrderAction obj = dao.getOrderAction(id);
         return obj;
     }
@@ -70,7 +70,7 @@ public class OrderActionManagerImpl extends ManagerImpl implements OrderActionMa
         dao.saveOrderAction(obj);
     }
 
-    public void removeOrderAction(String id) {
+    public void removeOrderAction(Long id) {
         dao.removeOrderAction(id);
     }
     

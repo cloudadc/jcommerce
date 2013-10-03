@@ -11,9 +11,9 @@ import com.jcommerce.core.model.ErrorLog;
 public interface ErrorLogDAO extends DAO {
     public List<ErrorLog> getErrorLogList();
 
-    public ErrorLog getErrorLog(String id);
+    public ErrorLog getErrorLog(Long id);
 
     public void saveErrorLog(ErrorLog obj);
 
-    public void removeErrorLog(String id);
+    public void removeErrorLog(Long id);
 }

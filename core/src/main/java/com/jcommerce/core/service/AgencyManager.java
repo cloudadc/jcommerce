@@ -21,9 +21,9 @@ public interface AgencyManager extends Manager {
 
     public List<Agency> getAgencyList();
 
-    public Agency getAgency(String id);
+    public Agency getAgency(Long id);
 
     public void saveAgency(Agency obj);
 
-    public void removeAgency(String id);
+    public void removeAgency(Long id);
 }

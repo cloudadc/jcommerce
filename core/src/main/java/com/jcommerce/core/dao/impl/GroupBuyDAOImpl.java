@@ -19,7 +19,7 @@ public class GroupBuyDAOImpl extends DAOImpl implements GroupBuyDAO {
 	        return getList();
 	    }
 
-	    public GroupBuy getGroupBuy(String id) {
+	    public GroupBuy getGroupBuy(Long id) {
 	        return (GroupBuy)getById(id);
 	    }
 
@@ -27,7 +27,7 @@ public class GroupBuyDAOImpl extends DAOImpl implements GroupBuyDAO {
 	        save(obj);
 	    }
 
-	    public void removeGroupBuy(String id) {
+	    public void removeGroupBuy(Long id) {
 	        deleteById(id);
 	    }
 

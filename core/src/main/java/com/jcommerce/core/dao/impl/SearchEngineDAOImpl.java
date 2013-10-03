@@ -22,7 +22,7 @@ public class SearchEngineDAOImpl extends DAOImpl implements SearchEngineDAO {
         return getList();
     }
 
-    public SearchEngine getSearchEngine(String id) {
+    public SearchEngine getSearchEngine(Long id) {
         return (SearchEngine)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class SearchEngineDAOImpl extends DAOImpl implements SearchEngineDAO {
         save(obj);
     }
 
-    public void removeSearchEngine(String id) {
+    public void removeSearchEngine(Long id) {
         deleteById(id);
     }
 }

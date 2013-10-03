@@ -22,7 +22,7 @@ public class CartDAOImpl extends DAOImpl implements CartDAO {
         return getList();
     }
 
-    public Cart getCart(String id) {
+    public Cart getCart(Long id) {
         return (Cart)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class CartDAOImpl extends DAOImpl implements CartDAO {
         save(obj);
     }
 
-    public void removeCart(String id) {
+    public void removeCart(Long id) {
         deleteById(id);
     }
 }

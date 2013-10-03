@@ -14,13 +14,13 @@ public class Condition {
     public static int ISNOTNULL = 6;
     
     private String field;
-    private String value;
+    private Long value;
     int operator;
 
     public Condition() {
     }
     
-    public Condition(String field, int operator, String value) {
+    public Condition(String field, int operator, Long value) {
         this.field = field;
         this.operator = operator;
         this.value = value;
@@ -34,11 +34,11 @@ public class Condition {
         this.field = field;
     }
 
-    public String getValue() {
+    public Long getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(Long value) {
         this.value = value;
     }
 

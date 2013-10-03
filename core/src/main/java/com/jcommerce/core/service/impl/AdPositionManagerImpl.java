@@ -59,7 +59,7 @@ public class AdPositionManagerImpl extends ManagerImpl implements AdPositionMana
         return dao.getAdPositionList();
     }
 
-    public AdPosition getAdPosition(String id) {
+    public AdPosition getAdPosition(Long id) {
         AdPosition obj = dao.getAdPosition(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AdPositionManagerImpl extends ManagerImpl implements AdPositionMana
         dao.saveAdPosition(obj);
     }
 
-    public void removeAdPosition(String id) {
+    public void removeAdPosition(Long id) {
         dao.removeAdPosition(id);
     }
 }

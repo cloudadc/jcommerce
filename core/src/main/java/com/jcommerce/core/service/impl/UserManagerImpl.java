@@ -59,7 +59,7 @@ public class UserManagerImpl extends ManagerImpl implements UserManager {
         return dao.getUserList();
     }
 
-    public User getUser(String id) {
+    public User getUser(Long id) {
         User obj = dao.getUser(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class UserManagerImpl extends ManagerImpl implements UserManager {
         dao.saveUser(obj);
     }
 
-    public void removeUser(String id) {
+    public void removeUser(Long id) {
         dao.removeUser(id);
     }
     

@@ -22,7 +22,7 @@ public class ShippingDAOImpl extends DAOImpl implements ShippingDAO {
         return getList();
     }
 
-    public Shipping getShipping(String id) {
+    public Shipping getShipping(Long id) {
         return (Shipping)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class ShippingDAOImpl extends DAOImpl implements ShippingDAO {
         save(obj);
     }
 
-    public void removeShipping(String id) {
+    public void removeShipping(Long id) {
         deleteById(id);
     }
 }

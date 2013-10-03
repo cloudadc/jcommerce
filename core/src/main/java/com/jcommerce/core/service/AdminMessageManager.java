@@ -21,9 +21,9 @@ public interface AdminMessageManager extends Manager {
 
     public List<AdminMessage> getAdminMessageList();
 
-    public AdminMessage getAdminMessage(String id);
+    public AdminMessage getAdminMessage(Long id);
 
     public void saveAdminMessage(AdminMessage obj);
 
-    public void removeAdminMessage(String id);
+    public void removeAdminMessage(Long id);
 }

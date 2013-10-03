@@ -21,9 +21,9 @@ public interface TagManager extends Manager {
 
     public List<Tag> getTagList();
 
-    public Tag getTag(String id);
+    public Tag getTag(Long id);
 
     public void saveTag(Tag obj);
 
-    public void removeTag(String id);
+    public void removeTag(Long id);
 }

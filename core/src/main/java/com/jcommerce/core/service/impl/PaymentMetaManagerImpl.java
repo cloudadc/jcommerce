@@ -99,7 +99,7 @@ public class PaymentMetaManagerImpl extends ManagerImpl implements IPaymentMetaM
         metaRepo.put(alipay.getDefaultConfigMeta().getCode(), alipay);
     }
     
-    public void savePaymentConfig(Map<String, String> props) {
+    public void savePaymentConfig(Map<String, Object> props) {
         try {
             Payment payment = new Payment();
             payment.setCod(Boolean.valueOf((String)props.get(IPayment.COD)));
@@ -107,7 +107,7 @@ public class PaymentMetaManagerImpl extends ManagerImpl implements IPaymentMetaM
             payment.setDescription((String)props.get(IPayment.DESCRIPTION));
 //        payment.setEnabled((String)props.get(DESC));
             payment.setFee((String)props.get(IPayment.FEE));
-            payment.setId((String)props.get(IPayment.ID));
+            payment.setId((Long)props.get(IPayment.ID));
             payment.setName((String)props.get(IPayment.NAME));
             payment.setOnline(Boolean.valueOf((String)props.get(IPayment.ONLINE)));
             payment.setOrder(Integer.valueOf((String)props.get(IPayment.ORDER)));
@@ -124,7 +124,7 @@ public class PaymentMetaManagerImpl extends ManagerImpl implements IPaymentMetaM
         
     }
 
-    public List<Map<String, String>> getCombinedPaymentMetaList() {
+    public List<Map<String, Object>> getCombinedPaymentMetaList() {
         // 已加载的
         
         // 已安装到数据库中的
@@ -134,12 +134,12 @@ public class PaymentMetaManagerImpl extends ManagerImpl implements IPaymentMetaM
             mapData.put(payment.getCode(), payment);
         }
         
-        List<Map<String, String>> res = new ArrayList<Map<String, String>>();
-        Map<String, String> maps = null;
+        List<Map<String, Object>> res = new ArrayList<Map<String, Object>>();
+        Map<String, Object> maps = null;
         
         for(String code:metaRepo.keySet()) {
             IPaymentMetaPlugin plugin = metaRepo.get(code);
-            maps = new HashMap<String, String>();
+            maps = new HashMap<String, Object>();
             
             if(mapData.containsKey(code)) {
                 // 已在数据库中，使用数据库中的值
@@ -171,7 +171,7 @@ public class PaymentMetaManagerImpl extends ManagerImpl implements IPaymentMetaM
         return paymentManager.getPaymentList();
     }
     
-    public String getCode(String orderId, String paymentId) {
+    public String getCode(Long orderId, Long paymentId) {
         System.out.println("getCode: orderId="+orderId+", paymentId="+paymentId);
         Order order = orderManager.getOrder(orderId);
         Payment payment = paymentManager.getPayment(paymentId);
@@ -218,7 +218,7 @@ public class PaymentMetaManagerImpl extends ManagerImpl implements IPaymentMetaM
     }
     
     
-    public void uninstall(String paymentId) {
+    public void uninstall(Long paymentId) {
         try {
             paymentManager.removePayment(paymentId);
         } catch (RuntimeException e) {
@@ -248,7 +248,7 @@ public class PaymentMetaManagerImpl extends ManagerImpl implements IPaymentMetaM
 		}
 	}
     
-    public PaymentConfigMeta getPaymentConfigMeta(String paymentId) {
+    public PaymentConfigMeta getPaymentConfigMeta(Long paymentId) {
         try {
             PaymentConfigMeta res = null;
             Payment payment = paymentManager.getPayment(paymentId);

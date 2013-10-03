@@ -21,9 +21,9 @@ public interface AutoManageManager extends Manager {
 
     public List<AutoManage> getAutoManageList();
 
-    public AutoManage getAutoManage(String id);
+    public AutoManage getAutoManage(Long id);
 
     public void saveAutoManage(AutoManage obj);
 
-    public void removeAutoManage(String id);
+    public void removeAutoManage(Long id);
 }

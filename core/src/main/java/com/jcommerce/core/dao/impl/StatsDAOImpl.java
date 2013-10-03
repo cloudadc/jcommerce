@@ -22,7 +22,7 @@ public class StatsDAOImpl extends DAOImpl implements StatsDAO {
         return getList();
     }
 
-    public Stats getStats(String id) {
+    public Stats getStats(Long id) {
         return (Stats)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class StatsDAOImpl extends DAOImpl implements StatsDAO {
         save(obj);
     }
 
-    public void removeStats(String id) {
+    public void removeStats(Long id) {
         deleteById(id);
     }
 }

@@ -11,9 +11,9 @@ import com.jcommerce.core.model.BonusType;
 public interface BonusTypeDAO extends DAO {
     public List<BonusType> getBonusTypeList();
 
-    public BonusType getBonusType(String id);
+    public BonusType getBonusType(Long id);
 
     public void saveBonusType(BonusType obj);
 
-    public void removeBonusType(String id);
+    public void removeBonusType(Long id);
 }

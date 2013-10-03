@@ -22,7 +22,7 @@ public class FailedLoginDAOImpl extends DAOImpl implements FailedLoginDAO {
         return getList();
     }
 
-    public FailedLogin getFailedLogin(String id) {
+    public FailedLogin getFailedLogin(Long id) {
         return (FailedLogin)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class FailedLoginDAOImpl extends DAOImpl implements FailedLoginDAO {
         save(obj);
     }
 
-    public void removeFailedLogin(String id) {
+    public void removeFailedLogin(Long id) {
         deleteById(id);
     }
 }

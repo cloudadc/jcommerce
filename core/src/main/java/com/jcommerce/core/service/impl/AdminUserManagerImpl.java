@@ -59,7 +59,7 @@ public class AdminUserManagerImpl extends ManagerImpl implements AdminUserManage
         return dao.getAdminUserList();
     }
 
-    public AdminUser getAdminUser(String id) {
+    public AdminUser getAdminUser(Long id) {
         AdminUser obj = dao.getAdminUser(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AdminUserManagerImpl extends ManagerImpl implements AdminUserManage
         dao.saveAdminUser(obj);
     }
 
-    public void removeAdminUser(String id) {
+    public void removeAdminUser(Long id) {
         dao.removeAdminUser(id);
     }
 }

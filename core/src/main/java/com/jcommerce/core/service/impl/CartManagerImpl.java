@@ -62,7 +62,7 @@ public class CartManagerImpl extends ManagerImpl implements CartManager {
         return dao.getCartList();
     }
 
-    public Cart getCart(String id) {
+    public Cart getCart(Long id) {
         Cart obj = dao.getCart(id);
         return obj;
     }
@@ -71,7 +71,7 @@ public class CartManagerImpl extends ManagerImpl implements CartManager {
         dao.saveCart(obj);
     }
 
-    public void removeCart(String id) {
+    public void removeCart(Long id) {
         dao.removeCart(id);
     }
     

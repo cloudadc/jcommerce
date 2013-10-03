@@ -21,9 +21,9 @@ public interface CommentManager extends Manager {
 
     public List<Comment> getCommentList();
 
-    public Comment getComment(String id);
+    public Comment getComment(Long id);
 
     public void saveComment(Comment obj);
 
-    public void removeComment(String id);
+    public void removeComment(Long id);
 }

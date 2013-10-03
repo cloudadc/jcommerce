@@ -21,9 +21,9 @@ public interface CardManager extends Manager {
 
     public List<Card> getCardList();
 
-    public Card getCard(String id);
+    public Card getCard(Long id);
 
     public void saveCard(Card obj);
 
-    public void removeCard(String id);
+    public void removeCard(Long id);
 }

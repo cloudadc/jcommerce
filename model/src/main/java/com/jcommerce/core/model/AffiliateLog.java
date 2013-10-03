@@ -22,19 +22,19 @@ import javax.persistence.Table;
 @Table(name = "affiliate_log")
 public class AffiliateLog extends ModelObject {
 	
-private String id;
-    
+	private Long id;
+	
 	@Id 
 	@GeneratedValue
-	@Basic( optional = false )
-	@Column( name = "id", nullable = false, length = 32  )
-    public String getId() {
-        return id;
-    }
+	@Basic(optional = false)
+	@Column(name = "id", nullable = false)
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	private static final long serialVersionUID = -2396249717828311768L;
 	public static final int SEPARATE_BY_REGISTER = 0; // 推荐注册分成

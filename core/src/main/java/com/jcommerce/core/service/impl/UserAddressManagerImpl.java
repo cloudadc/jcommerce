@@ -59,7 +59,7 @@ public class UserAddressManagerImpl extends ManagerImpl implements UserAddressMa
         return dao.getUserAddressList();
     }
 
-    public UserAddress getUserAddress(String id) {
+    public UserAddress getUserAddress(Long id) {
         UserAddress obj = dao.getUserAddress(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class UserAddressManagerImpl extends ManagerImpl implements UserAddressMa
         dao.saveUserAddress(obj);
     }
 
-    public void removeUserAddress(String id) {
+    public void removeUserAddress(Long id) {
         dao.removeUserAddress(id);
     }
 }

@@ -21,13 +21,13 @@ public interface OrderGoodsManager extends Manager {
 
     public List<OrderGoods> getOrderGoodsList();
 
-    public OrderGoods getOrderGoods(String id);
+    public OrderGoods getOrderGoods(Long id);
 
-    public List<OrderGoods> getOrderGoodsListByOrderId(String id);
+    public List<OrderGoods> getOrderGoodsListByOrderId(Long id);
     
     public void saveOrderGoods(OrderGoods obj);
 
-    public void removeOrderGoods(String id);
+    public void removeOrderGoods(Long id);
 
     public void removeOrderGoods(List<OrderGoods> goods);
 }

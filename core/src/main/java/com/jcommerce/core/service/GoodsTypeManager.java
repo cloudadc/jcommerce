@@ -21,11 +21,11 @@ public interface GoodsTypeManager extends Manager {
 
     public List<GoodsType> getGoodsTypeList();
 
-    public GoodsType getGoodsType(String id);
+    public GoodsType getGoodsType(Long id);
 
     public void saveGoodsType(GoodsType obj);
 
-    public void removeGoodsType(String id);
+    public void removeGoodsType(Long id);
     
     
 }

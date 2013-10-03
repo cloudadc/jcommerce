@@ -21,9 +21,9 @@ public interface FeedbackManager extends Manager {
 
     public List<Feedback> getFeedbackList();
 
-    public Feedback getFeedback(String id);
+    public Feedback getFeedback(Long id);
 
     public void saveFeedback(Feedback obj);
 
-    public void removeFeedback(String id);
+    public void removeFeedback(Long id);
 }

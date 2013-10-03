@@ -23,11 +23,11 @@ public interface RegionManager extends Manager {
     
     public List<Region> getChildList(String parent_id);
 
-    public Region getRegion(String id);
+    public Region getRegion(Long id);
 
     public void saveRegion(Region obj);
 
-    public void removeRegion(String id);
+    public void removeRegion(Long id);
     
     public List<Region> getCountries();
 }

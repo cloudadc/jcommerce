@@ -22,7 +22,7 @@ public class MailTemplateDAOImpl extends DAOImpl implements MailTemplateDAO {
         return getList();
     }
 
-    public MailTemplate getMailTemplate(String id) {
+    public MailTemplate getMailTemplate(Long id) {
         return (MailTemplate)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class MailTemplateDAOImpl extends DAOImpl implements MailTemplateDAO {
         save(obj);
     }
 
-    public void removeMailTemplate(String id) {
+    public void removeMailTemplate(Long id) {
         deleteById(id);
     }
 }

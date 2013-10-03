@@ -22,7 +22,7 @@ public class WholesaleDAOImpl extends DAOImpl implements WholesaleDAO {
         return getList();
     }
 
-    public Wholesale getWholesale(String id) {
+    public Wholesale getWholesale(Long id) {
         return (Wholesale)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class WholesaleDAOImpl extends DAOImpl implements WholesaleDAO {
         save(obj);
     }
 
-    public void removeWholesale(String id) {
+    public void removeWholesale(Long id) {
         deleteById(id);
     }
 }

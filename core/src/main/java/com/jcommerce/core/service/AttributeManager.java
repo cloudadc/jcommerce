@@ -21,9 +21,9 @@ public interface AttributeManager extends Manager {
 
     public List<Attribute> getAttributeList();
 
-    public Attribute getAttribute(String id);
+    public Attribute getAttribute(Long id);
 
     public void saveAttribute(Attribute obj);
 
-    public void removeAttribute(String id);
+    public void removeAttribute(Long id);
 }

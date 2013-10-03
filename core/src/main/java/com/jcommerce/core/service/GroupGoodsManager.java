@@ -21,9 +21,9 @@ public interface GroupGoodsManager extends Manager {
 
     public List<GroupGoods> getGroupGoodsList();
 
-    public GroupGoods getGroupGoods(String id);
+    public GroupGoods getGroupGoods(Long id);
 
     public void saveGroupGoods(GroupGoods obj);
 
-    public void removeGroupGoods(String id);
+    public void removeGroupGoods(Long id);
 }

@@ -59,7 +59,7 @@ public class AffiliateLogManagerImpl extends ManagerImpl implements AffiliateLog
         return dao.getAffiliateLogList();
     }
 
-    public AffiliateLog getAffiliateLog(String id) {
+    public AffiliateLog getAffiliateLog(Long id) {
         AffiliateLog obj = dao.getAffiliateLog(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AffiliateLogManagerImpl extends ManagerImpl implements AffiliateLog
         dao.saveAffiliateLog(obj);
     }
 
-    public void removeAffiliateLog(String id) {
+    public void removeAffiliateLog(Long id) {
         dao.removeAffiliateLog(id);
     }
 }

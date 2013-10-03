@@ -37,7 +37,7 @@ public class CustomizedManager {
     	try {
     		List<GoodsType> res = SpringUtil.getGoodsTypeManager().getGoodsTypeList(firstRow, maxRow, criteria);
     		for(GoodsType gt:res) {
-        		String gtid = gt.getId();
+    			Long gtid = gt.getId();
     			Criteria c2 = new Criteria();
         		Condition cond = new Condition();
         		cond.setField(GOODSTYPE);
@@ -58,7 +58,7 @@ public class CustomizedManager {
     	}
     }
 
-    public void getShippingAreaWithRegionName(List<ShippingArea> resultSet, String shippingId) {
+    public void getShippingAreaWithRegionName(List<ShippingArea> resultSet, Long shippingId) {
     	try {
     		Criteria criteria = new Criteria();
     		criteria.addCondition(new Condition(IShippingArea.SHIPPING, Condition.EQUALS, shippingId));
@@ -81,10 +81,10 @@ public class CustomizedManager {
     		throw new RuntimeException(ex);
     	}
     }
-    public String addBrand(Brand to) {
+    public Long addBrand(Brand to) {
     	try {
     	    SpringUtil.getBrandManager().saveBrand(to);
-			String res = to.getId(); 
+    	    Long res = to.getId(); 
     		
 //    		populateIdWithPo(to);
 //			String res = dao.add(to);
@@ -108,7 +108,7 @@ public class CustomizedManager {
     
     public boolean updateBrand(Brand to) {
     	try {
-    		String id = to.getId();
+    		Long id = to.getId();
     		System.out.println("id: "+id);
     		Brand po = SpringUtil.getBrandManager().getBrand(id);
 //    		String bkn = po.getKeyName();
@@ -131,7 +131,7 @@ public class CustomizedManager {
 //    		}
     		
     		SpringUtil.getBrandManager().saveBrand(po);
-			String res = po.getId();
+    		Long res = po.getId();
 			return true;
     	} catch (Exception e) {
 			e.printStackTrace();
@@ -139,7 +139,7 @@ public class CustomizedManager {
 		}
     }
 
-    public String addGoods(Goods to) {
+    public Long addGoods(Goods to) {
     	try {
 //    		String goodskn = DataStoreUtils.genKeyName(to);
 //    		to.setKeyName(goodskn);
@@ -193,7 +193,7 @@ public class CustomizedManager {
 			}
 
 			SpringUtil.getGoodsManager().saveGoods(to);
-			String res = to.getId();
+			Long res = to.getId();
 			
 //			GoogleBaseUtil gbUtil = new GoogleBaseUtil(SpringUtil.getShopConfigManager().getCachedShopConfig("en"));
 //			 String token = gbUtil.authenticate();
@@ -231,7 +231,7 @@ public class CustomizedManager {
     }
     public boolean updateGoods(Goods to) {
     	try {
-    		String id = to.getId();
+    		Long id = to.getId();
     		System.out.println("id: "+id);
     		Goods po = SpringUtil.getGoodsManager().getGoods(id);
     		
@@ -244,7 +244,7 @@ public class CustomizedManager {
     		
     		Set<Gallery> toGalleries = to.getGalleries();
 			for(Gallery gallery : toGalleries) {
-				if(StringUtils.isNotEmpty(gallery.getId())) {
+				if(gallery.getId() != null || gallery.getId() < 0) {
 					// existing gallery
 					for(Gallery gpo : po.getGalleries()) {
 						if(gpo.getId().equals(gallery.getId())) {
@@ -312,7 +312,7 @@ public class CustomizedManager {
 		}
     }
     
-    public void getAreaRegionListWithName(List<Region> resultSet, String shippingAreaId){
+    public void getAreaRegionListWithName(List<Region> resultSet, Long shippingAreaId){
     	try {
     	    ShippingArea area = SpringUtil.getShippingAreaManager().getShippingArea(shippingAreaId);
     	    Set<Region> ars = area.getRegions();

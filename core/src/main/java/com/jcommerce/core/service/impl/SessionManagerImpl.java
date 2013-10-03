@@ -72,7 +72,7 @@ public class SessionManagerImpl extends ManagerImpl implements SessionManager {
         return dao.getSessionList();
     }
 
-    public Session getSession(String id) {
+    public Session getSession(Long id) {
         Session obj = dao.getSession(id);
         return obj;
     }
@@ -81,7 +81,7 @@ public class SessionManagerImpl extends ManagerImpl implements SessionManager {
         dao.saveSession(obj);
     }
 
-    public void removeSession(String id) {
+    public void removeSession(Long id) {
         // remove the session info in Cart first
         Criteria criteria = new Criteria();
         criteria.addCondition(new Condition("session", Condition.EQUALS, id));

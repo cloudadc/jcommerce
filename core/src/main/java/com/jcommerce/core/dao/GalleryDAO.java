@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Gallery;
 public interface GalleryDAO extends DAO {
     public List<Gallery> getGalleryList();
 
-    public Gallery getGallery(String id);
+    public Gallery getGallery(Long id);
 
     public void saveGallery(Gallery obj);
 
-    public void removeGallery(String id);
+    public void removeGallery(Long id);
 }

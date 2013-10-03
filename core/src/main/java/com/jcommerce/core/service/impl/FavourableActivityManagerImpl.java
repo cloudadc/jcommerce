@@ -59,7 +59,7 @@ public class FavourableActivityManagerImpl extends ManagerImpl implements Favour
         return dao.getFavourableActivityList();
     }
 
-    public FavourableActivity getFavourableActivity(String id) {
+    public FavourableActivity getFavourableActivity(Long id) {
         FavourableActivity obj = dao.getFavourableActivity(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class FavourableActivityManagerImpl extends ManagerImpl implements Favour
         dao.saveFavourableActivity(obj);
     }
 
-    public void removeFavourableActivity(String id) {
+    public void removeFavourableActivity(Long id) {
         dao.removeFavourableActivity(id);
     }
 }

@@ -60,7 +60,7 @@ public class KeywordsManagerImpl extends ManagerImpl implements KeywordsManager 
         return dao.getKeywordsList();
     }
 
-    public Keywords getKeywords(String id) {
+    public Keywords getKeywords(Long id) {
         Keywords obj = dao.getKeywords(id);
         return obj;
     }
@@ -69,7 +69,7 @@ public class KeywordsManagerImpl extends ManagerImpl implements KeywordsManager 
         dao.saveKeywords(obj);
     }
 
-    public void removeKeywords(String id) {
+    public void removeKeywords(Long id) {
         dao.removeKeywords(id);
     }
 }

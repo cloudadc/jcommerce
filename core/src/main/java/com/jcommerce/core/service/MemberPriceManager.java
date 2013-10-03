@@ -21,9 +21,9 @@ public interface MemberPriceManager extends Manager {
 
     public List<MemberPrice> getMemberPriceList();
 
-    public MemberPrice getMemberPrice(String id);
+    public MemberPrice getMemberPrice(Long id);
 
     public void saveMemberPrice(MemberPrice obj);
 
-    public void removeMemberPrice(String id);
+    public void removeMemberPrice(Long id);
 }

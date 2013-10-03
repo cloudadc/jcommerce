@@ -60,7 +60,7 @@ public class OrderManagerImpl extends ManagerImpl implements OrderManager {
         return dao.getOrderList();
     }
 
-    public Order getOrder(String id) {
+    public Order getOrder(Long id) {
         Order obj = dao.getOrder(id);
         return obj;
     }
@@ -82,7 +82,7 @@ public class OrderManagerImpl extends ManagerImpl implements OrderManager {
     }
     
 
-    public void removeOrder(String id) {
+    public void removeOrder(Long id) {
         dao.removeOrder(id);
     }
 }

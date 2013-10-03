@@ -59,7 +59,7 @@ public class VoteLogManagerImpl extends ManagerImpl implements VoteLogManager {
         return dao.getVoteLogList();
     }
 
-    public VoteLog getVoteLog(String id) {
+    public VoteLog getVoteLog(Long id) {
         VoteLog obj = dao.getVoteLog(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class VoteLogManagerImpl extends ManagerImpl implements VoteLogManager {
         dao.saveVoteLog(obj);
     }
 
-    public void removeVoteLog(String id) {
+    public void removeVoteLog(Long id) {
         dao.removeVoteLog(id);
     }
 }

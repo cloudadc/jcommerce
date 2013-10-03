@@ -22,7 +22,7 @@ public class AgencyDAOImpl extends DAOImpl implements AgencyDAO {
         return getList();
     }
 
-    public Agency getAgency(String id) {
+    public Agency getAgency(Long id) {
         return (Agency)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class AgencyDAOImpl extends DAOImpl implements AgencyDAO {
         save(obj);
     }
 
-    public void removeAgency(String id) {
+    public void removeAgency(Long id) {
         deleteById(id);
     }
 }

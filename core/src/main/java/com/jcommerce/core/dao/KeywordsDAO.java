@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Keywords;
 public interface KeywordsDAO extends DAO {
     public List<Keywords> getKeywordsList();
 
-    public Keywords getKeywords(String id);
+    public Keywords getKeywords(Long id);
 
     public void saveKeywords(Keywords obj);
 
-    public void removeKeywords(String id);
+    public void removeKeywords(Long id);
 }

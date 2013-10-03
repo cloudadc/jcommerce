@@ -59,7 +59,7 @@ public class StatsManagerImpl extends ManagerImpl implements StatsManager {
         return dao.getStatsList();
     }
 
-    public Stats getStats(String id) {
+    public Stats getStats(Long id) {
         Stats obj = dao.getStats(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class StatsManagerImpl extends ManagerImpl implements StatsManager {
         dao.saveStats(obj);
     }
 
-    public void removeStats(String id) {
+    public void removeStats(Long id) {
         dao.removeStats(id);
     }
 }

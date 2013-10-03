@@ -59,7 +59,7 @@ public class AdminMessageManagerImpl extends ManagerImpl implements AdminMessage
         return dao.getAdminMessageList();
     }
 
-    public AdminMessage getAdminMessage(String id) {
+    public AdminMessage getAdminMessage(Long id) {
         AdminMessage obj = dao.getAdminMessage(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AdminMessageManagerImpl extends ManagerImpl implements AdminMessage
         dao.saveAdminMessage(obj);
     }
 
-    public void removeAdminMessage(String id) {
+    public void removeAdminMessage(Long id) {
         dao.removeAdminMessage(id);
     }
 }

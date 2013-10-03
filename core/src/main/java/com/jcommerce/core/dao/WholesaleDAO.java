@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Wholesale;
 public interface WholesaleDAO extends DAO {
     public List<Wholesale> getWholesaleList();
 
-    public Wholesale getWholesale(String id);
+    public Wholesale getWholesale(Long id);
 
     public void saveWholesale(Wholesale obj);
 
-    public void removeWholesale(String id);
+    public void removeWholesale(Long id);
 }

@@ -23,11 +23,11 @@ public interface GoodsManager extends Manager {
     
     public List<Goods> getGoodsList();
 
-    public Goods getGoods(String id);
+    public Goods getGoods(Long id);
 
     public void saveGoods(Goods obj);
 
-    public void removeGoods(String id);
+    public void removeGoods(Long id);
     
     public Criteria getBestSoldGoodsCriteria();
     
@@ -41,9 +41,9 @@ public interface GoodsManager extends Manager {
 
     public List<Goods> getHotSoldGoodsList();
     
-    public List<Goods> getGoodsListByIds (List<String> ids);
+    public List<Goods> getGoodsListByIds (List<Long> ids);
     
-    public void purgeGoods(String id);
+    public void purgeGoods(Long id);
     
-    public void undoDeletedGoods(String id);
+    public void undoDeletedGoods(Long id);
 }

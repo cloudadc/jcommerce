@@ -8,9 +8,9 @@ public interface GroupBuyDAO extends DAO {
 
 	public List<GroupBuy> getGroupBuyList();
 
-    public GroupBuy getGroupBuy(String id);
+    public GroupBuy getGroupBuy(Long id);
 
     public void saveGroupBuy(GroupBuy obj);
 
-    public void removeGroupBuy(String id);
+    public void removeGroupBuy(Long id);
 }

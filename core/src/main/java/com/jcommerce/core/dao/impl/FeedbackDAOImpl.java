@@ -22,7 +22,7 @@ public class FeedbackDAOImpl extends DAOImpl implements FeedbackDAO {
         return getList();
     }
 
-    public Feedback getFeedback(String id) {
+    public Feedback getFeedback(Long id) {
         return (Feedback)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class FeedbackDAOImpl extends DAOImpl implements FeedbackDAO {
         save(obj);
     }
 
-    public void removeFeedback(String id) {
+    public void removeFeedback(Long id) {
         deleteById(id);
     }
 }

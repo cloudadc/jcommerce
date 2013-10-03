@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence version="2.0"
+   xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+        http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+<persistence-unit name="com.jcommerce.core.model">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>com.jcommerce.core.model.GoodsActivity</class> 
+		<class>com.jcommerce.core.model.Feedback</class> 
+		<class>com.jcommerce.core.model.Goods</class> 
+		<class>com.jcommerce.core.model.VoteOption</class> 
+		<class>com.jcommerce.core.model.VoteLog</class> 
+		<class>com.jcommerce.core.model.FailedLogin</class> 
+		<class>com.jcommerce.core.model.Auction</class> 
+		<class>com.jcommerce.core.model.Adsense</class> 
+		<class>com.jcommerce.core.model.AdminUser</class> 
+		<class>com.jcommerce.core.model.OrderGoods</class> 
+		<class>com.jcommerce.core.model.ArticleCategory</class> 
+		<class>com.jcommerce.core.model.User</class> 
+		<class>com.jcommerce.core.model.SearchEngine</class> 
+		<class>com.jcommerce.core.model.CatRecommend</class> 
+		<class>com.jcommerce.core.model.CollectGoods</class> 
+		<class>com.jcommerce.core.model.UserRank</class> 
+		<class>com.jcommerce.core.model.Payment</class> 
+		<class>com.jcommerce.core.model.FriendLink</class> 
+		<class>com.jcommerce.core.model.GoodsArticle</class> 
+		<class>com.jcommerce.core.model.ShopConfig</class> 
+		<class>com.jcommerce.core.model.Template</class> 
+		<class>com.jcommerce.core.model.Keywords</class> 
+		<class>com.jcommerce.core.model.FavourableActivity</class> 
+		<class>com.jcommerce.core.model.UserAccount</class> 
+		<class>com.jcommerce.core.model.Gallery</class> 
+		<class>com.jcommerce.core.model.Advertisement</class> 
+		<class>com.jcommerce.core.model.Article</class> 
+		<class>com.jcommerce.core.model.ErrorLog</class> 
+		<class>com.jcommerce.core.model.BonusType</class> 
+		<class>com.jcommerce.core.model.Snatch</class> 
+		<class>com.jcommerce.core.model.EmailSendList</class> 
+		<class>com.jcommerce.core.model.Crons</class> 
+		<class>com.jcommerce.core.model.Plugins</class> 
+		<class>com.jcommerce.core.model.AdPosition</class> 
+		<class>com.jcommerce.core.model.UserBonus</class> 
+		<class>com.jcommerce.core.model.AuctionLog</class> 
+		<class>com.jcommerce.core.model.MailTemplate</class> 
+		<class>com.jcommerce.core.model.AdminMessage</class> 
+		<class>com.jcommerce.core.model.Category</class> 
+		<class>com.jcommerce.core.model.VirtualCard</class> 
+		<class>com.jcommerce.core.model.Attribute</class> 
+		<class>com.jcommerce.core.model.AdminAction</class> 
+		<class>com.jcommerce.core.model.ModelObject</class> 
+		<class>com.jcommerce.core.model.Tag</class> 
+		<class>com.jcommerce.core.model.Agency</class> 
+		<class>com.jcommerce.core.model.Wholesale</class> 
+		<class>com.jcommerce.core.model.Brand</class> 
+		<class>com.jcommerce.core.model.GoodsType</class> 
+		<class>com.jcommerce.core.model.Shipping</class> 
+		<class>com.jcommerce.core.model.NewTag</class> 
+		<class>com.jcommerce.core.model.Cart</class> 
+		<class>com.jcommerce.core.model.Card</class> 
+		<class>com.jcommerce.core.model.LinkGoods</class> 
+		<class>com.jcommerce.core.model.EmailList</class> 
+		<class>com.jcommerce.core.model.UserAddress</class> 
+		<class>com.jcommerce.core.model.AdminLog</class> 
+		<class>com.jcommerce.core.model.PayLog</class> 
+		<class>com.jcommerce.core.model.Comment</class> 
+		<class>com.jcommerce.core.model.Order</class> 
+		<class>com.jcommerce.core.model.Topic</class> 
+		<class>com.jcommerce.core.model.AccountLog</class> 
+		<class>com.jcommerce.core.model.Stats</class> 
+		<class>com.jcommerce.core.model.Pack</class> 
+		<class>com.jcommerce.core.model.MemberPrice</class> 
+		<class>com.jcommerce.core.model.Navigation</class> 
+		<class>com.jcommerce.core.model.OrderAction</class> 
+		<class>com.jcommerce.core.model.AffiliateLog</class> 
+		<class>com.jcommerce.core.model.UserFeed</class> 
+		<class>com.jcommerce.core.model.GroupGoods</class> 
+		<class>com.jcommerce.core.model.SessionsData</class> 
+		<class>com.jcommerce.core.model.GroupBuy</class> 
+		<class>com.jcommerce.core.model.ShippingArea</class> 
+		<class>com.jcommerce.core.model.SnatchLog</class> 
+		<class>com.jcommerce.core.model.AutoManage</class> 
+		<class>com.jcommerce.core.model.Session</class> 
+		<class>com.jcommerce.core.model.Region</class> 
+		<class>com.jcommerce.core.model.Vote</class> 
+		<class>com.jcommerce.core.model.GoodsAttribute</class> 
+		<class>com.jcommerce.core.model.VoteData</class> 
+		<class>com.jcommerce.core.model.BookingGoods</class> 
+		<properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ishop"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="ishop_user"/>
+            <property name="hibernate.connection.password" value="ishop_pass"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+</persistence>

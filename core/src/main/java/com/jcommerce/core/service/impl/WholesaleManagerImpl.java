@@ -60,7 +60,7 @@ public class WholesaleManagerImpl extends ManagerImpl implements WholesaleManage
         return dao.getWholesaleList();
     }
 
-    public Wholesale getWholesale(String id) {
+    public Wholesale getWholesale(Long id) {
         Wholesale obj = dao.getWholesale(id);
         return obj;
     }
@@ -69,7 +69,7 @@ public class WholesaleManagerImpl extends ManagerImpl implements WholesaleManage
         dao.saveWholesale(obj);
     }
 
-    public void removeWholesale(String id) {
+    public void removeWholesale(Long id) {
         dao.removeWholesale(id);
     }
 }

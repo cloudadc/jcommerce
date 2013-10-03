@@ -59,7 +59,7 @@ public class LinkGoodsManagerImpl extends ManagerImpl implements LinkGoodsManage
         return dao.getLinkGoodsList();
     }
 
-    public LinkGoods getLinkGoods(String id) {
+    public LinkGoods getLinkGoods(Long id) {
         LinkGoods obj = dao.getLinkGoods(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class LinkGoodsManagerImpl extends ManagerImpl implements LinkGoodsManage
         dao.saveLinkGoods(obj);
     }
 
-    public void removeLinkGoods(String id) {
+    public void removeLinkGoods(Long id) {
         dao.removeLinkGoods(id);
     }
 }

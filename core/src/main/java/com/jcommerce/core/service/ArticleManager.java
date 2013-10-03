@@ -21,9 +21,9 @@ public interface ArticleManager extends Manager {
 
     public List<Article> getArticleList();
 
-    public Article getArticle(String id);
+    public Article getArticle(Long id);
 
     public void saveArticle(Article obj);
 
-    public void removeArticle(String id);
+    public void removeArticle(Long id);
 }

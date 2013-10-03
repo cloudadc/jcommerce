@@ -59,7 +59,7 @@ public class MailTemplateManagerImpl extends ManagerImpl implements MailTemplate
         return dao.getMailTemplateList();
     }
 
-    public MailTemplate getMailTemplate(String id) {
+    public MailTemplate getMailTemplate(Long id) {
         MailTemplate obj = dao.getMailTemplate(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class MailTemplateManagerImpl extends ManagerImpl implements MailTemplate
         dao.saveMailTemplate(obj);
     }
 
-    public void removeMailTemplate(String id) {
+    public void removeMailTemplate(Long id) {
         dao.removeMailTemplate(id);
     }
 }

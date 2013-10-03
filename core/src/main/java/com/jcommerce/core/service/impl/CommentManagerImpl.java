@@ -59,7 +59,7 @@ public class CommentManagerImpl extends ManagerImpl implements CommentManager {
         return dao.getCommentList();
     }
 
-    public Comment getComment(String id) {
+    public Comment getComment(Long id) {
         Comment obj = dao.getComment(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class CommentManagerImpl extends ManagerImpl implements CommentManager {
         dao.saveComment(obj);
     }
 
-    public void removeComment(String id) {
+    public void removeComment(Long id) {
         dao.removeComment(id);
     }
 }

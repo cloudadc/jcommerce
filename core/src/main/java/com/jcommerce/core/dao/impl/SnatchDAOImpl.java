@@ -19,7 +19,7 @@ public class SnatchDAOImpl extends DAOImpl implements SnatchDAO {
         return getList();
     }
 
-    public Snatch getSnatch(String id) {
+    public Snatch getSnatch(Long id) {
         return (Snatch)getById(id);
     }
 
@@ -27,7 +27,7 @@ public class SnatchDAOImpl extends DAOImpl implements SnatchDAO {
         save(obj);
     }
 
-    public void removeSnatch(String id) {
+    public void removeSnatch(Long id) {
         deleteById(id);
     }
 

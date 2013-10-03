@@ -11,9 +11,9 @@ public interface IShippingMetaManager {
     
     public void install(String shippingCode);
     
-    public void uninstall(String shippingId);
+    public void uninstall(Long shippingId);
     
-    public ShippingConfigMeta getShippingConfigMeta(String shippingId);
+    public ShippingConfigMeta getShippingConfigMeta(Long shippingId);
     
     public void saveShippingConfig(ShippingConfigMeta meta);
     
@@ -23,7 +23,7 @@ public interface IShippingMetaManager {
     
     public List<ShippingConfigMeta> getInstalledShippingMetaList();
     
-    public ShippingAreaMeta getShippingAreaMeta(String shippingAreaId, String shippingId);
+    public ShippingAreaMeta getShippingAreaMeta(Long shippingAreaId, Long shippingId);
     
     public boolean saveShippingArea(ShippingArea sa, Map<String, Object> props);
     

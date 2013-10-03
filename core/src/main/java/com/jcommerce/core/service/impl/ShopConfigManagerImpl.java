@@ -69,7 +69,7 @@ public class ShopConfigManagerImpl extends ManagerImpl implements ShopConfigMana
         return dao.getShopConfigList();
     }
 
-    public ShopConfig getShopConfig(String id) {
+    public ShopConfig getShopConfig(Long id) {
         ShopConfig obj = dao.getShopConfig(id);
         return obj;
     }
@@ -78,7 +78,7 @@ public class ShopConfigManagerImpl extends ManagerImpl implements ShopConfigMana
         dao.saveShopConfig(obj);
     }
 
-    public void removeShopConfig(String id) {
+    public void removeShopConfig(Long id) {
         dao.removeShopConfig(id);
     }
 
@@ -115,15 +115,15 @@ public class ShopConfigManagerImpl extends ManagerImpl implements ShopConfigMana
     public Boolean saveShopConfig(List<ShopConfig> tos) {
         try {
             for(ShopConfig to : tos) {
-                String pkId = to.getId();
+                Long pkId = to.getId();
                 String code = to.getCode();
                 String value = to.getValue();
-                if(StringUtils.isEmpty(pkId)) {
-                    ShopConfig po = new ShopConfig();
+                if(pkId == null) {
+                	ShopConfig po = new ShopConfig();
                     po.setCode(code);
                     po.setValue(value);
                     saveShopConfig(po);
-                }else {
+                } else {
                     ShopConfig po = getShopConfig(pkId);
                     po.setValue(value);
                     saveShopConfig(po);

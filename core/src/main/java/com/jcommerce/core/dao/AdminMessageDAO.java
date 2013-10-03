@@ -11,9 +11,9 @@ import com.jcommerce.core.model.AdminMessage;
 public interface AdminMessageDAO extends DAO {
     public List<AdminMessage> getAdminMessageList();
 
-    public AdminMessage getAdminMessage(String id);
+    public AdminMessage getAdminMessage(Long id);
 
     public void saveAdminMessage(AdminMessage obj);
 
-    public void removeAdminMessage(String id);
+    public void removeAdminMessage(Long id);
 }

@@ -19,7 +19,7 @@ public class AuctionDAOImpl extends DAOImpl implements AuctionDAO {
 	        return getList();
 	    }
 
-	    public Auction getAuction(String id) {
+	    public Auction getAuction(Long id) {
 	        return (Auction)getById(id);
 	    }
 
@@ -27,7 +27,7 @@ public class AuctionDAOImpl extends DAOImpl implements AuctionDAO {
 	        save(obj);
 	    }
 
-	    public void removeAuction(String id) {
+	    public void removeAuction(Long id) {
 	        deleteById(id);
 	    }
 

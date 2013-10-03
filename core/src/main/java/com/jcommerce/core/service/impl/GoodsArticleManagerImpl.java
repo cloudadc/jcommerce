@@ -59,7 +59,7 @@ public class GoodsArticleManagerImpl extends ManagerImpl implements GoodsArticle
         return dao.getGoodsArticleList();
     }
 
-    public GoodsArticle getGoodsArticle(String id) {
+    public GoodsArticle getGoodsArticle(Long id) {
         GoodsArticle obj = dao.getGoodsArticle(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class GoodsArticleManagerImpl extends ManagerImpl implements GoodsArticle
         dao.saveGoodsArticle(obj);
     }
 
-    public void removeGoodsArticle(String id) {
+    public void removeGoodsArticle(Long id) {
         dao.removeGoodsArticle(id);
     }
 }

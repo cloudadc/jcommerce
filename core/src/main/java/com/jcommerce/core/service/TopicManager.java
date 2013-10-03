@@ -21,9 +21,9 @@ public interface TopicManager extends Manager {
 
     public List<Topic> getTopicList();
 
-    public Topic getTopic(String id);
+    public Topic getTopic(Long id);
 
     public void saveTopic(Topic obj);
 
-    public void removeTopic(String id);
+    public void removeTopic(Long id);
 }

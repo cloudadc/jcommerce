@@ -62,7 +62,7 @@ public class OrderGoodsManagerImpl extends ManagerImpl implements OrderGoodsMana
         return dao.getOrderGoodsList();
     }
 
-    public OrderGoods getOrderGoods(String id) {
+    public OrderGoods getOrderGoods(Long id) {
         OrderGoods obj = dao.getOrderGoods(id);
         return obj;
     }
@@ -71,7 +71,7 @@ public class OrderGoodsManagerImpl extends ManagerImpl implements OrderGoodsMana
         dao.saveOrderGoods(obj);
     }
 
-    public void removeOrderGoods(String id) {
+    public void removeOrderGoods(Long id) {
         dao.removeOrderGoods(id);
     }
     
@@ -79,7 +79,7 @@ public class OrderGoodsManagerImpl extends ManagerImpl implements OrderGoodsMana
         dao.deleteAll((Collection<ModelObject>)(List)goods);
     }
     
-    public List<OrderGoods> getOrderGoodsListByOrderId(String id) {
+    public List<OrderGoods> getOrderGoodsListByOrderId(Long id) {
         Criteria criteria = new Criteria();
         criteria.addCondition(new Condition("order", Condition.EQUALS, id));
         return getOrderGoodsList(criteria);

@@ -60,7 +60,7 @@ public class WebManagerImpl extends ManagerImpl implements IWebManager {
         this.goodsAttributeManager = goodsAttributeManager;
     }
 
-    public boolean addToCart(String goodsId, long num, List spec, String sessionId, String userId, String parentId) {
+    public boolean addToCart(Long goodsId, long num, List spec, Long sessionId, Long userId, Long parentId) {
 		
     	try {
     		boolean res = true;
@@ -111,9 +111,9 @@ public class WebManagerImpl extends ManagerImpl implements IWebManager {
 	    		for(Iterator iterator = spec.iterator();iterator.hasNext();) {
 	    			long goodsAttrId = Long.parseLong((String) iterator.next());
 	    			
-	    			GoodsAttribute goodsAttr = goodsAttributeManager.getGoodsAttribute(""+goodsAttrId);
-	    			String attrId = goodsAttr.getId();
-	    			Attribute attribute = attributeManager.getAttribute(""+attrId);
+	    			GoodsAttribute goodsAttr = goodsAttributeManager.getGoodsAttribute(goodsAttrId);
+	    			Long attrId = goodsAttr.getId();
+	    			Attribute attribute = attributeManager.getAttribute(attrId);
 	    			
 	    			String attrName = attribute.getName();
 	    			String attrValue = goodsAttr.getValue();

@@ -22,7 +22,7 @@ public class PayLogDAOImpl extends DAOImpl implements PayLogDAO {
         return getList();
     }
 
-    public PayLog getPayLog(String id) {
+    public PayLog getPayLog(Long id) {
         return (PayLog)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class PayLogDAOImpl extends DAOImpl implements PayLogDAO {
         save(obj);
     }
 
-    public void removePayLog(String id) {
+    public void removePayLog(Long id) {
         deleteById(id);
     }
 }

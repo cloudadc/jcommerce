@@ -11,9 +11,9 @@ import com.jcommerce.core.model.VoteData;
 public interface VoteDataDAO extends DAO {
     public List<VoteData> getVoteDataList();
 
-    public VoteData getVoteData(String id);
+    public VoteData getVoteData(Long id);
 
     public void saveVoteData(VoteData obj);
 
-    public void removeVoteData(String id);
+    public void removeVoteData(Long id);
 }

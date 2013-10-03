@@ -11,9 +11,9 @@ import com.jcommerce.core.model.Crons;
 public interface CronsDAO extends DAO {
     public List<Crons> getCronsList();
 
-    public Crons getCrons(String id);
+    public Crons getCrons(Long id);
 
     public void saveCrons(Crons obj);
 
-    public void removeCrons(String id);
+    public void removeCrons(Long id);
 }

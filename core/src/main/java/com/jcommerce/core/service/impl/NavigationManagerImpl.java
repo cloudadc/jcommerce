@@ -59,7 +59,7 @@ public class NavigationManagerImpl extends ManagerImpl implements NavigationMana
         return dao.getNavigationList();
     }
 
-    public Navigation getNavigation(String id) {
+    public Navigation getNavigation(Long id) {
         Navigation obj = dao.getNavigation(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class NavigationManagerImpl extends ManagerImpl implements NavigationMana
         dao.saveNavigation(obj);
     }
 
-    public void removeNavigation(String id) {
+    public void removeNavigation(Long id) {
         dao.removeNavigation(id);
     }
 }

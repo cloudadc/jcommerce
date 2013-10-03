@@ -21,9 +21,9 @@ public interface NavigationManager extends Manager {
 
     public List<Navigation> getNavigationList();
 
-    public Navigation getNavigation(String id);
+    public Navigation getNavigation(Long id);
 
     public void saveNavigation(Navigation obj);
 
-    public void removeNavigation(String id);
+    public void removeNavigation(Long id);
 }

@@ -60,7 +60,7 @@ public class GroupGoodsManagerImpl extends ManagerImpl implements GroupGoodsMana
         return dao.getGroupGoodsList();
     }
 
-    public GroupGoods getGroupGoods(String id) {
+    public GroupGoods getGroupGoods(Long id) {
         GroupGoods obj = dao.getGroupGoods(id);
         return obj;
     }
@@ -69,7 +69,7 @@ public class GroupGoodsManagerImpl extends ManagerImpl implements GroupGoodsMana
         dao.saveGroupGoods(obj);
     }
 
-    public void removeGroupGoods(String id) {
+    public void removeGroupGoods(Long id) {
         dao.removeGroupGoods(id);
     }
 }

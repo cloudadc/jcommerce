@@ -59,7 +59,7 @@ public class AgencyManagerImpl extends ManagerImpl implements AgencyManager {
         return dao.getAgencyList();
     }
 
-    public Agency getAgency(String id) {
+    public Agency getAgency(Long id) {
         Agency obj = dao.getAgency(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class AgencyManagerImpl extends ManagerImpl implements AgencyManager {
         dao.saveAgency(obj);
     }
 
-    public void removeAgency(String id) {
+    public void removeAgency(Long id) {
         dao.removeAgency(id);
     }
 }

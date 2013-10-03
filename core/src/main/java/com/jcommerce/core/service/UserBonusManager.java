@@ -21,9 +21,9 @@ public interface UserBonusManager extends Manager {
 
     public List<UserBonus> getUserBonusList();
 
-    public UserBonus getUserBonus(String id);
+    public UserBonus getUserBonus(Long id);
 
     public void saveUserBonus(UserBonus obj);
 
-    public void removeUserBonus(String id);
+    public void removeUserBonus(Long id);
 }

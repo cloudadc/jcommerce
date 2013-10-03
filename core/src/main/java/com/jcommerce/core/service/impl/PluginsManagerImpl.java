@@ -59,7 +59,7 @@ public class PluginsManagerImpl extends ManagerImpl implements PluginsManager {
         return dao.getPluginsList();
     }
 
-    public Plugins getPlugins(String id) {
+    public Plugins getPlugins(Long id) {
         Plugins obj = dao.getPlugins(id);
         return obj;
     }
@@ -68,7 +68,7 @@ public class PluginsManagerImpl extends ManagerImpl implements PluginsManager {
         dao.savePlugins(obj);
     }
 
-    public void removePlugins(String id) {
+    public void removePlugins(Long id) {
         dao.removePlugins(id);
     }
 }

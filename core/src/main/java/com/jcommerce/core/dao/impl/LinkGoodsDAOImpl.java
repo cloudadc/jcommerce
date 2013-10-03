@@ -22,7 +22,7 @@ public class LinkGoodsDAOImpl extends DAOImpl implements LinkGoodsDAO {
         return getList();
     }
 
-    public LinkGoods getLinkGoods(String id) {
+    public LinkGoods getLinkGoods(Long id) {
         return (LinkGoods)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class LinkGoodsDAOImpl extends DAOImpl implements LinkGoodsDAO {
         save(obj);
     }
 
-    public void removeLinkGoods(String id) {
+    public void removeLinkGoods(Long id) {
         deleteById(id);
     }
 }

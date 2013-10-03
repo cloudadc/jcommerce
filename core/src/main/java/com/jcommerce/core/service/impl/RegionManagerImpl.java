@@ -64,7 +64,7 @@ public class RegionManagerImpl extends ManagerImpl implements RegionManager {
     	return list;
     }
     
-    public Region getRegion(String id) {
+    public Region getRegion(Long id) {
         Region obj = dao.getRegion(id);
         return obj;
     }
@@ -73,7 +73,7 @@ public class RegionManagerImpl extends ManagerImpl implements RegionManager {
         dao.saveRegion(obj);
     }
 
-    public void removeRegion(String id) {
+    public void removeRegion(Long id) {
         dao.removeRegion(id);
     }
     

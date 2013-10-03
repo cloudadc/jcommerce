@@ -22,7 +22,7 @@ public class CategoryDAOImpl extends DAOImpl implements CategoryDAO {
         return getList();
     }
 
-    public Category getCategory(String id) {
+    public Category getCategory(Long id) {
         return (Category)getById(id);
     }
 
@@ -30,7 +30,7 @@ public class CategoryDAOImpl extends DAOImpl implements CategoryDAO {
         save(obj);
     }
 
-    public void removeCategory(String id) {
+    public void removeCategory(Long id) {
         deleteById(id);
     }
 }

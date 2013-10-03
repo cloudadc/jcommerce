@@ -17,19 +17,19 @@ import javax.persistence.Table;
 @Table(name = "email_sendlist")
 public class EmailSendList extends ModelObject {
 	
-private String id;
-    
+	private Long id;
+	
 	@Id 
 	@GeneratedValue
-	@Basic( optional = false )
-	@Column( name = "id", nullable = false, length = 32  )
-    public String getId() {
-        return id;
-    }
+	@Basic(optional = false)
+	@Column(name = "id", nullable = false)
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	private static final long serialVersionUID = -7336299461753947141L;
 	public static final int TEMPLATEID_SENDPASSWORD  = 1;//密码找回

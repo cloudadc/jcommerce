@@ -21,9 +21,9 @@ public interface FavourableActivityManager extends Manager {
 
     public List<FavourableActivity> getFavourableActivityList();
 
-    public FavourableActivity getFavourableActivity(String id);
+    public FavourableActivity getFavourableActivity(Long id);
 
     public void saveFavourableActivity(FavourableActivity obj);
 
-    public void removeFavourableActivity(String id);
+    public void removeFavourableActivity(Long id);
 }
