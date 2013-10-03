@@ -205,7 +205,7 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
         }
     }
 
-    public boolean savePayment(Map<String, String> props) {
+    public boolean savePayment(Map<String, Object> props) {
 		try {
 			paymentMetaManager.savePaymentConfig(props);
 			return true;
@@ -227,7 +227,7 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 
 	public boolean uninstallPayment(int paymentId) {
 		try {
-			paymentMetaManager.uninstall(""+paymentId);
+			paymentMetaManager.uninstall(new Long(paymentId));
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -236,25 +236,23 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 	}
 
 	public ListLoadResult<BeanObject> getPaymentMetaList(ListLoadConfig config) {
-		List<Map<String, String>> maps = paymentMetaManager
-				.getCombinedPaymentMetaList();
+		List<Map<String, Object>> maps = paymentMetaManager.getCombinedPaymentMetaList();
 		List<BeanObject> objs = new ArrayList<BeanObject>();
-		for (Map<String, String> map : maps) {
+		for (Map<String, Object> map : maps) {
 			objs.add(new BeanObject(ModelNames.PAYMENT_META, (Map<String, Object>)(Map)map));
 		}
 		return new BaseListLoadResult<BeanObject>(objs);
 	}
 
-	public ListLoadResult<Map<String, String>> getMyPaymentMetaList(
+	public ListLoadResult<Map<String, Object>> getMyPaymentMetaList(
 			ListLoadConfig config) {
-		List<Map<String, String>> maps = paymentMetaManager
-				.getCombinedPaymentMetaList();
+		List<Map<String, Object>> maps = paymentMetaManager.getCombinedPaymentMetaList();
 
-		List<Map<String, String>> objs = new ArrayList<Map<String, String>>();
-		for (Map<String, String> map : maps) {
+		List<Map<String, Object>> objs = new ArrayList<Map<String, Object>>();
+		for (Map<String, Object> map : maps) {
 			objs.add(map);
 		}
-		return new BaseListLoadResult<Map<String, String>>(objs);
+		return new BaseListLoadResult<Map<String, Object>>(objs);
 	}
 
 	public boolean deleteObject(String modelName, String id) {
@@ -463,24 +461,19 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 				cond.setOperator(Condition.EQUALS);
 				com.jcommerce.core.service.Criteria criteria = new com.jcommerce.core.service.Criteria();
 
-				for (Iterator<GoodsType> it = goodsTypeUnit.iterator(); it
-						.hasNext();) {
+				for (Iterator<GoodsType> it = goodsTypeUnit.iterator(); it.hasNext();) {
 					GoodsType goodsType = it.next();
 					maps.put(GoodsType.NAME, goodsType.getName());
 					maps.put(GoodsType.ID, goodsType.getId());
 					maps.put(GoodsType.ENABLED, goodsType.isEnabled());
-					cond.setValue(goodsType.getId() + "");
+					cond.setValue(goodsType.getId());
 					criteria.addCondition(cond);
-					maps.put(GoodsType.ATTRCOUNT, attributeManager
-							.getAttributeCount(criteria)
-							+ "");
+					maps.put(GoodsType.ATTRCOUNT, attributeManager.getAttributeCount(criteria));
 					criteria.removeAll();
-					maps.put(GoodsType.ATTRIBUTEGROUP, goodsType
-							.getAttributeGroup());
+					maps.put(GoodsType.ATTRIBUTEGROUP, goodsType.getAttributeGroup());
 					objs.add(new BeanObject("GoodsType", maps));
 				}
-				return new BasePagingLoadResult(objs, config.getOffset(),
-						goodsTypeUnit.size());
+				return new BasePagingLoadResult(objs, config.getOffset(), goodsTypeUnit.size());
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				return null;
@@ -505,7 +498,7 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 		return objs;
 	}
 
-    public List<BeanObject> getRegionAncestors(String id) {
+    public List<BeanObject> getRegionAncestors(Long id) {
         List<BeanObject> objs = new ArrayList<BeanObject>();
         
         RegionManager manager = SpringUtil.getRegionManager();
@@ -542,9 +535,8 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 
 	/**
 	 */
-	public String disposePhotos(BeanObject goods, boolean isGenerateDetails,
-			boolean isGenerateThumbnails, boolean isErroSkip) {
-		String picturesID = (String) goods.get(IGoods.GALLERIES);
+	public String disposePhotos(BeanObject goods, boolean isGenerateDetails, boolean isGenerateThumbnails, boolean isErroSkip) {
+		Long picturesID = (Long) goods.get(IGoods.GALLERIES);
 		Gallery picture = galleryManager.getGallery(picturesID);
 		String filePath = picture.getOriginalImage();
 		String[] filePath_Pieces = null;
@@ -588,10 +580,9 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
 
 	/**
 	 */
-	public String disposePictures(BeanObject result, boolean isGenerateDetails,
-			boolean isGenerateThumbnails, boolean isErroSkip) {
+	public String disposePictures(BeanObject result, boolean isGenerateDetails, boolean isGenerateThumbnails, boolean isErroSkip) {
 
-		String goodsID = result.get(IGoods.ID);
+		Long goodsID = result.get(IGoods.ID);
 		Goods goods = goodsManager.getGoods(goodsID);
 		String filePath = goods.getOriginalImage();
 		String[] filePath_Pieces = null;
@@ -1101,13 +1092,13 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
             return new String(bytes);
         }
 
-        public boolean purgeGoods(String id) {
+        public boolean purgeGoods(Long id) {
             GoodsManager manager = SpringUtil.getGoodsManager();
             manager.purgeGoods(id);
             return true;
         }
 
-        public boolean undoDeletedGoods(String id) {
+        public boolean undoDeletedGoods(Long id) {
             GoodsManager manager = SpringUtil.getGoodsManager();
             manager.undoDeletedGoods(id);
             return true;
@@ -1130,10 +1121,10 @@ public class IShopServiceImpl extends RemoteServiceServlet implements IShopServi
             List<BeanObject> bonusTypes = result.getData();
             for (BeanObject bonusType : bonusTypes) {
                 com.jcommerce.core.service.Criteria _criteria = new com.jcommerce.core.service.Criteria(); 
-                _criteria.addCondition(new com.jcommerce.core.service.Condition(IUserBonus.BONUS_TYPE, com.jcommerce.core.service.Condition.EQUALS, bonusType.getString(IBonusType.ID)));
+                _criteria.addCondition(new com.jcommerce.core.service.Condition(IUserBonus.BONUS_TYPE, com.jcommerce.core.service.Condition.EQUALS, bonusType.getLong(IBonusType.ID)));
                 int count = userBonusManager.getUserBonusCount(_criteria);
                 bonusType.set(IBonusType.NUMBER, count);
-                _criteria.addCondition(new com.jcommerce.core.service.Condition(IUserBonus.USED_TIME, com.jcommerce.core.service.Condition.ISNULL, bonusType.getString(IBonusType.ID)));
+                _criteria.addCondition(new com.jcommerce.core.service.Condition(IUserBonus.USED_TIME, com.jcommerce.core.service.Condition.ISNULL, bonusType.getLong(IBonusType.ID)));
                 count = userBonusManager.getUserBonusCount(_criteria);
                 bonusType.set(IBonusType.USED_NUMBER, count);
             }

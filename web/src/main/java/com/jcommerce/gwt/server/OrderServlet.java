@@ -20,8 +20,7 @@ import com.jcommerce.web.to.GoodsWrapper;
 import com.jcommerce.web.to.Lang;
 
 public class OrderServlet extends HttpServlet {
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
 	}
 
@@ -32,7 +31,7 @@ public class OrderServlet extends HttpServlet {
 	    OutputStream oup = null;
 		try {
 			oup = resp.getOutputStream();
-			String s = getOrder(id);
+			String s = getOrder(Long.valueOf(id));
 			oup.write(s.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -46,7 +45,7 @@ public class OrderServlet extends HttpServlet {
 		}
 	}
 	
-	private String getOrder(String id) {
+	private String getOrder(Long id) {
 	    try {
 	        TempleteProcessor processor = new TempleteProcessor();
 	        

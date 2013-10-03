@@ -15,7 +15,7 @@ public class Test {
 		AccountLogManager accountLogManager =  (AccountLogManager) ctx.getBean("AccountLogManager");
 		
 		AccountLog log = new AccountLog();
-		log.setId("123");
+		
 		accountLogManager.saveAccountLog(log);
 	}
 

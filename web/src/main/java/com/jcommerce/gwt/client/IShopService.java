@@ -52,7 +52,7 @@ public interface IShopService extends RemoteService {
     
     public List<BeanObject> getRegionChildren(String id);
     
-    public List<BeanObject> getRegionAncestors(String id);
+    public List<BeanObject> getRegionAncestors(Long id);
     
     public ListLoadResult<BeanObject> getPaymentMetaList(ListLoadConfig config);
     public ListLoadResult<?> getMyPaymentMetaList(ListLoadConfig config);
@@ -61,7 +61,7 @@ public interface IShopService extends RemoteService {
     
     public boolean installPayment(String paymentCode);
     public boolean uninstallPayment(String paymentId);
-    public boolean savePayment(Map<String, String> props);
+    public boolean savePayment(Map<String, Object> props);
     
     //added to do email server setting
     public HashMap<String, String> getEmailServerSettings();
@@ -96,8 +96,8 @@ public interface IShopService extends RemoteService {
     
     public String getOrderTemplate();   
 
-    public boolean purgeGoods(String id);
-    public boolean undoDeletedGoods(String id);
+    public boolean purgeGoods(Long id);
+    public boolean undoDeletedGoods(Long id);
     
     public BeanObject getSystemInfo();
     public List<BeanObject> getBeansFromFile(String modelName, String path, String category, String encoding);

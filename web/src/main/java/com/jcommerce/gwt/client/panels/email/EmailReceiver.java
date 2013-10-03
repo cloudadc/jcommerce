@@ -81,7 +81,7 @@ public class EmailReceiver extends ContentWidget{
 	}
 
 	public EmailReceiver() {
-		Condition condition = new Condition(IEmailReceiver.ISJUNK, Condition.EQUALS, "0");
+		Condition condition = new Condition(IEmailReceiver.ISJUNK, Condition.EQUALS, new Long(0));
 		criteria.addCondition(condition);
 		BasePagingLoader loader = new PagingListService().getLoader(ModelNames.EMAILRECEIVER, criteria);
 		loader.setSortField(IEmailReceiver.RECEIVETIME);

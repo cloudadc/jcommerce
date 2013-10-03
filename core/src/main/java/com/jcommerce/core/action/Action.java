@@ -15,6 +15,7 @@ import com.jcommerce.core.model.ModelObject;
 import com.jcommerce.core.service.Manager;
 
 public class Action {
+	
     private ApplicationContext ctx = null;
     protected BeanConfig config;
     

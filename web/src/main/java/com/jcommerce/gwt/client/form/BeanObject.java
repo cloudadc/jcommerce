@@ -79,6 +79,14 @@ public class BeanObject extends BaseTreeModel implements Serializable {
         return ((String)value).split(",");
     }
     
+    public Long getLong(String name) {
+    	Object value = get(name);
+        if (value == null) {
+            return null;
+        }
+        return (Long) value;
+    }
+    
     public String getString(String name) {
         Object value = get(name);
         if (value == null) {

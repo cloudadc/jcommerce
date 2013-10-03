@@ -54,7 +54,7 @@ public interface IShopServiceAsync {
     
     public void getRegionChildren(String parent_id,AsyncCallback<List<BeanObject>> callback);
     
-    public void getRegionAncestors(String parent_id,AsyncCallback<List<BeanObject>> callback);
+    public void getRegionAncestors(Long parent_id,AsyncCallback<List<BeanObject>> callback);
         
     public void getPaymentMetaList(ListLoadConfig config, AsyncCallback<ListLoadResult<BeanObject>> callback);
   
@@ -102,8 +102,8 @@ public interface IShopServiceAsync {
 
     public void getOrderTemplate(AsyncCallback<String> callback);
 
-    public void purgeGoods(String id,AsyncCallback<Boolean> callback);
-    public void undoDeletedGoods(String id,AsyncCallback<Boolean> callback);
+    public void purgeGoods(Long id,AsyncCallback<Boolean> callback);
+    public void undoDeletedGoods(Long id,AsyncCallback<Boolean> callback);
     
     public void getSystemInfo(AsyncCallback<BeanObject> callback);
     

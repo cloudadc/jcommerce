@@ -256,7 +256,7 @@ public class CommentInfo extends ContentWidget {
             Condition cond = new Condition();
     		cond.setField(IComment.PARENT);
     		cond.setOperator(Condition.EQUALS);
-    		cond.setValue( comment.getString(IComment.ID));
+    		cond.setValue( comment.getLong(IComment.ID));
     		criteria.addCondition(cond);			
     		new ListService().listBeans(ModelNames.COMMENT, criteria, new Listener(){
 				@Override
