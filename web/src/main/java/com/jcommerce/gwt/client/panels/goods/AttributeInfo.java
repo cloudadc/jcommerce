@@ -81,14 +81,14 @@ public class AttributeInfo extends ContentWidget {
     // State should contain all info needed to render this page.
     // This is a minimum skeleton, more fields may be added, see leontest.Attribute
     public static class State extends PageState {
-        private String selectedGoodsTypeId = null;
+        private Long selectedGoodsTypeId = null;
         
-        public void setSelectedGoodsTypeId(String selectedGoodsTypeId) {
+        public void setSelectedGoodsTypeId(Long selectedGoodsTypeId) {
             this.selectedGoodsTypeId = selectedGoodsTypeId;
             setEditting(selectedGoodsTypeId != null);
         }
         
-        public String getSelectedGoodsTypeId() {
+        public Long getSelectedGoodsTypeId() {
             return selectedGoodsTypeId;
         }
 
@@ -121,14 +121,14 @@ public class AttributeInfo extends ContentWidget {
 	
     protected void onRender(Element parent, int index) {
     	super.onRender(parent, index); 					
-    	String selectedGoodsTypeId = getCurState().getSelectedGoodsTypeId();
+    	Long selectedGoodsTypeId = getCurState().getSelectedGoodsTypeId();
     	
     	if(selectedGoodsTypeId != null && !selectedGoodsTypeId.equals("0")){
     		Criteria criteria = new Criteria();
     		Condition cond = new Condition();
     		cond.setField(IAttribute.GOODSTYPE);
     		cond.setOperator(Condition.EQUALS);
-    		cond.setValue(selectedGoodsTypeId);
+    		cond.setValue(Long.valueOf(selectedGoodsTypeId));
     		criteria.addCondition(cond);		
     		this.loader = new PagingListService().getLoader(ModelNames.ATTRIBUTE, criteria);
     	}
@@ -272,8 +272,7 @@ public class AttributeInfo extends ContentWidget {
     }	
 	
     private void updateAttribute(BeanObject attribute, UpdateService.Listener listener) {    	
-		new UpdateService().updateBean(attribute.getString(IAttribute.ID), attribute,
-				listener);		
+		new UpdateService().updateBean(attribute.getLong(IAttribute.ID), attribute, listener);		
 	}
     
 	public void refresh() {		
@@ -283,7 +282,7 @@ public class AttributeInfo extends ContentWidget {
 			Condition cond = new Condition();
 			cond.setField(IAttribute.GOODSTYPE);
 			cond.setOperator(Condition.EQUALS);
-			cond.setValue(selectedGoodsTypeId);
+			cond.setValue(Long.valueOf(selectedGoodsTypeId));
 			criteria.addCondition(cond);
 			loader = new PagingListService().getLoader(ModelNames.ATTRIBUTE,criteria);
 			loader.load(0, 50);
@@ -445,14 +444,14 @@ public class AttributeInfo extends ContentWidget {
 	
 	private native void initJS(AttributeInfo me) /*-{
 	   $wnd.editAttributeInfo = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.goods.AttributeInfo::editAttributeInfo(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.goods.AttributeInfo::editAttributeInfo(Ljava/lang/Long;)(id);
 	   };
 	   $wnd.deleteAttributeInfo = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.goods.AttributeInfo::deleteAttributeAndRefrsh(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.goods.AttributeInfo::deleteAttributeAndRefrsh(Ljava/lang/Long;)(id);
 	   };
 	   }-*/;
 
-	private void deleteAttributeAndRefrsh(String id) {
+	private void deleteAttributeAndRefrsh(Long id) {
 		new DeleteService().deleteBean(ModelNames.ATTRIBUTE, id,
 				new DeleteService.Listener() {
 					public void onSuccess(Boolean success) {
@@ -461,7 +460,7 @@ public class AttributeInfo extends ContentWidget {
 				});
 	}
 
-	private void editAttributeInfo(String id) {
+	private void editAttributeInfo(Long id) {
 		new ReadService().getBean(ModelNames.ATTRIBUTE, id,
 				new ReadService.Listener() {
 					public void onSuccess(BeanObject bean) {

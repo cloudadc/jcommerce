@@ -2,13 +2,11 @@ package com.jcommerce.gwt.client.panels.data;
 
 import com.extjs.gxt.ui.client.event.ButtonEvent;
 import com.extjs.gxt.ui.client.event.SelectionListener;
-import com.extjs.gxt.ui.client.widget.Label;
 import com.extjs.gxt.ui.client.widget.Window;
 import com.extjs.gxt.ui.client.widget.button.Button;
 import com.extjs.gxt.ui.client.widget.form.AdapterField;
 import com.extjs.gxt.ui.client.widget.form.MultiField;
 import com.jcommerce.gwt.client.panels.BaseEntityEditPanel;
-import com.jcommerce.gwt.client.panels.goods.BrandPanel;
 import com.jcommerce.gwt.client.panels.system.Success;
 import com.jcommerce.gwt.client.resources.Resources;
 

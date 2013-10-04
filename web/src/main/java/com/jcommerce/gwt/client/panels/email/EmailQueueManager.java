@@ -177,7 +177,7 @@ public class EmailQueueManager extends ContentWidget {
             public void componentSelected(ButtonEvent ce) {
             	List<BeanObject> selectedData = smRowSelection.getSelectedItems();
             	for(BeanObject item : selectedData) {
-            		String id = item.getString(IEmailSendList.ID);
+            		Long id = item.getLong(IEmailSendList.ID);
             		new DeleteService().deleteBean(ModelNames.EMAILSENDLIST, id, new DeleteService.Listener() {
             			public void onSuccess(Boolean success) {
             				toolBar.refresh();
@@ -213,11 +213,11 @@ public class EmailQueueManager extends ContentWidget {
 	
 	private native void initJS(EmailQueueManager me) /*-{
 	   $wnd.deleteSendEmail = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.email.EmailQueueManager::deleteSendEmailAndRefresh(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.email.EmailQueueManager::deleteSendEmailAndRefresh(Ljava/lang/Long;)(id);
 	   };
 	   }-*/;
 	
-	private void deleteSendEmailAndRefresh(String id) {
+	private void deleteSendEmailAndRefresh(Long id) {
 		new DeleteService().deleteBean(ModelNames.EMAILSENDLIST, id, new DeleteService.Listener() {
 			public void onSuccess(Boolean success) {
 				toolBar.refresh();

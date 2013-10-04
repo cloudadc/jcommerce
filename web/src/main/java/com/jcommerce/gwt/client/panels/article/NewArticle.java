@@ -170,7 +170,7 @@ public class NewArticle extends ContentWidget {
 					
 					if (getCurState().isEditting()) {
 					    BeanObject article = getCurState().getArticle();
-					    final String articleId = article != null ? article.getString(IArticle.ID) : null;
+					    final Long articleId = article != null ? article.getLong(IArticle.ID) : null;
 						new UpdateService().updateBean(articleId, new BeanObject(ModelNames.ARTICLE, argsLeft),new UpdateService.Listener() {
 							
 							@Override
@@ -192,7 +192,7 @@ public class NewArticle extends ContentWidget {
 							new CreateService.Listener() {
 								@Override
 								public void onSuccess(String id) {
-									createLinkGoods(id, relatedGoods);
+									createLinkGoods(Long.valueOf(id), relatedGoods);
 	                                ArticleList.State state = new ArticleList.State();
 	                                state.execute();
 									Info.display("恭喜", "完成添加新文章.");
@@ -205,7 +205,7 @@ public class NewArticle extends ContentWidget {
 		});
 		
 	}
-	private void createLinkGoods(String articleID, List<String> relatedGoods) {
+	private void createLinkGoods(Long articleID, List<String> relatedGoods) {
 		System.out.println("++++++++++++++++++++++++++");
 		System.out.println(articleID);
 		for(String id : relatedGoods) {

@@ -196,17 +196,17 @@ public class GoodsTypeInfo extends ContentWidget {
     
     private native void initJS(GoodsTypeInfo me) /*-{
     $wnd.attrList = function (id) {
-        me.@com.jcommerce.gwt.client.panels.goods.GoodsTypeInfo::attrListAndRefresh(Ljava/lang/String;)(id);
+        me.@com.jcommerce.gwt.client.panels.goods.GoodsTypeInfo::attrListAndRefresh(Ljava/lang/Long;)(id);
     };
     $wnd.changeType = function (id) {
-        me.@com.jcommerce.gwt.client.panels.goods.GoodsTypeInfo::modifyTypeAndRefresh(Ljava/lang/String;)(id);
+        me.@com.jcommerce.gwt.client.panels.goods.GoodsTypeInfo::modifyTypeAndRefresh(Ljava/lang/Long;)(id);
     };
     $wnd.deleteType = function (id) {
-	    me.@com.jcommerce.gwt.client.panels.goods.GoodsTypeInfo::deleteTypeAndRefresh(Ljava/lang/String;)(id);
+	    me.@com.jcommerce.gwt.client.panels.goods.GoodsTypeInfo::deleteTypeAndRefresh(Ljava/lang/Long;)(id);
 	};
     }-*/;
     
-    private void modifyTypeAndRefresh(final String id) {    	
+    private void modifyTypeAndRefresh(final Long id) {    	
         final IShopServiceAsync service = getService();
         service.getBean(ModelNames.GOODSTYPE, id, new AsyncCallback<BeanObject>() {
             public synchronized void onSuccess(BeanObject result) {
@@ -220,7 +220,7 @@ public class GoodsTypeInfo extends ContentWidget {
             }
         });        
     }
-    private void deleteTypeAndRefresh(final String id) {
+    private void deleteTypeAndRefresh(final Long id) {
         new DeleteService().deleteBean(ModelNames.GOODSTYPE, id,
 				new DeleteService.Listener() {
 					public void onSuccess(Boolean success) {
@@ -230,7 +230,7 @@ public class GoodsTypeInfo extends ContentWidget {
 				});
     }
     
-    private void attrListAndRefresh(final String id) {
+    private void attrListAndRefresh(final Long id) {
         AttributeInfo.State state = new AttributeInfo.State();
         state.setSelectedGoodsTypeId(id);
         state.execute();

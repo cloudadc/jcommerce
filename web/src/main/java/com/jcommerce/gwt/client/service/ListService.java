@@ -46,7 +46,7 @@ public class ListService extends RemoteService {
         return loader;
     }
     
-    public void listBeans(final String model, String field, String value, final Listener listener) {
+    public void listBeans(final String model, String field, Long value, final Listener listener) {
         Criteria criteria = new Criteria();
         criteria.addCondition(new Condition(field, Condition.EQUALS, value));
         listBeans(model, criteria, listener);

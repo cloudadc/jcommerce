@@ -9,7 +9,7 @@ import com.jcommerce.gwt.client.IShopServiceAsync;
 import com.jcommerce.gwt.client.form.BeanObject;
 
 public class UpdateService extends RemoteService {
-    public void updateBean(String id, BeanObject bean, final Listener listener) {
+    public void updateBean(Long id, BeanObject bean, final Listener listener) {
         if (id == null) {
             throw new RuntimeException("id = null");
         }

@@ -159,7 +159,7 @@ public class CommentInfo extends ContentWidget {
 	            		Map<String, Object> replyChange = new HashMap<String, Object>();
 	            		replyChange = contentPanel.getValues();
 	            		BeanObject replyChangeBean = new BeanObject(ModelNames.COMMENT, replyChange);
-	            		new UpdateService().updateBean(replyBeanObject.getString(IComment.ID), replyChangeBean, new UpdateService.Listener(){
+	            		new UpdateService().updateBean(replyBeanObject.getLong(IComment.ID), replyChangeBean, new UpdateService.Listener(){
 							public void onSuccess(Boolean success) {
 								if(success){
 									Info.display("恭喜", "完成回复更新.");
@@ -193,7 +193,7 @@ public class CommentInfo extends ContentWidget {
             
             public void onClick(ClickEvent arg0) {
                 BeanObject comment = getCurState().getComment();
-        		String id = comment != null ? comment.getString(IComment.ID) : null;
+        		Long id = comment != null ? comment.getLong(IComment.ID) : null;
         		 Map<String, Object> value = new HashMap<String, Object>();
         		if(comment.getString(IComment.STATUS).equals("false")){
         			value.put(IComment.STATUS, true);

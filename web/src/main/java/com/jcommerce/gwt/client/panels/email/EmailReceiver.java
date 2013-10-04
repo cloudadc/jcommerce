@@ -246,7 +246,7 @@ public class EmailReceiver extends ContentWidget{
 				List<BeanObject> selected = smRowSelection.getSelectedItems();
 				if( selected.size() > 0 ) {
 					for( BeanObject email : selected ) {
-						String id = email.get(IEmailReceiver.ID);
+						Long id = email.get(IEmailReceiver.ID);
 						new DeleteService().deleteBean(ModelNames.EMAILRECEIVER, id, new DeleteService.Listener() {
 							public void onSuccess(Boolean success) {
 								
@@ -299,7 +299,7 @@ public class EmailReceiver extends ContentWidget{
 				if( selected.size() > 0 ) {
 					for( BeanObject email : selected ) {
 						Boolean mark = email.get(IEmailReceiver.ISREAD);
-						String id = email.get(IEmailReceiver.ID);
+						Long id = email.get(IEmailReceiver.ID);
 						if( mark.booleanValue() ) {
 							count++;
 						} else {
@@ -336,7 +336,7 @@ public class EmailReceiver extends ContentWidget{
 				if( selected.size() > 0 ) {
 					for( BeanObject email : selected ) {
 						Boolean mark = email.get(IEmailReceiver.ISREAD);
-						String id = email.get(IEmailReceiver.ID);
+						Long id = email.get(IEmailReceiver.ID);
 						if( mark.booleanValue() ) {
 							Map<String, Object> all = email.getProperties();
 							all.remove(IEmailReceiver.ISREAD);
@@ -377,7 +377,7 @@ public class EmailReceiver extends ContentWidget{
 						dialogBox.show();
 						// 判断是否为未读邮件，假如是标记为已读
 						Boolean isRead = selected.get(0).get(IEmailReceiver.ISREAD);
-						String id = selected.get(0).get(IEmailReceiver.ID);
+						Long id = selected.get(0).get(IEmailReceiver.ID);
 						if( !isRead ) {
 							Map<String, Object> all = selected.get(0).getProperties();
 							all.remove(IEmailReceiver.ISREAD);

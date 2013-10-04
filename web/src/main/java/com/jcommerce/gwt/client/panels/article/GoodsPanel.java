@@ -174,7 +174,7 @@ public class GoodsPanel extends LayoutContainer{
 			Condition cond = new Condition();
 			cond.setField(IGoods.BRAND);
 			cond.setOperator(Condition.EQUALS);
-			cond.setValue(brand);
+			cond.setValue(Long.valueOf(brand));
 			criteria.addCondition(cond);
 		}
 		if (lstCategory.getSelectedIndex() > 0) {
@@ -182,7 +182,7 @@ public class GoodsPanel extends LayoutContainer{
 			Condition cond = new Condition();
 			cond.setField(IGoods.CATEGORIES);
 			cond.setOperator(Condition.CONTAINS);
-			cond.setValue(cat);
+			cond.setValue(Long.valueOf(cat));
 			criteria.addCondition(cond);
 		}
 
@@ -191,7 +191,7 @@ public class GoodsPanel extends LayoutContainer{
 			Condition cond = new Condition();
 			cond.setField(IGoods.KEYWORDS);
 			cond.setOperator(Condition.CONTAINS);
-			cond.setValue(keyword.trim());
+			cond.setValue(Long.valueOf(keyword.trim()));
 			criteria.addCondition(cond);
 		}
 
@@ -257,7 +257,7 @@ public class GoodsPanel extends LayoutContainer{
 		return ids;
 	}
 	
-	public void setArticleId(String articleId) {
+	public void setArticleId(Long articleId) {
 		lb_relGoods.clear();
 		if(articleId != null) {
 			criteria.removeAll();
@@ -269,7 +269,7 @@ public class GoodsPanel extends LayoutContainer{
 							for (Iterator<BeanObject> it = result.iterator(); it
 									.hasNext();) {
 								BeanObject linkGoods = it.next();
-								String id = linkGoods.getString("linkGoods");
+								Long id = linkGoods.getLong("linkGoods");
 								new ReadService().getBean(ModelNames.GOODS, id, 
 										new ReadService.Listener() {
 											public void onSuccess(BeanObject bean) {

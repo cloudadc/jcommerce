@@ -45,7 +45,7 @@ public class BooleanPropertyActionCellRendere extends ActionCellRenderer
 	
 	public String render(BeanObject model, String property, ColumnData config,
 			final int rowIndex, final int colIndex, final ListStore<BeanObject> store) {
-		final String id = (String) model.get(property);
+		final Long id = (Long) model.get(property);
 		final StringBuffer sb = new StringBuffer();
 		ReadService reader = new ReadService();
 		reader.getBean(ModelNames.GOODS, id, new ReadService.Listener()

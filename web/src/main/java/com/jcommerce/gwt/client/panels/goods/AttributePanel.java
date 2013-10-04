@@ -100,7 +100,7 @@ public class AttributePanel extends ContentWidget {
         if (goods == null) {
             lstTypes.setSelectedIndex(0);
         } else {
-            String type = goods.getString(IGoods.TYPE);
+            Long type = goods.getLong(IGoods.TYPE);
             int size = lstTypes.getItemCount();
             for (int i = 0; i < size; i++) {
                 if (type != null && type.equals(lstTypes.getValue(i))) {
@@ -121,10 +121,10 @@ public class AttributePanel extends ContentWidget {
     }
     
     private void updateGoodsAttributes(BeanObject goods) {
-        String[] gattrs = goods.getIDs(IGoods.ATTRIBUTES);
+        Long[] gattrs = goods.getIDs(IGoods.ATTRIBUTES);
         if (gattrs != null) {
             final ColumnPanel panel = (ColumnPanel)contentPanel.getWidget();
-            for (final String attr : gattrs) {
+            for (final Long attr : gattrs) {
                 new ReadService().getBean(ModelNames.GOODSATTRIBUTE, attr, new ReadService.Listener() {
                     public void onSuccess(BeanObject bean) {
                         panel.setValue(bean.getString(IGoodsAttribute.ATTRIBUTE), bean.getString(IGoodsAttribute.VALUE));
@@ -188,7 +188,7 @@ public class AttributePanel extends ContentWidget {
 
         String type = lstTypes.getValue(index);
         Criteria criteria = new Criteria();
-        criteria.addCondition(new Condition(IAttribute.GOODSTYPE, Condition.EQUALS, type));
+        criteria.addCondition(new Condition(IAttribute.GOODSTYPE, Condition.EQUALS, Long.valueOf(type)));
         new ListService().listBeans(ModelNames.ATTRIBUTE, criteria, new ListService.Listener() {
             public void onSuccess(List<BeanObject> attrs) {
                 createWidgets(attrs);

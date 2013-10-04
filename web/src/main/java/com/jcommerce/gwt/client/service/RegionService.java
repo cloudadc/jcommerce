@@ -26,7 +26,7 @@ public class RegionService extends RemoteService{
 		});
 	}
 	
-    public void getRegionAncestors(String id , final Listener listener){
+    public void getRegionAncestors(Long id , final Listener listener){
         
         final IShopServiceAsync service = getService();
         

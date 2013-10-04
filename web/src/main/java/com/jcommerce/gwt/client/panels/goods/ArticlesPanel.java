@@ -39,7 +39,7 @@ public class ArticlesPanel extends LayoutContainer {
 	
 	Criteria criteria = new Criteria();
 	
-	String goodsId;
+	Long goodsId;
 	Map<String, String> ArticleValue;
 	
 	ArticlesPanel(){
@@ -134,7 +134,7 @@ public class ArticlesPanel extends LayoutContainer {
 			if(!isRelated(id)) {
 				lb_relGoods.addItem(name, id);
 				if(goodsId != null){
-					addLinkItem(id);
+					addLinkItem(Long.valueOf(id));
 				}else {
 					if(ArticleValue == null)
 						ArticleValue = new HashMap<String, String>();
@@ -151,7 +151,7 @@ public class ArticlesPanel extends LayoutContainer {
 			if(!isRelated(id)) {
 				lb_relGoods.addItem(name, id);
 				if(goodsId != null)
-					addLinkItem(id);
+					addLinkItem(Long.valueOf(id));
 				else {
 					if(ArticleValue == null)
 						ArticleValue = new HashMap<String, String>();
@@ -175,7 +175,7 @@ public class ArticlesPanel extends LayoutContainer {
 		return isRelated;
 	}
 	
-	private void addLinkItem(String articleId) {
+	private void addLinkItem(Long articleId) {
 		final Map<String, Object> value = new HashMap<String, Object>();
 		value.put(IGoodsArticle.GOODS, goodsId);
 		value.put(IGoodsArticle.ARTICLE, articleId);
@@ -196,7 +196,7 @@ public class ArticlesPanel extends LayoutContainer {
 	private void cancel() {
 		if(lb_relGoods.getSelectedIndex() != -1) {
 			if(goodsId != null){
-				dropLinkItem(lb_relGoods.getValue(lb_relGoods.getSelectedIndex()));
+				dropLinkItem(Long.valueOf(lb_relGoods.getValue(lb_relGoods.getSelectedIndex())));
 			}else{
 				ArticleValue.remove(lb_relGoods.getValue(lb_relGoods.getSelectedIndex()));
 			}
@@ -207,7 +207,7 @@ public class ArticlesPanel extends LayoutContainer {
 	private void cancel_all() {
 		for(int i = 0; i < lb_relGoods.getItemCount();i++) {
 			if(goodsId != null){
-				dropLinkItem(lb_relGoods.getValue(i));
+				dropLinkItem(Long.valueOf(lb_relGoods.getValue(i)));
 			}else{
 				ArticleValue.remove(lb_relGoods.getValue(i));
 			}
@@ -215,7 +215,7 @@ public class ArticlesPanel extends LayoutContainer {
 		}
 	}
 	
-	private void dropLinkItem(String articleId) {
+	private void dropLinkItem(Long articleId) {
 		Criteria c = new Criteria();
 		Condition goodsCon = new Condition(IGoodsArticle.GOODS, Condition.EQUALS, goodsId);
 		Condition articleCon = new Condition(IGoodsArticle.ARTICLE, Condition.EQUALS, articleId);
@@ -224,7 +224,7 @@ public class ArticlesPanel extends LayoutContainer {
 		new ListService().listBeans(ModelNames.GOODSARTICLE, c, new ListService.Listener() {
 			public void onSuccess(List<BeanObject> beans) {
 				for(BeanObject bean : beans) {
-					new DeleteService().deleteBean(ModelNames.GOODSARTICLE, (String) bean.get(IGoodsArticle.ID), null);
+					new DeleteService().deleteBean(ModelNames.GOODSARTICLE, (Long) bean.get(IGoodsArticle.ID), null);
 				}
 			}			
 		});
@@ -237,7 +237,7 @@ public class ArticlesPanel extends LayoutContainer {
 			Condition cond = new Condition();
 			cond.setField(IArticle.TITLE);
 			cond.setOperator(Condition.LIKE);
-			cond.setValue(articlename.trim());
+			cond.setValue(Long.valueOf(articlename.trim()));
 			criteria.addCondition(cond);
 		}
 
@@ -254,7 +254,7 @@ public class ArticlesPanel extends LayoutContainer {
 		});
 	}
 	
-	public void setGoodsId(String goodsId) {
+	public void setGoodsId(Long goodsId) {
 		ArticleValue = new HashMap<String, String>();
 		this.goodsId = goodsId;
 		lb_relGoods.clear();
@@ -265,7 +265,7 @@ public class ArticlesPanel extends LayoutContainer {
 				public synchronized void onSuccess(List<BeanObject> result) {
 					for (Iterator<BeanObject> it = result.iterator(); it.hasNext();) {
 						final BeanObject goodsArticle = it.next();
-						String id = goodsArticle.getString(IGoodsArticle.ARTICLE);
+						Long id = goodsArticle.getLong(IGoodsArticle.ARTICLE);
 						new ReadService().getBean(ModelNames.ARTICLE, id, new ReadService.Listener() {
 							public void onSuccess(BeanObject bean) {
 								lb_relGoods.addItem(bean.getString(IArticle.TITLE), bean.getString(IArticle.ID));
@@ -281,11 +281,11 @@ public class ArticlesPanel extends LayoutContainer {
 		return ArticleValue;
 	}
 	
-	public void setValues(String id){
+	public void setValues(Long id){
 		Map<String, String> goodsArticle = getValue();
 		if(goodsArticle != null) {
 			for(Object key : goodsArticle.keySet()) {
-				String articleId = (String)key;
+				Long articleId = (Long)key;
 				
 				final Map<String, Object> value = new HashMap<String, Object>();
 				value.put(IGoodsArticle.GOODS, id);

@@ -31,7 +31,6 @@ import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Widget;
 import com.jcommerce.gwt.client.ContentWidget;
 import com.jcommerce.gwt.client.ModelNames;
 import com.jcommerce.gwt.client.PageState;

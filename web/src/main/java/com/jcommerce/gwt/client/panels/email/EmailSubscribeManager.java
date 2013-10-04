@@ -155,7 +155,7 @@ public class EmailSubscribeManager extends ContentWidget {
             public void componentSelected(ButtonEvent ce) {
             	List<BeanObject> selectedData = smRowSelection.getSelectedItems();
             	for(BeanObject item : selectedData) {
-            		String id = item.get(IEmailList.ID);
+            		Long id = item.get(IEmailList.ID);
             		String confirmState = item.getString(IEmailList.CONFIRM);
             		item.remove(IEmailList.CONFIRM);
             		
@@ -181,7 +181,7 @@ public class EmailSubscribeManager extends ContentWidget {
             public void componentSelected(ButtonEvent ce) {
             	List<BeanObject> selectedData = smRowSelection.getSelectedItems();
             	for(BeanObject item : selectedData) {
-            		String id = item.get(IEmailList.ID);
+            		Long id = item.get(IEmailList.ID);
             		new DeleteService().deleteBean(ModelNames.EMAILLIST, id, new DeleteService.Listener() {
 						
 						public void onSuccess(Boolean success) {
@@ -199,7 +199,7 @@ public class EmailSubscribeManager extends ContentWidget {
             public void componentSelected(ButtonEvent ce) {
             	List<BeanObject> selectedData = smRowSelection.getSelectedItems();
             	for(BeanObject item : selectedData) {
-            		String id = item.get(IEmailList.ID);
+            		Long id = item.get(IEmailList.ID);
             		String confirmState = item.getString(IEmailList.CONFIRM);
             		item.remove(IEmailList.CONFIRM);
             		

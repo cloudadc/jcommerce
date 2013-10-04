@@ -93,7 +93,7 @@ public class MultiValueSelector extends Composite {
         }
         
         for (int i = 0; i < a.length; i++) {
-            new ReadService().getBean(bean, a[i], new ReadService.Listener() {
+            new ReadService().getBean(bean, Long.valueOf(a[i]), new ReadService.Listener() {
                 public void onSuccess(BeanObject bean) {
                     list.addItem(bean.getString("name"));
                 }

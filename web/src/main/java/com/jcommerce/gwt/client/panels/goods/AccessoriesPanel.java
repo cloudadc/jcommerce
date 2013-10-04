@@ -48,7 +48,7 @@ public class AccessoriesPanel extends LayoutContainer {
 	
 	Criteria criteria = new Criteria();
 	
-	String goodsId;
+	Long goodsId;
 	Map<String, String> AccessoriesValue;
 	
 	AccessoriesPanel(){
@@ -165,7 +165,7 @@ public class AccessoriesPanel extends LayoutContainer {
             }
             
 			String id = lb_optGoods.getValue(lb_optGoods.getSelectedIndex());
-			new ReadService().getBean(ModelNames.GOODS, id, new ReadService.Listener() {
+			new ReadService().getBean(ModelNames.GOODS, Long.valueOf(id), new ReadService.Listener() {
 				public void onSuccess(BeanObject bean){
 					tb_price.setText(bean.getString(IGoods.SHOPPRICE));
 				}
@@ -201,7 +201,7 @@ public class AccessoriesPanel extends LayoutContainer {
 			if(!priceInvalid(price) && !isAccessory(id)) {
 				lb_relGoods.addItem(name + " - [" + price + "]", id);
 				if(goodsId != null){
-					addLinkItem(id, price);
+					addLinkItem(Long.valueOf(id), price);
 				}else {
 					if(AccessoriesValue == null)
 						AccessoriesValue = new HashMap<String, String>();
@@ -228,7 +228,7 @@ public class AccessoriesPanel extends LayoutContainer {
 	private void cancel() {
 		if(lb_relGoods.getSelectedIndex() != -1) {
 			if(goodsId != null){
-				dropLinkItem(lb_relGoods.getValue(lb_relGoods.getSelectedIndex()));
+				dropLinkItem(Long.valueOf(lb_relGoods.getValue(lb_relGoods.getSelectedIndex())));
 			}else{
 				AccessoriesValue.remove(lb_relGoods.getValue(lb_relGoods.getSelectedIndex()));
 			}
@@ -239,7 +239,7 @@ public class AccessoriesPanel extends LayoutContainer {
 	private void cancel_all() {
 		for(int i = 0; i < lb_relGoods.getItemCount();i++) {
 			if(goodsId != null){
-				dropLinkItem(lb_relGoods.getValue(i));
+				dropLinkItem(Long.valueOf(lb_relGoods.getValue(i)));
 			}else{
 				AccessoriesValue.remove(lb_relGoods.getValue(i));
 			}
@@ -247,7 +247,7 @@ public class AccessoriesPanel extends LayoutContainer {
 		}
 	}
 	
-	private void addLinkItem(String childId, String goodsPrice) {
+	private void addLinkItem(Long childId, String goodsPrice) {
 		final Map<String, Object> value = new HashMap<String, Object>();
 		value.put(IGroupGoods.PARENT, goodsId);
 		value.put(IGroupGoods.GOODS, childId);
@@ -280,7 +280,7 @@ public class AccessoriesPanel extends LayoutContainer {
 		}
 	}
 	
-	private void dropLinkItem(String childId) {
+	private void dropLinkItem(Long childId) {
 		Criteria c = new Criteria();
 		Condition goodsCon = new Condition(IGroupGoods.PARENT, Condition.EQUALS, goodsId);
 		Condition groupGoodsCon = new Condition(IGroupGoods.GOODS, Condition.EQUALS, childId);
@@ -290,13 +290,13 @@ public class AccessoriesPanel extends LayoutContainer {
 		new ListService().listBeans(ModelNames.GROUPGOODS, c, new ListService.Listener() {
 			public void onSuccess(List<BeanObject> beans) {
 				for(BeanObject bean : beans) {
-					new DeleteService().deleteBean(ModelNames.GROUPGOODS, (String) bean.get(IGroupGoods.ID), null);
+					new DeleteService().deleteBean(ModelNames.GROUPGOODS, (Long) bean.get(IGroupGoods.ID), null);
 				}
 			}			
 		});
 	}
 	
-	public void setGoodsId(String goodsId) {
+	public void setGoodsId(Long goodsId) {
 		AccessoriesValue = new HashMap<String, String>();
 		this.goodsId = goodsId;
 		lb_relGoods.clear();
@@ -308,7 +308,7 @@ public class AccessoriesPanel extends LayoutContainer {
 				public synchronized void onSuccess(List<BeanObject> result) {
 					for (Iterator<BeanObject> it = result.iterator(); it.hasNext();) {
 						final BeanObject groupGoods = it.next();
-						String id = groupGoods.getString(IGroupGoods.GOODS);
+						Long id = groupGoods.getLong(IGroupGoods.GOODS);
 						final String price = groupGoods.getString(IGroupGoods.GOODSPRICE);
 						new ReadService().getBean(ModelNames.GOODS, id, new ReadService.Listener() {
 							public void onSuccess(BeanObject bean) {
@@ -328,7 +328,7 @@ public class AccessoriesPanel extends LayoutContainer {
 			Condition cond = new Condition();
 			cond.setField(IGoods.BRAND);
 			cond.setOperator(Condition.EQUALS);
-			cond.setValue(brand);
+			cond.setValue(Long.valueOf(brand));
 			criteria.addCondition(cond);
 		}
 		if (lstCategory.getSelectedIndex() > 0) {
@@ -336,7 +336,7 @@ public class AccessoriesPanel extends LayoutContainer {
 			Condition cond = new Condition();
 			cond.setField(IGoods.CATEGORIES);
 			cond.setOperator(Condition.CONTAINS);
-			cond.setValue(cat);
+			cond.setValue(Long.valueOf(cat));
 			criteria.addCondition(cond);
 		}
 
@@ -345,7 +345,7 @@ public class AccessoriesPanel extends LayoutContainer {
 			Condition cond = new Condition();
 			cond.setField(IGoods.NAME);
 			cond.setOperator(Condition.LIKE);
-			cond.setValue(keyword.trim());
+			cond.setValue(Long.valueOf(keyword.trim()));
 			criteria.addCondition(cond);
 		}
 
@@ -367,12 +367,12 @@ public class AccessoriesPanel extends LayoutContainer {
 		return AccessoriesValue;
 	}
 	
-	public void setValues(String id){
+	public void setValues(Long id){
 		Map<String, String> groupGoods = getValue();
 		if(groupGoods != null) {
 			for(Object key : groupGoods.keySet()) {
 				String price = groupGoods.get(key);
-				String childId = (String)key;
+				Long childId = (Long)key;
 				
 				final Map<String, Object> value = new HashMap<String, Object>();
 				value.put(IGroupGoods.PARENT, id);

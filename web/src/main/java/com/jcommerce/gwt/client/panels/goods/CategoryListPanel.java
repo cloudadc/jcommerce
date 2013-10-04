@@ -206,10 +206,10 @@ public class CategoryListPanel extends ContentWidget {
     
     private native void initJS(CategoryListPanel me) /*-{
     $wnd.changeCategory = function (id) {
-        me.@com.jcommerce.gwt.client.panels.goods.CategoryListPanel::modifyCategoryAndRefrsh(Ljava/lang/String;)(id);
+        me.@com.jcommerce.gwt.client.panels.goods.CategoryListPanel::modifyCategoryAndRefrsh(Ljava/lang/Long;)(id);
     };
     $wnd.deleteCategory = function (id) {
-	    me.@com.jcommerce.gwt.client.panels.goods.CategoryListPanel::deleteCategoryAndRefrsh(Ljava/lang/String;)(id);
+	    me.@com.jcommerce.gwt.client.panels.goods.CategoryListPanel::deleteCategoryAndRefrsh(Ljava/lang/Long;)(id);
 	};
     }-*/;
     public Button getShortCutButton(){
@@ -226,7 +226,7 @@ public class CategoryListPanel extends ContentWidget {
     	});
     	return sButton;
     }
-    private void modifyCategoryAndRefrsh(final String id) {    	
+    private void modifyCategoryAndRefrsh(final Long id) {    	
 		CategoryPanel.State newState = new CategoryPanel.State();
 		newState.setIsEdit(true);
 		newState.setId(id);
@@ -243,7 +243,7 @@ public class CategoryListPanel extends ContentWidget {
 //            }
 //        });        
     }
-    private void deleteCategoryAndRefrsh(final String id) {
+    private void deleteCategoryAndRefrsh(final Long id) {
         new DeleteService().deleteBean(ModelNames.CATEGORY, id,
 				new DeleteService.Listener() {
 					public void onSuccess(Boolean success) {

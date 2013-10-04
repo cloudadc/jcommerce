@@ -159,7 +159,7 @@ public class NewMagazine extends ContentWidget {
 				} else {
 					
 					// 修改
-					new UpdateService().updateBean(getCurState().getMagazine().getString(IMailTemplate.ID), bean, new UpdateService.Listener() {
+					new UpdateService().updateBean(getCurState().getMagazine().getLong(IMailTemplate.ID), bean, new UpdateService.Listener() {
 						@Override
 						public void onSuccess(Boolean success) {
 							title.setText("");

@@ -29,7 +29,7 @@ public class ValueSelector extends Composite {
     private TextBox text = new TextBox();
     
 
-	private String id = null;
+	private Long id = null;
     private com.extjs.gxt.ui.client.widget.button.Button btn = 
     		new com.extjs.gxt.ui.client.widget.button.Button("搜索");
     private String caption = "Select Value";
@@ -87,9 +87,9 @@ public class ValueSelector extends Composite {
 		return text;
 	}
     
-    public void setValue(String id) {
+    public void setValue(Long id) {
         this.id = id;
-        if (id == null || id.trim().length() == 0) {
+        if (id == null || id < 0) {
             return;
         }
         
@@ -100,7 +100,7 @@ public class ValueSelector extends Composite {
         });
     }
     
-    public String getValue() {
+    public Long getValue() {
         return id;
     }
     
@@ -154,7 +154,7 @@ public class ValueSelector extends Composite {
         // Add a close button at the bottom of the dialog
         Button btnOK = new Button("OK", new ClickListener() {
             public void onClick(Widget sender) {
-                id = Utils.getSelectedValue(listAll);
+                id = Long.valueOf(Utils.getSelectedValue(listAll));
                 text.setText(Utils.getSelectedText(listAll));
                 dialogBox.hide();
             }
@@ -173,7 +173,7 @@ public class ValueSelector extends Composite {
         return dialogBox;
     }
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 }

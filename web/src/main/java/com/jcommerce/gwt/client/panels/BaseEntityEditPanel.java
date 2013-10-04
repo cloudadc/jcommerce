@@ -56,11 +56,11 @@ public abstract class BaseEntityEditPanel extends ContentWidget  {
 		public boolean getIsEdit() {
 			return Boolean.valueOf((String)getValue(ISEDIT)).booleanValue();
 		}
-		public void setId(String gtid) {
+		public void setId(Long gtid) {
 			setValue(ID, gtid);
 		}
-		public String getId() {
-			return (String)getValue(ID);
+		public Long getId() {
+			return (Long)getValue(ID);
 		}
 	}
 	
@@ -165,7 +165,7 @@ public abstract class BaseEntityEditPanel extends ContentWidget  {
 		
     	BeanObject form = new BeanObject(getEntityClassName(), (Map)props);
     	if (getCurState().getIsEdit()) {
-    		String id = getCurState().getId();
+    		Long id = getCurState().getId();
           new UpdateService().updateBean(id, form, new UpdateService.Listener() {
         	  public synchronized void onSuccess(Boolean success) {
         		  gotoSuccessPanel();
@@ -178,7 +178,7 @@ public abstract class BaseEntityEditPanel extends ContentWidget  {
           new CreateService().createBean(form, new CreateService.Listener() {
           public synchronized void onSuccess(String id) {
         	  log("new onSuccess( "+id);                            
-              getCurState().setId(id);
+              getCurState().setId(Long.valueOf(id));
               gotoSuccessPanel();
           }
           });

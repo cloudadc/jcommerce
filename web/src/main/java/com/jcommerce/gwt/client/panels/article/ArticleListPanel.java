@@ -90,10 +90,10 @@ public class ArticleListPanel extends ContentWidget implements URLConstants{
 			window.open('/web/front/article.action?id='+id);
 		};
 		$wnd.editArticle = function(id){
-			me.@com.jcommerce.gwt.client.panels.article.ArticleListPanel::editArticle(Ljava/lang/String;)(id);
+			me.@com.jcommerce.gwt.client.panels.article.ArticleListPanel::editArticle(Ljava/lang/Long;)(id);
 		};
 		$wnd.deleteArticle = function(id){
-			me.@com.jcommerce.gwt.client.panels.article.ArticleListPanel::deleteArticle(Ljava/lang/String;)(id);
+			me.@com.jcommerce.gwt.client.panels.article.ArticleListPanel::deleteArticle(Ljava/lang/Long;)(id);
 		};
     }-*/;
 	
@@ -277,14 +277,14 @@ public class ArticleListPanel extends ContentWidget implements URLConstants{
 	}
 	
 	
-	private void editArticle(String id){
+	private void editArticle(Long id){
 		ArticlePanel.State newState= new ArticlePanel.State();
 		newState.setIsEdit(true);
 		newState.setId(id);
 		newState.execute();
 	}
 	
-	private void deleteArticle(String id){
+	private void deleteArticle(Long id){
 		new DeleteService().deleteBean(ModelNames.ARTICLE, id, new DeleteService.Listener() {
 			
 			@Override

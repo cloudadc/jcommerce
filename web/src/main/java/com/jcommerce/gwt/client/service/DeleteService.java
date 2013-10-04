@@ -10,7 +10,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.jcommerce.gwt.client.IShopServiceAsync;
 
 public class DeleteService extends RemoteService {
-    public void deleteBeans(String model, List<String> ids, final BatchDeleteListener listener) {
+    public void deleteBeans(String model, List<Long> ids, final BatchDeleteListener listener) {
         if (model == null) {
             throw new RuntimeException("model = null");
         }
@@ -36,7 +36,7 @@ public class DeleteService extends RemoteService {
             }
         });        
     }
-    public void deleteBean(String model, String id, final Listener listener) {
+    public void deleteBean(String model, Long id, final Listener listener) {
         if (model == null) {
             throw new RuntimeException("model = null");
         }

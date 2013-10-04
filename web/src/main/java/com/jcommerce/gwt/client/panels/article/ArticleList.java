@@ -119,7 +119,7 @@ public class ArticleList extends ContentWidget{
 				Condition cond = new Condition();
 				cond.setField(IArticle.TITLE);
 				cond.setOperator(Condition.LIKE);
-				cond.setValue(keyword.trim());
+				cond.setValue(Long.valueOf(keyword.trim()));
 				criteria.addCondition(cond);
 				//this.criteria = criteria;
 				((PagingListService.MyProxy)loader.getProxy()).setCriteria(criteria);	
@@ -133,14 +133,14 @@ public class ArticleList extends ContentWidget{
 			Condition cond = new Condition();
 			cond.setField(IArticle.ARTICLECATEGORY);
 			cond.setOperator(Condition.EQUALS);
-			cond.setValue(cat);
+			cond.setValue(Long.valueOf(cat));
 			criteria.addCondition(cond);
 			String keyword = txtKeyword.getText();
 			if (keyword != null && keyword.trim().length() > 0) {
 				Condition cond1 = new Condition();
 				cond1.setField(IArticle.TITLE);
 				cond1.setOperator(Condition.LIKE);
-				cond1.setValue(keyword.trim());
+				cond1.setValue(Long.valueOf(keyword.trim()));
 				criteria.addCondition(cond1);
 				
 			}
@@ -264,7 +264,7 @@ public class ArticleList extends ContentWidget{
 							break;
 						}
 					}
-					new UpdateService().updateBean(bean.getString(IArticle.ID), bean, null);
+					new UpdateService().updateBean(bean.getLong(IArticle.ID), bean, null);
 					
 					bean.remove("articleCategory");
 					bean.set("articleCategory", cat_name);
@@ -385,20 +385,20 @@ public class ArticleList extends ContentWidget{
 		List<BeanObject> objs = grid.getSelectionModel().getSelectedItems();
 		for (Iterator<BeanObject> it = objs.iterator(); it.hasNext();) {
 			BeanObject obj = it.next();
-			String id = obj.getString(IArticle.ID);
+			Long id = obj.getLong(IArticle.ID);
 			deleteArticle(id);
 		}
 	}
 	private native void initJS(ArticleList me) /*-{
 	   $wnd.deleteArticle = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.article.ArticleList::deleteArticle(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.article.ArticleList::deleteArticle(Ljava/lang/Long;)(id);
 	   };
 	   $wnd.editArticle = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.article.ArticleList::editArticle(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.article.ArticleList::editArticle(Ljava/lang/Long;)(id);
 	   };
 	   }-*/;
 	
-	private void deleteArticle(String id) {
+	private void deleteArticle(Long id) {
 		new DeleteService().deleteBean(ModelNames.ARTICLE, id,
 				new DeleteService.Listener() {
 					public void onSuccess(Boolean success) {
@@ -406,7 +406,7 @@ public class ArticleList extends ContentWidget{
 					}
 				});
 	}
-	private void editArticle(String id){
+	private void editArticle(Long id){
 		new ReadService().getBean(ModelNames.ARTICLE, id,
 				new ReadService.Listener() {
 					public void onSuccess(BeanObject bean) {

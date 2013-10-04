@@ -66,17 +66,23 @@ public class BeanObject extends BaseTreeModel implements Serializable {
         }
     }
     
-    public String[] getIDs(String name) {
+    public Long[] getIDs(String name) {
         Object value = get(name);
         if (value == null) {
-            return new String[0]; 
+            return new Long[0]; 
         }
         
         if (!(value instanceof String)) {
             throw new RuntimeException("Invalid value:"+value+" name:"+name);
         }
         
-        return ((String)value).split(",");
+        String[] ids = ((String)value).split(",");
+        
+        Long[] result = new Long[ids.length];
+        for(int i = 0 ; i < ids.length; i ++) {
+        	result[i] = Long.valueOf(ids[i]);
+        }
+        return result;
     }
     
     public Long getLong(String name) {

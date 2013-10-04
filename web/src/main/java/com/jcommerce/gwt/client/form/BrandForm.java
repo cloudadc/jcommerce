@@ -26,8 +26,8 @@ public class BrandForm extends BeanObject implements IBrand{
         super(modelName, values);
     }
     
-	public static HiddenField<String> getIdField() {
-		HiddenField<String> idField = new HiddenField<String>();
+	public static HiddenField<Long> getIdField() {
+		HiddenField<Long> idField = new HiddenField<Long>();
 		idField.setName(ID);
 		return idField;
 	}

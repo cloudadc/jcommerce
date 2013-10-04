@@ -153,13 +153,13 @@ public class MagazineManager extends ContentWidget {
 
 	private native void initJS(MagazineManager me) /*-{
 	   $wnd.deleteMagazine = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.article.MagazineManager::deleteMagazineAndRefresh(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.article.MagazineManager::deleteMagazineAndRefresh(Ljava/lang/Long;)(id);
 	   };
 	   $wnd.insertMagazine = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.article.MagazineManager::insertMagazine(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.article.MagazineManager::insertMagazine(Ljava/lang/Long;)(id);
 	   };
 	   $wnd.editMagazine = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.article.MagazineManager::editMagazine(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.article.MagazineManager::editMagazine(Ljava/lang/Long;)(id);
 	   };
 	   }-*/;
 
@@ -167,7 +167,7 @@ public class MagazineManager extends ContentWidget {
 	 * If this method is called, show the insert into queue panel.
 	 * @param id
 	 */
-	private void insertMagazine( String id ) {
+	private void insertMagazine( Long id ) {
 		new ReadService().getBean(ModelNames.MAILTEMPLATE, id, new ReadService.Listener() {
 			public void onSuccess(BeanObject bean) {
 				DialogBox dialogBox = createDialogBox(bean);
@@ -182,7 +182,7 @@ public class MagazineManager extends ContentWidget {
 	 * If this method is called, show the edit panel.
 	 * @param id
 	 */
-	private void editMagazine(String id) {
+	private void editMagazine(Long id) {
 		new ReadService().getBean(ModelNames.MAILTEMPLATE, id, new ReadService.Listener() {
 			public void onSuccess(BeanObject bean) {
 				NewMagazine.State state = new NewMagazine.State();
@@ -192,7 +192,7 @@ public class MagazineManager extends ContentWidget {
 		});		
 	}
 	
-	private void deleteMagazineAndRefresh(String id) {
+	private void deleteMagazineAndRefresh(Long id) {
 		new DeleteService().deleteBean(ModelNames.MAILTEMPLATE, id, new DeleteService.Listener() {
 			public void onSuccess(Boolean success) {
 				toolBar.refresh();
@@ -221,7 +221,7 @@ public class MagazineManager extends ContentWidget {
 				final Timestamp nowTime = new Timestamp(currentTime.getTime());
 				emails.put(IMailTemplate.LASTSEND, nowTime);
 				BeanObject emailBean = new BeanObject(ModelNames.MAILTEMPLATE, emails);
-				new UpdateService().updateBean((String) emails.get(IMailTemplate.ID), emailBean, new UpdateService.Listener() {
+				new UpdateService().updateBean((Long) emails.get(IMailTemplate.ID), emailBean, new UpdateService.Listener() {
 
 					@Override
 					public void onSuccess(Boolean success) {

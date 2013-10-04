@@ -134,7 +134,7 @@ public class FileUploader extends Composite {
         }
 	}
 	
-    public void setImageInfo(String modelName, String id, final String attr) {        
+    public void setImageInfo(String modelName, Long id, final String attr) {        
         new ReadService().getBean(modelName, id, new ReadService.Listener() {
             public void onSuccess(BeanObject bean){
                 String imagePath = bean.getString(attr);

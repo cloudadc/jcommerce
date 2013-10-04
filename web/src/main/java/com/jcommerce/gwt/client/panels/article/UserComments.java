@@ -200,8 +200,7 @@ public class UserComments extends ContentWidget {
 	}
 
 	private void updateComment(BeanObject comments, UpdateService.Listener listener) {
-		new UpdateService().updateBean(comments.getString(IComment.ID), comments,
-				listener);
+		new UpdateService().updateBean(comments.getLong(IComment.ID), comments, listener);
 	}
 	
 	private void search() {
@@ -216,7 +215,7 @@ public class UserComments extends ContentWidget {
 			Condition cond = new Condition();
 			cond.setField(IComment.CONTENT);
 			cond.setOperator(Condition.EQUALS);
-			cond.setValue(content.trim());
+			cond.setValue(Long.valueOf(content.trim()));
 			criteria.addCondition(cond);
 		}	
 		else{
@@ -237,7 +236,7 @@ public class UserComments extends ContentWidget {
 			if ("delete".equals(action)) {
 				DeleteListener listener = new DeleteListener();
 				listeners.add(listener);
-				deleteComment(item.getString(IComment.ID), listener);
+				deleteComment(item.getLong(IComment.ID), listener);
 			} 
 			else if ("forbid".equals(action)) {
 				if (!Boolean.FALSE.equals(item.get(IComment.STATUS))) {
@@ -287,18 +286,18 @@ public class UserComments extends ContentWidget {
 
 	private native void initJS(UserComments me) /*-{
 	   $wnd.deleteCommentAction = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.article.UserComments::deleteCommentAndRefrsh(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.article.UserComments::deleteCommentAndRefrsh(Ljava/lang/Long;)(id);
 	   };
 	   $wnd.checkCommentAction = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.article.UserComments::checkComment(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.article.UserComments::checkComment(Ljava/lang/Long;)(id);
 	   };
 	   }-*/;
 
-	private void deleteComment(String id, DeleteService.Listener listener) {
+	private void deleteComment(Long id, DeleteService.Listener listener) {
 		new DeleteService().deleteBean(ModelNames.COMMENT, id, listener);
 	}
 
-	private void deleteCommentAndRefrsh(final String id) {
+	private void deleteCommentAndRefrsh(final Long id) {
 		new DeleteService().deleteBean(ModelNames.COMMENT, id,
 				new DeleteService.Listener() {
 					public void onSuccess(Boolean success) {
@@ -307,7 +306,7 @@ public class UserComments extends ContentWidget {
 					}
 				});		
 	}
-	private void checkComment(String id) {
+	private void checkComment(Long id) {
 		new ReadService().getBean(ModelNames.COMMENT, id,
 				new ReadService.Listener() {
 					public void onSuccess(BeanObject bean) {

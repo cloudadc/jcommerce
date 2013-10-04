@@ -24,7 +24,7 @@ import com.jcommerce.gwt.client.service.ReadService;
 
 public class UserSelector extends Composite {
 	private TextBox text = new TextBox();
-    private String id = null;
+    private Long id = null;
     private String textContent = null;
     private Button btn = new Button();
     
@@ -61,9 +61,9 @@ public class UserSelector extends Composite {
     	text.setText(content);
     }
     
-    public void setValue(String id) {
+    public void setValue(Long id) {
         this.id = id;
-        if (id == null || id.trim().length() == 0) {
+        if (id == null || id < 0) {
             return;
         }
         
@@ -74,7 +74,7 @@ public class UserSelector extends Composite {
         });
     }
     
-    public String getValue() {
+    public Long getValue() {
         return id;
     }
     
@@ -185,7 +185,7 @@ public class UserSelector extends Composite {
         // Add a close button at the bottom of the dialog
         Button btnOK = new Button("OK", new ClickListener() {
             public void onClick(Widget sender) {
-                id = Utils.getSelectedValue(listAll);
+                id = Long.parseLong(Utils.getSelectedValue(listAll));
                 text.setText(Utils.getSelectedText(listAll));
                 dialogBox.hide();
             }

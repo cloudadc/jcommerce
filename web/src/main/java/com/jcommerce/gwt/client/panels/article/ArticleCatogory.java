@@ -99,8 +99,7 @@ public class ArticleCatogory extends ContentWidget{
         super.onRender(parent, index);
        
        
-        final BaseTreeLoader<BeanObject> loader = new TreeListService().getLoader(
-				ModelNames.ARTICLECATAGORY);
+        final BaseTreeLoader<BeanObject> loader = new TreeListService().getLoader(ModelNames.ARTICLECATAGORY);
        
 		this.loader = loader;
         
@@ -110,7 +109,7 @@ public class ArticleCatogory extends ContentWidget{
 				List<Record> changed = store.getModifiedRecords();
 				for (Record rec : changed) {
 					BeanObject bean = (BeanObject) rec.getModel();
-					new UpdateService().updateBean(bean.getString(IArticleCatagory.ID), bean, null);
+					new UpdateService().updateBean(bean.getLong(IArticleCatagory.ID), bean, null);
 				}
 			}
 		});
@@ -222,14 +221,14 @@ public class ArticleCatogory extends ContentWidget{
 	
 	private native void initJS(ArticleCatogory me) /*-{
 	$wnd.onManageClick = function (id) {      
-		me.@com.jcommerce.gwt.client.panels.article.ArticleCatogory::editArticleCat(Ljava/lang/String;)(id);
+		me.@com.jcommerce.gwt.client.panels.article.ArticleCatogory::editArticleCat(Ljava/lang/Long;)(id);
 	};
 	$wnd.onDeleteClick = function (id) {
-		me.@com.jcommerce.gwt.client.panels.article.ArticleCatogory::deleteArticleCat(Ljava/lang/String;)(id);
+		me.@com.jcommerce.gwt.client.panels.article.ArticleCatogory::deleteArticleCat(Ljava/lang/Long;)(id);
 	};
 	}-*/;
 
-    private void editArticleCat(String id) {
+    private void editArticleCat(Long id) {
         new ReadService().getBean(ModelNames.ARTICLECATAGORY, id, new ReadService.Listener() {
             public void onSuccess(BeanObject bean) {
                 NewArticleCat.State state = new NewArticleCat.State();
@@ -239,7 +238,7 @@ public class ArticleCatogory extends ContentWidget{
         });
     }
 
-    private void deleteArticleCat(final String id) {
+    private void deleteArticleCat(final Long id) {
         List<ModelData> children = treeGrid.getSelectionModel().getSelectedItem().getChildren();
         if (children != null && children.size() > 0) {
             MessageBox.alert("DeleteError", "Please first delete the subnodes", null);

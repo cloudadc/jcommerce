@@ -106,7 +106,7 @@ public class BrandPanel extends BaseFileUploadFormPanel {
 //        editting = brand != null;
 //    }
     
-    HiddenField<String> idField;
+    HiddenField<Long> idField;
     FileUploadField fufLogo;
     
     @Override

@@ -173,19 +173,19 @@ public class BrandInfo extends ContentWidget {
     
     private native void initJS(BrandInfo me) /*-{
     $wnd.changeBrand = function (id) {
-        me.@com.jcommerce.gwt.client.panels.goods.BrandInfo::modifyBrandAndRefrsh(Ljava/lang/String;)(id);
+        me.@com.jcommerce.gwt.client.panels.goods.BrandInfo::modifyBrandAndRefrsh(Ljava/lang/Long;)(id);
     };
     $wnd.deleteBrand = function (id) {
-	    me.@com.jcommerce.gwt.client.panels.goods.BrandInfo::deleteBrandAndRefrsh(Ljava/lang/String;)(id);
+	    me.@com.jcommerce.gwt.client.panels.goods.BrandInfo::deleteBrandAndRefrsh(Ljava/lang/Long;)(id);
 	};
     }-*/;
     
-    private void modifyBrandAndRefrsh(final String id) {    	
+    private void modifyBrandAndRefrsh(final Long id) {    	
         new ListService().listBeans(ModelNames.BRAND, new ListService.Listener() {
             public void onSuccess(List<BeanObject> beans) {
                 for (Iterator<BeanObject> it = beans.iterator(); it.hasNext();) {
                     BeanObject brand = it.next();                    
-                    if(brand.getString(IBrand.ID).trim().equals(id.trim())){
+                    if(brand.getLong(IBrand.ID) == id){
                         NewBrand.State state = new NewBrand.State();
                         state.setBrand(brand);
                         state.execute();
@@ -199,7 +199,7 @@ public class BrandInfo extends ContentWidget {
         });        
     }
     
-    private void deleteBrandAndRefrsh(final String id) {
+    private void deleteBrandAndRefrsh(final Long id) {
         new DeleteService().deleteBean(ModelNames.BRAND, id,
 				new DeleteService.Listener() {
 					public void onSuccess(Boolean success) {

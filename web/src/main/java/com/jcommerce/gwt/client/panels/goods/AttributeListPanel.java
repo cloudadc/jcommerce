@@ -120,10 +120,10 @@ public class AttributeListPanel extends ContentWidget {
 	}
 	private native void initJS(AttributeListPanel me) /*-{
 	   $wnd.editAttribute = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.goods.AttributeListPanel::editAttribute(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.goods.AttributeListPanel::editAttribute(Ljava/lang/Long;)(id);
 	   };
 	   $wnd.deleteAttribute = function (id) {
-	       me.@com.jcommerce.gwt.client.panels.goods.AttributeListPanel::deleteAttributeAndRefresh(Ljava/lang/String;)(id);
+	       me.@com.jcommerce.gwt.client.panels.goods.AttributeListPanel::deleteAttributeAndRefresh(Ljava/lang/Long;)(id);
 	   };
 	   }-*/;
 	
@@ -349,7 +349,7 @@ public class AttributeListPanel extends ContentWidget {
 			Condition cond = new Condition();
 			cond.setField(AttributeForm.GOODSTYPE);
 			cond.setOperator(Condition.EQUALS);
-			cond.setValue(selectedGoodsTypeId);
+			cond.setValue(Long.valueOf(selectedGoodsTypeId));
 			criteria.addCondition(cond);			
 		}
 		MyRpcProxy proxy = (MyRpcProxy)loader.getProxy();
@@ -358,7 +358,7 @@ public class AttributeListPanel extends ContentWidget {
 		toolBar.refresh();
 	}
 
-	private void deleteAttributeAndRefresh(String id) {
+	private void deleteAttributeAndRefresh(Long id) {
 		new DeleteService().deleteBean(ModelNames.ATTRIBUTE, id,
 				new DeleteService.Listener() {
 					public void onSuccess(Boolean success) {
@@ -371,10 +371,10 @@ public class AttributeListPanel extends ContentWidget {
 
 			@Override
 			public void onSuccess(List<BeanObject> beans) {
-				List<String> ids = new ArrayList<String>();
+				List<Long> ids = new ArrayList<Long>();
 				for(Iterator i = beans.iterator(); i.hasNext();) {
 					BeanObject bean = (BeanObject) i.next();
-					ids.add(bean.getString(IGoodsAttr.ID));
+					ids.add(bean.getLong(IGoodsAttr.ID));
 				}
 				new DeleteService().deleteBeans(ModelNames.GOODSATTRIBUTE, ids, null);				
 			}
@@ -382,9 +382,9 @@ public class AttributeListPanel extends ContentWidget {
 		});
 	}
 	private void deleteAttributesAndRefresh(List<BeanObject> selected) {
-		List<String> ids = new ArrayList<String>();
+		List<Long> ids = new ArrayList<Long>();
 		for(BeanObject bean:selected) {
-			ids.add(bean.getString(AttributeForm.ID));
+			ids.add(bean.getLong(AttributeForm.ID));
 		}
 		new DeleteService().deleteBeans(ModelNames.ATTRIBUTE, ids,
 				new DeleteService.BatchDeleteListener() {
@@ -399,7 +399,7 @@ public class AttributeListPanel extends ContentWidget {
 				});
 	}
 	private void updateAttribute(final BeanObject att) {
-		new UpdateService().updateBean(att.getString(AttributeForm.ID), att,
+		new UpdateService().updateBean(att.getLong(AttributeForm.ID), att,
 				new UpdateService.Listener() {
 					@Override
 					public void onFailure(Throwable caught) {
@@ -418,7 +418,7 @@ public class AttributeListPanel extends ContentWidget {
 			
 		});
 	}
-	private void editAttribute(String id) {
+	private void editAttribute(Long id) {
 		AttributePanel.State newState = new AttributePanel.State();
 		newState.setIsEdit(true);
 		newState.setId(id);

@@ -19,9 +19,9 @@ import com.jcommerce.gwt.client.panels.system.PaymentConfigMetaForm;
 import com.jcommerce.gwt.client.service.Criteria;
 
 public interface IShopService extends RemoteService {
-    public BeanObject getBean(String bean, String id);
+    public BeanObject getBean(String bean, Long id);
     
-    public List<BeanObject> getBeans(String bean, String[] ids);
+    public List<BeanObject> getBeans(String bean, Long[] ids);
     public int countBeans(String name, Criteria criteria);
     public int countBeans(String name);
     
@@ -35,11 +35,11 @@ public interface IShopService extends RemoteService {
     public String newObject(BeanObject obj);
     
     public String newObject(BeanObject obj,BeanObject obj1);
-    public boolean updateObject(String id, BeanObject obj);
-    public boolean updateObject(String id, BeanObject obj, BeanObject obj1);
+    public boolean updateObject(Long id, BeanObject obj);
+    public boolean updateObject(Long id, BeanObject obj, BeanObject obj1);
     
-    public boolean deleteObject(String bean, String id);
-    public int deleteObjects(String bean, List<String> ids);
+    public boolean deleteObject(String bean, Long id);
+    public int deleteObjects(String bean, List<Long> ids);
 
     public PagingLoadResult<BeanObject> getPagingList(String modelName, PagingLoadConfig config);
     

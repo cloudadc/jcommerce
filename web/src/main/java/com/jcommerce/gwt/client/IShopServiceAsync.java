@@ -19,9 +19,9 @@ import com.jcommerce.gwt.client.panels.system.PaymentConfigMetaForm;
 import com.jcommerce.gwt.client.service.Criteria;
 
 public interface IShopServiceAsync {
-    public void updateObject(String id, BeanObject args, AsyncCallback<Boolean> callback);
+    public void updateObject(Long id, BeanObject args, AsyncCallback<Boolean> callback);
 
-    public void updateObject(String id, BeanObject args, BeanObject args1, AsyncCallback<Boolean> callback);
+    public void updateObject(Long id, BeanObject args, BeanObject args1, AsyncCallback<Boolean> callback);
     public void newObject(BeanObject args, AsyncCallback<String> callback);
     
     public void newObject(BeanObject args, BeanObject args1 ,AsyncCallback<String> callback);
@@ -32,15 +32,15 @@ public interface IShopServiceAsync {
     
     public void getList(String name, Criteria criteria, List<String> wantedFields, AsyncCallback<List<BeanObject>> callback);
     
-    public void getBean(String name, String id, AsyncCallback<BeanObject> callback);
+    public void getBean(String name, Long id, AsyncCallback<BeanObject> callback);
 
-    public void getBeans(String name, String[] ids, AsyncCallback<List<BeanObject>> callback);
+    public void getBeans(String name, Long[] ids, AsyncCallback<List<BeanObject>> callback);
 
     public void countBeans(String name, AsyncCallback<Integer> callback);
     public void countBeans(String name, Criteria criteria, AsyncCallback<Integer> callback);
 
-    public void deleteObject(String name, String id, AsyncCallback<Boolean> callback);
-    public void deleteObjects(String name, List<String> ids, AsyncCallback<Integer> callback);
+    public void deleteObject(String name, Long id, AsyncCallback<Boolean> callback);
+    public void deleteObjects(String name, List<Long> ids, AsyncCallback<Integer> callback);
     
     public void getPagingList(String modelName, PagingLoadConfig config, AsyncCallback<PagingLoadResult<BeanObject>> callback);
     

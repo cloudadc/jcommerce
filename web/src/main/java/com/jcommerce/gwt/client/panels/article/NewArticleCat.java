@@ -124,7 +124,7 @@ public class NewArticleCat extends ContentWidget {
         btnNew.addClickHandler(new ClickHandler() {
             public void onClick(ClickEvent event) {
                 BeanObject articleCat = getCurState().getArticleCategory();
-                String id = articleCat != null ? articleCat.getString(IArticleCatagory.ID) : null;
+                Long id = articleCat != null ? articleCat.getLong(IArticleCatagory.ID) : null;
                 articleCat = new BeanObject(ModelNames.ARTICLECATAGORY, contentPanel.getValues());
                 if (getCurState().isEditting()) {
                     new UpdateService().updateBean(id, articleCat, null);

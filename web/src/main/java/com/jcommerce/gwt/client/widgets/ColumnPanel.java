@@ -255,7 +255,7 @@ public class ColumnPanel extends LayoutContainer {
         } else if (widget instanceof DateWidget) {        	
             ((DateWidget)widget).setValue(value == null ? new java.util.Date():new java.util.Date((Long)value));
         } else if (widget instanceof ValueSelector) {
-            ((ValueSelector)widget).setValue(value == null ? "" : value+"");
+            ((ValueSelector)widget).setValue(value == null ? new Long(0) : (Long)value);
         } else if (widget instanceof ChoicePanel){
         	((ChoicePanel)widget).setSelectValue(String.valueOf(value));  
         } else if (widget instanceof Hidden){

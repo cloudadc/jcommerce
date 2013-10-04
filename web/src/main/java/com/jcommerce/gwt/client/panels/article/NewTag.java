@@ -141,7 +141,7 @@ public class NewTag extends ContentWidget {
 
             public void onClick(ClickEvent arg0) {
                 BeanObject tag = getCurState().getTag();
-                String id = tag != null ? tag.getString(ITagManager.ID) : null;
+                Long id = tag != null ? tag.getLong(ITagManager.ID) : null;
                 tag = new BeanObject(ModelNames.TAG, contentPanel.getValues());
                 if (tagName.getText().trim().equals("") || goodsName.getItemCount() == 0) {
                     MessageBox.alert("ERROR", "请输入完整", null);
@@ -202,7 +202,7 @@ public class NewTag extends ContentWidget {
         // 按商品货号查找
         cond.setField(IGoods.SN);
         cond.setOperator(Condition.EQUALS);
-        cond.setValue(content);
+        cond.setValue(Long.valueOf(content));
         criteria.addCondition(cond);
         new ListService().listBeans(ModelNames.GOODS, criteria, new ListService.Listener() {
             public void onSuccess(List<BeanObject> beans) {
@@ -215,7 +215,7 @@ public class NewTag extends ContentWidget {
         // 按商品名称查找
         cond.setField(IGoods.NAME);
         cond.setOperator(Condition.GREATERTHAN);
-        cond.setValue(content);
+        cond.setValue(Long.valueOf(content));
         criteria.addCondition(cond);
         new ListService().listBeans(ModelNames.GOODS, criteria, new ListService.Listener() {
             public void onSuccess(List<BeanObject> beans) {

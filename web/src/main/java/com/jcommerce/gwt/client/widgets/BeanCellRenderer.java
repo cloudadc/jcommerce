@@ -32,7 +32,7 @@ public class BeanCellRenderer implements GridCellRenderer<BeanObject> {
 //            final int rowIndex, final int colIndex, ListStore<BeanObject> store) {
         final IShopServiceAsync service = (IShopServiceAsync)Registry.get("service");
         
-        String id = (String) model.get(property);
+        Long id = (Long) model.get(property);
         service.getBean(modelName, id, new AsyncCallback<BeanObject>() {
             public synchronized void onSuccess(BeanObject props) {
                 String value = props.get(propName);

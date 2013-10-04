@@ -54,10 +54,10 @@ public class ArticleCatListPanel extends ContentWidget {
 	
 	private native void initJS(ArticleCatListPanel me) /*-{
 		$wnd.changeArticleCat = function (id) {
-           me.@com.jcommerce.gwt.client.panels.article.ArticleCatListPanel::modifyArticleCatAndRefrsh(Ljava/lang/String;)(id);
+           me.@com.jcommerce.gwt.client.panels.article.ArticleCatListPanel::modifyArticleCatAndRefrsh(Ljava/lang/Long;)(id);
         };
         $wnd.deleteArticleCat = function(id){
-        	me.@com.jcommerce.gwt.client.panels.article.ArticleCatListPanel::deleteArticleCatAndRefrsh(Ljava/lang/String;)(id);
+        	me.@com.jcommerce.gwt.client.panels.article.ArticleCatListPanel::deleteArticleCatAndRefrsh(Ljava/lang/Long;)(id);
         }
 	}-*/;
 	
@@ -81,14 +81,14 @@ public class ArticleCatListPanel extends ContentWidget {
     	
     }
 
-    private void modifyArticleCatAndRefrsh(final String id){
+    private void modifyArticleCatAndRefrsh(final Long id){
 		ArticleCatPanel.State newState = new ArticleCatPanel.State();
 		newState.setIsEdit(true);
 		newState.setId(id);
 		newState.execute();
 	}
     
-	private void deleteArticleCatAndRefrsh(final String id){
+	private void deleteArticleCatAndRefrsh(final Long id){
 		new DeleteService().deleteBean(ModelNames.ARTICLECATAGORY, id, new DeleteService.Listener(){
 			@Override
 			public void onSuccess(Boolean success) {

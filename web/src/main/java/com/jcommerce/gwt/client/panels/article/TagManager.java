@@ -171,7 +171,7 @@ import com.jcommerce.gwt.client.widgets.ColumnPanel;
 								if (btn.getItemId().equals(Dialog.YES)) {									
 									final List listeners = new ArrayList();
 									for (BeanObject item : s) {
-											new DeleteService().deleteBean(ModelNames.TAG, item.getString(ITagManager.ID),
+											new DeleteService().deleteBean(ModelNames.TAG, item.getLong(ITagManager.ID),
 													new DeleteService.Listener() {
 														public void onSuccess(Boolean success) {
 														    TagManager.State state = new TagManager.State();
@@ -196,10 +196,8 @@ import com.jcommerce.gwt.client.widgets.ColumnPanel;
 			add(panel);
 		}		
         
-		private void updateComment(BeanObject tags,
-				UpdateService.Listener listener) {
-			new UpdateService().updateBean(tags.getString(ITagManager.ID), tags,
-					listener);
+		private void updateComment(BeanObject tags, UpdateService.Listener listener) {
+			new UpdateService().updateBean(tags.getLong(ITagManager.ID), tags, listener);
 		}
 
 		private void executeAction(final List<BeanObject> items, String action) {
@@ -213,7 +211,7 @@ import com.jcommerce.gwt.client.widgets.ColumnPanel;
 				if ("delete".equals(action)) {
 					DeleteListener listener = new DeleteListener();
 					listeners.add(listener);
-					deleteComment(item.getString(ITagManager.ID), listener);
+					deleteComment(item.getLong(ITagManager.ID), listener);
 				}
 			}
 
@@ -247,19 +245,19 @@ import com.jcommerce.gwt.client.widgets.ColumnPanel;
 
 		private native void initJS(TagManager me) /*-{
 		   $wnd.deleteTagAction = function (id) {
-		       me.@com.jcommerce.gwt.client.panels.article.TagManager::deleteTagAndRefrsh(Ljava/lang/String;)(id);
+		       me.@com.jcommerce.gwt.client.panels.article.TagManager::deleteTagAndRefrsh(Ljava/lang/Long;)(id);
 		   };
 		   $wnd.checkTagAction = function (id) {
-		       me.@com.jcommerce.gwt.client.panels.article.TagManager::checkTag(Ljava/lang/String;)(id);
+		       me.@com.jcommerce.gwt.client.panels.article.TagManager::checkTag(Ljava/lang/Long;)(id);
 		   };
 		   		   
 		   }-*/;
 
-		private void deleteComment(String id, DeleteService.Listener listener) {
+		private void deleteComment(Long id, DeleteService.Listener listener) {
 			new DeleteService().deleteBean(ModelNames.TAG, id, listener);
 		}
 
-		private void deleteTagAndRefrsh(final String id) {
+		private void deleteTagAndRefrsh(final Long id) {
 			final Listener<MessageBoxEvent> deleteListener = new Listener<MessageBoxEvent>() {
 			      public void handleEvent(MessageBoxEvent ce) {
 			          Button btn = ce.getButtonClicked();
@@ -281,7 +279,7 @@ import com.jcommerce.gwt.client.widgets.ColumnPanel;
 
 		}
 
-		private void checkTag(String id) {
+		private void checkTag(Long id) {
 			new ReadService().getBean(ModelNames.TAG, id,
 					new ReadService.Listener() {
 						public void onSuccess(BeanObject bean) {

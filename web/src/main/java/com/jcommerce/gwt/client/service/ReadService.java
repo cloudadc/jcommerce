@@ -11,16 +11,16 @@ import com.jcommerce.gwt.client.IShopServiceAsync;
 import com.jcommerce.gwt.client.form.BeanObject;
 
 public class ReadService extends RemoteService {
-    public void getBean(String model, String id, final Listener listener) {
+    public void getBean(String model, Long id, final Listener listener) {
         final Exception ex = new Exception();
         
         if (model == null) {
             throw new RuntimeException("model = null");
         }
 
-        if (id == null || id.trim().length() == 0 || "null".equalsIgnoreCase(id.trim())) {
-            throw new RuntimeException("id = null");
-        }
+//        if (id == null || id.trim().length() == 0 || "null".equalsIgnoreCase(id.trim())) {
+//            throw new RuntimeException("id = null");
+//        }
         
         final IShopServiceAsync service = getService();
         service.getBean(model, id, new AsyncCallback<BeanObject>() {
@@ -40,7 +40,7 @@ public class ReadService extends RemoteService {
         });
     }
     
-    public void getBeans(String model, String[] ids, final Listener listener) {
+    public void getBeans(String model, Long[] ids, final Listener listener) {
         final Exception ex = new Exception();
         
         if (model == null) {
@@ -51,8 +51,8 @@ public class ReadService extends RemoteService {
             throw new RuntimeException("ids = null");
         }
         
-        for (String id : ids) {
-            if (id == null || id.trim().length() == 0) {
+        for (Long id : ids) {
+            if (id == null || id < 0) {
                 throw new RuntimeException("id = null");
             }
         }

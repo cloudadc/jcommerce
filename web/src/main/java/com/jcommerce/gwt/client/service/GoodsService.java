@@ -5,7 +5,7 @@ import com.jcommerce.gwt.client.IShopServiceAsync;
 
 public class GoodsService extends RemoteService {
 
-    public void purgeGoods(String id, final Listener listener) {
+    public void purgeGoods(Long id, final Listener listener) {
         final IShopServiceAsync service = getService();
 
         service.purgeGoods(id, new AsyncCallback<Boolean>() {
@@ -20,7 +20,7 @@ public class GoodsService extends RemoteService {
         });
     }
 
-    public void undoDeletedGoods(String id, final Listener listener) {
+    public void undoDeletedGoods(Long id, final Listener listener) {
         final IShopServiceAsync service = getService();
 
         service.undoDeletedGoods(id, new AsyncCallback<Boolean>() {

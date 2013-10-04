@@ -194,14 +194,14 @@ public class CategoryInfo extends ContentWidget {
     
     private native void initJS(CategoryInfo me) /*-{
     $wnd.changeCategory = function (id) {
-        me.@com.jcommerce.gwt.client.panels.goods.CategoryInfo::modifyCategoryAndRefrsh(Ljava/lang/String;)(id);
+        me.@com.jcommerce.gwt.client.panels.goods.CategoryInfo::modifyCategoryAndRefrsh(Ljava/lang/Long;)(id);
     };
     $wnd.deleteCategory = function (id) {
-	    me.@com.jcommerce.gwt.client.panels.goods.CategoryInfo::deleteCategoryAndRefrsh(Ljava/lang/String;)(id);
+	    me.@com.jcommerce.gwt.client.panels.goods.CategoryInfo::deleteCategoryAndRefrsh(Ljava/lang/Long;)(id);
 	};
     }-*/;
     
-    private void modifyCategoryAndRefrsh(final String id) {    	
+    private void modifyCategoryAndRefrsh(final Long id) {    	
         final IShopServiceAsync service = getService();
         service.getBean(ModelNames.CATEGORY, id, new AsyncCallback<BeanObject>() {
             public synchronized void onSuccess(BeanObject result) {
@@ -214,7 +214,7 @@ public class CategoryInfo extends ContentWidget {
             }
         });        
     }
-    private void deleteCategoryAndRefrsh(final String id) {
+    private void deleteCategoryAndRefrsh(final Long id) {
         new DeleteService().deleteBean(ModelNames.CATEGORY, id,
 				new DeleteService.Listener() {
 					public void onSuccess(Boolean success) {
