@@ -1,9 +1,9 @@
 Current status
 --------------
 
-0.8.alpha have released, download from [here](https://sourceforge.net/projects/jcommerce-dist/files/jcommerce/0.8.alpha/)
+jcommerce 0.8.alpha has released, [download](https://sourceforge.net/projects/jcommerce-dist/files/jcommerce/0.8.alpha/)
 
-jcommerce is migrating from sourceforge to github, the original jcommerce is [here](https://sourceforge.net/projects/jcommerce/)
+jcommerce first registed on sourceforge at 2003-04-29, [the original jcommerce on sourceforge](https://sourceforge.net/projects/jcommerce/)
 
 
 
