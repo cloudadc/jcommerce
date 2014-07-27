@@ -19,6 +19,8 @@
     <modules>
         <module>StockWatcher</module>
         <module>migration</module>
+        <module>core</module>
+        <module>web</module>
     </modules>
 
 </project>
