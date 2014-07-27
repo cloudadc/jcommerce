@@ -20,7 +20,7 @@
         <module>model</module>
         <module>spring</module>
 	<module>jboss</module>
-	<module>test</module>
+	<module>migration</module>
     </modules>
 
 </project>

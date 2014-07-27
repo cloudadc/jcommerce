@@ -5,10 +5,10 @@
   <!-- POM file generated with GWT webAppCreator -->
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.jcommerce</groupId>
-  <artifactId>jcommerce-test</artifactId>
+  <artifactId>jcommerce-migration</artifactId>
   <packaging>jar</packaging>
   <version>1.0</version>
-  <name>jcommerce migration entry</name>
+  <name>jcommerce migration </name>
   
 	<properties>
 		<spring.version>3.2.3.RELEASE</spring.version>
