@@ -49,7 +49,9 @@
 		<class>com.jcommerce.core.model.VirtualCard</class> 
 		<class>com.jcommerce.core.model.Attribute</class> 
 		<class>com.jcommerce.core.model.AdminAction</class> 
+		<!--  
 		<class>com.jcommerce.core.model.ModelObject</class> 
+		-->
 		<class>com.jcommerce.core.model.Tag</class> 
 		<class>com.jcommerce.core.model.Agency</class> 
 		<class>com.jcommerce.core.model.Wholesale</class> 

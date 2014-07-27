@@ -18,8 +18,8 @@
 
     <modules>
         <module>model</module>
-        <module>core</module>
-	<module>web</module>
+        <module>spring</module>
+	<module>jboss</module>
 	<module>test</module>
     </modules>
 
