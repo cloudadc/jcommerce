@@ -19,4 +19,3 @@ About jcommerce
 * jBPM and drools enable
 * Red Hat Paas OpenShift enable
 * Mobile enable
-* NA
